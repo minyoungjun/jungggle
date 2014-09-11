@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'home/main'
+
+  get 'home/who'
+
+  get 'home/aboutus'
+
+  get 'home/contact'
+
+  get 'home/faq'
+
+  get 'home/how'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
