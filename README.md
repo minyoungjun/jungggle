@@ -1,6 +1,6 @@
 # Jungggle
 
-> jungggle.com
+> [jungggle] (http://www.jungggle.com "Jungggle Home")
 
 =====
 
