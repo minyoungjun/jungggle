@@ -1,7 +1,7 @@
 class CreateAdvertisers < ActiveRecord::Migration
   def change
     create_table :advertisers do |t|
-
+      t.integer :user_id
       t.timestamps
     end
   end
