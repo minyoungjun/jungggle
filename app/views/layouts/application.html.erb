@@ -29,10 +29,14 @@
     <li><a href="#">Privacy</a></li>
   </ul>
   <ul>
-    <li><a href="/users/sign_in">sign_in</a></li>
-    <li><a href="/users/sign_up">sign_up</a></li>
-    <li>Facebook</li>
-    <li>Twitter</li>
+    <%if user_signed_in?%>
+      <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
+    <%else%>
+      <li><a href="/users/sign_in">sign in</a></li>
+      <li><a href="/users/sign_up">sign up</a></li>
+      <li>Facebook</li>
+      <li>Twitter</li>
+    <%end%>
   </ul>
 </body>
 </html>
