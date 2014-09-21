@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'home/faq'
   get 'home/how'
-
+  get 'publishers/create'
   devise_for :users
 
   root 'home#main'

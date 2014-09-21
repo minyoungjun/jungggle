@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+lan_array = ["English", "Spanish", "Vietnamese", "Chinese", "German", "Portuguese", "Japanese", "French", "Italian", "Korean", "Russian", "Malay"]
+lan_array.each do |lan|
+  Language.create(name: lan)
+end

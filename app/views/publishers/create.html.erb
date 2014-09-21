@@ -1,0 +1,36 @@
+<h1>Create Service</h1>
+<table>
+  <tr>
+    <td>
+      Language
+    </td>
+    <td>
+      <select>
+        <%@languages.each do |lan|%>
+          <option value="<%=lan.name%>">
+            <%=lan.name%>
+          </option>
+        <%end%>
+      </select>
+    </td>
+  </tr>
+  <tr>  
+
+    <td>
+      Service Name
+    </td>
+    <td>
+      <input type="text" name="service_name">
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      Marketing Type
+    </td>
+    <td>
+    </td>
+  </tr>
+
+</table>
+
