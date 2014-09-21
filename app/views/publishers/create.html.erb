@@ -1,4 +1,5 @@
 <h1>Create Service</h1>
+<form action="create_process">
 <table>
   <tr>
     <td>
@@ -29,8 +30,74 @@
       Marketing Type
     </td>
     <td>
+      <select>
+        <%@marketing.each do |marketing|%>
+          <option value="<%=marketing.name%>">
+            <%=marketing.name%>
+          </option>
+        <%end%>
+      </select>
+    </td>
+    
+  </tr>
+  <tr>
+    <td>
+      Service Detail
+    </td>
+    <td>
+      <textarea name="detail">
+      </textarea>
     </td>
   </tr>
+  <tr>
+    <td>
+      Cost
+    </td>
+    <td>
+      <input type="radio" name="cost_rate" value="flat">Flat Rate<br>
+      <input type="radio" name="cost_rate" value="multi">Multiple Rate
+      <br>
+      <input type="text" name="cost">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Country
+    </td>
+    <td>
+      <select>
+        <%@countries.each do |country|%>
+          <option value ="<%=country.name%>"><%=country.name%></option>
+        <%end%>
+          
+      </td>
 
+  </tr> 
+  <tr>
+    <td>
+      Payment method
+    </td>
+    <td>
+      <select name="payment">
+        <% @payments.each do |payment|%>
+          <option value="<%=payment.name%>"><%=payment.name%></option>
+        <%end%>
+        </select>
+    </td>
+  </tr>
 </table>
+<h2>Company Introduction</h2>
+<input type="text" placeholder="Company Name" name="company_name"><br>
+<input type="file" name="upload_logo"><br>
+<input type="submit"><br>
+<a href="#">
+  Delete
+</a><br>
+I know you will not read full terms.. But you should know at least these!<br>
+1. sdflsdjfiejlsdfkjmsdklfwfwefe<br>
 
+3. 정글이 광고주로부터 수령하는 실수령 금액 (송금 수수료를 제외한) 중 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.<br>
+
+4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 완료된 후에 대금을 지급한다.
+<br>
+5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result) <br>

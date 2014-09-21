@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921055918) do
+ActiveRecord::Schema.define(version: 20140921190028) do
 
   create_table "advertisers", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(version: 20140921055918) do
   end
 
   create_table "companies", force: true do |t|
+    t.string   "name"
+    t.text     "locate"
+    t.integer  "num_employee"
+    t.string   "website"
+    t.text     "introduction"
+    t.string   "logo_src"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140921055918) do
   end
 
   create_table "countries", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +48,25 @@ ActiveRecord::Schema.define(version: 20140921055918) do
     t.datetime "updated_at"
   end
 
+  create_table "marketingtypes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payments", force: true do |t|
+    t.string   "name"
+    t.text     "fee_detail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
+    t.integer  "language_id"
+    t.integer  "country_id"
+    t.string   "name"
+    t.integer  "marketing_type"
+    t.text     "service_detail"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
