@@ -49,7 +49,9 @@ ActiveRecord::Schema.define(version: 20140921190028) do
   end
 
   create_table "marketingtypes", force: true do |t|
+    t.integer  "parent_id"
     t.string   "name"
+    t.integer  "filter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

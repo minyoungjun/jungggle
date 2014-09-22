@@ -37,3 +37,102 @@ payment_array.each do |payment|
 
   Payment.create(name: payment)
 end
+
+ad = Marketingtype.new
+ad.filter = 1
+ad.name = "AD"
+ad.save
+
+online = Marketingtype.new
+online.filter = 2
+online.name = "Online"
+online.parent_id = ad.id
+online.save
+
+online_array = ["CPC", "CPM", "CPP(cost per period)" , "Text ad" , "Direct Email", "SEO", "SNS"]
+online_array.each do |element|
+  filter4 = Marketingtype.new
+  filter4.filter = 4
+  filter4.parent_id = online.id
+  filter4.name = element
+  filter4.save
+end
+
+mobile = Marketingtype.new
+mobile.filter = 2
+mobile.name = "Mobile"
+mobile.parent_id = ad.id
+mobile.save
+
+ios = Marketingtype.new
+ios.filter = 3
+ios.name = "iOS"
+ios.parent_id = mobile.id
+ios.save
+
+Marketingtype.create(name: "CPC", filter: 4, parent_id: ios.id)
+
+android = Marketingtype.new
+android.filter = 3
+android.name = "Android"
+android.parent_id = mobile.id
+android.save
+
+Marketingtype.create(name: "CPM", filter: 4, parent_id: android.id)
+
+ad_mobiles = ["CPI(non-incentive", "CPP(cost per period)", "Text ad", "Video", "Messaging", "Promotional app", "Rank Guarantee", "Reviews & Ratings", "ASO", "SNS"]
+ad_mobiles.each do |ad_mobile|
+  Marketingtype.create(name: ad_mobile, filter: 4, parent_id: mobile.id)
+end
+offline = Marketingtype.new
+offline.name = "Offline"
+offline.filter = 2
+offline.save
+
+offline_array = ["Outdoor advertising", "Megazine", "News Paper", "TV", "Radio", "Event"]
+
+offline_array.each do |element|
+  Marketingtype.create(name: element, filter: 4, parent_id: offline.id)
+end
+
+promotion = Marketingtype.new
+promotion.name = "Promotion"
+promotion.filter = 1
+promotion.save
+
+promotion_array = ["Viral Marketing", "PR", "Reviews Sites"]
+promotion_array.each do |element|
+
+  Marketingtype.create(name: element, filter: 4, parent_id: promotion.id)
+end
+
+management = Marketingtype.new
+management.name = "Management"
+management.filter = 1
+management.save
+
+management_array = ["SNS", "Community / Forum", "C/S"]
+management_array.each do |element|
+  Marketingtype.create(name: element, filter: 4, parent_id: management.id)
+end
+
+test = Marketingtype.new
+test.name = "Test"
+test.filter = 1
+test.save
+
+test_array = ["CBT", "FGT", "QA"]
+test_array.each do |element|
+
+  Marketingtype.create(name: element, filter: 4, parent_id: test.id)
+end
+
+materials = Marketingtype.new
+materials.name = "Materials(Production)"
+materials.filter = 1
+materials.save
+
+materials_array = ["Localization", "Trailer", "Website", "Banner Ad Design", "Stationery Design (Brochure, Banner, etc.)", "Webtoon/Cartoon", "Booth", "Character Licensing (Goods)"]
+materials_array.each do |element|
+  Marketingtype.create(name: element, filter: 4, parent_id: materials.id)
+end

@@ -30,13 +30,38 @@
       Marketing Type
     </td>
     <td>
-      <select>
+      <ul>
         <%@marketing.each do |marketing|%>
-          <option value="<%=marketing.name%>">
-            <%=marketing.name%>
-          </option>
+          <li><%=marketing.name%></li>
+        <%if marketing.filter != 4%>
+        <li>
+          <ul>
+            <%marketing.child_types.each do |marketing2|%>
+              <li><%=marketing2.name%></li>
+              <%if marketing2.filter != 4%>
+              <li>
+                <ul>
+                  <%marketing2.child_types.each do |marketing3|%>
+                    <li><%=marketing3.name%></li>
+                    <%if marketing3.filter != 4%>
+                    <li>
+                      <ul>
+                        <%marketing3.child_types.each do |marketing4|%>
+                          <li><%=marketing4.name%></li>
+                        <%end%>
+                      </ul>
+                    </li>
+                    <%end%>
+                  <%end%>
+                </ul>
+                </li>
+                <%end%>
+              <%end%>
+              </ul>
+          </li>
+          <%end%>
         <%end%>
-      </select>
+      </ul>
     </td>
     
   </tr>
