@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'home/faq'
   get 'home/how'
   get 'publishers/create'
+  post 'publishers/create_process'
   devise_for :users
-
+  get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

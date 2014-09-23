@@ -1,14 +1,16 @@
 <h1>Create Service</h1>
-<form action="create_process">
+<form action="create_process" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  
 <table>
   <tr>
     <td>
       Language
     </td>
     <td>
-      <select>
+      <select name="language">
         <%@languages.each do |lan|%>
-          <option value="<%=lan.name%>">
+          <option value="<%=lan.id%>">
             <%=lan.name%>
           </option>
         <%end%>
@@ -32,22 +34,22 @@
     <td>
       <ul>
         <%@marketing.each do |marketing|%>
-          <li><%=marketing.name%></li>
+          <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
         <%if marketing.filter != 4%>
         <li>
           <ul>
             <%marketing.child_types.each do |marketing2|%>
-              <li><%=marketing2.name%></li>
+              <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
               <%if marketing2.filter != 4%>
               <li>
                 <ul>
                   <%marketing2.child_types.each do |marketing3|%>
-                    <li><%=marketing3.name%></li>
+                    <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
                     <%if marketing3.filter != 4%>
                     <li>
                       <ul>
                         <%marketing3.child_types.each do |marketing4|%>
-                          <li><%=marketing4.name%></li>
+                          <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
                         <%end%>
                       </ul>
                     </li>
@@ -70,8 +72,7 @@
       Service Detail
     </td>
     <td>
-      <textarea name="detail">
-      </textarea>
+      <textarea name="detail"></textarea>
     </td>
   </tr>
   <tr>
@@ -90,9 +91,9 @@
       Country
     </td>
     <td>
-      <select>
+      <select name="country">
         <%@countries.each do |country|%>
-          <option value ="<%=country.name%>"><%=country.name%></option>
+          <option value ="<%=country.id%>"><%=country.name%></option>
         <%end%>
           
       </td>
@@ -105,7 +106,7 @@
     <td>
       <select name="payment">
         <% @payments.each do |payment|%>
-          <option value="<%=payment.name%>"><%=payment.name%></option>
+          <option value="<%=payment.id%>"><%=payment.name%></option>
         <%end%>
         </select>
     </td>
@@ -115,6 +116,7 @@
 <input type="text" placeholder="Company Name" name="company_name"><br>
 <input type="file" name="upload_logo"><br>
 <input type="submit"><br>
+</form>
 <a href="#">
   Delete
 </a><br>
