@@ -9,6 +9,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string  :name
       t.text :service_detail
       t.boolean :saved
+      t.integer :status #0: off , 1:on, 2:etc
       t.timestamps
     end
   end

@@ -1,0 +1,69 @@
+<select>
+  <option>
+     <%=@product.country.name%>
+   </option>
+ </select>
+ <%if @product.marketingtype.parent_id != nil%>
+   <select>
+     <option>
+      <%=@product.marketingtype.parent_type.name%>
+    </option>
+ </select>
+ <%end%>
+ <select>
+   <option>
+     <%=@product.marketingtype.name%>
+   </option>
+ </select>
+ <br>
+ <style>
+  table tr td{
+    border:1px solid black;
+  }
+  </style>
+  <table>
+    <tr>
+      <td>Service name</td>
+      <td>Service details</td>
+      <td>Cost</td>
+    </tr>
+   <tr>
+     <td>
+       <%=@product.name%>
+     </td>
+     <td>
+       <%=@product.service_detail%>
+     </td>
+     <td>
+       <%=@product.costs.first.amount%>
+     </td>
+     <td>
+       <a href="javascript:cartInput(<%=@product.id%>);">Buy</a>
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+function cartInput(id){
+  var url = "/products/add_cart";
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: {
+        id: id,
+        authenticity_token: '<%=form_authenticity_token()%>'
+      },
+      success: function(data){
+      if (data[0] == "success"){
+          alert("카트에 담았습니다.");}
+          else{
+            alert("이미 담겨있습니다.")
+          }
+      },
+      error: function(){
+
+      }
+    });
+  
+  }
+  
+</script>

@@ -1,0 +1,30 @@
+<h1>Current Services</h1>
+<table>
+  <tr>
+    <td>
+      Last Update
+    </td>
+    <td>
+      Service Name
+    </td>
+    <td>
+      Marketing Type(Last Filter)
+    </td>
+    <td>
+      Cost
+    </td>
+    <td>
+      Earning
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+  <% @user.products.each do |product|%>
+  <tr>
+    <td>
+      <%=product.updated_at.to_formatted_s(:db)%>
+    </td>
+  </tr>
+  <%end%>
+</table>

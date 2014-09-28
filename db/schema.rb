@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921190028) do
+ActiveRecord::Schema.define(version: 20140927081955) do
 
   create_table "advertisers", force: true do |t|
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140921190028) do
     t.integer  "country_id"
     t.integer  "payment_id"
     t.integer  "marketingtype_id"
+    t.integer  "company_id"
     t.string   "name"
     t.text     "service_detail"
     t.boolean  "saved"

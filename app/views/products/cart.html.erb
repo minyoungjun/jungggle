@@ -1,0 +1,44 @@
+<style>
+  table  tr td {
+    border:1px solid black;
+  }
+</style>
+
+<table>
+  <tr>
+    <td>
+      Company Name
+    </td>
+    <td>
+      Service Name
+    </td>
+    <td>
+      Cost
+    </td>
+    <td>
+    Qty.
+    </td>
+    <td>
+      Sum
+    </td>
+  </tr>
+  <%=@user.carts.each do |cart|%>
+    <tr>
+      <td>
+        <%=cart.product.company.name%>
+      </td>
+      <td>
+        <%=cart.product.name%>
+      </td>
+      <td>
+        <%=cart.product.costs.first.amount%>
+      </td>
+      <td>
+        <input type="text" placeholder="Insert the Quantity">
+      </td>
+      <td>
+        X
+      </td>
+    </tr>
+  <%end%>
+</table>

@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :company
+
   has_one :advertiser
   has_one :publisher
+
+  has_many :carts
 end

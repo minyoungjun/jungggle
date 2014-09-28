@@ -10,6 +10,13 @@ before_filter :is_login, :except => [:list]
   end
 
   def create_process
+
+    company = Company.new
+    company.name = params[:company]
+    company.save
+    current_user.company_id = company.id
+    current_user.save
+
     product = Product.new
     product.language_id = params[:language]
     product.name = params[:service_name]
@@ -17,18 +24,20 @@ before_filter :is_login, :except => [:list]
     product.service_detail = params[:detail]
     product.country_id = params[:country]
     product.payment_id = params[:payment]
+    product.company_id = company.id
+    product.status = 1
     product.save
+
     cost = Cost.new
     cost.product_id = product.id
     cost.amount = params[:cost]
     cost.save
-    company = Company.new
-    company.name = params[:company]
-    company.save
-    current_user.company_id = compnany.id
-    current_user.save
 
     render :text => "seccess"
+
+  end
+  def manage
+    @user = current_user
 
   end
 end

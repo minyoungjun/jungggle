@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'home/how'
   get 'publishers/create'
   post 'publishers/create_process'
+  get 'publishers/manage'
+  get 'products/flat_rate/:id' => "products#flat_rate"
+  get 'products/cart'
+  post 'products/add_cart'
   devise_for :users
   get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
