@@ -1,3 +1,61 @@
-.title {
-  color: red;
+.main {
+  text-align: center;
+
+  .subheadline {
+    font-size: 24px;
+    margin: 20px;
+  }
+
+  .select {
+    background-color: white;
+    padding-left: 10px;
+    display: inline-block;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    font-size: 13px;
+
+    $select-height: 40px;
+    $select-width: 180px;
+
+    select {
+      width: $select-width;
+      height: $select-height;
+      background-color: white;
+      border: 0;
+    }
+
+    input {
+      width: $select-width;
+      height: $select-height;
+      border: 0;
+      padding-left: 10px;
+    }
+    button {
+      background-color: #5bb33a;
+      color: white;
+      width: 130px;
+      height: $select-height + 1px;
+
+      border: 0;
+      border-radius: 0 10px 10px 0;
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
