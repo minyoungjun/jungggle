@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :company
 
-  has_one :advertiser
-  has_one :publisher
 
   has_many :carts
+  has_many  :products
 end

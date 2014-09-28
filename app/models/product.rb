@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :publisher
+  belongs_to :user
   belongs_to  :language
   belongs_to  :payment
   belongs_to  :marketingtype

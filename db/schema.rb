@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140927081955) do
 
-  create_table "advertisers", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "carts", force: true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -72,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140927081955) do
   end
 
   create_table "products", force: true do |t|
+    t.integer  "user_id"
     t.integer  "language_id"
     t.integer  "country_id"
     t.integer  "payment_id"
@@ -80,12 +75,8 @@ ActiveRecord::Schema.define(version: 20140927081955) do
     t.string   "name"
     t.text     "service_detail"
     t.boolean  "saved"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "publishers", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "minimun_budget"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
