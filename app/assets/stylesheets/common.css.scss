@@ -4,9 +4,23 @@
   position: relative;
   top: 0;
   z-index: 100;
-  input {
-    margin: 0 auto;
+  .search {
+    position: relative;
+    text-align: center;
+    margin-top: 10px;
+
+    input {
+      margin: 0 auto;
+      border-radius: 5px;
+      border: 0;
+      padding: 5px 10px 5px 35px;
+    }
+    img {
+      position: relative;
+      left: 30px;
+    }
   }
+
   ul {
     display: inline-block;
     list-style: none;
@@ -14,6 +28,9 @@
       float: left;
       margin: 0 10px;
     }
+  }
+  .sign {
+    float: right;
   }
 }
 
@@ -26,6 +43,7 @@
   p {
     display: inline-block;
     margin: 0;
+    color: #737373;
   }
   ul {
     list-style: none;
@@ -34,6 +52,16 @@
     li {
       float: left;
       margin: 0 10px;
+      a {
+        color: #737373;
+        text-decoration: none;
+        img {
+          margin-right: 10px;
+        }
+      }
+      .sns {
+        margin-left: 50px;
+      }
     }
   }
 }
