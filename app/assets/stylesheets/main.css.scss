@@ -1,8 +1,16 @@
+.main-bg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
 .main {
+  position: relative;
   text-align: center;
-  background-image: url(/assets/main/main_bg.jpg);
-  background-repeat: no-repeat;
-  padding: 300px 0;
+  padding: 150px 0 300px;
+
 
   .subheadline {
     font-size: 24px;
@@ -16,8 +24,9 @@
     border: 1px solid #eee;
     border-radius: 10px;
     font-size: 13px;
+    margin-top: 20px;
 
-    $select-height: 40px;
+    $select-height: 50px;
     $select-width: 180px;
 
     select {
@@ -25,7 +34,6 @@
       height: $select-height;
       background-color: white;
       border: 0;
-
     }
 
     input {

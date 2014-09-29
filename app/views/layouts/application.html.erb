@@ -7,24 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Jungggle</h1>
-  <input type="text">
-  <ul>
-    <li>Biddings</li>
-    <li>Product Results</li>
-    <li>UserName</li>
-    <li>Cart</li>
-  </ul>
-  <ul>
-    <%if user_signed_in?%>
-      <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
-    <%else%>
-      <li><a href="/users/sign_in">sign in</a></li>
-      <li><a href="/users/sign_up">sign up</a></li>
-      <li><a href="#none">Facebook</a></li>
-      <li><a href="#none">Twitter</a></li>
-    <%end%>
-  </ul>
+  <div class="header">
+    <input type="text">
+    <ul>
+      <li>Biddings</li>
+      <li>Product Results</li>
+      <li>UserName</li>
+      <li>Cart</li>
+    </ul>
+    <ul>
+      <%if user_signed_in?%>
+        <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
+      <%else%>
+        <li><a href="/users/sign_in">sign in</a></li>
+        <li><a href="/users/sign_up">sign up</a></li>
+        <li><a href="#none">Facebook</a></li>
+        <li><a href="#none">Twitter</a></li>
+      <%end%>
+    </ul>
+  </div>
 
   <%= yield %>
 

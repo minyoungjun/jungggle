@@ -1,6 +1,36 @@
+.header {
+  border-top: 5px solid #eee;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  z-index: 100;
+  input {
+    margin: 0 auto;
+  }
+  ul {
+    display: inline-block;
+    list-style: none;
+    li {
+      float: left;
+      margin: 0 10px;
+    }
+  }
+}
+
+
 .footer {
+  position: relative;
+  bottom: 0;
+  border-bottom: 5px solid #5bb33a;
+  padding: 10px 0;
+  p {
+    display: inline-block;
+    margin: 0;
+  }
   ul {
     list-style: none;
+    display: inline-block;
+    float: right;
     li {
       float: left;
       margin: 0 10px;
