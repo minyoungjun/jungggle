@@ -1,0 +1,16 @@
+<h1>Billing</h1>
+<p>Current Jungggle Credit: $<%=@user.credit%></p>
+<form action="/advertisers/add_credit" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  add Credit $<input type="text" name="amount">
+  <p> Add credit allows only Wire Transfer.<br>
+  You can find the invoice on Billing History after the CHECKOUT.
+  <br><br>
+  If the name of sender is different from the name on "Company Profile",
+  <br>
+  please let us know support@jungggle.com
+  <br>
+  I have read and agree with the terms and the privacy policy.
+  </p>
+  <input type="submit" value="Checkout Now">
+</form>
