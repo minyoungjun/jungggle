@@ -18,12 +18,12 @@ before_filter :is_login, :except => [:list]
     current_user.save
 
     product = Product.new
+    product.user_id = current_user.id
     product.language_id = params[:language]
     product.name = params[:service_name]
     product.marketingtype_id = params[:marketing_type]
     product.service_detail = params[:detail]
     product.country_id = params[:country]
-    product.payment_id = params[:payment]
     product.company_id = company.id
     product.status = 1
     product.save

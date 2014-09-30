@@ -112,11 +112,9 @@
       Payment method
     </td>
     <td>
-      <select name="payment">
         <% @payments.each do |payment|%>
-          <option value="<%=payment.id%>"><%=payment.name%></option>
+          <input type="checkbox" name="payment_<%=payment.id%>" value="<%=payment.id%>"><%=payment.name%></option>
         <%end%>
-        </select>
     </td>
   </tr>
 </table>

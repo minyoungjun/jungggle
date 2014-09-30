@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :user_id
       t.integer :language_id
       t.integer :country_id
-      t.integer :payment_id
       t.integer :marketingtype_id
       t.integer :company_id
       t.string  :name

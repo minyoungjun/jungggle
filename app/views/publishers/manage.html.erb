@@ -23,8 +23,38 @@
   <% @user.products.each do |product|%>
   <tr>
     <td>
-      <%=product.updated_at.to_formatted_s(:db)%>
+      <%=product.updated_at.to_formatted_s(:db)%> </td>
+    <td>
+      <%=product.name%>
+    </td>
+    <td>
+      <%=product.marketingtype.name%>
+    </td>
+    <td>
+      <select>
+      
+      <%product.costs.each do |cost|%>
+        <option><%=cost.amount%></option>
+      <%end%>
+      </select>
+    </td>
+    <td>
+    </td>
+    <td>
+      <%if product.status == 1%>
+      ON
+    <%else%>
+      OFF
+    <%end%>
     </td>
   </tr>
   <%end%>
 </table>
+<h3>checkout</h3>
+<a href="">Jungggle Credit</a>
+<br>
+<a href="">Credit Card</a>
+<br>
+<a href="">Paypal</a>
+<br><br>
+

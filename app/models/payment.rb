@@ -1,3 +1,3 @@
 class Payment < ActiveRecord::Base
-  has_many :products
+  has_many :payables
 end

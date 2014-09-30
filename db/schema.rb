@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927081955) do
+ActiveRecord::Schema.define(version: 20140929010150) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20140927081955) do
     t.datetime "updated_at"
   end
 
+  create_table "payables", force: true do |t|
+    t.integer  "payment_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "payments", force: true do |t|
     t.string   "name"
     t.text     "fee_detail"
@@ -69,7 +76,6 @@ ActiveRecord::Schema.define(version: 20140927081955) do
     t.integer  "user_id"
     t.integer  "language_id"
     t.integer  "country_id"
-    t.integer  "payment_id"
     t.integer  "marketingtype_id"
     t.integer  "company_id"
     t.string   "name"
@@ -83,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140927081955) do
 
   create_table "users", force: true do |t|
     t.integer  "company_id"
+    t.integer  "credit"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "first_name",             default: "", null: false
