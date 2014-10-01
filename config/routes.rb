@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   get 'products/flat_rate/:id' => "products#flat_rate"
   get 'products/cart'
   post 'products/add_cart'
-
   get 'advertisers/billing'
   post 'advertisers/add_credit'
+  get 'advertisers/new_bidding'
+  post 'advertisers/new_process'
   devise_for :users
   get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'

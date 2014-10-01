@@ -14,3 +14,46 @@
   </p>
   <input type="submit" value="Checkout Now">
 </form>
+
+<table>
+  <tr>
+    <td>
+      Date
+    </td>
+    <td>
+      Details
+    </td>
+    <td>
+      Payment Method
+    </td>
+    <td>
+      Amount
+    </td>
+    <td>
+      Invoice
+    </td>
+  </tr>
+  <%@user.billings.each do |billing|%>
+    <tr>
+      <td>
+        <%=billing.date%>
+      </td>
+      <td>
+        <%=billing.detail%>
+      </td>
+      <td>
+        <%=billing.payment_method%>
+      </td>
+      <td>
+        <%if billing.status != 0%>
+          <%=billing.amount%>
+        <%else%>
+          Pending...
+        <%end%>
+      </td>
+      <td>
+        <a href="#">View</a>
+      </td>
+    </tr>
+  <%end%>
+</table>

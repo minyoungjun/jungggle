@@ -1,0 +1,156 @@
+<h1>New Bid Notification</h1>
+<form action="new_process" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  
+<table>
+  <tr>  
+
+    <td>
+      Name of Service
+    </td>
+    <td>
+      <input type="text" name="service_name">
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      Type of Service
+    </td>
+    <td>
+      <input type="radio" name="type_of_service" value="0">Web
+    </td>
+    <td>
+      <input type="radio" name="type_of_service" value="1">
+      Mobile
+    </td>
+    <td>
+      <input type="radio" name="type_of_service" value="2">
+      Brand
+    </td>
+    <td>
+      <input type="radio" name="type_of_service" value="3">
+      Product
+    </td>
+  </tr>
+  <tr>  
+    <td>
+      Platform
+    </td>
+    <td>
+      <input type="radio" name="platform" value="0">All
+    </td>
+    <td>
+      <input type="radio" name="platform" value="1">iOS
+    </td>
+    <td>
+      <input type="radio" name="platform" value="2">Android
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Website URL
+    </td>
+    <td>
+      <input type="text" name="url">
+    </td>
+
+  </tr>
+  <tr>
+    <td>
+      Detail explanation
+    </td>
+    <td>
+      <textarea name="detail"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Budget
+    </td>
+    <td>
+      <input type="text" name="budget">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Marketing Type
+    </td>
+    <td>
+      <ul>
+        <%@marketing.each do |marketing|%>
+          <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
+        <%if marketing.filter != 4%>
+        <li>
+          <ul>
+            <%marketing.child_types.each do |marketing2|%>
+              <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
+              <%if marketing2.filter != 4%>
+              <li>
+                <ul>
+                  <%marketing2.child_types.each do |marketing3|%>
+                    <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
+                    <%if marketing3.filter != 4%>
+                    <li>
+                      <ul>
+                        <%marketing3.child_types.each do |marketing4|%>
+                          <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
+                        <%end%>
+                      </ul>
+                    </li>
+                    <%end%>
+                  <%end%>
+                </ul>
+                </li>
+                <%end%>
+              <%end%>
+              </ul>
+          </li>
+          <%end%>
+        <%end%>
+      </ul>
+    </td>
+    
+  </tr>
+  <tr>
+    <td>
+      Country
+    </td>
+    <td>
+      <select name="country">
+        <%@countries.each do |country|%>
+          <option value ="<%=country.id%>"><%=country.name%></option>
+        <%end%>
+          
+      </td>
+
+    </tr> 
+    <tr>
+      <td>
+        Deadline of Submit
+      </td>
+      <td>
+        <input type="date" name="deadline">
+      </td>
+
+    </tr>
+</table>
+<h2>Company Introduction</h2>
+<input type="text" placeholder="Company Name" name="company_name"><br>
+<input type="file" name="upload_logo"><br>
+<input type="submit" value="NOTIFY BID"><br>
+</form>
+<a href="#">
+  Delete
+</a><br>
+<p>
+1. You will receive 100% refund when there is no entry.
+
+<br><br>
+2. You can also pick the entry before the deadline. And the bidding will be end.
+
+<br><br>
+3. You don't have to pick the entry if you do not want.
+<br><br>
+4. You should pick the entry within 1 week after the deadline.
+</p>

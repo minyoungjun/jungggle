@@ -12,7 +12,7 @@ before_filter :is_login, :except => [:list]
   def create_process
 
     company = Company.new
-    company.name = params[:company]
+    company.name = params[:company_name]
     company.save
     current_user.company_id = company.id
     current_user.save

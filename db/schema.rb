@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140930114923) do
 
   create_table "billings", force: true do |t|
     t.integer  "user_id"
+    t.integer  "status",         default: 0
     t.datetime "date"
     t.string   "detail"
     t.string   "payment_method"
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140930114923) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
-    t.text     "locate"
+    t.text     "location"
     t.integer  "num_employee"
     t.string   "website"
     t.text     "introduction"
@@ -164,7 +165,7 @@ ActiveRecord::Schema.define(version: 20140930114923) do
 
   create_table "users", force: true do |t|
     t.integer  "company_id"
-    t.integer  "credit"
+    t.integer  "credit",                 default: 0
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "first_name",             default: "", null: false
