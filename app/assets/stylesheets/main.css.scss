@@ -13,8 +13,10 @@
 
 
   .subheadline {
+    color: #2f2f2f;
     font-size: 24px;
-    margin: 13px;
+    margin: 30px 0 20px;
+
   }
 
   .select {
@@ -23,17 +25,19 @@
     display: inline-block;
     border: 1px solid #eee;
     border-radius: 10px;
-    font-size: 13px;
+
     margin-top: 20px;
 
     $select-height: 50px;
-    $select-width: 180px;
+    $select-width: 200px;
+    $seletc-font-size: 14px;
 
     select {
       width: $select-width;
       height: $select-height;
       background-color: white;
       border: 0;
+      font-size: $seletc-font-size;
     }
 
     input {
@@ -41,15 +45,24 @@
       height: $select-height;
       border: 0;
       padding-left: 10px;
+      font-size: $seletc-font-size;
+
     }
     button {
       background-color: #5bb33a;
       color: white;
-      width: 130px;
-      height: $select-height + 1px;
-
+      width: 170px;
+      padding: 10px 0 18px;
+      margin: 0;
       border: 0;
       border-radius: 0 10px 10px 0;
+      font-size: $seletc-font-size;
+      img {
+        position: relative;
+        margin-left: 10px;
+        top: 7px;
+      }
+
     }
     button:hover {
       background-color: #4ca826;

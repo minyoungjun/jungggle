@@ -1,66 +1,109 @@
-.header {
+body {
+  margin: 0;
   border-top: 5px solid #eee;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
-  z-index: 100;
-  .search {
-    position: relative;
-    text-align: center;
-    margin-top: 10px;
-
-    input {
-      margin: 0 auto;
-      border-radius: 5px;
-      border: 0;
-      padding: 5px 10px 5px 35px;
-    }
-    img {
-      position: relative;
-      left: 30px;
-    }
-  }
-
-  ul {
-    display: inline-block;
-    list-style: none;
-    li {
-      float: left;
-      margin: 0 10px;
-    }
-  }
-  .sign {
-    float: right;
-  }
-}
-
-
-.footer {
-  position: relative;
-  bottom: 0;
   border-bottom: 5px solid #5bb33a;
-  padding: 10px 0;
-  p {
-    display: inline-block;
-    margin: 0;
-    color: #737373;
+
+  .container {
+    width: 1200px;
+    margin: 0 auto;
   }
-  ul {
-    list-style: none;
-    display: inline-block;
-    float: right;
-    li {
-      float: left;
-      margin: 0 10px;
-      a {
-        color: #737373;
-        text-decoration: none;
-        img {
-          margin-right: 10px;
+
+
+  .header {
+
+
+    position: relative;
+    top: 0;
+    z-index: 100;
+    .search {
+      position: relative;
+      text-align: center;
+      margin-top: 10px;
+      display: inline-block;
+      left: 44%;
+
+      input {
+        margin: 0 auto;
+        border-radius: 5px;
+        border: 0;
+        padding: 7px 10px 7px 35px;
+        font-size: 13px;
+        border: 1px solid #eee;
+      }
+      img {
+        position: relative;
+        left: 32px;
+        top: 5px;
+      }
+    }
+
+    ul {
+      position: relative;
+      display: inline-block;
+      list-style: none;
+      float: right;
+      padding-left: 0;
+      margin: 0;
+      top: 18px;
+
+      li {
+        float: left;
+        margin: 0 7px;
+        font-size: 13px;
+        color: #6b6b6b;
+        a {
+          text-decoration: none;
         }
       }
-      .sns {
-        margin-left: 50px;
+    }
+
+  }
+
+
+  .footer {
+    position: relative;
+    bottom: 0;
+    padding: 15px 0;
+    background-color: #f2f2f2;
+
+    p {
+      display: inline-block;
+      margin: 0;
+      color: #737373;
+      font-size: 12px;
+    }
+    .footer-right {
+      float: right;
+
+      ul {
+        list-style: none;
+        display: inline-block;
+        position: relative;
+        bottom: 5px;
+        padding-left: 0;
+        margin: 0;
+        li {
+          float: left;
+          margin: 0 10px;
+          font-size: 12px;
+          a {
+            color: #737373;
+            text-decoration: none;
+            img {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .footer-sns {
+        display: inline-block;
+        margin-left: 5px;
+        a {
+          text-decoration: none;
+          img {
+            margin: 0 3px;
+          }
+        }
       }
     }
   }

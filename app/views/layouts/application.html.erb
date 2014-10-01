@@ -7,19 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="header">
+  <div class="header container">
     <div class="search">
       <img src="/assets/main/search.png">
       <input type="text">
       
     </div>
+
     <ul>
       <li>Biddings</li>
       <li>Product Results</li>
       <li>UserName</li>
       <li>Cart</li>
-    </ul>
-    <ul class="sign">
       <%if user_signed_in?%>
         <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
       <%else%>
@@ -30,20 +29,27 @@
   </div>
 
   <%= yield %>
-
   <div class="footer">
-    <p> Copyrights 2014 "Jungggle LTD". All rights reserved. </p>
-    <ul>
-      <li><a href="/home/aboutus">About us</a></li>
-      <li><a href="/home/how">How it works</a></li>
-      <li><a href="/home/faq">FAQ</a></li>
-      <li><a href="/home/contact">Contact</a></li>
-      <li><a href="#">Press</a></li>
-      <li><a href="#">Terms</a></li>
-      <li><a href="#">Privacy</a></li>
-      <li><a href="#none" class="sns"><img src="/assets/main/facebook.png"><img src="/assets/main/twitter.png"></a></li>
-    </ul>
-    
+    <div class="container">
+      <p> Copyrights 2014 "Jungggle LTD". All rights reserved. </p>
+      <div class="footer-right">
+        <ul>
+          <li><a href="/home/aboutus">About us</a></li>
+          <li><a href="/home/how">How it works</a></li>
+          <li><a href="/home/faq">FAQ</a></li>
+          <li><a href="/home/contact">Contact</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+        <div class="footer-sns">
+          <a href="#none">
+            <img src="/assets/main/facebook.png">
+            <img src="/assets/main/twitter.png">
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
