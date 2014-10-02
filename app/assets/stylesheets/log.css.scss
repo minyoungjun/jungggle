@@ -1,3 +1,4 @@
+/* 로그인 */
 .login {
   margin: 0 auto;
   text-align: center;
@@ -36,6 +37,7 @@
       input {
         width: 330px;
         padding: 15px 20px;
+        margin: 5px 0;
         font-size: 14px;
         border-radius: 10px;
         border: 2px solid #d9d9d9;
@@ -59,7 +61,7 @@
   }
 }
 
-
+/* 등록하기 */
 .signup {
   margin: 0 auto;
   text-align: center;
@@ -70,11 +72,26 @@
   h1 {
     color: #6dc54d;
   }
+  input {
+    width: 140px;
+    padding: 15px 20px;
+    margin: 5px 0;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 2px solid #d9d9d9;
+    color: black;
+
+  }
+  input:focus {
+    border: 2px solid #6dc54d;
+  }
+
   form {
     div {
       input {
         width: 330px;
         padding: 15px 20px;
+        margin: 5px 0;
         font-size: 14px;
         border-radius: 10px;
         border: 2px solid #d9d9d9;
@@ -109,7 +126,7 @@
   }
 }
 
-
+/* 비밀번호 찾기 */
 .log-pw {
   margin: 0 auto;
   text-align: center;
