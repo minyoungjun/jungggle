@@ -1,3 +1,4 @@
+/* about us */
 .aboutus {
   padding: 100px 0 150px;
   text-align: center;
@@ -13,5 +14,21 @@
     span {
       color: #6dc54d;
     }
+  }
+}
+
+/* how it works */
+.how {
+  padding: 100px 0 150px;
+
+  h1 {
+    text-align: center;
+    margin: 50px;
+  }
+  p {
+    margin: 30px auto;
+    width: 780px;
+    line-height: 25px
+
   }
 }
