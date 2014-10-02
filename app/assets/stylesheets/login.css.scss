@@ -1,0 +1,67 @@
+.login {
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px 0;
+  .title-logo {
+    margin-bottom: 30px;
+  }
+
+  .sns-login {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  .linkedin {
+    background-color: #007ab9;
+  }
+  .facebook {
+    background-color: #3a589b;
+  }
+  h3 {
+    display: inline-block;
+    border-radius: 50%;
+    color: white;
+    background-color: #d9d9d9;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  form {
+    div {
+      input {
+        width: 330px;
+        padding: 15px 20px;
+        font-size: 14px;
+        border-radius: 10px;
+        border: 2px solid #d9d9d9;
+        color: black;
+      }
+      input:focus {
+        border: 2px solid #6dc54d;
+      }
+    }
+    .log-btn {
+      margin: 30px 0 10px;
+      input {
+        background-color: #6dc54d;
+        color: white;
+        border: 0;
+        font-size: 15px;
+        width: 150px;
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
