@@ -2,8 +2,8 @@
   <img src="/assets/main/log.png" class="title-logo">
   <h1>Sign Up to continue!</h1>
 
-  <input class="firstname" placeholder="First name"></input>
-  <input placeholder="Last name"></input>
+  <input class="firstname" placeholder="First name">
+  <input placeholder="Last name">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
