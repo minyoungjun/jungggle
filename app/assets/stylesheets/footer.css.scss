@@ -1,4 +1,7 @@
 /* about us */
+
+$p-width: 600px;
+
 .aboutus {
   padding: 100px 0 150px;
   text-align: center;
@@ -8,7 +11,7 @@
   p {
     text-align: left;
     margin: 30px auto 50px;
-    width: 780px;
+    width: $p-width;
     line-height: 25px;
 
     span {
@@ -27,8 +30,35 @@
   }
   p {
     margin: 30px auto;
-    width: 780px;
+    width: $p-width;
     line-height: 25px
 
   }
 }
+
+/* faq */
+.faq {
+  padding: 100px 0 150px;
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  p {
+    width: $p-width;
+    margin: 20px auto;
+    line-height: 23px;
+    font-size: 16px;
+    span {
+      color: #6dc54d;
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
