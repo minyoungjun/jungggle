@@ -13,7 +13,7 @@
  *= require_self
  *= require 'main'
  *= require 'common'
- *= require 'login'
+ *= require 'log'
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
