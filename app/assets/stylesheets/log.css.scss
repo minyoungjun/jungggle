@@ -7,19 +7,27 @@
     margin-bottom: 30px;
   }
 
-  .sns-login {
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 10px;
-    color: white;
-    font-size: 14px;
-    margin: 0 5px;
-  }
-  .linkedin {
-    background-color: #007ab9;
-  }
-  .facebook {
-    background-color: #3a589b;
+  a {
+    text-decoration: none;
+
+    .sns-login {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 14px;
+      margin: 0 5px;
+      color: white;
+      img {
+        margin-right: 12px;
+      }
+      
+    }
+    .linkedin {
+      background-color: #007ab9;
+    }
+    .facebook {
+      background-color: #3a589b;
+    }
   }
   h3 {
     display: inline-block;
@@ -35,7 +43,7 @@
   form {
     div {
       input {
-        width: 330px;
+        width: 370px;
         padding: 15px 20px;
         margin: 5px 0;
         font-size: 14px;
@@ -73,23 +81,25 @@
     color: #6dc54d;
   }
   input {
-    width: 140px;
+    width: 155px;
     padding: 15px 20px;
     margin: 5px 0;
     font-size: 14px;
     border-radius: 10px;
     border: 2px solid #d9d9d9;
     color: black;
-
   }
   input:focus {
     border: 2px solid #6dc54d;
   }
 
+  .firstname {
+    margin-right: 5px;
+  }
   form {
     div {
       input {
-        width: 330px;
+        width: 370px;
         padding: 15px 20px;
         margin: 5px 0;
         font-size: 14px;
@@ -159,7 +169,8 @@
         color: white;
         border: 0;
         font-size: 15px;
-        padding: 20px;
+        padding: 15px;
+        width: 190px;
       }
     }
   }
