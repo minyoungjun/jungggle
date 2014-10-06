@@ -140,7 +140,29 @@
 
 
 
+/* Profile : save modal */
 
+.modal-dialog {
+  margin-top: 250px;
+  .modal-content {
+    padding: 30px 30px 50px; 
+    text-align: center;
+    width: 450px;
+    margin: 0 auto;
+    p {
+      font-size: 17px;
+      color: #aaa;
+      margin: 30px;
+
+    }
+    .btn {
+      padding: 10px 40px;
+      background-color: #5eb12f;
+      color: white;
+      border: 0;
+    }
+  }
+}
 
 
 

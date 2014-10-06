@@ -81,12 +81,29 @@
           <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
         </label>
       </div>
-      <button type="submit" class="btn btn-default">Save</button>
+      <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Save</button>
     </div>
   </div>
 </div>
 
 
 
+
+<!-- Save Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <p>Your account has been updated</p>
+      <button type="button" class="btn btn-default">Thank's</button>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+
+
+<script>
+  $('#myModal').modal(options)
+</script>
 
 
