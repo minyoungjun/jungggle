@@ -23,6 +23,15 @@
           display: inline-block;
           margin: 10px 0;
           width: 100%;
+          td {
+            a {
+              text-decoration: none;
+              color: #828282;
+            }
+            .select {
+              color: white;
+            }
+          }
           .list-icon {
             text-align: center;
             width: 50px;
@@ -30,13 +39,11 @@
           .list-title {
             padding-left: 15px;
           }
-          .select {
-            color: white;
-          }
+          
           
         }
         tr:hover {
-          .list-title {
+          a {
             color: #e6e6e6;
           }
           .select {
