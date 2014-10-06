@@ -16,15 +16,16 @@
       </div>
 
       <ul>
-        <li>Biddings</li>
-        <li>Product Results</li>
-        <li class="log-name"><img src="/assets/main/log-img.png">bogdan</li>
+        <li><a href="#none">Biddings</a></li>
+        <li><a href="#none">Product Results</a></li>
+        
         <%if user_signed_in?%>
           <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
         <%else%>
           <li><a href="/users/sign_in">sign in</a></li>
           <li><a href="/users/sign_up">sign up</a></li>
         <%end%>
+        <li class="log-name"><a href="#none"><img src="/assets/main/log-img.png"> bogdan <img src="/assets/main/header-content.png" class="contents"></a></li>
       </ul>
     </div>
   </div>
