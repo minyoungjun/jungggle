@@ -7,25 +7,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="header container">
-    <div class="search">
-      <img src="/assets/main/search.png">
-      <input type="text">
-      
-    </div>
+  <div class="header">
+    <div class="container">
+      <a href="/home/main"><img src="/assets/main/header-logo.png"></a>
+      <div class="search">
+        <img src="/assets/main/search.png">
+        <input type="text">
+      </div>
 
-    <ul>
-      <li>Biddings</li>
-      <li>Product Results</li>
-      <li>UserName</li>
-      <li>Cart</li>
-      <%if user_signed_in?%>
-        <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
-      <%else%>
-        <li><a href="/users/sign_in">sign in</a></li>
-        <li><a href="/users/sign_up">sign up</a></li>
-      <%end%>
-    </ul>
+      <ul>
+        <li>Biddings</li>
+        <li>Product Results</li>
+        <li class="log-img"><img src="/assets/main/log-img.png"></li>
+        <li class="name">bogdan</li>
+        <%if user_signed_in?%>
+          <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
+        <%else%>
+          <li><a href="/users/sign_in">sign in</a></li>
+          <li><a href="/users/sign_up">sign up</a></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="container">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <%= yield %>

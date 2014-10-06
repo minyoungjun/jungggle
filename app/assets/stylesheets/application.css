@@ -15,6 +15,7 @@
  *= require 'common'
  *= require 'log'
  *= require 'footer'
+ *= require 'project_results'
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
