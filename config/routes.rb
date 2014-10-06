@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   root 'home#main'
   get 'advertisers/project_results'
   get 'advertisers/project_results_detail'
+  get 'home/account_profile'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

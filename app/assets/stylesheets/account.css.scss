@@ -1,0 +1,62 @@
+/* account-profile */
+
+.account {
+  background-color: #f1f1f1;
+
+  .left-list {
+    background-color: #3c3c3c;
+    width: 180px;
+    padding: 0 20px 20px;
+    color: white;
+    display: inline-block;
+
+    .list {
+      h1 {
+        font-size: 25px;
+        color: #e6e6e6;
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      table {
+        margin-bottom: 30px;
+        color: #828282;
+        tr {
+          display: inline-block;
+          margin: 10px 0;
+          width: 100%;
+          .list-icon {
+            text-align: center;
+            width: 50px;
+          }
+          .list-title {
+            padding-left: 15px;
+          }
+          .list-title:hover {
+            color: #e6e6e6;
+          }
+        }
+      }
+    }
+  }
+
+  .right-content {
+    width: 990px;
+    display: inline-block;
+    background-color: white;
+    float: right;
+    padding: 20px;
+
+    input {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin: 12px 5px;
+    }
+
+    .long-form {
+      display: block;
+      width: 400px;
+    }
+  }
+}
