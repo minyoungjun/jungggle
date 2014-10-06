@@ -32,11 +32,17 @@
           .list-title {
             padding-left: 15px;
           }
+          .select {
+            color: white;
+          }
           
         }
         tr:hover {
           .list-title {
             color: #e6e6e6;
+          }
+          .select {
+            color: white;
           }
         }
       }
