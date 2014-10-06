@@ -4,15 +4,15 @@
       <div class="list my-account">
         <h1>My Account</h1>
         <table>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/account_profile.png"></td>
             <td class="list-title">Profile</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/account_company_profile.png"></td>
             <td class="list-title">Company<br>Profile</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/account_member.png"></td>
             <td class="list-title">Member</td>
           </tr>
@@ -21,15 +21,15 @@
       <div class="list advertisers">
         <h1>Advertisers</h1>
         <table>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/advertisers_dashboard.png"></td>
             <td class="list-title">Dashboard</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/advertisers_billing.png"></td>
             <td class="list-title">Billing</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/advertisers_biddings.png"></td>
             <td class="list-title">Biddings</td>
           </tr>
@@ -39,15 +39,15 @@
       <div class="list Publishers">
         <h1>Publishers</h1>
         <table>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/publishers_project.png"></td>
             <td class="list-title">Projects</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
             <td class="list-title">Manage<br>Service</td>
           </tr>
-          <tr>
+          <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/advertisers_biddings.png"></td>
             <td class="list-title">Biddings</td>
           </tr> 
@@ -56,12 +56,37 @@
     </div>
     <div class="right-content">
       <h1>Profile</h1>
-      <input type="text" name="lastname" placeholder="James">
-      <input type="text" name="firstname" placeholder="Lim">
+      <input type="text" name="lastname" placeholder="James" class="short-form">
+      <input type="text" name="firstname" placeholder="Lim" class="short-form">
       <input type="email" placeholder="ceo@gameberry.co.kr" class="long-form">
       <input type="password" placeholder="Old Password" class="long-form">
       <input type="password" placeholder="New Password" class="long-form">
+
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="upload">
+          <input type="file" name="upload" placeholder="load">
+        </div>
+      </form>
+      <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <p>Receive general news (Featured projects, events) from us</p>
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
+        </label>
+      </div>
       <button type="submit" class="btn btn-default">Save</button>
     </div>
   </div>
 </div>
+
+
+
+
+
