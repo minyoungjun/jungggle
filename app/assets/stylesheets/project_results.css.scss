@@ -38,6 +38,9 @@
   .form-group {
     display: inline-block;
     margin-left: 30px;
+    input {
+      border: 1px solid #ddd;
+    }
   }
 
   .small-title {
@@ -52,6 +55,9 @@
     display: inline-block;
     margin: 8px 4px;
     text-align: center;
+    img {
+      border: 1px solid #eee; 
+    }
     p {
       text-align: left;
       font-size: 12px;
@@ -59,4 +65,23 @@
       margin-top: 12px;
     }
   }
+  .load-more {
+    margin: 50px auto;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 20px; 
+  }
+  .load-more:hover {
+    border: 1px solid #5eb12f;
+    background-color: white;
+    color: #5eb12f;
+  }
 }
+
+
+
+
+
+
+
