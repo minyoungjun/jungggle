@@ -9,7 +9,7 @@
 <body>
   <div class="header">
     <div class="container">
-      <a href="/home/main"><img src="/assets/main/header-logo.png"></a>
+      <a href="/home/main" class="logo"><img src="/assets/main/header-logo.png"></a>
       <div class="search">
         <img src="/assets/main/search.png">
         <input type="text">
@@ -18,8 +18,7 @@
       <ul>
         <li>Biddings</li>
         <li>Product Results</li>
-        <li class="log-img"><img src="/assets/main/log-img.png"></li>
-        <li class="name">bogdan</li>
+        <li class="log-name"><img src="/assets/main/log-img.png">bogdan</li>
         <%if user_signed_in?%>
           <li><%= link_to('sign out', destroy_user_session_path, :method => :delete) %></li>
         <%else%>
@@ -31,9 +30,10 @@
   </div>
   <div class="nav">
     <div class="container">
+      <!-- 단버튼 -->
       <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          Action <span class="caret"></span>
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+          Country <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
@@ -43,6 +43,31 @@
           <li><a href="#">Separated link</a></li>
         </ul>
       </div>
+      <div class="btn-group">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+          Marketin type <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+          Cost <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+      <button type="button" class="btn nav-btn">Jungggling<img src="/assets/main/search_logo.png"></button>
     </div>
   </div>
 

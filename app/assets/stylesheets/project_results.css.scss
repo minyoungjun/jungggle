@@ -1,14 +1,27 @@
-.container {
+.project-results {
+  padding: 50px 0 100px;
+
+
+
+  .form-group {
+    display: inline-block;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #4c4c4c
+  }
 
 
   .results-contant {
     display: inline-block;
-    margin: 8px;
+    margin: 8px 4px;
     text-align: center;
     p {
       text-align: left;
       font-size: 12px;
       color: #8e8e8e;
+      margin-top: 12px;
     }
   }
 }
