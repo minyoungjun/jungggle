@@ -167,6 +167,62 @@
   background-color: white;
   float: right;
   padding: 20px 30px 100px;
+
+
+  input {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 13px 18px;
+    margin: 15px 5px;
+    font-size: 15px;
+    display: block;
+    width: 450px;
+  }
+  textarea {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 13px 18px;
+    margin: 15px 5px;
+    font-size: 15px;
+    display: block;
+    width: 450px; 
+  }
+  form {
+    display: inline-block;
+    margin: 20px 0;
+    .upload {
+      width: 150px;
+      height: 30px;
+      border-radius: 10px;
+      background-image: url(/assets/my_account/upload.jpg);
+      background-repeat: no-repeat;
+      background-position-x: 50%; 
+      background-position-y: 2px; 
+      background-color: #b6b6b6;
+      color: black;  
+      overflow: hidden;
+
+      input {
+        display: block !important;
+        width: 150px !important;
+        height: 30px !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .btn {
+    width: 450px;
+    padding: 15px 40px;
+    background-color: #5eb12f;
+    color: white;
+    border: 0;
+    font-size: 16px;
+    margin: 20px 0;
+  }
+
 }
 
 
