@@ -1,15 +1,50 @@
 .project-results {
-  padding: 50px 0 100px;
+  padding: 30px 0 100px;
 
+  h1 {
+    margin-bottom: 18px;
+    color: #424242;
+    font-weight: 400;
+  }
 
+  .btn-group {
+    margin-right: 30px;
+    button {
+      padding: 6px 0;
+      border: 0;
+      span {
+        margin-left: 8px;
+        font-size: 8px;
+        color: #aaa;
+      }
+    }
+    button:hover {
+      background-color: white;
+      color: #5eb12f;
+      span {
+        color: #5eb12f;
+      }
+    }
+
+  }
+
+  .or {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 15px;
+    color: #aaa;
+  }
 
   .form-group {
     display: inline-block;
+    margin-left: 30px;
   }
-  p {
+
+  .small-title {
     font-size: 20px;
     font-weight: 400;
-    color: #4c4c4c
+    color: #4c4c4c; 
+    margin-bottom: 20px;
   }
 
 
