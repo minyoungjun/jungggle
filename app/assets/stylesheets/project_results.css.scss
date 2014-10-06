@@ -1,5 +1,7 @@
+/* project-results */
+
 .project-results {
-  padding: 30px 0 100px;
+  padding: 30px 0;
 
   h1 {
     margin-bottom: 18px;
@@ -66,7 +68,7 @@
     }
   }
   .load-more {
-    margin: 50px auto;
+    margin: 50px auto 80px;
     display: block;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -78,6 +80,130 @@
     color: #5eb12f;
   }
 }
+
+
+
+/* project-results-detail */
+
+.project-results-detail {
+  padding-bottom: 80px;
+
+  .content-left {
+    display: inline-block;
+    .main-results-img {
+      width: 500px;
+    }
+  }
+
+  .content-right {
+    width: 630px;
+    display: inline-block;
+    float: right;
+
+    .company {
+      position: relative;
+      bottom: 7px;
+      background-color: #3a3a3a;
+      color: white;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 0;
+    }
+    h1 {
+      display: inline-block;
+      margin: 0 0 0 10px;
+    }
+    p {
+      margin: 5px 0 0 90px;
+      font-size: 15px;
+      color: #aaa;
+    }
+    h3 {
+      font-size: 18px;
+      margin-top: 40px;
+    }
+    table {
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid #ddd;
+      margin: 0;
+
+      tr {
+        text-align: center;
+
+        td {
+          border: 0;
+          padding: 10px;
+        }
+      }
+      .header {
+        background-color: #eee;
+        color: #898989;
+      }
+      .contents {
+        font-size: 17px;  
+      }
+    }
+  }
+
+
+  .comment {
+    margin-top: 50px;
+    h3 {
+      font-size: 18px;
+      color: #444;
+    }
+    textarea{ 
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #ddd;
+      padding: 15px;
+    }
+  }
+
+  .advertiser-feedback {
+    margin: 50px 0;
+    h4 {
+      font-size: 20px;
+    }
+    .feedback-paragraph {
+      border-bottom: 1px solid #eee;
+      padding: 25px 0;
+
+      $feedback-fontsize: 16px;
+      $feedback-theme-margin: 15px;
+
+      .theme-a {
+        font-size: $feedback-fontsize + 2px;
+        font-weight: 400;
+        color: #5eb12f;
+        margin-bottom: $feedback-theme-margin;
+      }
+      .theme-b {
+        font-size: $feedback-fontsize + 2px;
+        font-weight: 400;
+        color: #e8771a;
+        margin-bottom: $feedback-theme-margin;
+      }
+      .date {
+        font-size: 13px;
+        color: #bbb;
+      }
+      .content {
+        color: #aaa;
+        font-size: $feedback-fontsize;
+        line-height: 25px;
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
 
 
 

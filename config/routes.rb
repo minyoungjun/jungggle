@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
   get 'advertisers/project_results'
+  get 'advertisers/project_results_detail'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
