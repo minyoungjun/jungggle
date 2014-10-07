@@ -6,7 +6,7 @@
         <table>
           <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/account_profile.png"></td>
-            <td class="list-title"><a href="/home/account_profile" class="select">Profile</a></td>
+            <td class="list-title"><a href="/home/account_profile">Profile</a></td>
           </tr>
           <tr onclick="#none" style="cursor: pointer">            
             <td class="list-icon"><img src="/assets/my_account/account_company_profile.png"></td>
@@ -14,7 +14,7 @@
           </tr>
           <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/account_member.png"></td>
-            <td class="list-title"><a href="/home/account_member">Member</a></td>
+            <td class="list-title"><a href="/home/account_member" class="select">Member</a></td>
           </tr>
         </table>
       </div>
@@ -41,7 +41,7 @@
         <table>
           <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/publishers_project.png"></td>
-            <td class="list-title"><a href="/home/account_projects">Projects</a></td>
+            <td class="list-title"><a href="/home/account_projects" class="select">Projects</a></td>
           </tr>
           <tr onclick="#none" style="cursor: pointer">
             <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
@@ -54,56 +54,5 @@
         </table>
       </div>
     </div>
-    <div class="right-profile">
-      <h1>Profile</h1>
-      <input type="text" name="lastname" placeholder="James" class="short-form">
-      <input type="text" name="firstname" placeholder="Lim" class="short-form">
-      <input type="email" placeholder="ceo@gameberry.co.kr" class="long-form">
-      <input type="password" placeholder="Old Password" class="long-form">
-      <input type="password" placeholder="New Password" class="long-form">
-
-      <form action="" method="post" enctype="multipart/form-data">
-        <div class="upload">
-          <input type="file" name="upload" placeholder="load">
-        </div>
-      </form>
-      <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
-
-      <div class="checkbox">
-        <label>
-          <input type="checkbox">
-          <p>Receive general news (Featured projects, events) from us</p>
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox">
-          <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
-        </label>
-      </div>
-      <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Save</button>
-    </div>
   </div>
 </div>
-
-
-
-
-<!-- Save Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <p>Your account has been updated</p>
-      <button type="button" class="btn btn-default">Thank's</button>
-    </div><!-- modal-content -->
-  </div><!-- modal-dialog -->
-</div><!-- modal -->
-
-
-
-<script>
-  $('#myModal').modal(options)
-</script>
-
-

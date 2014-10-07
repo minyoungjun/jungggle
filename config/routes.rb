@@ -27,7 +27,10 @@ Rails.application.routes.draw do
   get 'home/account_member'
   get 'home/account_dashboard'
   get 'home/account_billing' 
-  get 'home/account_ad_biddings'  
+  get 'home/account_ad_biddings'
+  get 'home/account_projects'
+  get 'home/account_manage_service'
+  get 'home/account_pub_biddings'  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
