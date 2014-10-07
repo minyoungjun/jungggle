@@ -487,6 +487,98 @@
   background-color: white;
   float: right;
   padding: 20px 30px 100px;
+
+  h3 {
+    display: inline-block;
+    margin: 0;
+    font-size: 18px;
+    span {
+      padding-left: 10px;
+      color: #aaa;
+      font-size: 15px;
+    }
+  }
+  .top-info {
+    margin-bottom: 30px;
+    .table-header {
+      background-color: white;
+      color: #999;
+      td {
+        padding: 2px 12px;
+      }
+    }
+    .table-body {
+      color: #5eb12f;
+      font-size: 25px;
+      border: 0;
+
+      td {
+        padding: 5px 12px;
+        span {
+          font-size: 14px;
+          font-weight: bold;
+          color: #888;
+        }
+      }
+      .sm-font {
+        font-size: 16px;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin: 30px 0;
+
+    .table-header {
+      background-color: #eee;
+      td {
+        padding: 10px 12px;
+      }
+    }
+    .table-body {
+      border-bottom: 2px dotted #ddd;
+      td {
+        padding: 20px 12px; 
+      }
+      .name {
+        color: #5eb12f;
+        span {
+          color: #bbb;
+        }
+      }
+      .font-bold {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .kick-btn {
+        padding-bottom: 3px;
+        .btn {
+          padding: 3px 22px;
+          font-size: 13px;
+          border-radius: 10px;
+        }
+        span {
+          font-size: 12px;
+          color: #aaa;
+        }
+        .btn:hover {
+          background-color: white;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+        }
+      }
+      .ongoing-btn {
+        .btn {
+          background-color: #5eb12f;
+          color: white;
+          border: 0;
+          border-radius: 10px;
+          padding: 4px 25px;
+        }
+      }
+    }
+  }
 }
 
 
@@ -515,7 +607,6 @@
       float: right;
     }
   }
-
 
   table {
     width: 100%;
