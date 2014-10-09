@@ -1,12 +1,20 @@
 class AdvertisersController < ApplicationController
+  def biddings
+
+    @selected = "biddings"
+    @user = current_user
+    @biddings = @user.biddings.order('created_at DESC').page(params[:page]).per(10)
+    
+
+  end
   def new_bidding
     @languages = Language.all
     @marketing = Marketingtype.where(:filter => 1)
     @countries = Country.all
     @payments = Payment.all
   end
-  def new_process
 
+  def new_process
     company = Company.new
     company.name = params[:company_name]
     company.save
@@ -26,7 +34,11 @@ class AdvertisersController < ApplicationController
 
   end
   def billing
+    @selected = "billing"
     @user = current_user
+
+    @billings = @user.billings.order('created_at DESC').page(params[:page]).per(6)
+
   end
   def add_credit
     user = current_user

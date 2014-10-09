@@ -10,6 +10,7 @@ class CreateBiddings < ActiveRecord::Migration
       t.text  :detail
       t.integer :budget
       t.datetime :deadline
+      t.integer :status
       t.timestamps
     end
   end

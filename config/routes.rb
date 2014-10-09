@@ -17,13 +17,15 @@ Rails.application.routes.draw do
   post 'advertisers/add_credit'
   get 'advertisers/new_bidding'
   post 'advertisers/new_process'
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
   get 'advertisers/project_results'
   get 'advertisers/project_results_detail'
   get 'home/account_profile'
-  get 'home/account_company_profile'
+  get '/users/company' => 'home#account_company_profile'
+  post '/users/company_update' => 'home#company_update'
+  get '/users/company_members' => 'home#account_member'
   get 'home/account_member'
   get 'home/account_dashboard'
   get 'home/account_billing' 
@@ -31,6 +33,10 @@ Rails.application.routes.draw do
   get 'home/account_projects'
   get 'home/account_manage_service'
   get 'home/account_pub_biddings'  
+  get 'advertisers/biddings'
+  resources "home" do
+    get :autocomplete_company_name, :on => :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

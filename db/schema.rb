@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930114923) do
+ActiveRecord::Schema.define(version: 20141009172310) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -87,6 +87,10 @@ ActiveRecord::Schema.define(version: 20140930114923) do
     t.string   "logo_src"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "costs", force: true do |t|
@@ -130,6 +134,15 @@ ActiveRecord::Schema.define(version: 20140930114923) do
     t.integer  "parent_id"
     t.string   "name"
     t.integer  "filter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "members", force: true do |t|
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.string   "privilege"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -180,6 +193,10 @@ ActiveRecord::Schema.define(version: 20140930114923) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,59 +1,47 @@
-<h1>Billing</h1>
-<p>Current Jungggle Credit: $<%=@user.credit%></p>
-<form action="/advertisers/add_credit" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  add Credit $<input type="text" name="amount">
-  <p> Add credit allows only Wire Transfer.<br>
-  You can find the invoice on Billing History after the CHECKOUT.
-  <br><br>
-  If the name of sender is different from the name on "Company Profile",
-  <br>
-  please let us know support@jungggle.com
-  <br>
-  I have read and agree with the terms and the privacy policy.
-  </p>
-  <input type="submit" value="Checkout Now">
-</form>
+<div class="account">
+  <div class="container">
+    <%=render "/home/left"%>
+    <div class="right-billing">
+      <h1>Billing</h1>
+      <form action="/advertisers/add_credit" method="post">
+      <div class="sub-title">
+        <h3>Current Jugggle Credit : <span><%=number_to_currency(@user.credit, precision: 0)%></span></h3>
+        <div class="sub-title-left">
+          <p>Add Credit</p>
 
-<table>
-  <tr>
-    <td>
-      Date
-    </td>
-    <td>
-      Details
-    </td>
-    <td>
-      Payment Method
-    </td>
-    <td>
-      Amount
-    </td>
-    <td>
-      Invoice
-    </td>
-  </tr>
-  <%@user.billings.each do |billing|%>
-    <tr>
-      <td>
-        <%=billing.date%>
-      </td>
-      <td>
-        <%=billing.detail%>
-      </td>
-      <td>
-        <%=billing.payment_method%>
-      </td>
-      <td>
-        <%if billing.status != 0%>
-          <%=billing.amount%>
-        <%else%>
-          Pending...
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+            <input type="text" class="add" placeholder="$" name="amount">
+            <input type="submit" class="btn btn-default" value="Checkout Now">
+        </div>
+      </div>
+      </form>
+      <table>
+        <tr class="table-header">
+          <td>Date Invice</td>
+          <td>Details</td>
+          <td>Payment Method</td>
+          <td>Amount</td>
+          <td>Invoice</td>
+        </tr>
+        <%@billings.each do |billing|%>
+        <tr class="table-body">
+            <td><%=billing.date.to_s[0..3]%>.<%=billing.date.to_s[5..6]%>.<%=billing.date.to_s[8..9]%></td>
+            <td><%=billing.detail%></td>
+            <td><%=billing.payment_method%></td>
+
+            <td class="<%if billing.status == 0%><%elsif billing.amount < 0%>font-big<%else%>font-sm<%end%>">
+              <%if billing.status != 0%>
+                <%=number_to_currency(billing.amount, precision: 0)%>
+              <%else%>
+                Pending...
+              <%end%>
+              
+            </td>
+            <td class="invoice">View</td>
+          </tr>
         <%end%>
-      </td>
-      <td>
-        <a href="#">View</a>
-      </td>
-    </tr>
-  <%end%>
-</table>
+      </table>
+        <%= paginate @billings %>
+    </div>
+  </div>
+</div>

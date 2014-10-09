@@ -25,7 +25,7 @@
           <li><a href="/users/sign_in">sign in</a></li>
           <li><a href="/users/sign_up">sign up</a></li>
         <%end%>
-        <li class="log-name"><a href="#none"><img src="/assets/main/log-img.png"> bogdan <img src="/assets/main/header-content.png" class="contents"></a></li>
+        <li class="log-name"><%if current_user != nil%><a href="/users/edit"><img src="<%if current_user.avatar == nil%>/assets/main/log-img.png<%else%><%=current_user.avatar.url(:thumb)%><%end%>"> bogdan <img src="/assets/main/header-content.png" class="contents"></a><%end%></li>
       </ul>
     </div>
   </div>
@@ -37,11 +37,9 @@
           Country <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
+          <%Country.all.each do |country|%>
+            <li><a href="#"><%=country.name%></a></li>
+          <%end%>
         </ul>
       </div>
       <div class="btn-group">

@@ -1,82 +1,45 @@
+<script>
+  function new_check(){
+    if ($("input:checkbox[id='first_time']").is(":checked")){
+        $("#detail").show();
+    }
+    else{
+    
+        $("#detail").hide();
+    }
+      
+  }
+</script>
+
 <div class="account">
   <div class="container">
-    <div class="left-list">
-      <div class="list my-account">
-        <h1>My Account</h1>
-        <table>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/account_profile.png"></td>
-            <td class="list-title"><a href="/home/account_profile">Profile</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">            
-            <td class="list-icon"><img src="/assets/my_account/account_company_profile.png"></td>
-            <td class="list-title"><a href="/home/account_company_profile" class="select">Company<br>Profile</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/account_member.png"></td>
-            <td class="list-title"><a href="/home/account_member">Member</a></td>
-          </tr>
-        </table>
-      </div>
-      <div class="list advertisers">
-        <h1>Advertisers</h1>
-        <table>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/advertisers_dashboard.png"></td>
-            <td class="list-title"><a href="/home/account_dashboard">Dashboard</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/advertisers_billing.png"></td>
-            <td class="list-title"><a href="/home/account_billing">Billing</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/advertisers_biddings.png"></td>
-            <td class="list-title"><a href="/home/account_ad_biddings">Biddings</a></td>
-          </tr>
-        </table>
-      </div>
-      
-      <div class="list Publishers">
-        <h1>Publishers</h1>
-        <table>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/publishers_project.png"></td>
-            <td class="list-title"><a href="/home/account_projects">Projects</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
-            <td class="list-title"><a href="/home/account_manage_service">Manage<br>Service</a></td>
-          </tr>
-          <tr onclick="#none" style="cursor: pointer">
-            <td class="list-icon"><img src="/assets/my_account/advertisers_biddings.png"></td>
-            <td class="list-title"><a href="/home/account_pub_biddings">Biddings</a></td>
-          </tr> 
-        </table>
-      </div>
-    </div>
+    <%= render "/home/left"%>
     <div class="right-company-profile">
       <h1>Company Profile</h1>
-        <input type="text" placeholder="Company Name">
-        <input type="text" placeholder="Located In">
-        <input type="text" placeholder="Number of Emplyee">
-        <input type="text" placeholder="Website">
-        <textarea rows="4" placeholder="Company Introduction"></textarea>
+      <form action="/users/company_update" method="post" enctype="multipart/form-data">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <input type="text" name="company_name" data-autocomplete="/home/autocomplete_company_name" placeholder="Company Name" <%if @company != nil%>value="<%=@company.name%>"<%end%>>
+        <%if @company == nil%>
+          <input type="checkbox"  id="first_time" name="first_time" onclick="new_check();">first time company?<br>
+        <%end%>
+        <div id="detail"<%if @company == nil%>style="display:none;"<%end%>>
+          <input type="text" placeholder="Located In" name="located_in" value="<%if @company != nil%><%=@company.location%><%end%>">
+          <input type="text" placeholder="Number of Employee" name="number_of_employee" value="<%if @company != nil%><%=@company.num_employee%><%end%>">
+          <input type="text" placeholder="Website" value="<%if @company != nil%><%=@company.website%><%end%>" name="website">
+          <textarea rows="4" placeholder="Company Introduction" name="company_introduction" ><%if @company != nil%><%= @company.introduction%><%end%></textarea>
+          <%if @company != nil && @company.logo.url != "/logos/original/missing.png"%>
+            <img src="<%=@company.logo.url(:thumb)%>">
+          <%end%>
+            <div class="upload">
+              <input type="file" name="upload" placeholder="load">
+            </div>
+          <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
 
-        <form action="" method="post" enctype="multipart/form-data">
-          <div class="upload">
-            <input type="file" name="upload" placeholder="load">
-          </div>
-        </form>
-        <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
-
-        <form action="" method="post" enctype="multipart/form-data">
-          <div class="upload">
-            <input type="file" name="upload" placeholder="load">
-          </div>
-        </form>
-        <p>Publisher only</p>
+          <p>Publisher only</p>
+        </div>
         <button type="submit" class="btn btn-default">Save</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

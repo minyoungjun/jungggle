@@ -1,29 +1,56 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>   
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="right-profile">
+    <div style="display:none"><form accept-charset="UTF-8" action="/users" class="edit_user" id="edit_user" method="post" enctype="multipart/form-data"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
+      <h1>Profile</h1>
+      <input type="text"placeholder="James" name="last_name" class="short-form" value= "<%=@user.last_name%>">
+      <input type="text" name="first_name" placeholder="Lim" class="short-form" value="<%=@user.first_name%>">
+      <input type="email"name="user[email]" value="<%=@user.email%>" class="long-form">
+      <input type="password" name="user[password_confirmation]" placeholder="New Password" class="long-form">
+      <input type="password" name="user[password]" placeholder="Password Confirmation" class="long-form">
+      <input type="password" name="user[current_password]" placeholder="Current Password" class="long-form">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+        <div class="upload">
+          <input type="file" name="user[avatar]" placeholder="load">
+        </div>
+      <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <p>Receive general news (Featured projects, events) from us</p>
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+<!-- Save Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <p>Your account has been updated</p>
+      <button type="button" class="btn btn-default">Thank's</button>
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
 
-<h3>Cancel my account</h3>
+<script>
+  $('#myModal').modal(options)
+</script>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
