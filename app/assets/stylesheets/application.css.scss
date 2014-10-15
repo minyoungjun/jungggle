@@ -18,7 +18,8 @@
  *= require 'project_results'
  *= require 'cart'
  *= require 'account'
-*= require 'jquery-ui'
+ *= require 'jquery-ui'
+ *= require 'product_card_view'
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
