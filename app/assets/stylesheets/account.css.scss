@@ -331,6 +331,32 @@
         font-size: 15px;
         font-weight: bold;
       }
+      .disapprove {
+        border: 1px solid #eee;
+        border-radius: 10px;
+        background-color: white;
+        padding: 6px 15px;
+        color: #aaa;
+      }
+      .disapprove:hover {
+        border-color: #aaa;
+        color: #888;
+      }
+      .ongoing {
+        color: #5eb12f;
+      }
+      .rejected {
+        color: red;
+      }
+      .incomplete {
+        color: #aaa;
+      }
+      .completed {
+        color: #5eb12f;
+      }
+      .disagreed {
+        color: red;
+      }
     }
   }
 
