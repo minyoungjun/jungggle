@@ -347,20 +347,129 @@
       }
       .rejected {
         color: red;
+        cursor: pointer;
       }
       .incomplete {
         color: #aaa;
       }
       .completed {
         color: #5eb12f;
+        cursor: pointer;
       }
       .disagreed {
         color: red;
       }
+      .message {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/* dashboard : modal */
+.modal {
+
+  /* modla : disapprove */
+  .modal-disapprove {
+    width: 700px;
+    p {
+      color: #999;
+      font-size: 14px;
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 20px 40px;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    .btn-a {
+      background-color: white;
+      color: #888;
+      border: 1px solid #888;
+    }
+    .btn-a:hover {
+      border-color: #5eb12f;
+      color: #5eb12f;
     }
   }
 
+  /* modla : rejected */
+  .modal-rejected {
+    width: 700px;
+    p {
+      color: #999;
+      font-size: 14px;
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 20px 40px;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    .btn-a {
+      background-color: white;
+      color: #888;
+      border: 1px solid #888;
+    }
+    .btn-a:hover {
+      border-color: #5eb12f;
+      color: #5eb12f;
+    }
+  }
+
+  /* modla : completed */
+  .modal-completed {
+    width: 700px;
+    p {
+      color: #999;
+      font-size: 14px;
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 20px 40px;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    .btn-a {
+      background-color: white;
+      color: #888;
+      border: 1px solid #888;
+    }
+    .btn-a:hover {
+      border-color: #5eb12f;
+      color: #5eb12f;
+    }
+  }
+
+  /* modla : message */
+  .modal-message {
+    width: 700px;
+    p {
+      color: #999;
+      font-size: 14px;
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 20px 40px;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+    .btn-a {
+      background-color: white;
+      color: #888;
+      border: 1px solid #888;
+    }
+    .btn-a:hover {
+      border-color: #5eb12f;
+      color: #5eb12f;
+    }
+  }
 }
+
+
+
+
+
 
 
 /* account-billing */

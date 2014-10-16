@@ -55,6 +55,7 @@
       </div>
     </div>
 
+
     <div class="right-dashboard">
       <h1>Dashboard</h1>
       <h3>Ongoing Projects</h3>
@@ -80,8 +81,8 @@
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/mark.png"></td>
-          <td><button type="button" class="disapprove">Disapprove</button></td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td><button type="button" class="disapprove" data-toggle="modal" data-target="#Modal-disapprove">Disapprove</button></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -93,7 +94,7 @@
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/mark.png"></td>
           <td class="ongoing">Ongoing</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td><div class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></div></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -104,8 +105,8 @@
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/mark.png"></td>
-          <td class="rejected">Rejected</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td class="rejected" data-toggle="modal" data-target="#Modal-rejected">Rejected</td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
         </tr>
       </table>
       <h3>Complete Pfojects<span>(You need to fill out the Project Result)</span></h3>
@@ -132,7 +133,7 @@
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/visa.png"></td>
           <td class="incomplete">Incomplete</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -143,8 +144,8 @@
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/visa.png"></td>
-          <td class="completed">Completed</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td class="completed" data-toggle="modal" data-target="#Modal-completed">Completed</td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -156,7 +157,7 @@
           <td class="font-big">$1,000</td>
           <td><img src="/assets/my_account/visa.png"></td>
           <td class="disagreed">Disagreed</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
         </tr>
       </table>
     </div>
@@ -166,6 +167,66 @@
 
 
 
+<!-- disapprove Modal -->
+<div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-disapprove">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Do you really want to request a refund?</h2>
+        <p>Your payment will be fully refunded</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
+        <button type="button" class="btn btn-b">Yes, I want</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
+<!-- rejected Modal -->
+<div class="modal fade" id="Modal-rejected" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-rejected">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Modal-rejected</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
+        <button type="button" class="btn btn-b">Yes, I want</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- completed Modal -->
+<div class="modal fade" id="Modal-completed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-completed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Completed</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
+        <button type="button" class="btn btn-b">Yes, I want</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- message Modal -->
+<div class="modal fade" id="Modal-message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-message">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>message</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
+        <button type="button" class="btn btn-b">Yes, I want</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
