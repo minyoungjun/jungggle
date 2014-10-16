@@ -41,6 +41,7 @@
         left: 0;
         width: 280px;
         height: 360px;
+        cursor: pointer;
         background-color: rgba(0, 0, 0, 0.83);
         color: white;
         text-align: left;
@@ -52,3 +53,74 @@
     }
   }
 }
+
+
+
+
+/* Modal */
+
+.modal-dialog-bidding-pack {
+  margin: 100px auto;
+  .modal-bidding-pack {
+    width: 650px;
+    .modal-header {
+      border-bottom: 0;
+    }
+    .modal-body {
+      text-align: left;
+      padding: 20px 95px;
+      .title {
+        color: #aaa;
+        font-size: 15px;
+        margin: 0 0 10px;
+      }
+      .content {
+        color: #666;
+        font-size: 17px;
+        margin: 0 0 25px;
+        span {
+          color: #5eb12f;
+        }
+      }
+      textarea {
+        border: 1px solid #eee;
+        border-radius: 10px;
+        width: 400px;
+        padding: 15px;
+      }
+      .body-contents {
+        border-top: 2px dotted #ddd;
+        border-bottom: 2px dotted #ddd;
+        padding-bottom: 20px;
+        margin: 25px 0;
+        h4 {
+          font-size: 16px;
+          margin-top: 22px;
+        }
+        input {
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          padding: 15px 18px;
+          width: 400px;
+          margin: 5px 0;
+          font-size: 17px;
+          color: #555;
+        }
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 15px 160px;
+        font-size: 17px;
+        margin: 30px 0 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
