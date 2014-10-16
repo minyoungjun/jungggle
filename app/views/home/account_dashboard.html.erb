@@ -169,7 +169,7 @@
 
 <!-- disapprove Modal -->
 <div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-disapprove">
     <div class="modal-content modal-disapprove">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -185,14 +185,15 @@
 
 <!-- rejected Modal -->
 <div class="modal fade" id="Modal-rejected" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-rejected">
     <div class="modal-content modal-rejected">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>Modal-rejected</h2>
-        <p>내용삽입</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
-        <button type="button" class="btn btn-b">Yes, I want</button>
+        <h1>Your project<br>has rejected by the publisher</h1>
+        <p>With the following reason.<br><span>
+        Your payment will be fully refunded.</span></p>
+        <textarea name="comments" rows="5"></textarea>
+        <button type="button" class="btn" data-dismiss="modal">Confirm</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -200,14 +201,16 @@
 
 <!-- completed Modal -->
 <div class="modal fade" id="Modal-completed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-completed">
     <div class="modal-content modal-completed">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>Completed</h2>
-        <p>내용삽입</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
-        <button type="button" class="btn btn-b">Yes, I want</button>
+        <h1>Project Completed</h1>
+        <p>Publisher insisted that the project has completed 2014.7.21</p>
+        <h1 class="question">Do you Agreed?</h1>
+        <p><span class="agreed">If you agreed, </span>we will tranfer the fee to the publisher, and you can't request the refund anymore.<br><span class="disagreed">If you disagreed, </span>we will investigate whether it is true or not.</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">No, I disagreed!</button>
+        <button type="button" class="btn btn-b">Yes, I agreed!</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -217,7 +220,7 @@
 
 <!-- message Modal -->
 <div class="modal fade" id="Modal-message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-message">
     <div class="modal-content modal-message">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

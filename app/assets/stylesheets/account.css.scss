@@ -370,98 +370,132 @@
 .modal {
 
   /* modla : disapprove */
-  .modal-disapprove {
-    width: 700px;
-    p {
-      color: #999;
-      font-size: 14px;
-    }
-    .btn {
-      border-radius: 10px;
-      padding: 20px 40px;
-      margin: 0 10px;
-      font-size: 16px;
-    }
-    .btn-a {
-      background-color: white;
-      color: #888;
-      border: 1px solid #888;
-    }
-    .btn-a:hover {
-      border-color: #5eb12f;
-      color: #5eb12f;
+  .modal-dialog-disapprove {
+    margin-top: 150px;
+    .modal-disapprove {
+      width: 700px;
+      p {
+        color: #999;
+        font-size: 14px;
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+      .btn-a {
+        background-color: white;
+        color: #888;
+        border: 1px solid #888;
+      }
+      .btn-a:hover {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
     }
   }
 
   /* modla : rejected */
-  .modal-rejected {
-    width: 700px;
-    p {
-      color: #999;
-      font-size: 14px;
-    }
-    .btn {
-      border-radius: 10px;
-      padding: 20px 40px;
-      margin: 0 10px;
-      font-size: 16px;
-    }
-    .btn-a {
-      background-color: white;
-      color: #888;
-      border: 1px solid #888;
-    }
-    .btn-a:hover {
-      border-color: #5eb12f;
-      color: #5eb12f;
+  .modal-dialog-rejected {
+    margin-top: 100px;
+    .modal-rejected {
+      width: 550px;
+      p {
+        color: #999;
+        font-size: 14px;
+        span {
+          color: #5eb12f;
+        }
+      }
+      textarea {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 460px;
+        padding: 15px;  
+        margin-bottom: 20px;
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+      .btn-a {
+        background-color: white;
+        color: #888;
+        border: 1px solid #888;
+      }
+      .btn-a:hover {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
     }
   }
 
   /* modla : completed */
-  .modal-completed {
-    width: 700px;
-    p {
-      color: #999;
-      font-size: 14px;
-    }
-    .btn {
-      border-radius: 10px;
-      padding: 20px 40px;
-      margin: 0 10px;
-      font-size: 16px;
-    }
-    .btn-a {
-      background-color: white;
-      color: #888;
-      border: 1px solid #888;
-    }
-    .btn-a:hover {
-      border-color: #5eb12f;
-      color: #5eb12f;
+  .modal-dialog-completed {
+    margin-top: 100px;
+    .modal-completed {
+      width: 700px;
+      .question {
+        color: #5eb12f;
+        margin-top: 40px;
+      }
+      p {
+        color: #999;
+        font-size: 14px;
+        margin: 30px 0;
+        line-height: 25px;
+        .agreed {
+          color: #5eb12f;
+        }
+        .disagreed {
+          color: red;
+        }
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+      .btn-a {
+        background-color: white;
+        color: #888;
+        border: 1px solid #888;
+      }
+      .btn-a:hover {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
     }
   }
 
   /* modla : message */
-  .modal-message {
-    width: 700px;
-    p {
-      color: #999;
-      font-size: 14px;
-    }
-    .btn {
-      border-radius: 10px;
-      padding: 20px 40px;
-      margin: 0 10px;
-      font-size: 16px;
-    }
-    .btn-a {
-      background-color: white;
-      color: #888;
-      border: 1px solid #888;
-    }
-    .btn-a:hover {
-      border-color: #5eb12f;
-      color: #5eb12f;
+  .modal-dialog-message {
+    margin-top: 150px;
+    .modal-message {
+      width: 700px;
+      p {
+        color: #999;
+        font-size: 14px;
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+      .btn-a {
+        background-color: white;
+        color: #888;
+        border: 1px solid #888;
+      }
+      .btn-a:hover {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
     }
   }
 }
