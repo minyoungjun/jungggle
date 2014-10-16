@@ -1,0 +1,42 @@
+.whoru {
+  padding: 50px 0 100px;
+  h1 {
+    text-align: center;
+    color: #555;
+  }
+  .who-contents {
+    margin: 40px auto;
+    width: 100%;
+    text-align: center;
+    .contents {
+      display: inline-block;
+      width: 500px;
+      padding: 50px;
+      button {
+        background-color: #5eb12f;
+        color: white;
+        padding: 15px 35px;
+        font-size: 17px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+      button:hover {
+        background-color: #4ca826;
+      }
+      p {
+        font-size: 15px;
+        color: #888;
+      }
+      .font-color {
+        color: #5eb12f;
+      }
+    }
+    .left {
+      text-align: right;
+    }
+    .right {
+      border-left: 1px solid #ddd;
+      text-align: left;
+    }
+  }
+}
