@@ -472,6 +472,32 @@
     }
   }
 
+
+  /* modla : i-disagreed */
+  .modal-dialog-i-disagreed {
+    margin: 100px auto 0;
+
+    .modal-i-disagreed {
+      width: 700px;
+      textarea {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 450px;
+        padding: 15px;
+        display: block;
+        margin: 50px auto; 
+      }
+      .btn {
+        border-radius: 10px;
+        padding: 20px 40px;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+    }
+  }
+
+
+
   /* modla : message */
   .modal-dialog-message {
     margin-top: 150px;

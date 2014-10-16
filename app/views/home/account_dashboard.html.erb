@@ -209,13 +209,28 @@
         <p>Publisher insisted that the project has completed 2014.7.21</p>
         <h1 class="question">Do you Agreed?</h1>
         <p><span class="agreed">If you agreed, </span>we will tranfer the fee to the publisher, and you can't request the refund anymore.<br><span class="disagreed">If you disagreed, </span>we will investigate whether it is true or not.</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">No, I disagreed!</button>
-        <button type="button" class="btn btn-b">Yes, I agreed!</button>
+        <button type="button" class="btn btn-a" data-toggle="modal" data-dismiss="modal" data-target="#Modal-i-disagreed">No, I disagreed!</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Yes, I agreed!</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+<!-- i-disagreed Modal -->
+<div class="modal fade" id="Modal-i-disagreed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-i-disagreed">
+    <div class="modal-content modal-i-disagreed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Tell us why you disagreed</h1>
+        <textarea rows="6" placeholder="Please explain based on the fact. What are the things that the publisher didn't performed compared with the initial order." ></textarea>
+        <button type="button" class="btn" data-dismiss="modal">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 <!-- message Modal -->
