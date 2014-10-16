@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'home/account_pub_biddings'  
   get 'advertisers/product_cards_view'
   get 'advertisers/product_table_view'
+  get 'home/home_biddings'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end

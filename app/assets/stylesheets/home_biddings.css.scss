@@ -1,0 +1,54 @@
+.home_biddings {
+  padding: 50px 0 100px;
+  .container {
+    width: 1250px;
+    .bidding-pack {
+      display: inline-block;
+      position: relative;
+      border: 1px solid #ddd;
+      margin: 20px 10px;
+      width: 280px;
+      height: 360px;
+      text-align: center;
+      h5 {
+        margin-top: 25px;
+        color: #5eb12f;
+      }
+      h1 {
+        font-weight: bold;
+        margin: 20px 0;
+      }
+      p {
+        span {
+          color: #aaa;
+        }
+      }
+      .deadline {
+        padding-bottom: 20px;
+      }
+
+      .bidding-pack-hover {
+        display: none;
+      }
+    }
+    
+    .bidding-pack:hover {
+      
+      .bidding-pack-hover {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 360px;
+        background-color: rgba(0, 0, 0, 0.83);
+        color: white;
+        text-align: left;
+        padding: 25px;
+        h2 {
+          margin: 0 0 35px;
+        }
+      }
+    }
+  }
+}
