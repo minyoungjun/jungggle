@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'publishers/create'
   post 'publishers/create_process'
   get 'publishers/manage'
-  get 'products/flat_rate/:id' => "products#flat_rate"
+  get 'products/search_result/:id' => "products#search_result"
   get 'products/cart'
   post 'products/add_cart'
   get 'advertisers/billing'

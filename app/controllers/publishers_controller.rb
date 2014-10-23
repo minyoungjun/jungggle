@@ -33,7 +33,7 @@ before_filter :is_login, :except => [:list]
     cost.amount = params[:cost]
     cost.save
 
-    redirect_to :action => "flat_rate", :controller => "products", :id => product.id
+    redirect_to :action => "search_result", :controller => "products", :id => product.id
 
 
   end

@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  def flat_rate
+
+
+  def search_result
     @product = Product.find(params[:id])
     @company = @product.company
     @products = @company.products
