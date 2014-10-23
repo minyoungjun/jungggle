@@ -151,7 +151,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
   def account_update_params
@@ -165,17 +165,17 @@ class RegistrationsController < Devise::RegistrationsController
   # Be sure to update your create() and update() controller methods.
 
   def user_params
-    params.require(:user).permit(:avatar )
+    params.require(:user).permit(:avatar, :news_mailing )
   end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
       u.permit(:name, 
-        :email, :password, :password_confirmation)
+        :email, :password, :password_confirmation, :news_mailing)
     end
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:name, :avatar, :last_name, :first_name,
-        :email, :password, :password_confirmation, :current_password)
+        :email, :password, :password_confirmation, :current_password, :news_mailing)
     end
   end
 

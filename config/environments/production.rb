@@ -1,5 +1,23 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  #
+  #
+  # General Settings
+  config.app_domain = 'jungggle.com'
+
+  # Email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: config.app_domain }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.test-server.com',
+    port: '587',
+    enable_starttls_auto: true,
+    user_name: 'postmaster@jungggle.com',
+    password: 'e7f03999f6ec3b7e64028f6909a3d7e3',
+    authentication: :plain,
+    domain: 'jungggle.com'
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true

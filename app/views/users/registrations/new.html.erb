@@ -1,12 +1,17 @@
-<div class="signup">
+<div class="signup login">
   <img src="/assets/main/log.png" class="title-logo">
   <h1>Sign Up to continue!</h1>
+  <div class="sns-login-area">
+    <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Sign up with Linkedin</div></a>
+    <a href="<%=user_omniauth_authorize_path(:facebook)%>"><div class="sns-login facebook"><img src="/assets/main/log_facebook.png">Sign up with Facebook</div></a>
+  </div>
+  <h3>or</h3>
 
-  <input class="firstname" placeholder="First name">
-  <input placeholder="Last name">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
+    <input class="firstname" placeholder="First name" name="user[first_name]">
+    <input placeholder="Last name" name="user[last_name]">
 
     <div>
     <%= f.email_field :email, autofocus: true, placeholder: "Email" %></div>

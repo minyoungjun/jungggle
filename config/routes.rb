@@ -17,8 +17,15 @@ Rails.application.routes.draw do
   post 'advertisers/add_credit'
   get 'advertisers/new_bidding'
   post 'advertisers/new_process'
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  get '/publishers/preview/:id' => "publishers#preview"
+
+
+
+  devise_for :users, :controllers => {:registrations => "registrations" , :omniauth_callbacks => "omniauth_callbacks"}
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+
+
+  #get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
   get 'advertisers/project_results'
   get 'advertisers/project_results_detail'
@@ -28,11 +35,11 @@ Rails.application.routes.draw do
   get '/users/company_members' => 'home#account_member'
   get 'home/account_member'
   get 'home/account_dashboard'
-  get 'home/account_billing' 
-  get 'home/account_ad_biddings'
+  #get 'home/account_billing' 
+  #get 'home/account_ad_biddings'
   get 'home/account_projects'
   get 'home/account_manage_service'
-  get 'home/account_pub_biddings'  
+  #get 'home/account_pub_biddings'  
   get 'advertisers/product_cards_view'
   get 'advertisers/product_table_view'
   get 'home/home_biddings'

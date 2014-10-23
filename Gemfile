@@ -7,7 +7,9 @@ gem 'autoprefixer-rails'
 
 #User 관련 devise
 gem 'devise'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 #active admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'kaminari'

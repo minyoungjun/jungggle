@@ -33,7 +33,8 @@ before_filter :is_login, :except => [:list]
     cost.amount = params[:cost]
     cost.save
 
-    render :text => "seccess"
+    redirect_to :action => "flat_rate", :controller => "products", :id => product.id
+
 
   end
   def manage
