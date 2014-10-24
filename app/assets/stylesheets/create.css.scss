@@ -1,0 +1,123 @@
+.create-service {
+  background-color: #f1f1f1;
+  .right-create-service {
+    width: 990px;
+    display: inline-block;
+    background-color: white;
+    float: right;
+    padding: 20px 30px 100px;
+
+    h3 {
+      font-size: 16px;
+      margin: 35px 0 10px;
+    }
+
+
+    .language {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .language-select {
+      background-color: white;
+      color: #5eb12f;
+      border: 1px solid #5eb12f;
+      border-radius: 5px;
+      padding: 5px 12px;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+
+      span {
+        color: gray;
+      }
+    }
+
+    .popover-markup {
+      display: inline-block;
+      margin-left: 20px;
+    }
+
+    input {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin: 15px 5px 25px;
+      font-size: 16px;
+      display: block;
+      width: 450px;
+    }
+    textarea {
+      width: 450px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 13px 18px;      
+      margin: 15px 5px;
+      font-size: 16px;
+    }
+
+    .check {
+      display: inline-block;
+      width: 20px;
+    }
+    .optional {
+      display: inline-block;
+      width: 250px;
+      margin: 15px 10px 25px;
+    }
+    .btn {
+      width: 450px;
+      font-size: 15px;
+      margin: 8px 0;
+      padding: 15px 0;
+      border-radius: 10px;
+    }
+    .btn-a {
+      background-color: #5eb12f;
+      color: white;
+      border: 1px solid #5eb12f;
+    }
+    .btn-b {
+      background-color: white;
+      border: 1px solid red;
+      color: red;
+    }
+    p {
+      margin-top: 30px;
+      font-size: 15px;
+      line-height: 23px;
+      color: #888;
+      span {
+        color: #5eb12f;
+      }
+    }
+  }
+}
+
+
+
+
+
+.popover {
+  max-width: 350px;
+  
+  .popover-content {
+    width: 350px;
+    padding: 22px;
+    p {
+      font-size: 14px;
+      padding: 5px 15px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      display: inline-block;
+      cursor: pointer;
+      margin: 5px;
+    }
+    p:hover {
+      background-color: #5eb12f;
+      color: white;
+      border-color: #5eb12f;
+    }
+  }
+}
+

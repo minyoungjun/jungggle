@@ -1,12 +1,99 @@
-<h1>Create Service</h1>
-<form action="create_process" method="post">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  
+<div class="create-service account">
+  <div class="container">
+    <%= render "/home/left"%>
+
+    <div class="right-create-service">
+      <h1>Create Service</h1>
+      <form action="create_process" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+        <h3 class="language">Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <h5 class="language-select">EN &nbsp;&nbsp;<span>X</span></h5>
+
+        <div class="popover-markup">
+          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483">
+          <div class="content hide" style="top: 280px; left: 389px; display: block;">
+            <p>English</p>
+            <p>Spanish</p>
+            <p>Vitnamese</p>
+            <p>Chinese</p>
+            <p>German</p>
+            <p>Portuguese</p>
+            <p>Japanese</p>
+            <p>French</p>
+            <p>Italian</p>
+            <p>Korean</p>
+            <p>Russian</p>
+            <p>Malay</p>
+          </div>
+        </div>
+
+        
+
+        <input type="text" placeholder="service_name">
+        <h3>Marketing Type</h3>
+        <textarea type="text" placeholder="Service Detail" rows="4"></textarea>
+
+        <h3>Cost</h3>
+        <input type="radio" class="check"> Flat Rate
+        <input type="radio" class="check"> Multiple Rate
+        <input type="text" placeholder="$">
+
+        <input type="checkbox">Minimum Budget
+        <input type="text" placeholder="$">
+        <input type="text" placeholder="Country">
+
+        <h3>[Optional] Attach Document <input type="checkbox" class="check"></h3>
+        <input type="file">
+        1. <input type="text" class="optional"> (주) 게임베리 회사소개.pdf
+        <a href="#none">Delete</a><br>
+        2. <input type="text" class="optional"> CPI Media Kit_2014.ppt
+        <a href="#none">Delete</a><br>
+        3. <input type="text" class="optional"> GameberryIntroduction.pdf
+        <a href="#none">Delete</a><br>
+
+      
+
+
+
+
+
+
+
+
+        <br><br><br><br><br>
+        <h2>Company Introduction</h2>
+        <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
+        <input type="file" name="upload_logo">
+
+        <input type="checkbox"><h5>I have read and agree to the <span>Terms of Use</span> and <span>Privacy Policy</span></h5>
+        <button type="button" class="btn btn-a">Save</button>
+        <br>
+        <button type="button" class="btn btn-b">Delete</button>
+
+      </form>
+
+      <p>
+        I know you will not read full <span>terms.</span> But you should know at least these!<br><br>
+        1. sdflsdjfiejlsdfkjmsdklfwfwefe<br><Br>
+        3. 정글이 광고주로부터 수령하는 실수령 금액 (송금 수수료를 제외한) 중 <br>4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.<Br><br>
+        4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 <br>100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 <Br> 완료된 후에 대금을 지급한다.<br><Br>
+        5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)
+      </p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 
 <table>
   <tr>
-    <td>
-      Language
-    </td>
+    <td>Language</td>
     <td>
       <select name="language">
         <%@languages.each do |lan|%>
@@ -18,23 +105,15 @@
     </td>
   </tr>
   <tr>  
-
-    <td>
-      Service Name
-    </td>
-    <td>
-      <input type="text" name="service_name">
-    </td>
-
+    <td>Service Name</td>
+    <td><input type="text" placeholder="service_name"></td>
   </tr>
   <tr>
-    <td>
-      Marketing Type
-    </td>
+    <td>Marketing Type</td>
     <td>
       <ul>
         <%@marketing.each do |marketing|%>
-          <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
+        <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
         <%if marketing.filter != 4%>
         <li>
           <ul>
@@ -68,17 +147,11 @@
     
   </tr>
   <tr>
-    <td>
-      Service Detail
-    </td>
-    <td>
-      <textarea name="detail"></textarea>
-    </td>
+    <td>Service Detail</td>
+    <td><textarea name="detail"></textarea></td>
   </tr>
   <tr>
-    <td>
-      Cost
-    </td>
+    <td>Cost</td>
     <td>
       <input type="radio" name="cost_rate" value="flat">Flat Rate<br>
       <input type="radio" name="cost_rate" value="multi">Multiple Rate
@@ -87,50 +160,45 @@
     </td>
   </tr>
   <tr>
-    <td>
-      Country
-    </td>
+    <td>Country</td>
     <td>
       <select name="country">
         <%@countries.each do |country|%>
-          <option value ="<%=country.id%>"><%=country.name%></option>
-        <%end%>
-          
-      </td>
-
-    </tr> 
-    <tr>
-      <td>
-        Minimium Budget
-      </td>
-      <td>
-        <input type="checkbox"><input type="text" name="minimum_budget">
-      </td>
-    </tr>
-  <tr>
-    <td>
-      Payment method
+          <option value ="<%=country.id%>">
+            <%=country.name%>
+          </option>
+        <%end%> 
+      </select>
     </td>
+  </tr> 
+  <tr>
+    <td>Minimium Budget</td>
     <td>
-        <% @payments.each do |payment|%>
-          <input type="checkbox" name="payment_<%=payment.id%>" value="<%=payment.id%>"><%=payment.name%></option>
-        <%end%>
+      <input type="checkbox"><input type="text" name="minimum_budget">
+    </td>
+  </tr>
+  <tr>
+    <td>Payment method</td>
+    <td>
+      <% @payments.each do |payment|%>
+        <input type="checkbox" name="payment_<%=payment.id%>" value="<%=payment.id%>"><%=payment.name%></option>
+      <%end%>
     </td>
   </tr>
 </table>
-<h2>Company Introduction</h2>
-<input type="text" placeholder="Company Name" name="company_name"><br>
-<input type="file" name="upload_logo"><br>
-<input type="submit"><br>
-</form>
-<a href="#">
-  Delete
-</a><br>
-I know you will not read full terms.. But you should know at least these!<br>
-1. sdflsdjfiejlsdfkjmsdklfwfwefe<br>
+-->
 
-3. 정글이 광고주로부터 수령하는 실수령 금액 (송금 수수료를 제외한) 중 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.<br>
 
-4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 완료된 후에 대금을 지급한다.
-<br>
-5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result) <br>
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+});
+</script>
