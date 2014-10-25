@@ -39,9 +39,17 @@
         <input type="radio" class="check"> Multiple Rate
         <input type="text" placeholder="$">
 
-        <input type="checkbox">Minimum Budget
+        
+
+        <h3>Minimum Budget<input type="checkbox" class="check"></h3>
         <input type="text" placeholder="$">
-        <input type="text" placeholder="Country">
+        <input type="text" placeholder="Country" class="country-input">
+
+
+        <img src="/assets/my_account/circle_question_gray.png" type="button" class="popover-hide country-q" data-container="body" data-toggle="popover" data-placement="top" data-content="This is your very own Campaign Monitor URL where you and your dlients will login to your account.">
+
+
+        <img src="/assets/my_account/circle_plus.png" class="country-plus">
 
         <h3>[Optional] Attach Document <input type="checkbox" class="check"></h3>
         <input type="file">
@@ -52,21 +60,12 @@
         3. <input type="text" class="optional"> GameberryIntroduction.pdf
         <a href="#none">Delete</a><br>
 
-      
-
-
-
-
-
-
-
-
         <br><br><br><br><br>
         <h2>Company Introduction</h2>
         <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
         <input type="file" name="upload_logo">
 
-        <input type="checkbox"><h5>I have read and agree to the <span>Terms of Use</span> and <span>Privacy Policy</span></h5>
+        <h5><input type="checkbox" class="check"> I have read and agree to the <span>Terms of Use</span> and <span>Privacy Policy</span></h5>
         <button type="button" class="btn btn-a">Save</button>
         <br>
         <button type="button" class="btn btn-b">Delete</button>
@@ -200,5 +199,8 @@
     },
     container: 'body',
     placement: 'bottom'
-});
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
 </script>
