@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023080409) do
+ActiveRecord::Schema.define(version: 20141026215848) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,6 +107,13 @@ ActiveRecord::Schema.define(version: 20141023080409) do
     t.datetime "updated_at"
   end
 
+  create_table "details", force: true do |t|
+    t.integer  "product_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "identities", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -137,6 +144,7 @@ ActiveRecord::Schema.define(version: 20141023080409) do
 
   create_table "languages", force: true do |t|
     t.string   "name"
+    t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -172,17 +180,39 @@ ActiveRecord::Schema.define(version: 20141023080409) do
     t.datetime "updated_at"
   end
 
+  create_table "procons", force: true do |t|
+    t.integer  "country_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.integer  "user_id"
-    t.integer  "language_id"
     t.integer  "country_id"
     t.integer  "marketingtype_id"
     t.integer  "company_id"
     t.string   "name"
-    t.text     "service_detail"
     t.boolean  "saved"
     t.integer  "minimun_budget"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "proimages", force: true do |t|
+    t.integer  "detail_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  create_table "prolangs", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

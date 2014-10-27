@@ -1,30 +1,58 @@
+<script>
+  
+  function languagebox(lang){
+    var lang_nick = lang.getAttribute("data-nickname");
+    var lang_id = lang.getAttribute("data-language");
+
+    $("#selected_languages").append("<h5 class='language-select'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></h5>");
+    $(".p_language_" + String(lang_id)).css('display', 'none');
+    $(".trigger").trigger("click");
+    $(".trigger").trigger("click");
+    $("#check_" + lang_id).attr("checked", true);
+    return false;
+  }
+
+  function languagedelete(lang){
+    var lang_id = lang.getAttribute("data-delete");
+    $(".p_language_" + String(lang_id)).css('display', 'inline-block');
+    $(lang).parent().hide();
+    $(".trigger").trigger("click");
+    $(".trigger").trigger("click");
+    $("#check_" + lang_id).attr("checked", false);
+    return false;
+
+  }
+
+$(document).ready(function(){
+    $('.p_language_1').trigger("click");
+    });
+
+
+</script>
+
 <div class="create-service account">
   <div class="container">
     <%= render "/home/left"%>
 
     <div class="right-create-service">
       <h1>Create Service</h1>
-      <form action="create_process" method="post">
+      <form action="create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-
+        <div style="display:none;">
+          <%Language.all.each do |lang|%>
+            <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
+          <%end%>
+        </div>
         <h3 class="language">Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-        <h5 class="language-select">EN &nbsp;&nbsp;<span>X</span></h5>
+        <span id="selected_languages" >
+        </span>
 
         <div class="popover-markup">
           <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483">
           <div class="content hide" style="top: 280px; left: 389px; display: block;">
-            <p>English</p>
-            <p>Spanish</p>
-            <p>Vitnamese</p>
-            <p>Chinese</p>
-            <p>German</p>
-            <p>Portuguese</p>
-            <p>Japanese</p>
-            <p>French</p>
-            <p>Italian</p>
-            <p>Korean</p>
-            <p>Russian</p>
-            <p>Malay</p>
+            <%Language.all.each do |language|%>
+              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+            <%end%>
           </div>
         </div>
 
@@ -32,19 +60,107 @@
 
         <input type="text" placeholder="service_name">
         <h3>Marketing Type</h3>
-        <textarea type="text" placeholder="Service Detail" rows="4"></textarea>
+
+      <ul>
+        <%@marketing.each do |marketing|%>
+        <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
+        <%if marketing.filter != 4%>
+        <li>
+          <ul>
+            <%marketing.child_types.each do |marketing2|%>
+              <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
+              <%if marketing2.filter != 4%>
+              <li>
+                <ul>
+                  <%marketing2.child_types.each do |marketing3|%>
+                    <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
+                    <%if marketing3.filter != 4%>
+                    <li>
+                      <ul>
+                        <%marketing3.child_types.each do |marketing4|%>
+                          <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
+                        <%end%>
+                      </ul>
+                    </li>
+                    <%end%>
+                  <%end%>
+                </ul>
+                </li>
+                <%end%>
+              <%end%>
+              </ul>
+          </li>
+          <%end%>
+        <%end%>
+      </ul>
+      <h3>Service Detail</h3>
+      <div id="detail_box">
+        <input type="text" style="display:inline-block;" placeholder="Service Detail" id="service_detail_0" name="service_detail_0">
+        <div class="btn" onclick="$('#detail_photo_0').trigger('click');" style="display:none; width:150px;" id="image_name_0"></div>
+        <div class="btn btn-a" onclick="$('#detail_photo_0').trigger('click');" style="display:inline-block; width:150px;" id="add_image_0">Add Image</div>
+        <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
+      </div>
+      <script>
+        var detail_num = 1;
+        function add_photo(num){
+          $('#detail_photo_' + num).trigger('click');
+        }
+    function add_detail(){
+      $("#detail_box").append('<input type="text" style="display:inline-block;" placeholder="Service Detail" id="service_detail_' + detail_num + '" name="service_detail_' + detail_num + '"><div class="btn" onclick="add_photo(' + detail_num + '" style="display:none; width:150px;" id="image_name_' + detail_num + '"></div><div class="btn btn-a" onclick="add_photo(' + detail_num + ')" style="width:150px;" id="add_image_' + detail_num + '">Add Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');">');
+        detail_num = detail_num + 1;
+      }
+      </script>
+      <img src="/assets/my_account/circle_plus.png" onclick="add_detail();"/>
+      <script>
+      
+      function onchange_image(num){
+        $('#image_name_' + num).html($('#detail_photo_' + num).val().replace(/^.*[\\\/]/, ''));
+        $('#add_image_' + num).html('Change Image');
+        $('#image_name_' + num).show();
+
+      }
+      </script>
 
         <h3>Cost</h3>
-        <input type="radio" class="check"> Flat Rate
-        <input type="radio" class="check"> Multiple Rate
-        <input type="text" placeholder="$">
+        <input type="radio" class="cost_radio check" name="cost" class="cost_radio" id="flat_rate" value="0" checked="true"> Flat Rate
+        <input type="radio" class="cost_radio check" name="cost" class="cost_radio" id="multiple_rate" value="1"> Multiple Rate
+        <input type="text" placeholder="$" name="cost_0">
+        <div id="multiple_box" style="display:none;">
+          <div id="multiple_input">
+          </div>
+          <img src="/assets/my_account/circle_plus.png" onclick="add_cost();"/>
+        </div>
+        <script>
+          $(".cost_radio").click(function(){
+            if($("#multiple_rate").is(":checked")){
+              $("#multiple_box").show();
+            }else{
+                $("#multiple_box").hide();
+              }
+              });
+          var cost_num = 1;
+          function add_cost(){
+            $("#multiple_input").append('<input type="text" placeholder="$" name="cost_' + cost_num + '">');
+            cost_num = cost_num + 1;
+          }
+        </script>
 
-        
-
-        <h3>Minimum Budget<input type="checkbox" class="check"></h3>
-        <input type="text" placeholder="$">
-        <input type="text" placeholder="Country" class="country-input">
-
+        <h3>Minimum Budget<input type="checkbox" class="check" id="minimum_budget"></h3>
+        <div id="minimum_box" style="display:none;">
+          <input type="text" placeholder="$" name="budget">
+        </div>
+        <script>
+          $("#minimum_budget").click(function(){
+              if($("#minimum_budget").is(":checked")){
+                $("#minimum_box").show();
+                
+                }else{
+                $("#minimum_box").hide();
+                    
+                }
+          });
+        </script>
+        <input type="text" placeholder="Country" class="country-input" name="country">
 
         <img src="/assets/my_account/circle_question_gray.png" type="button" class="popover-hide country-q" data-container="body" data-toggle="popover" data-placement="top" data-content="This is your very own Campaign Monitor URL where you and your dlients will login to your account.">
 
@@ -68,9 +184,10 @@
         <h5><input type="checkbox" class="check"> I have read and agree to the <span>Terms of Use</span> and <span>Privacy Policy</span></h5>
         <button type="button" class="btn btn-a">Save</button>
         <br>
+      </form>
+
         <button type="button" class="btn btn-b">Delete</button>
 
-      </form>
 
       <p>
         I know you will not read full <span>terms.</span> But you should know at least these!<br><br>

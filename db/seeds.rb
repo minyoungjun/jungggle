@@ -8,8 +8,13 @@
 #
 #
 lan_array = ["English", "Spanish", "Vietnamese", "Chinese", "German", "Portuguese", "Japanese", "French", "Italian", "Korean", "Russian", "Malay"]
+lan_nick = ["EN", "SP", "VI", "CH", "GE", "PO", "JP", "FR", "IT", "KO", "RU", "MA"]
+lan_num = 0
 lan_array.each do |lan|
-  Language.create(name: lan)
+  lan = Language.create(name: lan)
+  lan.nickname = lan_nick[lan_num]
+  lan.save
+  lan_num = lan_num + 1
 end
 
 market_array = ["Ads", "Promotion", "Management", "Test", "Material"]
