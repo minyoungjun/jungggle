@@ -46,6 +46,7 @@ class HomeController < ApplicationController
   end
 
   def main
+    @main = true
   end
 
   def who
