@@ -21,8 +21,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations" , :omniauth_callbacks => "omniauth_callbacks"}
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
-
+  match '/users/signup_process' => 'users#signup_process', via: [:get]
+  post '/users/confirm' => 'users#confirm'
 
   #get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'

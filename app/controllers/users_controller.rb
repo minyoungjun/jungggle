@@ -1,6 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def confirm
+    this_user = current_user
+    if !(current_user.email_confirmed)
+      this_user.email_confirmed = true
+      this_user.save
+      this_user.update(user_params)
+      sign_in(this_user, :bypass => true)
+
+    end
+    redirect_to "/users/edit"
+  end
+  def signup_process
+    @user = current_user
+  end
+
   # GET /users/:id.:format
   def show
     # authorize! :read, @user
@@ -56,7 +71,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      accessible = [ :name, :email ] # extend with your own params
+      accessible = [:first_name, :last_name, :email, :news_mailing] # extend with your own params
       accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
       params.require(:user).permit(accessible)
     end

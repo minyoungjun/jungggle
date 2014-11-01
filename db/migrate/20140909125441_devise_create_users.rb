@@ -6,13 +6,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :credit, default: 0
       ## Database authenticatable
       t.string :email,              null: false, default: ""
+      t.boolean :email_confirmed, default: false
       t.string :encrypted_password, null: false, default: ""
       t.string  :first_name, null: false, default: ""
       t.string  :last_name, null: false, default: ""
 
       #mailing
-      t.boolean :news_mailing
-      t.boolean :bidding_mailing
+      t.boolean :news_mailing #Receive general news (Featured projects, events) from us
+      t.boolean :bidding_mailing #이건 비딩 있을 때
 
 
       ## Recoverable

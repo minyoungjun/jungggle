@@ -1,0 +1,27 @@
+<div class="account">
+  <div class="container">
+    <div class="right-profile">
+    <div style="display:none"><form accept-charset="UTF-8" action="/users/confirm" method="post" ><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>
+      <h2>Complete the form below for sign up</h2>
+      <input type="text" name="user[first_name]" placeholder="James" class="short-form" value="<%=@user.first_name%>">
+      <input type="text" placeholder="Lim" name="user[last_name]" class="short-form" value= "<%=@user.last_name%>">
+      <input type="email"name="user[email]" class="long-form" placeholder="Email">
+      <input type="password" name="user[password_confirmation]" placeholder="Password" class="long-form">
+      <input type="password" name="user[password]" placeholder="Password Confirmation" class="long-form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="user[news_mailing]" <%if current_user.news_mailing%>checked="true"<%end%>>
+          <p>Receive general news (Featured projects, events) from us</p>
+        </label>
+      </div>
+      <%#<div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
+        </label>
+        </div>%>
+      <button type="submit" class="btn btn-default">Save</button>
+      </form>
+    </div>
+  </div>
+</div>

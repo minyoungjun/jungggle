@@ -1,3 +1,4 @@
+require "open-uri"
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
@@ -24,6 +25,10 @@ class User < ActiveRecord::Base
 
 validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
+  def avatar_from_url(url)
+    self.avatar = open(url)
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
@@ -47,6 +52,8 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
       # Create the user if it's a new registration
       if user.nil?
+        puts "-------"
+        puts auth
         user = User.new(
           first_name: auth.info.first_name,
           last_name: auth.info.last_name,
@@ -54,7 +61,10 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        
+
+        if auth.provider == "linkedin"
+          user.avatar_from_url auth.extra.raw_info.pictureUrl
+        end
         user.save!
       end
     end

@@ -18,6 +18,8 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     resource_saved = resource.save
+    resource.email_confirmed = true
+    resource.save
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?
@@ -125,7 +127,12 @@ class RegistrationsController < Devise::RegistrationsController
   # The path used after sign up. You need to overwrite this method
   # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
-    after_sign_in_path_for(resource)
+    if current_user.identities.count == 0
+
+      after_sign_in_path_for(resource)
+    else
+      "/users/edit"
+    end
   end
 
   # The path used after sign up for inactive accounts. You need to overwrite
