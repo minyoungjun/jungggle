@@ -23,40 +23,138 @@
     background-color: white;
     padding-left: 10px;
     display: inline-block;
-    border: 1px solid #eee;
-    border-radius: 10px;
-
     margin-top: 20px;
+    padding-left: 0;
 
-    $select-height: 50px;
-    $select-width: 200px;
-    $seletc-font-size: 14px;
 
-    select {
-      width: $select-width;
-      height: $select-height;
+    .drop {
       background-color: white;
-      border: 0;
-      font-size: $seletc-font-size;
+      display: inline-block;
+      text-align: left;
+      position: relative;
+    }
+
+    .country {
+      width: 150px;
+      border: 1px solid #eee;
+      border-radius: 10px 0 0 10px;
+   
+      h3 {
+        font-size: 14px;
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+      .country-down {
+        display: none;
+        width: 150px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+          li {
+            padding: 3px 15px;
+          }
+          li:hover {
+            color: #5bb33a;
+          }
+        }
+      }
+    }
+    .country:hover {
+      border-color: #5bb33a;
+      h3 {
+        color: #5bb33a;
+      }
+      .country-down {
+        display: block;
+      }
+    }
+
+    .marketing {
+      width: 230px;
+      border: 1px solid #eee;
+      h3 {
+        font-size: 14px;
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+      .marketing-down {
+        display: none;
+        width: 150px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+          li {
+            padding: 10px 15px;
+          }
+          li:hover {
+            color: #5bb33a;
+          }
+          .division-hover {
+            display: none;
+            border: 1px solid #eee;
+            width: 450px;
+            position: absolute;
+            left: 148px;
+            top: 26px;
+            color: #333;
+
+            ul {
+              display: inline-block;
+              padding: 10px;
+              li {
+                padding: 2px 15px;
+              }
+              .title {
+                font-size: 16px;
+                padding-bottom: 10px;
+              }
+            }
+          }
+
+          .division:hover {
+            .division-hover {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .marketing:hover {
+      border-color: #5bb33a;
+      h3 {
+        color: #5bb33a;
+      }
+      .marketing-down {
+        display: block;
+      }
     }
 
     input {
-      width: $select-width;
-      height: $select-height;
-      border: 0;
+      width: 200px;
+      height: 57px;
       padding-left: 10px;
-      font-size: $seletc-font-size;
-
+      font-size: 14px;
+      border: 1px solid #eee;
+      position: relative;
+      bottom: 1px;
     }
     button {
       background-color: #5bb33a;
       color: white;
       width: 170px;
-      padding: 15px 0;
+      padding: 16px 0;
       margin: 0;
       border: 0;
       border-radius: 0 10px 10px 0;
-      font-size: $seletc-font-size + 3px;
+      font-size: 17px;
       img {
         position: relative;
         margin-left: 10px;
