@@ -614,7 +614,7 @@
   margin: 0 auto;
   width: 760px;
   .invoice-header {
-    width: 750px;
+
     margin-bottom: 25px;
     h2 {
       display: inline-block;
@@ -649,6 +649,7 @@
   .seller {
     text-align: right;
     margin-left: 400px;
+    float: right;
   }
   .invoice-table {
     margin: 50px 0 100px;

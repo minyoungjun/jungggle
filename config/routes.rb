@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get 'home/search'
   get 'home/whoru'
   get 'home/account_billing_invoice'
+  get 'home/account_billing_receipt'  
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
