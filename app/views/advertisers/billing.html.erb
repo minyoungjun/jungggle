@@ -11,7 +11,7 @@
 
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
             <input type="text" class="add" placeholder="$" name="amount">
-            <input type="submit" class="btn btn-default" value="Checkout Now">
+            <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now">Checkout Now</div>
         </div>
       </div>
       </form>
@@ -45,3 +45,85 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<!-- Checkout-Now Modal -->
+<div class="modal fade" id="Checkout-Now" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-Checkout-Now">
+    <div class="modal-content modal-Checkout-Now">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Cash Out Information</h1>
+        <h3 class="sub-title">Please insert the accurate bank information.</h3>
+        <p>Account Number
+          <input type="text" placeholder="40907653304010">
+        </p>
+        <p>SWIFT Code
+          <input type="text" placeholder="IBKOKRSEXXX">
+        </p>
+        <p>Beneficiary Name
+          <input type="text" placeholder="Jungggle Inc.">        
+        </p>
+        <p>Baneficiary Address
+          <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu, Korea">
+        </p>
+        <p>Bank Name
+          <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
+        </p>
+        <p>Bank Address
+          <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
+        </p>
+        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+        <button type="button" class="cash-out-btn add-credit" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+      </div>
+      <div class="modal-footer">
+        <h3>1. We cash out via wire transfer every <span>Friday.</span></h3>
+        <h3>2. All </h3>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- add-credit-Modal -->
+<div class="modal fade" id="Modal-add-credit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit">
+    <div class="modal-content modal-add-credit">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>add-credit</h1>
+        <h3 class="sub-title">Please insert the accurate bank information.</h3>
+        <p>Account Number
+          <input type="text" placeholder="40907653304010">
+        </p>
+        <p>SWIFT Code
+          <input type="text" placeholder="IBKOKRSEXXX">
+        </p>
+        <p>Beneficiary Name
+          <input type="text" placeholder="Jungggle Inc.">        
+        </p>
+        <p>Baneficiary Address
+          <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu, Korea">
+        </p>
+        <p>Bank Name
+          <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
+        </p>
+        <p>Bank Address
+          <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
+        </p>
+        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="cash-out-btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-cash-out">Cash Out</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Yes, I agreed!</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

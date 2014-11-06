@@ -566,12 +566,14 @@
         padding: 5px 10px;
         margin: 0 15px;
       }
-      .btn {
+      .checkout-btn {
         background-color: #5eb12f;
         color: white;
         border: 0;
         border-radius: 10px;
         padding: 6px 20px;
+        width: 134px;
+        display: inline-block;
       }
     }  
   }
@@ -606,6 +608,56 @@
     }
   }
 }
+
+/* Billing-Checkout_Now-modal */
+.modal {
+  /* modla : Checkout-now[Cash_out] */
+  .modal-dialog-Checkout-Now {
+    margin-top: 150px;
+
+    .modal-Checkout-Now {
+      width: 600px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+        }
+        .sub-title {
+          font-size: 15px;
+          color: #aaa;
+          margin-bottom: 40px;
+        }
+        p {
+          width: 460px;
+          text-align: left;
+          font-size: 15px;
+          color: #555;
+          margin: 10px auto;
+          padding: 15px 0;
+
+          input {
+            float: right;
+            position: relative;
+            bottom: 10px;
+            padding: 10px;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #ccc;
+          }
+        }
+        h5 {
+          font-size: 13px;
+          line-height: 20px;
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+
 
 
 /*account-billing-invoice*/
