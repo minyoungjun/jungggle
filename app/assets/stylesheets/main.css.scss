@@ -9,7 +9,7 @@
 .main {
   position: relative;
   text-align: center;
-  padding: 150px 0 300px;
+  padding: 150px 0 350px;
 
 
   .subheadline {
@@ -38,7 +38,8 @@
       width: 150px;
       border: 1px solid #eee;
       border-radius: 10px 0 0 10px;
-   
+      position: relative;
+      left: 4px;
       h3 {
         font-size: 14px;
         margin: 20px 0;
@@ -50,21 +51,51 @@
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
-
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        padding-top: 10px;
+        cursor: pointer;
         ul {
           list-style: none;
           padding-left: 0;
           li {
             padding: 3px 15px;
+            color: #bbb;
+            font-size: 13px;
           }
           li:hover {
             color: #5bb33a;
+          }
+          .title {
+            color: #777;
+          }
+          hr {
+            margin: 3px 15px;
+          }
+          .other {
+            .other-tooltip {
+              display: none;
+              border: 1px solid #eee;
+              border-radius: 5px;
+              position: absolute;
+              left: 170px;
+              bottom: -18px;
+              color: #ccc;
+              width: 250px;
+              padding: 10px 13px;
+              background-color: white;
+            }
+          }
+          .other:hover {
+            .other-tooltip {
+              display: block;
+            }
           }
         }
       }
     }
     .country:hover {
       border-color: #5bb33a;
+      z-index: 100;
       h3 {
         color: #5bb33a;
       }
@@ -87,15 +118,24 @@
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
-
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
         ul {
           list-style: none;
           padding-left: 0;
           li {
             padding: 10px 15px;
+            color: #bbb;
+            font-size: 13px;
           }
           li:hover {
             color: #5bb33a;
+          }
+          .title {
+            color: #777;
+          }
+          hr {
+            margin: 3px 15px;
           }
           .division-hover {
             display: none;
@@ -105,7 +145,7 @@
             left: 148px;
             top: 26px;
             color: #333;
-
+            padding: 5px 10px;
             ul {
               display: inline-block;
               padding: 10px;
@@ -115,6 +155,7 @@
               .title {
                 font-size: 16px;
                 padding-bottom: 10px;
+                color: #777;
               }
             }
           }
@@ -129,6 +170,7 @@
     }
     .marketing:hover {
       border-color: #5bb33a;
+      z-index: 100;
       h3 {
         color: #5bb33a;
       }
@@ -137,15 +179,49 @@
       }
     }
 
-    input {
+    .cost {
+      display: inline-block;
       width: 200px;
-      height: 57px;
-      padding-left: 10px;
-      font-size: 14px;
       border: 1px solid #eee;
       position: relative;
       bottom: 1px;
+      font-size: 14px;
+      right: 4px;
+      input {
+        border: 0;
+        padding-left: 10px;
+        height: 55px;
+      }
+      .cost-hover {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        padding-left: 10px;
+        background-color: white;
+        input {
+          width: 60px;
+          display: inline-block;
+          margin: 0 3px;
+        }
+      }
+      h5 {
+        display: none;
+        color: #5bb33a;
+        position: absolute;
+        left: 10px;
+      }
     }
+    .cost:hover {
+      border-color: #5bb33a;
+      .cost-hover {
+        display: block;
+        color: #5bb33a;
+      }
+      h5 {
+        display: block;
+      }
+    }
+    
     button {
       background-color: #5bb33a;
       color: white;
@@ -155,6 +231,8 @@
       border: 0;
       border-radius: 0 10px 10px 0;
       font-size: 17px;
+      position: relative;
+      right: 7px;
       img {
         position: relative;
         margin-left: 10px;
