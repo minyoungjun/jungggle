@@ -4,18 +4,20 @@
     var lang_nick = lang.getAttribute("data-nickname");
     var lang_id = lang.getAttribute("data-language");
 
-    $("#selected_languages").append("<h5 class='language-select'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></h5>");
+    $("#selected_languages").append("<h5 class='language-select' id='language-select-" + lang_id + "' onclick='language_click(" + lang_id + ");'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></h5>");
+
     $(".p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
-    $(".trigger").trigger("click");
+    $('.popover').hide();
     $("#check_" + lang_id).attr("checked", true);
+    language_click(lang_id);
     return false;
   }
 
   function languagedelete(lang){
     var lang_id = lang.getAttribute("data-delete");
     $(".p_language_" + String(lang_id)).css('display', 'inline-block');
-    $(lang).parent().hide();
+    $(lang).parent().remove();
     $(".trigger").trigger("click");
     $(".trigger").trigger("click");
     $("#check_" + lang_id).attr("checked", false);
@@ -25,11 +27,18 @@
 
 $(document).ready(function(){
     $('.p_language_1').trigger("click");
+    $(".trigger").trigger("click");
     });
 
-
+function language_click(id){
+  $('.service_name').hide();
+  $('#title_' + String(id)).show();
+  $('.language-select').css('color','#5eb12f');
+  $('.language-select').css('background-color','white');
+  $('#language-select-' + String(id)).css('background-color','#5eb12f');
+  $('#language-select-' + String(id)).css('color','white');
+}
 </script>
-
 <div class="create-service account">
   <div class="container">
     <%= render "/home/left"%>
@@ -48,7 +57,7 @@ $(document).ready(function(){
         </span>
 
         <div class="popover-markup">
-          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483">
+          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
           <div class="content hide" style="top: 280px; left: 389px; display: block;">
             <%Language.all.each do |language|%>
               <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
@@ -56,9 +65,9 @@ $(document).ready(function(){
           </div>
         </div>
 
-        
-
-        <input type="text" placeholder="service_name">
+        <%Language.all.each do |language|%>
+          <input type="text" placeholder="service_name in <%=language.name%>" id="title_<%=language.id%>" name="title"class="service_name">
+        <%end%>
         <h3>Marketing Type</h3>
 
       <ul>
@@ -93,10 +102,18 @@ $(document).ready(function(){
           <%end%>
         <%end%>
       </ul>
+
+
+<script type="text/javascript">
+</script>
+
       <h3>Service Detail</h3>
       <div id="detail_box">
         <input type="text" style="display:inline-block;" placeholder="Service Detail" id="service_detail_0" name="service_detail_0">
         <div class="btn" onclick="$('#detail_photo_0').trigger('click');" style="display:none; width:150px;" id="image_name_0"></div>
+
+<div id="imagepreview_0" style="width:100px; height:100px;display:inline-block;" class="btn"></div>
+
         <div class="btn btn-a" onclick="$('#detail_photo_0').trigger('click');" style="display:inline-block; width:150px;" id="add_image_0">Add Image</div>
         <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
       </div>
@@ -114,9 +131,25 @@ $(document).ready(function(){
       <script>
       
       function onchange_image(num){
+
+        var files = !!$('#detail_photo_' + num).files ? $('#detail_photo_' + num).files : [];
+
         $('#image_name_' + num).html($('#detail_photo_' + num).val().replace(/^.*[\\\/]/, ''));
         $('#add_image_' + num).html('Change Image');
         $('#image_name_' + num).show();
+
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+ 
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+ 
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagepreview_" + num).css("background-image", "url("+$('#detail_photo_' + num).result+")");
+            }
+        }
+
+
 
       }
       </script>

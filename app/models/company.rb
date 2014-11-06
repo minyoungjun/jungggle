@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  translates :name, :location, :introduction
   validates :logo,
     attachment_content_type: { content_type: /\Aimage\/.*\Z/ },
     attachment_size: { less_than: 5.megabytes }

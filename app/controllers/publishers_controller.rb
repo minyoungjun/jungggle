@@ -10,6 +10,8 @@ before_filter :is_login, :except => [:list]
   end
 
   def create_process
+
+
 =begin
     company = Company.new
     company.name = params[:company_name]
@@ -22,12 +24,11 @@ before_filter :is_login, :except => [:list]
 
     product = Product.new
     product.user_id = current_user.id
-
-
+    
     product.name = params[:service_name]
     product.marketingtype_id = params[:marketing_type]
     product.service_detail = params[:detail]
-    product.status = 1
+    product.status = 1 #0: off , 1:on, 2:etc
     product.save
 
     Language.all.each do |lang|

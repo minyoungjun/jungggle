@@ -10,9 +10,14 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+
 #active admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'kaminari'
+
+#product Globalize
+gem 'globalize', '~> 4.0.2'
+gem 'globalize-accessors'
 
 #image_upload
 gem 'paperclip'

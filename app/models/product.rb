@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  translates :title
   belongs_to :user
   belongs_to  :marketingtype
   belongs_to :company
