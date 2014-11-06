@@ -608,6 +608,118 @@
 }
 
 
+/*account-billing-invoice*/
+.invoice {
+  padding: 60px 0 100px;
+  margin: 0 auto;
+  width: 760px;
+  .invoice-header {
+    width: 750px;
+    margin-bottom: 25px;
+    h2 {
+      display: inline-block;
+      text-align: right;
+      color: #666;
+      font-size: 20px;
+      margin: 7px 0 0;
+      float: right;
+      span {
+        color: #999;
+        font-size: 15px;
+      }
+    }  
+  }
+  
+  .receipt {
+    display: inline-block;
+    h3 {
+      color: #5eb12f;
+      font-size: 18px;
+      line-height: 25px;
+      span {
+        color: #555;
+      }
+    }
+    p {
+      color: #999;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+  }
+  .seller {
+    text-align: right;
+    margin-left: 400px;
+  }
+  .invoice-table {
+    margin: 50px 0 100px;
+    width: 760px;
+    table {
+      border-bottom: 3px solid #666;  
+
+      tr {
+        td {
+          color: #aaa;
+          padding: 10px 13px;
+          font-size: 15px;
+        }
+        .name {
+          width: 400px;
+        }
+        .cost {
+          width: 120px;
+          text-align: center;
+        }
+        .qty {
+          width: 120px;
+          text-align: center;
+        }
+        .total {
+          width: 120px;
+          text-align: right;
+        }
+      }
+      .table-head {
+        border-bottom: 1px solid #666;
+        td {
+          font-weight: bold;
+          color: #666;
+        }
+      }
+    }
+    h3 {
+      text-align: right;
+      font-size: 18px;
+      padding-right: 15px;
+      margin: 20px 0;
+      span {
+        color: #5eb12f;
+      }
+    }
+  }
+  .bank-info {
+    h3 {
+      font-size: 18px;
+    }
+    .title {
+      width: 200px;
+    }
+    p {
+      margin-bottom: 0;
+      display: inline-block;
+      color: #999;
+    }
+  }
+  .invoice-footer {
+    border-top: 1px solid #555;
+    width: 760px;
+    text-align: right;
+    margin-top: 80px;
+    padding-top: 10px;
+  }
+}
+
+
+
 /* account-ad-biddings */
 .right-ad-biddings {
   width: 990px;
