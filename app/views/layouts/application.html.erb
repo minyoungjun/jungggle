@@ -55,39 +55,94 @@ woopra.track();
   <div class="nav" <%if @main %>style="display:none;"<%end%>>
     <div class="container">
       <!-- 단버튼 -->
-      <div class="btn-group">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      <div class="btn-group country">
+        <button type="button" class="btn dropdown-toggle">
           Country <span class="caret"></span>
         </button>
+        <div class="country-down">
+          <ul>
+            <li class="title">All</li><hr>
+            <li>Australia</li>
+            <li>Austria</li>
+            <li>China</li>
+            <li>Japan</li>
+            <li>South Africa</li>
+            <li>South Korea</li>
+            <li>United States</li>
+            <li>Vietnam</li><hr>
+            <li class="title other">
+              Other Countries..
+              <div class="other-tooltip">
+                Countries are still adding whenever Publisher create service on particular country.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 
         <ul class="dropdown-menu" role="menu">
           <%Country.all.each do |country|%>
             <li><a href="#"><%=country.name%></a></li>
           <%end%>
-        </ul>
+        </ul> 
+        -->
       </div>
-      <div class="btn-group">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-          Marketin type <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+      <div class="btn-group marketing">
+        <button type="button" class="btn dropdown-toggle">Marketing type <span class="caret"></span></button>
+        <div class="marketing-down">
+          <ul>
+            <li class="title">All</li><hr>
+            <li class="division">
+              Ads
+              <div class="division-hover">
+                <ul>
+                  <li class="title">Online</li>
+                  <li>CPM</li>
+                  <li>Video</li>
+                  <li>Banner (period)</li>
+                  <li>Direct Email</li>
+                  <li>Text ad</li>
+                  <li>SEO</li>
+                  <li>SNS</li>
+                </ul>
+                <ul>
+                  <li class="title">Mobile</li>
+                  <li>CPM</li>
+                  <li>Video</li>
+                  <li>Banner (period)</li>
+                  <li>Direct Email</li>
+                  <li>Text ad</li>
+                  <li>SEO</li>
+                  <li>SNS</li>
+                </ul>
+                <ul>
+                  <li class="title">Offline</li>
+                  <li>CPM</li>
+                  <li>Video</li>
+                  <li>Banner (period)</li>
+                  <li>Direct Email</li>
+                  <li>Text ad</li>
+                  <li>SEO</li>
+                  <li>SNS</li>
+                </ul>
+              </div>
+            </li>
+            <li>Promotion</li>
+            <li>Management</li>
+            <li>Test</li>
+            <li>Material</li>
+          </ul>
+        </div>
       </div>
+
       <div class="btn-group">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-          Cost <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+        <div class="cost">
+          <input type="text" placeholder="Cost">
+          <div class="cost-hover">
+            $ | <input type="text">to&nbsp;
+            $ | <input type="text">
+          </div>
+        </div>         
       </div>
       <button type="button" class="btn nav-btn">Jungggling<img src="/assets/main/search_logo.png"></button>
     </div>

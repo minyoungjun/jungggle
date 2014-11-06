@@ -82,7 +82,7 @@ body {
 
   }
   .nav {
-    height: 55px;
+    //height: 55px;
     background-color: #f1f1f1;
     padding: 12px 0;
 
@@ -90,7 +90,6 @@ body {
       margin-right: 20px;
       button {
         border: 0; 
-        
         padding: 6px 20px; 
         background-color: white;
         color: #868787;
@@ -103,6 +102,181 @@ body {
       padding: 4px 15px;
       img {
         margin-left: 10px;
+      }
+    }
+
+    .country {
+      .country-down {
+        display: none;
+        width: 150px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+        top: 33px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        padding-top: 10px;
+        cursor: pointer;
+        background-color: white;
+        ul {
+          list-style: none;
+          padding-left: 0;
+          li {
+            padding: 3px 15px;
+            color: #bbb;
+            font-size: 13px;
+          }
+          li:hover {
+            color: #5bb33a;
+          }
+          .title {
+            color: #777;
+          }
+          hr {
+            margin: 3px 15px;
+          }
+          .other {
+            .other-tooltip {
+              display: none;
+              border: 1px solid #eee;
+              border-radius: 5px;
+              position: absolute;
+              left: 170px;
+              bottom: -18px;
+              color: #ccc;
+              width: 250px;
+              padding: 10px 13px;
+              background-color: white;
+            }
+          }
+          .other:hover {
+            .other-tooltip {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .country:hover {
+      border-color: #5bb33a;
+      z-index: 100;
+      h3 {
+        color: #5bb33a;
+      }
+      .country-down {
+        display: block;
+      }
+    }
+
+
+    .marketing {
+      .btn {
+        border-radius: 5px;  
+      }
+      
+      .marketing-down {
+        display: none;
+        width: 150px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+        top: 33px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        background-color: white;
+        ul {
+          list-style: none;
+          padding-left: 0;
+          li {
+            padding: 10px 15px;
+            color: #bbb;
+            font-size: 13px;
+          }
+          li:hover {
+            color: #5bb33a;
+          }
+          .title {
+            color: #777;
+          }
+          hr {
+            margin: 3px 15px;
+          }
+          .division-hover {
+            display: none;
+            border: 1px solid #eee;
+            width: 450px;
+            position: absolute;
+            left: 148px;
+            top: 26px;
+            color: #333;
+            padding: 5px 10px;
+            background-color: white;
+            ul {
+              display: inline-block;
+              padding: 10px;
+              li {
+                padding: 2px 15px;
+              }
+              .title {
+                font-size: 16px;
+                padding-bottom: 10px;
+                color: #777;
+              }
+            }
+          }
+
+          .division:hover {
+            .division-hover {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .marketing:hover {
+      border-color: #5bb33a;
+      z-index: 100;
+      h3 {
+        color: #5bb33a;
+      }
+      .marketing-down {
+        display: block;
+      }
+    }
+    .cost {
+      display: inline-block;
+      width: 180px;
+      border: 1px solid #eee;
+      position: relative;
+      font-size: 13px;
+      right: 4px;
+      margin-right: -15px;
+      
+      input {
+        border: 0;
+        padding-left: 10px;
+        height: 32px;
+        border-radius: 5px;
+      }
+      .cost-hover {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        padding-left: 10px;
+        background-color: white;
+        border: 0;
+        border-radius: 5px;
+        input {
+          width: 50px;
+          display: inline-block;
+          margin: 0 3px;
+
+        }
+      }
+    }
+    .cost:hover {
+      .cost-hover {
+        display: block;
+        color: #5bb33a;
       }
     }
   }
