@@ -77,7 +77,45 @@ body {
             border-radius: 50%;
           }
         }
+        .log-info-hover {
+          display: block;
+          position: absolute;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          width:  260px;
+          padding: 15px;
+          background-color: white;
+          h5 {
+            color: #333333;
+            font-size: 16px;
+            margin-top: 0;
+          }
+          a {
+            color: #888;
+            font-size: 14px;
+            margin-right: 15px;
+          }
+          .log-info-account {
+            margin-bottom: 30px;
+          }
+          .log-info-adv {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+          }
+          .log-info-pub {
+            display: inline-block;
+          }
+        }
       }
+
+      .log-name:hover {
+        .log-info-hover {
+          display: block;
+        }
+      }
+
+
     }
 
   }
