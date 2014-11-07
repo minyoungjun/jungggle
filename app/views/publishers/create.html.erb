@@ -69,39 +69,86 @@ function language_click(id){
           <input type="text" placeholder="service_name in <%=language.name%>" id="title_<%=language.id%>" name="title"class="service_name">
         <%end%>
         <h3>Marketing Type</h3>
-
-      <ul>
-        <%@marketing.each do |marketing|%>
-        <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
-        <%if marketing.filter != 4%>
-        <li>
-          <ul>
-            <%marketing.child_types.each do |marketing2|%>
-              <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
-              <%if marketing2.filter != 4%>
-              <li>
-                <ul>
-                  <%marketing2.child_types.each do |marketing3|%>
-                    <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
-                    <%if marketing3.filter != 4%>
-                    <li>
-                      <ul>
-                        <%marketing3.child_types.each do |marketing4|%>
-                          <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
-                        <%end%>
-                      </ul>
-                    </li>
+        <div class="marketing drop">
+          <div class="btn btn-default">Marketing type</div>
+          <div class="marketing-down">
+            <ul>
+              <li class="title">All</li><hr>
+              <li class="division">
+                Ads
+                <div class="division-hover">
+                  <ul>
+                    <li class="title">Online</li>
+                    <li>CPM</li>
+                    <li>Video</li>
+                    <li>Banner (period)</li>
+                    <li>Direct Email</li>
+                    <li>Text ad</li>
+                    <li>SEO</li>
+                    <li>SNS</li>
+                  </ul>
+                  <ul>
+                    <li class="title">Mobile</li>
+                    <li>CPM</li>
+                    <li>Video</li>
+                    <li>Banner (period)</li>
+                    <li>Direct Email</li>
+                    <li>Text ad</li>
+                    <li>SEO</li>
+                    <li>SNS</li>
+                  </ul>
+                  <ul>
+                    <li class="title">Offline</li>
+                    <li>CPM</li>
+                    <li>Video</li>
+                    <li>Banner (period)</li>
+                    <li>Direct Email</li>
+                    <li>Text ad</li>
+                    <li>SEO</li>
+                    <li>SNS</li>
+                  </ul>
+                </div>
+              </li>
+              <li>Promotion</li>
+              <li>Management</li>
+              <li>Test</li>
+              <li>Material</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 
+        <ul>
+          <%@marketing.each do |marketing|%>
+          <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
+          <%if marketing.filter != 4%>
+          <li>
+            <ul>
+              <%marketing.child_types.each do |marketing2|%>
+                <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
+                <%if marketing2.filter != 4%>
+                <li>
+                  <ul>
+                    <%marketing2.child_types.each do |marketing3|%>
+                      <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
+                      <%if marketing3.filter != 4%>
+                      <li>
+                        <ul>
+                          <%marketing3.child_types.each do |marketing4|%>
+                            <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
+                          <%end%>
+                        </ul>
+                      </li>
+                      <%end%>
                     <%end%>
+                  </ul>
+                  </li>
                   <%end%>
-                </ul>
-                </li>
                 <%end%>
-              <%end%>
-              </ul>
-          </li>
+                </ul>
+            </li>
+            <%end%>
           <%end%>
-        <%end%>
-      </ul>
+        </ul>-->
 
 
 <script type="text/javascript">
