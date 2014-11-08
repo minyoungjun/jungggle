@@ -84,17 +84,23 @@ function language_click(id){
                     <li class="division">
                     <%=marketing1.name%>
                       <%if marketing1.child_types.count != 0%>
-                      <div class="division-hover">
-                        <% marketing1.child_types.each do |marketing2|%>
+                        <div class="division-hover" style="min-height:230px;">
                           <ul>
-                            <li class="title"><%=marketing2.name%></li>
-                            <%if marketing2.child_types.count != 0%>
-                              <%marketing2.child_types.each do |marketing3|%>
-                                <li><%=marketing3.name%></li>
+                            <% marketing1.child_types.each do |marketing2|%>
+                              <%if marketing2.filter == 2%>
+                                <ul>
+                                  <li class="title"><%=marketing2.name%></li>
+                                  <%if marketing2.child_types.count != 0%>
+                                    <%marketing2.child_types.each do |marketing3|%>
+                                      <li><%=marketing3.name%></li>
+                                    <%end%>
+                                  <%end%>
+                                </ul>
+                              <%else%>
+                                <li><%=marketing2.name%></li>
                               <%end%>
                             <%end%>
                           </ul>
-                        <%end%>
                       </div>
                     <%end%>
                     </li>
@@ -104,88 +110,6 @@ function language_click(id){
             </div>
           </div>
 
-
-
-      <%#>
-        <div class="marketing drop">
-          <div class="btn btn-default">Marketing type</div>
-          <div class="marketing-down">
-            <ul>
-              <li class="title">All</li><hr>
-              <li class="division">
-                Ads
-                <div class="division-hover">
-                  <ul>
-                    <li class="title">Online</li>
-                    <li>CPM</li>
-                    <li>Video</li>
-                    <li>Banner (period)</li>
-                    <li>Direct Email</li>
-                    <li>Text ad</li>
-                    <li>SEO</li>
-                    <li>SNS</li>
-                  </ul>
-                  <ul>
-                    <li class="title">Mobile</li>
-                    <li>CPM</li>
-                    <li>Video</li>
-                    <li>Banner (period)</li>
-                    <li>Direct Email</li>
-                    <li>Text ad</li>
-                    <li>SEO</li>
-                    <li>SNS</li>
-                  </ul>
-                  <ul>
-                    <li class="title">Offline</li>
-                    <li>CPM</li>
-                    <li>Video</li>
-                    <li>Banner (period)</li>
-                    <li>Direct Email</li>
-                    <li>Text ad</li>
-                    <li>SEO</li>
-                    <li>SNS</li>
-                  </ul>
-                </div>
-              </li>
-              <li>Promotion</li>
-              <li>Management</li>
-              <li>Test</li>
-              <li>Material</li>
-            </ul>
-          </div>
-        </div>
-      %>
-        <ul>
-          <%@marketing.each do |marketing|%>
-          <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
-          <%if marketing.filter != 4%>
-          <li>
-            <ul>
-              <%marketing.child_types.each do |marketing2|%>
-                <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
-                <%if marketing2.filter != 4%>
-                <li>
-                  <ul>
-                    <%marketing2.child_types.each do |marketing3|%>
-                      <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
-                      <%if marketing3.filter != 4%>
-                      <li>
-                        <ul>
-                          <%marketing3.child_types.each do |marketing4|%>
-                            <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
-                          <%end%>
-                        </ul>
-                      </li>
-                      <%end%>
-                    <%end%>
-                  </ul>
-                  </li>
-                  <%end%>
-                <%end%>
-                </ul>
-            </li>
-            <%end%>
-          <%end%>
       <h3>Service Detail</h3>
       <input type="hidden" name = "detail_count" value="0" id="detail_count">
       <div id="detail_box">

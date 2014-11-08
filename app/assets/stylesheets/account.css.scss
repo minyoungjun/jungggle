@@ -724,6 +724,61 @@
   }
 }
 
+/* Billing-Checkout_Now-complete-modal */
+.modal {
+  .modal-dialog-add-credit-complete {
+    margin-top: 100px;
+    .modal-add-credit-complete {
+      width: 600px;
+      padding: 30px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+          color: #5eb12f;
+        }
+        .info {
+          text-align: left;
+          font-size: 14px;
+        }
+        h3 {
+          font-size: 18px;
+          text-align: left;
+          margin: 20px 30px;
+          span {
+            float: right;
+            color: #5eb12f;
+          }
+        }
+        .know {
+          border: 1px solid #eee;
+          border-radius: 5px;
+          font-size: 14px;
+          text-align: left;
+          color: #777;
+          padding: 15px 20px;
+          margin: 30px 20px;
+          span {
+            font-size: 17px;
+            color: #5eb12f;
+          }
+        }
+        p {
+          color: #777;
+          font-size: 15px;
+        }
+        .btn {
+          margin: 20px 0;
+          color: white;
+          background-color: #5eb12f;
+          padding: 10px 100px;
+        }
+      }
+    }
+  }
+}
+
+
+
 
 /* Billing-Checkout_Now-kr-modal */
 .modal {
@@ -875,6 +930,63 @@
     }
   }
 }
+/* Billing-Add-Credit-complete-kr-modal */
+.modal {
+  .modal-dialog-add-credit-complete-kr {
+    margin-top: 100px;
+    .modal-add-credit-complete-kr {
+      width: 700px;
+      .modal-body {
+        h1 {
+          font-size: 25px;
+          color: #5eb12f;
+        }
+        .sub-title {
+          font-size: 13px;
+          line-height: 23px;
+          color: #aaa;
+          margin: 20px 0 50px;
+        }
+        p {
+          font-size: 14px;
+          text-align: left;
+          margin: 10px 40px;
+          color: #555;
+          span {
+            float: right;
+          }
+        }
+        .credit-amount {
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 25px 0;
+          p {
+            padding: 0;
+            text-align: left;
+            font-size: 14px;
+            margin: 10px 30px;
+            span {
+              float: right;
+              color: #555;
+            }
+          }
+          .total {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+          } 
+        }
+        .btn-complete {
+          margin: 20px 0;
+          color: white;
+          background-color: #5eb12f;
+          padding: 10px 100px;
+        }
+      }
+    }
+  }
+}
+
 
 
 
