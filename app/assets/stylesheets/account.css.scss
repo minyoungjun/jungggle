@@ -613,10 +613,11 @@
 .modal {
   /* modla : Checkout-now[Cash_out] */
   .modal-dialog-Checkout-Now {
-    margin-top: 150px;
+    margin-top: 100px;
 
     .modal-Checkout-Now {
       width: 600px;
+      padding: 30px;
       .modal-body {
         h1 {
           font-size: 28px;
@@ -652,11 +653,76 @@
           line-height: 20px;
           margin-top: 30px;
         }
+        .btn {
+          margin: 20px 0;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+          background-color: white;
+          padding: 10px 100px;
+        }
+        .btn:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+      .modal-footer {
+        text-align: left;
+        padding-bottom: 0;
+        h5 {
+          margin: 10px 0;
+          span {
+            color: #5eb12f;
+          }
+        }
       }
     }
   }
 }
-
+/* Billing-Add-Credit-modal */
+.modal {
+  .modal-dialog-add-credit {
+    margin-top: 100px;
+    .modal-add-credit {
+      width: 600px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+          margin-bottom: 45px;
+        }
+        h3 {
+          font-size: 15px;
+          margin: 20px;
+          text-align: left;
+          span {
+            margin-left: 100px;
+            border: 1px solid#5eb12f;
+            border-radius: 5px;
+            padding: 5px 40px;
+            float: right;
+            position: relative;
+            bottom: 5px;
+            color: #5eb12f;
+          }
+        }
+        p {
+          text-align: left;
+          font-size: 15px;
+          margin: 15px;
+        }
+        .checkbox {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        h5 {
+          display: inline-block;
+          span {
+            color: #5eb12f;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
