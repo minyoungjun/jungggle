@@ -45,31 +45,40 @@ body {
       }
     }
 
-    ul {
-      position: relative;
+    .header-right {
       display: inline-block;
-      list-style: none;
-      float: right;
-      padding-left: 0;
-      margin: 0;
-      top: 18px;
+      position: relative;
+      top: 12px;
+      left: 30%;
 
-      li {
-        float: left;
-        margin: 0 7px;
-        font-size: 13px;
-        
-        a {
-          text-decoration: none;
-          color: #6b6b6b;
+      ul {
+        position: relative;
+        display: inline-block;
+        list-style: none;
+        //float: right;
+        padding-left: 0;
+        margin: 0;
+        //top: 18px;
+
+        li {
+          float: left;
+          margin: 8px;
+          font-size: 13px;
+          
+          a {
+            text-decoration: none;
+            color: #6b6b6b;
+          }
         }
       }
       .log-name {
         padding-left: 10px;
         font-size: 15px;
+        display: inline-block;
         a {
           vertical-align: top;
           color: #5eb12f;
+          padding: 17px 0;
           img {
             position: relative;
             bottom: 15px;
@@ -114,10 +123,7 @@ body {
           display: block;
         }
       }
-
-
     }
-
   }
   .nav {
     //height: 55px;
