@@ -25,7 +25,12 @@ before_filter :is_login, :except => [:list]
     product = Product.new
     product.user_id = current_user.id
     
-    product.marketingtype_id = params[:marketing_type]
+    if params[:marketingtype_id].to_i > 15 && params[:marketingtype_id].to_i < 62
+      product.marketingtype_id = params[:marketingtype_id].to_i + params[:platform].to_i + 1
+    else
+      product.marketingtype_id = params[:marketing_id]
+    end
+
     product.status = 1 #0: off , 1:on, 2:etc
     product.save
 
@@ -66,10 +71,12 @@ before_filter :is_login, :except => [:list]
       end
     end
 
-    cost = Cost.new
-    cost.product_id = product.id
-    cost.amount = params[:cost]
-    cost.save
+    0.upto(params[:cost_count].to_i) do |cost_count|
+      cost = Cost.new
+      cost.product_id = product.id
+      cost.amount = params["cost_#{cost_count}"]
+      cost.save
+    end
 
     redirect_to :action => "search_result", :controller => "products", :id => product.id
 

@@ -66,9 +66,10 @@ $(document).ready(function(){
               <%prolang.detailangs.each do |detailang|%>
                 
                 <%if detailang.detail.proimages.count != 0%>
-                  <h5> —<%else%><h5 class="font-color"><%end%><%=detailang.content%><img src="<%=detailang.detail.proimages.first.photo.url(:thumb)%>"/></h5>
-                  <%end%>
-                </div>
+                  <h5> —<%=detailang.content%><img src="<%=detailang.detail.proimages.first.photo.url(:thumb)%>"/></h5><%else%><h5 class="font-color"><%=detailang.content%></h5>
+                <%end%>
+              <%end%>
+              </div>
             <%end%>
 
           </td>
@@ -81,10 +82,9 @@ $(document).ready(function(){
                   $0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">$0.2</a></li>
-                  <li><a href="#">$0.3</a></li>
-                  <li><a href="#">$0.4</a></li>
-                  <li><a href="#">$0.5</a></li>
+                  <%@product.costs.each do |cost|%>
+                    <li><a href="#">$<%=cost.amount%></a></li>
+                  <%end%>
                 </ul>
               </div>
             <%end%>

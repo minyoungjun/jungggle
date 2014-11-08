@@ -74,33 +74,48 @@ function language_click(id){
           <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name">
 
         <%end%>
-        <h3>Marketing Type</h3>
 
+
+        <h3>Marketing Type</h3>
+        <script>
+          function marketing_click(id){
+            $("#marketing_selected").html($("#marketing_li_" + id).data("marketing"));
+            $("#marketing_id").val(id);
+            if(id > 15 && id < 62){
+              $(".platform").show();
+              $("#platform_0").trigger("click");
+            }else{
+              $(".platform").hide();
+            
+            }
+          }
+        </script>
+        <input type="hidden" id="marketing_id" value="1">
         <div class="marketing drop">
-          <div class="btn btn-default">Marketing type</div>
+          <div class="btn btn-default" id="marketing_selected">Marketing type</div>
             <div class="marketing-down">
               <ul>
                 <%Marketingtype.where(:filter => 1).each do |marketing1|%>
                   <%if marketing1.name == "All"%>
-                    <li class="title">All</li><hr>
+                    <li class="title" onclick="marketing_click(<%=marketing1.id%>);" id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
                   <%else%>
-                    <li class="division">
-                    <%=marketing1.name%>
+                    <li class="division" >
+                    <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
                       <%if marketing1.child_types.count != 0%>
                         <div class="division-hover" style="min-height:230px;">
                           <ul>
                             <% marketing1.child_types.each do |marketing2|%>
                               <%if marketing2.filter == 2%>
                                 <ul>
-                                  <li class="title"><%=marketing2.name%></li>
+                                  <li class="title" onclick="marketing_click(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_<%=marketing2.id%>" ><%=marketing2.name%></li>
                                   <%if marketing2.child_types.count != 0%>
                                     <%marketing2.child_types.each do |marketing3|%>
-                                      <li><%=marketing3.name%></li>
+                                      <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
                                     <%end%>
                                   <%end%>
                                 </ul>
                               <%else%>
-                                <li><%=marketing2.name%></li>
+                                <li onclick="marketing_click(<%=marketing2.id%>);"id="marketing_li_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
                               <%end%>
                             <%end%>
                           </ul>
@@ -111,6 +126,23 @@ function language_click(id){
                 <%end%>
               </ul>
             </div>
+          </div>
+          <script>
+            function platform_change(id){
+              $("#platform_type").val(id);
+              $(".platform_p").css("color", "#888");
+              $(".platform_p").css("background-color", "white");
+              $("#platform_" + id).css("color", "white")
+              $("#platform_" + id).css("background-color", "#5eb12f")
+
+            }
+            </script>
+          <div class="platform" id="platform" style="display:none;">
+            <h3>Platform</h3>
+            <input type="hidden" value="0" name="platform" id="platform_type">
+            <p onclick="platform_change(0);" class="platform_p" id="platform_0">All</p>
+            <p onclick="platform_change(1);"class="platform_p"id="platform_1">iOS</p>
+            <p onclick="platform_change(2);"class="platform_p"id="platform_2">Android</p>
           </div>
 
       <h3>Service Detail</h3>
@@ -170,13 +202,11 @@ function language_click(id){
             alert("Please upload a valid image file.");
         }
 
-
-
-
       }
       </script>
 
-        <h3>Cost</h3>
+      <h3>Cost</h3>
+        <input type="hidden" name="cost_count" value="0" id="cost_count">
         <input type="radio" class="cost_radio check" name="cost" class="cost_radio" id="flat_rate" value="0" checked="true"> Flat Rate
         <input type="radio" class="cost_radio check" name="cost" class="cost_radio" id="multiple_rate" value="1"> Multiple Rate
         <input type="text" placeholder="$" name="cost_0">
@@ -192,10 +222,11 @@ function language_click(id){
             }else{
                 $("#multiple_box").hide();
               }
-              });
+            });
           var cost_num = 1;
           function add_cost(){
-            $("#multiple_input").append('<input type="text" placeholder="$" name="cost_' + cost_num + '"><div class="btn btn-b">Delete</div>');
+            $("#multiple_input").append('<input type="text" placeholder="$" name="cost_' + cost_num + '" style="display:inline-block;"><div class="btn btn-b" style="width:100px; display:inline-block;">Delete</div>');
+            $("#cost_count").val(cost_num);
             cost_num = cost_num + 1;
           }
         </script>

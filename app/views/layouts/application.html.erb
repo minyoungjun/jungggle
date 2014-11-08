@@ -43,9 +43,7 @@ woopra.track();
           <li><a href="#none">Biddings</a></li>
           <li><a href="#none">Product Results</a></li>
           
-          <%if user_signed_in?%>
-            <li><%= link_to('sign out', destroy_user_session_path) %></li>
-          <%else%>
+          <%if !(user_signed_in?)%>
             <li><a href="/users/sign_in">sign in</a></li>
             <li><a href="/users/sign_up">sign up</a></li>
           <%end%>
@@ -54,26 +52,24 @@ woopra.track();
           <div class="log-info-hover">
             <div class="log-info-account">
               <h5>My Account</h5>
-              <a href="#none">Profile</a>
-              <a href="#none">Company Profile</a>
-              <a href="#none">Upgrade</a>
-              <a href="#none">Member</a>
+              <a href="/users/edit">Profile</a>
+              <a href="/users/company">Company Profile</a>
+              <a href="/users/company_members">Member</a>
             </div>
             <div class="log-info-adv">
               <h5>Advertiser</h5>
-              <a href="#none">Dashboard</a><br>
-              <a href="#none">Billing</a><br>
-              <a href="#none">Biddings</a>
+              <a href="/home/account_dashboard">Dashboard</a><br>
+              <a href="/advertisers/billings">Billing</a><br>
             </div>
             <div class="log-info-pub">
               <h5>Publisher</h5>
               <a href="#none">Projects</a><br>
-              <a href="#none">Manage Service</a><br>
-              <a href="#none">Biddings</a><br>
+              <a href="/home/account_manage_service">Manage Service</a><br>
+              <a href="/publishers/create">Create Service</a><br>
               <a href="#none">Cash out</a>
             </div>
             <div class="log-info-footer">
-              <a href="#none">Log out</a>
+              <a href="/users/sign_out">Log out</a>
               <p><span>3 ietms</span> on your cart</p>
             </div>
           </div>
