@@ -12,6 +12,7 @@
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
             <input type="text" class="add" placeholder="$" name="amount">
             <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now">Checkout Now</div>
+            <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now-kr">Checkout (kr)</div>
         </div>
       </div>
       </form>
@@ -111,4 +112,83 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
+
+
+<!-- Checkout-Now-kr Modal -->
+<div class="modal fade" id="Checkout-Now-kr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-Checkout-Now-kr">
+    <div class="modal-content modal-Checkout-Now-kr">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Cash Out Information</h1>
+        <h3 class="sub-title">환불 받으실 계좌 정보를 입력하신 후 <br> CASH OUT 버튼을 눌러 환불 절차를 완료해주세요.</h3>
+        <p>예금주명
+          <input type="text">
+        </p>
+        <p>은행명
+          <input type="text">
+        </p>
+        <p>계좌번호
+          <input type="text">        
+        </p>
+        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-kr">Cash Out</button>
+      </div>
+      <div class="modal-footer">
+        <h5>1. 모든 비용은 <span>$</span>로 송급됩니다.</h5>
+        <h5>2. 취소 세금계산서는 CASH OUT 버튼 클릭 후 <span>1주일</span> 이내로 발생됩니다.</h5>
+        <h5>3. 취소 세금계산서 발행 후 평균 <span>영업일 1일</span> 이내로 계좌 송금이 완료됩니다.</h5>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- add-credit-kr-Modal -->
+<div class="modal fade" id="Modal-add-credit-kr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit-kr">
+    <div class="modal-content modal-add-credit-kr">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Add Credit</h1>
+        <div class="credit-amount">
+          <p class="amount">CehckOut Amount <span>$1,000</span></p>
+          <p class="vat">부가세(VAT) <span>$100</span></p>
+          <p class="total">합계금액 <span>$1,100</span></p>
+        </div>
+        
+        <h5 class="sub-title">세금 계산서 발행을 위한 사업자등록증 상의 정보를 입력해주세요.</h5>
+        <p>사업자등록 번호 <input type="text"></p>
+        <p>회사명 <input type="text"></p>
+        <p>대표자명 <input type="text"></p>
+        <p>회사주소 <input type="text"></p>
+        <p>업체 <input type="text"></p>
+        <p>종목 <input type="text"></p>
+        <p>이메일 <input type="text"></p>
+        <div class="info">
+          <p>1. 전체 Check Out 금액에 부가세 (VAT) 10%가 추가된 금액인 합계금액으로 입금되어야 합니다.</p>
+          <p>2. 송금은 전액 미화 ($) 로 이체해주셔야 합니다. 한화 (\)로 입금될 경우 반환되오니 유의 부탁드립니다.</p>
+          <p>3. 세금계산서는 결제 완료 후에 (영수)로 발행됩니다.</p>
+          <p>4. 환율은 계좌 이체가 완료된 당일 최초고시환율로 적용됩니다. </p>
+          <p>5. 부가세 10%는 한국 세무법에 따라 전액 환급됩니다.</p>
+          <p>6. 계좌 정보는 CHECKOUT NOW 버튼을 누르신 후 Billing History Invoice 상에서 확인하시기 바랍니다.</p>
+        </div>
+        <input type="checkbox" class="checkbox">
+        <h5><span>이용약관</span> 및 <span>개인정보보호정책</span>에 동의합니다.</h5>       
+      </div>
+      <button type="button" class="btn btn-b" data-dismiss="modal">CHECKOUT NOW</button>        
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+
 
