@@ -104,6 +104,20 @@
       }
     }
 
+    .platform {
+      p {
+        border: 1px solid #eee;
+        padding: 10px 50px;
+        margin: 0;
+        display: inline-block;
+        cursor: pointer;
+      }
+      p:hover {
+        color: #5eb12f;
+        border-color: #5eb12f;
+      }
+    }
+
 
     .popover-markup {
       display: inline-block;
