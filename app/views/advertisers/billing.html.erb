@@ -108,10 +108,38 @@
         <p>2. Dfsdfsdfsdfs</p>
         <p>3. asdfasdfasdf</p>        
       </div>
-      <button type="button" class="btn btn-b" data-dismiss="modal">CHECKOUT NOW</button>
+      <button type="button" class="btn btn-b" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete">CHECKOUT NOW</button>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+<!-- add-credit-complete-Modal -->
+<div class="modal fade" id="Modal-add-credit-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit-complete">
+    <div class="modal-content modal-add-credit-complete">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Thanks for using Jungggle!</h1>
+        <p class="info">
+          Your order for buying Jungggle Credit has successfully received and the invoice for your order has issued.<br> 
+          It usually takes 1 business day to receving the fee after you transfer the fee through your local bank.
+        </p>
+        <h3>CheckOut Amout : <span>10,000USD</span></h3>
+        <p class="know"><span>You Must Know!</span><br>
+          You must make sure that you send the fee with charging the commision to "Sender"  when you proceed the wire transfer in your local bank.
+        </p>
+
+        <p>You can print the <span>invoice here</span> or in your Billing History</p>  
+        <button type="button" class="btn" data-dismiss="modal">Close</button>     
+      </div>
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 
 
@@ -181,7 +209,32 @@
         <input type="checkbox" class="checkbox">
         <h5><span>이용약관</span> 및 <span>개인정보보호정책</span>에 동의합니다.</h5>       
       </div>
-      <button type="button" class="btn btn-b" data-dismiss="modal">CHECKOUT NOW</button>        
+      <button type="button" class="btn btn-b" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete-kr"  >CHECKOUT NOW</button>        
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- add-credit-complete-kr-Modal -->
+<div class="modal fade" id="Modal-add-credit-complete-kr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit-complete-kr">
+    <div class="modal-content modal-add-credit-complete-kr">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>정글을 이용해주셔서 감사합니다!</h1>
+        <h5 class="sub-title">Jungggle Credit을 구매하기 위한 주문이 접수되었습니다.<br>아래의 계좌 정보로 합계금액을 이체해주시면 Jungggle Credit 충전이 즉시 완료됩니다.</h5>
+        <p>예금주명 <span>(주)게임베리</span></p>
+        <p>은행명 <span>기업은행</span></p>
+        <p>계좌번호 <span>409-076533-010</span></p>
+        <div class="credit-amount">
+          <p class="amount">CehckOut Amount <span>$1,000</span></p>
+          <p class="vat">부가세(VAT) <span>$100</span></p>
+          <p class="total">합계금액 <span>$1,100</span></p>
+        </div>
+        <h5>Billing History에서도 입금 계좌정보를 확인 할 수 있습니다.</h5>
+        <button type="button" class="btn btn-complete" data-dismiss="modal">Close</button>     
+      </div>
+              
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
