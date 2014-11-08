@@ -87,6 +87,7 @@ end
 offline = Marketingtype.new
 offline.name = "Offline"
 offline.filter = 2
+offline.parent_id = ad.id
 offline.save
 
 offline_array = ["Outdoor advertising", "Megazine", "News Paper", "TV", "Radio", "Event"]
