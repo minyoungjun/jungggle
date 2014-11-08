@@ -43,6 +43,11 @@ payment_array.each do |payment|
   Payment.create(name: payment)
 end
 
+a_all = Marketingtype.new
+a_all.filter = 1
+a_all.name = "All"
+a_all.save
+
 ad = Marketingtype.new
 ad.filter = 1
 ad.name = "AD"
@@ -57,7 +62,7 @@ online.save
 online_array = ["CPC", "CPM", "CPP(cost per period)" , "Text ad" , "Direct Email", "SEO", "SNS"]
 online_array.each do |element|
   filter4 = Marketingtype.new
-  filter4.filter = 4
+  filter4.filter = 3
   filter4.parent_id = online.id
   filter4.name = element
   filter4.save
@@ -69,26 +74,16 @@ mobile.name = "Mobile"
 mobile.parent_id = ad.id
 mobile.save
 
-ios = Marketingtype.new
-ios.filter = 3
-ios.name = "iOS"
-ios.parent_id = mobile.id
-ios.save
+ad_mobiles = ["CPC", "CPM","CPI(non-incentive)", "CPP(cost per period)", "Text ad", "Video", "Messaging", "Promotional app", "Rank Guarantee", "Reviews & Ratings", "ASO", "SNS"]
 
-Marketingtype.create(name: "CPC", filter: 4, parent_id: ios.id)
-
-android = Marketingtype.new
-android.filter = 3
-android.name = "Android"
-android.parent_id = mobile.id
-android.save
-
-Marketingtype.create(name: "CPM", filter: 4, parent_id: android.id)
-
-ad_mobiles = ["CPI(non-incentive", "CPP(cost per period)", "Text ad", "Video", "Messaging", "Promotional app", "Rank Guarantee", "Reviews & Ratings", "ASO", "SNS"]
 ad_mobiles.each do |ad_mobile|
-  Marketingtype.create(name: ad_mobile, filter: 4, parent_id: mobile.id)
+  mkc = Marketingtype.create(name: ad_mobile, filter: 3, parent_id: mobile.id)
+  Marketingtype.create(name: "All", filter: 4, parent_id: mkc.id)
+  Marketingtype.create(name: "iOS", filter: 4, parent_id: mkc.id)
+  Marketingtype.create(name: "Android", filter: 4, parent_id: mkc.id)
 end
+
+
 offline = Marketingtype.new
 offline.name = "Offline"
 offline.filter = 2
@@ -97,7 +92,7 @@ offline.save
 offline_array = ["Outdoor advertising", "Megazine", "News Paper", "TV", "Radio", "Event"]
 
 offline_array.each do |element|
-  Marketingtype.create(name: element, filter: 4, parent_id: offline.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: offline.id)
 end
 
 promotion = Marketingtype.new
@@ -108,7 +103,7 @@ promotion.save
 promotion_array = ["Viral Marketing", "PR", "Reviews Sites"]
 promotion_array.each do |element|
 
-  Marketingtype.create(name: element, filter: 4, parent_id: promotion.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: promotion.id)
 end
 
 management = Marketingtype.new
@@ -118,7 +113,7 @@ management.save
 
 management_array = ["SNS", "Community / Forum", "C/S"]
 management_array.each do |element|
-  Marketingtype.create(name: element, filter: 4, parent_id: management.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: management.id)
 end
 
 test = Marketingtype.new
@@ -129,7 +124,7 @@ test.save
 test_array = ["CBT", "FGT", "QA"]
 test_array.each do |element|
 
-  Marketingtype.create(name: element, filter: 4, parent_id: test.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: test.id)
 end
 
 materials = Marketingtype.new
@@ -139,5 +134,5 @@ materials.save
 
 materials_array = ["Localization", "Trailer", "Website", "Banner Ad Design", "Stationery Design (Brochure, Banner, etc.)", "Webtoon/Cartoon", "Booth", "Character Licensing (Goods)"]
 materials_array.each do |element|
-  Marketingtype.create(name: element, filter: 4, parent_id: materials.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: materials.id)
 end

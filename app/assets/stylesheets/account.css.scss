@@ -613,10 +613,11 @@
 .modal {
   /* modla : Checkout-now[Cash_out] */
   .modal-dialog-Checkout-Now {
-    margin-top: 150px;
+    margin-top: 100px;
 
     .modal-Checkout-Now {
       width: 600px;
+      padding: 30px;
       .modal-body {
         h1 {
           font-size: 28px;
@@ -652,11 +653,228 @@
           line-height: 20px;
           margin-top: 30px;
         }
+        .btn {
+          margin: 20px 0;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+          background-color: white;
+          padding: 10px 100px;
+        }
+        .btn:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+      .modal-footer {
+        text-align: left;
+        padding-bottom: 0;
+        h5 {
+          margin: 10px 0;
+          span {
+            color: #5eb12f;
+          }
+        }
+      }
+    }
+  }
+}
+/* Billing-Add-Credit-modal */
+.modal {
+  .modal-dialog-add-credit {
+    margin-top: 100px;
+    .modal-add-credit {
+      width: 600px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+          margin-bottom: 45px;
+        }
+        h3 {
+          font-size: 15px;
+          margin: 20px;
+          text-align: left;
+          span {
+            margin-left: 100px;
+            border: 1px solid#5eb12f;
+            border-radius: 5px;
+            padding: 5px 40px;
+            float: right;
+            position: relative;
+            bottom: 5px;
+            color: #5eb12f;
+          }
+        }
+        p {
+          text-align: left;
+          font-size: 15px;
+          margin: 15px;
+        }
+        .checkbox {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        h5 {
+          display: inline-block;
+          span {
+            color: #5eb12f;
+          }
+        }
       }
     }
   }
 }
 
+
+/* Billing-Checkout_Now-kr-modal */
+.modal {
+  /* modla : Checkout-now-kr[Cash_out] */
+  .modal-dialog-Checkout-Now-kr {
+    margin-top: 100px;
+
+    .modal-Checkout-Now-kr {
+      width: 600px;
+      padding: 30px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+        }
+        h3 {
+          font-size: 13px;
+          line-height: 23px;
+          color: #777;
+          margin-bottom: 30px;
+        }
+
+        p {
+          width: 460px;
+          text-align: left;
+          font-size: 15px;
+          color: #555;
+          margin: 10px auto;
+          padding: 15px 0;
+
+          input {
+            float: right;
+            position: relative;
+            bottom: 10px;
+            padding: 10px;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #ccc;
+          }
+        }
+        h5 {
+          margin-top: 30px;
+        }
+
+        .btn {
+          margin: 20px 0;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+          background-color: white;
+          padding: 10px 100px;
+        }
+        .btn:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+      .modal-footer {
+        text-align: left;
+        padding-bottom: 0;
+        h5 {
+          margin: 10px 0;
+          font-size: 12px;
+          span {
+            color: #5eb12f;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* Billing-Add-Credit-kr-modal */
+.modal {
+  .modal-dialog-add-credit-kr {
+    margin-top: 100px;
+    .modal-add-credit-kr {
+      width: 600px;
+      .modal-body {
+        h1 {
+          font-size: 28px;
+        }
+        .credit-amount {
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 25px 0;
+          p {
+            padding: 0;
+            span {
+              float: right;
+            }
+          }
+          .total {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+          } 
+        }
+        .sub-title {
+          display: block;
+          text-align: left;
+          color: #aaa;
+          font-size: 12px;
+          margin: 20px
+        }
+        p {
+          width: 460px;
+          text-align: left;
+          font-size: 15px;
+          color: #555;
+          margin: 10px auto;
+          padding: 15px 0;
+
+          input {
+            float: right;
+            position: relative;
+            bottom: 10px;
+            padding: 10px;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #ccc;
+          }
+        }
+        .info {
+          margin: 30px 0;
+          p {
+            font-size: 13px;
+            padding: 0;
+            color: #777;
+          }
+        }
+        .checkbox {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        h5 {
+          display: inline-block;
+          span {
+            color: #5eb12f;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 
