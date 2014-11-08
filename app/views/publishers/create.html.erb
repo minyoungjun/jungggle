@@ -1,5 +1,5 @@
 <script>
-  
+var now_lang = 0;
   function languagebox(lang){
     var lang_nick = lang.getAttribute("data-nickname");
     var lang_id = lang.getAttribute("data-language");
@@ -33,10 +33,13 @@ $(document).ready(function(){
 function language_click(id){
   $('.service_name').hide();
   $('#title_' + String(id)).show();
+  $('.language_detail_all').hide();
+  $('.language_detail_' + id).css("display","inline-block");
   $('.language-select').css('color','#5eb12f');
   $('.language-select').css('background-color','white');
   $('#language-select-' + String(id)).css('background-color','#5eb12f');
   $('#language-select-' + String(id)).css('color','white');
+  now_lang = id;
 }
 </script>
 <div class="create-service account">
@@ -66,7 +69,7 @@ function language_click(id){
         </div>
 
         <%Language.all.each do |language|%>
-          <input type="text" placeholder="service_name in <%=language.name%>" id="title_<%=language.id%>" name="title"class="service_name">
+          <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name">
         <%end%>
         <h3>Marketing Type</h3>
 
@@ -102,18 +105,18 @@ function language_click(id){
           <%end%>
         <%end%>
       </ul>
+      <script type="text/javascript">
+    
 
-
-<script type="text/javascript">
-</script>
-
+      </script>
       <h3>Service Detail</h3>
+      <input type="hidden" name = "detail_count" value="0" id="detail_count">
       <div id="detail_box">
-        <input type="text" style="display:inline-block;" placeholder="Service Detail" id="service_detail_0" name="service_detail_0">
-        <div class="btn" onclick="$('#detail_photo_0').trigger('click');" style="display:none; width:150px;" id="image_name_0"></div>
-
-<div id="imagepreview_0" style="width:100px; height:100px;display:inline-block;" class="btn"></div>
-
+        <%Language.all.each do |language|%>
+          <input type="text" style="display:none;" placeholder="Service Detail in <%=language.name%>" id="service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
+        <%end%>
+<div id="imagepreview_0" class="imagepreview btn"style=""></div>
+        <div class="img_name btn" onclick="$('#detail_photo_0').trigger('click');" id="image_name_0" style="width:150px;"></div>
         <div class="btn btn-a" onclick="$('#detail_photo_0').trigger('click');" style="display:inline-block; width:150px;" id="add_image_0">Add Image</div>
         <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
       </div>
@@ -123,7 +126,11 @@ function language_click(id){
           $('#detail_photo_' + num).trigger('click');
         }
     function add_detail(){
-      $("#detail_box").append('<input type="text" style="display:inline-block;" placeholder="Service Detail" id="service_detail_' + detail_num + '" name="service_detail_' + detail_num + '"><div class="btn" onclick="add_photo(' + detail_num + '" style="display:none; width:150px;" id="image_name_' + detail_num + '"></div><div class="btn btn-a" onclick="add_photo(' + detail_num + ')" style="width:150px;" id="add_image_' + detail_num + '">Add Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');">');
+      $("#detail_box").append('<%Language.all.each do |language|%><input type="text" style="display:none;" placeholder="Service Detail in <%=language.name%>" id="service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>"><%end%><div id="imagepreview_' + detail_num + '" class="btn imagepreview"></div><div class="btn" onclick="add_photo(' + detail_num + '" style="display:none; width:150px;" id="image_name_' + detail_num + '"></div><div class="btn btn-a" onclick="add_photo(' + detail_num + ')" style="width:150px;" id="add_image_' + detail_num + '">Add Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');">');
+
+        $('#service_detail_' + detail_num + '_' + now_lang).css("display", "inline-block");
+
+        $("#detail_count").val(detail_num);
         detail_num = detail_num + 1;
       }
       </script>
@@ -132,22 +139,33 @@ function language_click(id){
       
       function onchange_image(num){
 
-        var files = !!$('#detail_photo_' + num).files ? $('#detail_photo_' + num).files : [];
 
         $('#image_name_' + num).html($('#detail_photo_' + num).val().replace(/^.*[\\\/]/, ''));
         $('#add_image_' + num).html('Change Image');
-        $('#image_name_' + num).show();
-
-        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
- 
-        if (/^image/.test( files[0].type)){ // only image file
-            var reader = new FileReader(); // instance of the FileReader
-            reader.readAsDataURL(files[0]); // read the local file
- 
-            reader.onloadend = function(){ // set image data as background of div
-                $("#imagepreview_" + num).css("background-image", "url("+$('#detail_photo_' + num).result+")");
+        $('#image_name_' + num).css("display", "inline-block");
+        $("#dvPreview").html("");
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+        if (regex.test($('#detail_photo_' + num).val().toLowerCase())) {
+            if (false) {
+                $("#imagepreview_" + num).show();
+                $("#imagepreview_" + num)[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $('#detail_photo_' + num).val();
             }
+            else {
+                if (typeof (FileReader) != "undefined") {
+                    $("#imagepreview_" + num).css("display", "inline-block");
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#imagepreview_" + num).css("background-image", "url('" + e.target.result + "')");
+                    }
+                    reader.readAsDataURL($('#detail_photo_' + num)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            }
+        } else {
+            alert("Please upload a valid image file.");
         }
+
 
 
 
@@ -173,7 +191,7 @@ function language_click(id){
               });
           var cost_num = 1;
           function add_cost(){
-            $("#multiple_input").append('<input type="text" placeholder="$" name="cost_' + cost_num + '">');
+            $("#multiple_input").append('<input type="text" placeholder="$" name="cost_' + cost_num + '"><div class="btn btn-b">Delete</div>');
             cost_num = cost_num + 1;
           }
         </script>
@@ -215,7 +233,7 @@ function language_click(id){
         <input type="file" name="upload_logo">
 
         <h5><input type="checkbox" class="check"> I have read and agree to the <span>Terms of Use</span> and <span>Privacy Policy</span></h5>
-        <button type="button" class="btn btn-a">Save</button>
+        <input type="submit" class="btn btn-a" value="Save">
         <br>
       </form>
 
@@ -234,108 +252,6 @@ function language_click(id){
   </div>
 </div>
 
-
-
-
-
-
-<!-- 
-<table>
-  <tr>
-    <td>Language</td>
-    <td>
-      <select name="language">
-        <%@languages.each do |lan|%>
-          <option value="<%=lan.id%>">
-            <%=lan.name%>
-          </option>
-        <%end%>
-      </select>
-    </td>
-  </tr>
-  <tr>  
-    <td>Service Name</td>
-    <td><input type="text" placeholder="service_name"></td>
-  </tr>
-  <tr>
-    <td>Marketing Type</td>
-    <td>
-      <ul>
-        <%@marketing.each do |marketing|%>
-        <li><input type="radio" name="marketing_type" value="<%=marketing.id%>"><%=marketing.name%></li>
-        <%if marketing.filter != 4%>
-        <li>
-          <ul>
-            <%marketing.child_types.each do |marketing2|%>
-              <li><input type="radio" name="marketing_type" value="<%=marketing2.id%>"><%=marketing2.name%></li>
-              <%if marketing2.filter != 4%>
-              <li>
-                <ul>
-                  <%marketing2.child_types.each do |marketing3|%>
-                    <li><input type="radio" name="marketing_type" value="<%=marketing3.id%>"><%=marketing3.name%></li>
-                    <%if marketing3.filter != 4%>
-                    <li>
-                      <ul>
-                        <%marketing3.child_types.each do |marketing4|%>
-                          <li><input type="radio" name="marketing_type" value="<%=marketing4.id%>"><%=marketing4.name%></li>
-                        <%end%>
-                      </ul>
-                    </li>
-                    <%end%>
-                  <%end%>
-                </ul>
-                </li>
-                <%end%>
-              <%end%>
-              </ul>
-          </li>
-          <%end%>
-        <%end%>
-      </ul>
-    </td>
-    
-  </tr>
-  <tr>
-    <td>Service Detail</td>
-    <td><textarea name="detail"></textarea></td>
-  </tr>
-  <tr>
-    <td>Cost</td>
-    <td>
-      <input type="radio" name="cost_rate" value="flat">Flat Rate<br>
-      <input type="radio" name="cost_rate" value="multi">Multiple Rate
-      <br>
-      <input type="text" name="cost">
-    </td>
-  </tr>
-  <tr>
-    <td>Country</td>
-    <td>
-      <select name="country">
-        <%@countries.each do |country|%>
-          <option value ="<%=country.id%>">
-            <%=country.name%>
-          </option>
-        <%end%> 
-      </select>
-    </td>
-  </tr> 
-  <tr>
-    <td>Minimium Budget</td>
-    <td>
-      <input type="checkbox"><input type="text" name="minimum_budget">
-    </td>
-  </tr>
-  <tr>
-    <td>Payment method</td>
-    <td>
-      <% @payments.each do |payment|%>
-        <input type="checkbox" name="payment_<%=payment.id%>" value="<%=payment.id%>"><%=payment.name%></option>
-      <%end%>
-    </td>
-  </tr>
-</table>
--->
 
 
 

@@ -1,10 +1,20 @@
+<script>
+$(document).ready(function(){
+    $("#language_<%=@product.prolangs.first.language.id%>").trigger("click");
+    });
+  function language_click(id){
+    $(".prolang_box").hide();
+    $("#prolang_box_" + String(id)).show();
+  
+  }
+</script>
 <div class="search">
   <div class="container">
     <div class="left">
 
       <div class="btn-group btn-tab">
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-     <%=@product.country.name%>
+          JAPAN
            <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -35,51 +45,55 @@
       </div>
 
       <div class="btn-toolbar">
-        <div class="btn-group">
-          <button type="button" class="btn">French</button>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn">KO</button>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn">UA</button>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn">EN</button>
-        </div>
+        <%@product.prolangs.each do |prolang|%>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="language_click(<%=prolang.language.id%>);" id="language_<%=prolang.language.id%>"><%=prolang.language.name%></button>
+          </div>
+        <%end%>
       </div>
       <table>
         <tr class="table-header">
           <td class="service-name">Service name</td>
           <td>Service details</td>
-          <td>Coast</td>
+          <td>Cost</td>
           <td></td>
         </tr>
         <tr class="table-body">
-          <td class="service-name">Free App A Day <br><span class="a">A </span><span class="b">Package</span></td>
+          <td class="service-name"><%@product.prolangs.each do |prolang|%><%=prolang.title%><br><%end%></td>
           <td>
-            <h5>— Top banner for 24 hours on website</h5>
-            <h5 class="font-color">Push notification to FAAD users (over 100k users)</h5>
-            <h5 class="font-color">Featured for 30 days on "Daily Double Calender</h5>
-            <h5>— Anouncement to 33,500 twitter followers</h5>
-            <h5 class="font-color">Email to 35,000 site subscribers</h5>
-            <h5>— Post to 630,000 Facebook followers</h5>
+            <%@product.prolangs.each do |prolang|%>
+              <div class="prolang_box" id="prolang_box_<%=prolang.language.id%>">
+              <%prolang.detailangs.each do |detailang|%>
+                
+                <%if detailang.detail.proimages.count != 0%>
+                  <h5> —<%else%><h5 class="font-color"><%end%><%=detailang.content%><img src="<%=detailang.detail.proimages.first.photo.url(:thumb)%>"/></h5>
+                  <%end%>
+                </div>
+            <%end%>
+
           </td>
           <td>
-            <div class="btn-group">
-              <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
-                $0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">$0.2</a></li>
-                <li><a href="#">$0.3</a></li>
-                <li><a href="#">$0.4</a></li>
-                <li><a href="#">$0.5</a></li>
-              </ul>
-            </div>
+            <%if @product.costs.count == 1%>
+              $<%=@product.costs.first.amount%>
+            <%else%>
+              <div class="btn-group">
+                <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
+                  $0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">$0.2</a></li>
+                  <li><a href="#">$0.3</a></li>
+                  <li><a href="#">$0.4</a></li>
+                  <li><a href="#">$0.5</a></li>
+                </ul>
+              </div>
+            <%end%>
           </td>
           <td><button type="button" class="btn-buy">Buy</button></td>
         </tr>
+
+
+<%#
         <tr class="table-body">
           <td class="service-name">Free App A Day <br><span class="a">B </span><span class="b">Package</span></td>
           <td>
@@ -107,7 +121,8 @@
             </div>
           </td>
           <td>In Your Cart!</td>
-        </tr>
+          </tr>
+        %>
       </table>
       <h5>* Last update on 2014.7.11</h5>
       <div class="clients">

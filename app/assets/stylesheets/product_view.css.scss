@@ -142,8 +142,20 @@
 
 
 
+.imagepreview {
+     background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+display:none;width:100px !important; height:100px !important;   
 
+}
+.img_name {
+display:none; width:150px !important;;
+}
 
+.prolang_box {
+  word-break:break-all;
+}
 
 
 

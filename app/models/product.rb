@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-  translates :title
   belongs_to :user
   belongs_to  :marketingtype
   belongs_to :company
@@ -8,4 +7,5 @@ class Product < ActiveRecord::Base
   has_many  :carts
   has_many  :payables
   has_many  :procons
+  has_many  :details
 end

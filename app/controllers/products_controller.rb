@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   def search_result
     @product = Product.find(params[:id])
     @company = @product.company
-    @products = @company.products
 
   end
   def cart

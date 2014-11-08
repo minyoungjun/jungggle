@@ -25,9 +25,7 @@ before_filter :is_login, :except => [:list]
     product = Product.new
     product.user_id = current_user.id
     
-    product.name = params[:service_name]
     product.marketingtype_id = params[:marketing_type]
-    product.service_detail = params[:detail]
     product.status = 1 #0: off , 1:on, 2:etc
     product.save
 
@@ -36,7 +34,35 @@ before_filter :is_login, :except => [:list]
         prolang = Prolang.new
         prolang.language_id = lang.id
         prolang.product_id = product.id
+        prolang.title = params["title_#{lang.id}"]
         prolang.save
+      end
+    end
+
+    0.upto(params[:detail_count].to_i) do |detail_count|
+      preserved = false
+      product.prolangs.each do |prolang|
+        if params["service_detail_#{detail_count}_#{prolang.language.id}"] != ""
+          preserved = true
+        end
+      end
+      if preserved
+        detail = Detail.new
+        detail.product_id = product.id
+        detail.save
+        if params["detail_photo_#{detail_count}"] != nil
+          proimage = Proimage.new
+          proimage.detail_id = detail.id
+          proimage.photo = params["detail_photo_#{detail_count}"]
+          proimage.save
+        end
+        product.prolangs.each do |prolang|
+          detailang = Detailang.new
+          detailang.prolang_id = prolang.id
+          detailang.detail_id = detail.id
+          detailang.content = params["service_detail_#{detail_count}_#{prolang.language.id}"]
+          detailang.save
+        end
       end
     end
 
