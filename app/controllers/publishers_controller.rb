@@ -1,5 +1,4 @@
 class PublishersController < ApplicationController
-
 before_filter :is_login, :except => [:list]
 
   def create
@@ -32,6 +31,11 @@ before_filter :is_login, :except => [:list]
     end
 
     product.status = 1 #0: off , 1:on, 2:etc
+
+    if params[:budget] != nil
+      product.minimum_budget = params[:budget]
+    end
+
     product.save
 
     Language.all.each do |lang|
@@ -70,12 +74,34 @@ before_filter :is_login, :except => [:list]
         end
       end
     end
-
+    
     0.upto(params[:cost_count].to_i) do |cost_count|
       cost = Cost.new
       cost.product_id = product.id
       cost.amount = params["cost_#{cost_count}"]
       cost.save
+    end
+    0.upto(params[:country_count].to_i) do |country_count|
+      if params["country_#{country_count}"]!= nil
+        procon = Procon.new
+        procon.product_id = product.id
+        procon.country_id = params["country_#{country_count}"]
+        procon.save
+      end
+    end
+    0.upto(params[:docu_count].to_i) do |docu_count|
+      if params["docufile_#{docu_count}"] != nil
+        prodocument = Prodocument.new
+        prodocument.product_id = product.id
+        prodocument.name = params["docuname_#{docu_count}"]
+        prodocument.saved_name = SecureRandom.hex(6) + "." + params["docufile_#{docu_count}"].original_filename.split('.').last
+        f = File.open(Rails.root.join("uploads", prodocument.saved_name), "wb")
+        prodocument.original_name = params["docufile_#{docu_count}"].original_filename
+        f.write(params["docufile_#{docu_count}"].read)
+        f.close
+        prodocument.save
+
+      end
     end
 
     redirect_to :action => "search_result", :controller => "products", :id => product.id

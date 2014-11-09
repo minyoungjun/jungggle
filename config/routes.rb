@@ -49,6 +49,9 @@ Rails.application.routes.draw do
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
+  resources "publishers" do
+    get :autocomplete_country_name, :on => :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

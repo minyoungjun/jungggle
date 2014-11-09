@@ -71,6 +71,9 @@ $(document).ready(function(){
               <%end%>
               </div>
             <%end%>
+            <%@product.prodocuments.each do |prodocument|%>
+              <h4><%=prodocument.name%></h4>
+            <%end%>
 
           </td>
           <td>

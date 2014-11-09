@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026215848) do
+ActiveRecord::Schema.define(version: 20141109074413) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 20141026215848) do
     t.datetime "updated_at"
   end
 
+  create_table "detailangs", force: true do |t|
+    t.integer  "detail_id"
+    t.integer  "prolang_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "details", force: true do |t|
     t.integer  "product_id"
     t.datetime "created_at"
@@ -186,6 +194,15 @@ ActiveRecord::Schema.define(version: 20141026215848) do
     t.datetime "updated_at"
   end
 
+  create_table "prodocuments", force: true do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "saved_name"
+    t.text     "original_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.integer  "user_id"
     t.integer  "country_id"
@@ -193,7 +210,7 @@ ActiveRecord::Schema.define(version: 20141026215848) do
     t.integer  "company_id"
     t.string   "name"
     t.boolean  "saved"
-    t.integer  "minimun_budget"
+    t.integer  "minimum_budget"
     t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :company_id
       t.string  :name
       t.boolean :saved
-      t.integer :minimun_budget
+      t.integer :minimum_budget
       t.integer :status #0: off , 1:on, 2:etc
       t.timestamps
     end
