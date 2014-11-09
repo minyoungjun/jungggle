@@ -10,6 +10,7 @@
     h3 {
       font-size: 16px;
       margin: 35px 0 10px;
+      display: inline-block;
     }
 
 
@@ -35,18 +36,26 @@
 
     .marketing {
       display: inline-block;
+      .marketing-btn {
+        padding: 10px 55px;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        margin: 0 20px;
+      }
       .marketing-down {
         display: none;
-        width: 200px;
+        width: 160px;
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         cursor: pointer;
         background-color: white;
+        margin-left: 20px;
         ul {
           list-style: none;
           padding-left: 0;
+
           li {
             padding: 10px 15px;
             color: #bbb;
@@ -64,16 +73,17 @@
           .division-hover {
             display: none;
             border: 1px solid #eee;
-            width: 450px;
+            width: 495px;
             position: absolute;
-            left: 198px;
+            left: 158px;
             top: 26px;
             color: #333;
             padding: 5px 10px;
             background-color: white;
             ul {
               display: inline-block;
-              padding: 10px;
+              padding: 10px 3px;
+              vertical-align: top;
               li {
                 padding: 2px 15px;
               }
@@ -106,11 +116,13 @@
 
     .platform {
       p {
-        border: 1px solid #eee;
-        padding: 10px 50px;
         margin: 0;
         display: inline-block;
         cursor: pointer;
+        input {
+          width: 30px;
+          display: inline-block;
+        }
       }
       p:hover {
         color: #5eb12f;
@@ -134,9 +146,9 @@
       width: 450px;
     }
     textarea {
-      width: 450px;
+      width: 90%;
       border: 1px solid #ddd;
-      border-radius: 10px;
+      border-radius: 5px;
       padding: 13px 18px;      
       margin: 15px 5px;
       font-size: 16px;
@@ -173,15 +185,48 @@
       background-color: #5eb12f;
       color: white;
       border: 1px solid #5eb12f;
+      width: 200px;
+      display: inline-block;
+      margin-right: 20px;
     }
     .btn-b {
       background-color: white;
       border: 1px solid red;
       color: red;
+      width: 200px;
+    }
+    .btn-c {
+      background-color: #aaa;
+      color: white;
+      width: 200px;
+      border-radius: 5px;
+      padding: 8px 0;
+      
+    }
+    .plus-upload {
+      margin: 15px 0 30px;
+      img {
+        width: 18px;
+        margin: 0 10px;
+      }
+      p {
+        display: inline-block;
+      }
+    }
+    .ok {
+      display: inline-block;
+      font-size: 17px;  
+      input {
+        display: inline-block;
+        width: 20px;
+      }
+      span {
+        color: #5eb12f;
+      }
     }
     p {
-      margin-top: 30px;
-      font-size: 15px;
+      margin-bottom: 3px;
+      font-size: 12px;
       line-height: 23px;
       color: #888;
       span {
