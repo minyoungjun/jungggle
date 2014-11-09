@@ -195,14 +195,7 @@
       color: red;
       width: 200px;
     }
-    .btn-c {
-      background-color: #aaa;
-      color: white;
-      width: 200px;
-      border-radius: 5px;
-      padding: 8px 0;
-      
-    }
+ 
     .plus-upload {
       margin: 15px 0 30px;
       img {
@@ -213,6 +206,52 @@
         display: inline-block;
       }
     }
+
+
+
+    .upload-file-area {
+      width: 200px;
+      height: 40px;
+      display: inline-block;
+    }
+    .upload-file {
+      margin: 0;
+      width: 200px;
+      height: 40px;
+      position: absolute;
+      padding: 0 0 0 200px;
+      border: 0;
+      overflow: hidden;
+      background-color: #aaa;
+      background-image: url(/assets/upload_file.png);
+      display: block;
+    }
+    .upload-file-info {
+      display: inline-block;
+      position: relative;
+      bottom: 15px;
+      left: 10px;
+      margin: 0;
+    }
+
+    .upload-logo-area {
+      height: 40px;
+    }
+    .upload-logo {
+      margin: 0;
+      width: 200px;
+      height: 40px;
+      position: absolute;
+      padding: 0 0 0 200px;
+      border: 0;
+      overflow: hidden;
+      background-color: #aaa;
+      background-image: url(/assets/upload_logo.png);
+      display: block;
+    }
+
+
+
     .ok {
       display: inline-block;
       font-size: 17px;  
