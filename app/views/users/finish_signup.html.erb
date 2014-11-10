@@ -20,3 +20,77 @@
     </div>
   <% end %>
 </div>
+
+
+
+<hr><br><br>
+
+
+
+<div class="finish-signup">
+  <div class="skip">SKIP</div>
+  <div class="lagnuages">
+    <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+    <span id="selected_languages"></span>
+     <div class="popover-markup">
+      <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
+      <div class="content hide" style="top: 280px; left: 389px; display: block;">
+        <%Language.all.each do |language|%>
+          <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <input type="text" placeholder="Company Name">
+  <input type="text" placeholder="Located in">
+  <input type="text" placeholder="Number of Employee">
+  <input type="text" placeholder="Website">
+  <textarea rows="6" placeholder="Company introduction"></textarea>
+  <div class="upload-logo-area">
+    <div class="upload-logo">+Upload Logo</div>
+    <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+    </p>
+  </div>
+  <div class="client-logo">
+    <h5>Upload Client Logo (Publisher only)</h5>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div><br>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+  </div>
+  <div class="company-introduction">
+    <h5>Upload Company Introduction (Publisher only)</h5>
+    <div class="upload-logo-area">
+      <div class="upload-logo">+Upload File</div>
+      <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+      </p>
+    </div>
+  </div>
+  <div class="save-btn">SAVE</div>
+</div>
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>
+
+
+
