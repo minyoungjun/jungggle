@@ -229,20 +229,18 @@
 
   .client-logo {
     margin-bottom: 40px;
+    h5 {
+      width: 400px;
+      margin: 30px auto 15px;
+      text-align: left;
+    }
+    .ex-img {
+      background-color: #eee;
+      display: inline-block;
+      padding: 25px;
+      margin: 3px;
+    }
   }
-
-  h5 {
-    width: 400px;
-    margin: 30px auto 15px;
-    text-align: left;
-  }
-  .ex-img {
-    background-color: #eee;
-    display: inline-block;
-    padding: 25px;
-    margin: 3px;
-  }
-
   .upload-logo-area {
     .upload-logo {
       margin: 0;
