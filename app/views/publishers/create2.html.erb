@@ -1,0 +1,194 @@
+<div class="create-service account">
+  <div class="container">
+    <%= render "/home/left"%>
+
+    <div class="right-create-service">
+      <h1>Create Service</h1>
+
+      <div class="pack lagnuages">
+        <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <span id="selected_languages"></span>
+         <div class="popover-markup">
+          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
+          <div class="content hide" style="top: 280px; left: 389px; display: block;">
+            <%Language.all.each do |language|%>
+              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+            <%end%>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack service-name">
+        <h3>Service Name</h3>
+        <input type="text">
+      </div>
+
+      <div class="pack marketing-type">
+        <h3>Marketing Type</h3>
+        <div class="marketing drop">
+          <div class="marketing-btn" id="marketing_btn">Select</div>
+            <div class="marketing-down">
+              <ul>
+                <%Marketingtype.where(:filter => 1).each do |marketing1|%>
+                  <%if marketing1.name == "All"%>
+                    <li class="title" onclick="marketing_click(<%=marketing1.id%>);" id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
+                  <%else%>
+                    <li class="division" >
+                    <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                      <%if marketing1.child_types.count != 0%>
+                        <div class="division-hover" style="min-height:230px;">
+                          <ul>
+                            <% marketing1.child_types.each do |marketing2|%>
+                              <%if marketing2.filter == 2%>
+                                <ul>
+                                  <li class="title" onclick="marketing_click(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_<%=marketing2.id%>" ><%=marketing2.name%></li>
+                                  <%if marketing2.child_types.count != 0%>
+                                    <%marketing2.child_types.each do |marketing3|%>
+                                      <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                    <%end%>
+                                  <%end%>
+                                </ul>
+                              <%else%>
+                                <li onclick="marketing_click(<%=marketing2.id%>);"id="marketing_li_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                            <%end%>
+                          <%end%>
+                        </ul>
+                    </div>
+                  <%end%>
+                  </li>
+                <%end%>
+              <%end%>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="platform">
+          <h3>Platform</h3>
+          <p><input type="checkbox">All</p>
+          <p><input type="checkbox">iOS</p>
+          <p><input type="checkbox">Android</p>
+        </div>
+      </div>
+
+      <div class="pack service-detail">
+        <h3>Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <input type="text" placeholder="* Please explain your service as detail as you can.(Advertisers want to know the Est.results!)">
+        <div class="attach-img-btn">
+          Attach Image
+        </div>
+        <img src="/assets/my_account/circle_plus.png">
+      </div>
+
+      <div class="pack cost">
+        <h3>Cost</h3>
+        <p><input type="checkbox" class="check">Flat Rate</p>
+        <p><input type="checkbox" class="check">Multiple Rate</p>
+        <input type="text" placeholder="$">
+      </div>
+
+      <div class="pack budget">
+        <h3>Minimum Budget</h3>
+        <input type="checkbox" class="check">
+        <input type="text" placeholder="$">
+      </div>
+
+      <div class="pack country">
+        <h3>Country</h3>
+        <div class="country-drop">
+          <div class="country-btn">Select</div>
+          <div class="country-down">
+            <ul>
+              <li class="title">All</li><hr>
+              <li>Australia</li>
+              <li>Austria</li>
+              <li>China</li>
+              <li>Japan</li>
+              <li>South Africa</li>
+              <li>South Korea</li>
+              <li>United States</li>
+              <li>Vietnam</li><hr>
+              <li class="title other">
+                Other Countries..
+                <div class="other-tooltip">
+                  Countries are still adding whenever Publisher create service on particular country.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <img src="/assets/my_account/circle_plus.png">
+      </div>
+
+      <hr class="hr">
+
+      <div class="pack optional">
+        <h3>[Optional] Attach Document <input type="checkbox" class="check"></h3><br>
+        <div class="pack-1">
+          <div class="upload-file">Upload File</div>
+          <h5 class="upload-file-info">* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+        </div>
+        <div class="pack pack-2">
+          <p>1. <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+        </div>
+        <div class="pack pack-2">
+          <p>2. <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+        </div>
+        <div class="pack pack-2">
+          <p>3. <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+        </div>
+      </div>
+
+      <div class="pack cp-intro">
+        <h3>Company Introduction</h3>
+        <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
+        <div class="upload-logo-area">
+          <div class="upload-logo">+Upload Logo</div>
+          <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span></p>
+          <div class="plus-upload">
+            <img src="/assets/my_account/circle_plus.png" class="upload">
+            <p>Clients logo</p>
+            <br>
+            <img src="/assets/my_account/circle_plus.png" class="upload">
+            <p>[Optional] Upload Company Introduction</p>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+
+
+      <input type="submit" class="btn btn-a" value="Save">
+      <button type="button" class="btn btn-b">Delete</button>
+
+      <h5 class="ok"><input type="checkbox">I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <p>1. 입금확인</p>
+      <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
+      <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
+      <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 완료된 후에 대금을 지급힌다.</p>
+      <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>
