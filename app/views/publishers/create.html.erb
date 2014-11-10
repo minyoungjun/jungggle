@@ -252,6 +252,7 @@ function language_click(id){
                 }
           });
         </script>
+        <br>
         <h3>Country</h3>
         <div id="country_box">
           <input type="hidden" value="0" name="country_count" id="country_count">
@@ -304,7 +305,6 @@ function docuchange(id){
     $("#docufiles").append('<input type="file" id="docufile_' + docu_count + '" name="docufile_' + docu_count + '"onchange="docuchange(' + docu_count + ');">');
 
 
-<<<<<<< HEAD
 }
 function delete_file(id){
   $("#docufile_" + id).remove();
@@ -312,37 +312,19 @@ function delete_file(id){
 }
           </script>
 
-          <div class="btn btn-a" onclick="add_docufile();">Upload Files</div>
+          <div class="btn btn-c" onclick="add_docufile();">Upload Files</div>
+          <h5>* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
             <div id="docufiles" style="">
             <input type="hidden" name="docu_count" value="0" id="docu_count">
             <input type="file" id="docufile_0" name="docufile_0" onchange="docuchange(0);">
           </div>
-          <div id="file_box">
+          <div id="file_box" style="display:none;">
           </div>
-        </div>
-=======
-        <div class="country">
-          <h3>Country</h3>
-          <div class="country-select">Select</div>
-          <img src="/assets/my_account/circle_plus.png" class="country-plus">
         </div>
 
         <hr>
 
-        <h3>[Optional] Attach Document <input type="checkbox" class="check"></h3>
-        <br>
-        <div class="btn btn-c">+ Upload File</div>
-        <h5>* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
-        <br>
-        1. <input type="text" class="optional"> (주) 게임베리 회사소개.pdf
-        <a href="#none">Delete</a><br>
-        2. <input type="text" class="optional"> CPI Media Kit_2014.ppt
-        <a href="#none">Delete</a><br>
-        3. <input type="text" class="optional"> GameberryIntroduction.pdf
-        <a href="#none">Delete</a><br>
->>>>>>> 9f3cbecce5984bd8484b811ebdcea8472ec2aae1
 
-        <br>
         <h3>Company Introduction</h3>
         <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
 
