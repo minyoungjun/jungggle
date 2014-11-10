@@ -316,39 +316,20 @@ function delete_file(id){
 }
           </script>
 
-<<<<<<< HEAD
-          <div class="btn btn-c" onclick="add_docufile();">Upload Files</div>
-          <h5>* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
-=======
-          <div class="upload-file-area" onclick="add_docufile();">
-            <input type="file" class="upload-file">
-          </div>
+            <div class="btn upload-file" onclick="add_docufile();" style="display:inline-block;">
+            </div>
             <h5 class="upload-file-info">* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
->>>>>>> 620fa882037dbafe614027d54f5be37a8e0fb5ee
-            <div id="docufiles" style="">
+            <div id="docufiles" style="display:none;">
             <input type="hidden" name="docu_count" value="0" id="docu_count">
             <input type="file" id="docufile_0" name="docufile_0" onchange="docuchange(0);">
           </div>
-          <div id="file_box" style="display:none;">
+          <div id="file_box" >
           </div>
-<<<<<<< HEAD
         </div>
 
         <hr>
 
-=======
 
-          <div>
-            1. <input type="text" class="optional"> (주) 게임베리 회사소개.pdf <a href="#none">Delete</a>
-          </div>
-          <div>
-            2. <input type="text" class="optional"> CPI Media Kit_2014.ppt <a href="#none">Delete</a>
-          </div>
-          <div>
-            3. <input type="text" class="optional"> GameberryIntroduction.pdf <a href="#none">Delete</a>
-          </div>
-        </div>
->>>>>>> 620fa882037dbafe614027d54f5be37a8e0fb5ee
 
         <h3>Company Introduction</h3>
         <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
