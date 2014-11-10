@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get 'home/account_billing_invoice'
   get 'home/account_billing_receipt'
   get 'publishers/create2'
+  get 'users/finish_signup'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
