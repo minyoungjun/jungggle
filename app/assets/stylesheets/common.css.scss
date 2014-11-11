@@ -351,6 +351,29 @@ body {
     }
   }
 
+  .resend {
+    background-color: #f5f5f5;
+    color: #888;
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 16px;
+    .underline {
+      text-decoration: underline;
+      margin-left: 10px;
+      color: #5eb12f;
+    }
+  }
+  .account-update {
+    background-color: #5eb12f;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 16px;
+  }
+
+
 
   .footer {
     position: relative;
