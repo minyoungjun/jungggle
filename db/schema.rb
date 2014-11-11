@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109074413) do
+ActiveRecord::Schema.define(version: 20141111020828) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,12 +79,38 @@ ActiveRecord::Schema.define(version: 20141109074413) do
     t.datetime "updated_at"
   end
 
-  create_table "companies", force: true do |t|
+  create_table "comclients", force: true do |t|
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  create_table "comdocuments", force: true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "saved_name"
+    t.text     "original_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comlangs", force: true do |t|
+    t.integer  "language_id"
+    t.integer  "company_id"
     t.string   "name"
     t.text     "location"
+    t.text     "introduction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", force: true do |t|
     t.integer  "num_employee"
     t.string   "website"
-    t.text     "introduction"
     t.string   "logo_src"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -224,6 +250,21 @@ ActiveRecord::Schema.define(version: 20141109074413) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "projects", force: true do |t|
+    t.integer  "publisher_id"
+    t.integer  "advertiser_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.integer  "money"
+    t.datetime "payment_date"
+    t.integer  "status"
+    t.boolean  "refunded"
+    t.integer  "result_rate"
+    t.text     "result_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "prolangs", force: true do |t|

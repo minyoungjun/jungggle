@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   autocomplete :company, :name, :full => true
+  before_action :is_login, only: [:account_company_profile, :account_member, :company_update]
   
   def account_company_profile
 

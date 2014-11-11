@@ -20,7 +20,7 @@ gem 'globalize', '~> 4.0.2'
 gem 'globalize-accessors'
 
 #image_upload
-gem 'paperclip'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'rails4-autocomplete'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

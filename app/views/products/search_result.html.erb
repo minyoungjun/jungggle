@@ -92,11 +92,18 @@ $(document).ready(function(){
               </div>
             <%end%>
           </td>
-          <td><button type="button" class="btn-buy">Buy</button></td>
+          <%if @product.carts.where(:user_id => current_user.id).count != 0%>
+            <td>
+              In Your Cart!
+            </td>
+          <%else%>
+            <td id="buy_td_<%=@product.id%>"><button type="button" class="btn-buy" onclick="cartInput(<%=@product.id%>);">Buy</button></td>
+          <%end%>
         </tr>
 
 
-<%#
+
+
         <tr class="table-body">
           <td class="service-name">Free App A Day <br><span class="a">B </span><span class="b">Package</span></td>
           <td>
@@ -125,8 +132,38 @@ $(document).ready(function(){
           </td>
           <td>In Your Cart!</td>
           </tr>
-        %>
-      </table>
+    </table>
+
+<script type="text/javascript">
+function cartInput(id){
+  var url = "/products/add_cart";
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: {
+        id: id,
+        authenticity_token: '<%=form_authenticity_token()%>'
+      },
+      success: function(data){
+      if (data[0] == "success"){
+        alert("카트에 담았습니다.");
+        $("#buy_td_" + id).html("<span>In Your Cart!<span>")
+
+      
+      }
+          else{
+            alert("이미 담겨있습니다.")
+          }
+      },
+      error: function(){
+
+      }
+    });
+  
+  }
+  
+</script>
+
       <h5>* Last update on 2014.7.11</h5>
       <div class="clients">
         <h1>Clients</h1>
