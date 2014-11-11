@@ -1,4 +1,4 @@
-<script>
+<%#<script>
   function new_check(){
     if ($("input:checkbox[id='first_time']").is(":checked")){
         $("#detail").show();
@@ -10,7 +10,7 @@
       
   }
 </script>
-
+%>
 <div class="account">
   <div class="container">
     <%= render "/home/left"%>
@@ -22,7 +22,7 @@
         <%if @company == nil%>
           <input type="checkbox"  id="first_time" name="first_time" onclick="new_check();">first time company?<br>
         <%end%>
-        <div id="detail"<%if @company == nil%>style="display:none;"<%end%>>
+        <div id="detail" <%if @company == nil%> <%#style="display:none;"%> <%end%>>
           <input type="text" placeholder="Located In" name="located_in" value="<%if @company != nil%><%=@company.location%><%end%>">
           <input type="text" placeholder="Number of Employee" name="number_of_employee" value="<%if @company != nil%><%=@company.num_employee%><%end%>">
           <input type="text" placeholder="Website" value="<%if @company != nil%><%=@company.website%><%end%>" name="website">

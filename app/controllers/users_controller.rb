@@ -1,6 +1,28 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def signup_company
+    company = Company.new
+    company.num_employee = params[:num_employee]
+    company.website = params[:website]
+    company.save
+
+    Language.all.each do |language|
+      if params["lang_#{language.id}"] != nil
+        comlang = Comlang.new
+        comlang.language_id = language.id
+        comlang.company_id = company.id
+        comlang.name = params["title_#{language.id}"]
+        comlang.location = params["location_#{language.id}"]
+        comlang.introduction = params["introduction_#{language.id}"]
+        comlang.save
+      end
+    end
+
+    redirect_to :back
+
+  end
+
   def confirm
     this_user = current_user
     if !(current_user.email_confirmed)

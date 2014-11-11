@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'advertisers/project_results_detail'
   get 'home/account_profile'
   get '/users/company' => 'home#account_company_profile'
+  get '/users/company2' => 'users#company'
   post '/users/company_update' => 'home#company_update'
   get '/users/company_members' => 'home#account_member'
   get 'home/account_member'
@@ -48,6 +49,7 @@ Rails.application.routes.draw do
   get 'home/account_billing_receipt'
   get 'publishers/create2'
   get 'users/finish_signup'
+  post 'users/signup_company'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
