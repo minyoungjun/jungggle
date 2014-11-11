@@ -57,12 +57,14 @@
         <tr class="table-body">
           <td class="service-name">Free App A Day <br><span class="a">A </span><span class="b">Package</span></td>
           <td>
-            <h5>— Top banner for 24 hours on website</h5>
+            <h5 class="img-hover">— Top banner for 24 hours on website
+              <img src="/assets/search/img_12.png">
+            </h5>
             <h5 class="font-color">Push notification to FAAD users (over 100k users)</h5>
             <h5 class="font-color">Featured for 30 days on "Daily Double Calender</h5>
-            <h5>— Anouncement to 33,500 twitter followers</h5>
+            <h5 class="img-hover">— Anouncement to 33,500 twitter followers<img src="/assets/search/img_12.png"></h5>
             <h5 class="font-color">Email to 35,000 site subscribers</h5>
-            <h5>— Post to 630,000 Facebook followers</h5>
+            <h5 class="img-hover">— Post to 630,000 Facebook followers<img src="/assets/search/img_12.png"></h5>
           </td>
           <td>
             <div class="btn-group">
@@ -131,19 +133,20 @@
           </tr>
           <tr class="table-body">
             <td class="date">2014.8.26</td>
-            <td class="font-color">CPC(iOS) Project Result</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-1">CPC(iOS) Project Result</td>
             <td>USA</td>
             <td class="budget">$500,000</td>
           </tr>
           <tr class="table-body">
             <td class="date">2014.7.26</td>
-            <td class="font-color">CPC(iOS) Project Result</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-2">CPC(iOS) Project Result</td>
             <td>USA</td>
             <td class="budget">$500,000</td>
           </tr>
         </table>
       </div>
     </div>
+
     <div class="right">
       <div class="right-top">
         <img src="/assets/search/img_11.png">
@@ -152,7 +155,7 @@
           <table>
             <tr>
               <td class="name">website :</td>
-              <td>www.hiresphotoset.com</td>
+              <td><a href="#none">www.hiresphotoset.com</a></td>
             </tr>
             <tr>
               <td class="name">Located In :</td>
@@ -165,12 +168,69 @@
           </table>
         </div>
         <h1>8.7 <span>18 advertisers rated</span></h1>
-        <button type="button" class="btn">Send Message</button>
+        <button type="button" class="btn" data-toggle="modal" data-target="#Modal-send-message">Send Message</button>
       </div>
       <div class="right-bottom">
         <h3>Company Introduction</h3>
+        <a href="#none"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
         <p>The quality, artisanal skill and the creative impulse of a company that has always looked to the future, choosing the high technology and modernity, whilst keeping alive that involvement and unique, singular passion typical of a family-run business.<br><br>Initially it was Enzo Fusco who gave a name and face to FGF Industry, this solid reality with authentic Made in Italy DNA. Then, following in the footsteps of this talented stylist and charismatic leader who was ready to pass on the values of Italian style with enthusiasm and ability, came his family, a united and competent staff, the heirs to a challenge and a successful entrepreneurial history.</p>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+<!-- project-result-1 Modal -->
+<div class="modal fade" id="Modal-project-result-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-result-1">
+    <div class="modal-content modal-project-result-1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>project-result-1</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- project-result-2 Modal -->
+<div class="modal fade" id="Modal-project-result-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-result-2">
+    <div class="modal-content modal-project-result-2">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>project-result-2</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<!-- send-message Modal -->
+<div class="modal fade" id="Modal-send-message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-send-message">
+    <div class="modal-content modal-send-message">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Send a message to the publisher.</h2>
+        <textarea rows="6"></textarea>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Send</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+

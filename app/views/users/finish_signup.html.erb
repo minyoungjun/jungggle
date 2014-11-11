@@ -1,4 +1,4 @@
-<div id="add-email" class="container">
+<!--<div id="add-email" class="container">
   <h1>Add Email</h1>
   <%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), :html => { role: 'form'}) do |f| %>
     <% if @show_errors && current_user.errors.any? %>
@@ -20,3 +20,140 @@
     </div>
   <% end %>
 </div>
+<hr><br><br>
+-->
+
+<script>
+var now_lang = 0;
+  function languagebox(lang){
+    var lang_nick = lang.getAttribute("data-nickname");
+    var lang_id = lang.getAttribute("data-language");
+
+    $("#selected_languages").append("<div class='language-select btn' id='language-select-" + lang_id + "' onclick='language_click(" + lang_id + ");'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></div>");
+
+    $(".p_language_" + String(lang_id)).css('display', 'none');
+    $(".trigger").trigger("click");
+    $('.popover').hide();
+    $("#check_" + lang_id).attr("checked", true);
+    language_click(lang_id);
+    return false;
+  }
+
+  function languagedelete(lang){
+    var lang_id = lang.getAttribute("data-delete");
+    $(".p_language_" + String(lang_id)).css('display', 'inline-block');
+    $(lang).parent().remove();
+    $(".trigger").trigger("click");
+    $(".trigger").trigger("click");
+    $("#check_" + lang_id).attr("checked", false);
+    return false;
+
+  }
+
+$(document).ready(function(){
+    $('.p_language_1').trigger("click");
+    $(".trigger").trigger("click");
+    });
+
+function language_click(id){
+  $('.company_name').hide();
+  $('#title_' + String(id)).show();
+  $('.location').hide();
+  $('#location_' + String(id)).show();
+  $('.company_introduction').hide();
+  $('#introduction_' + String(id)).show();
+  $('.language_detail_all').hide();
+  $('.language_detail_' + id).css("display","inline-block");
+  $('.language-select').css('color','#5eb12f');
+  $('.language-select').css('background-color','white');
+  $('.language-select').css('border','1px solid #5eb12f');
+  $('#language-select-' + String(id)).css('background-color','#5eb12f');
+  $('#language-select-' + String(id)).css('color','white');
+  now_lang = id;
+}
+</script>
+
+
+
+<div class="finish-signup">
+  <div class="skip">SKIP</div>
+  <div class="languages">
+    <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+
+    <form action="create_process" method="post" enctype="multipart/form-data">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+    <div style="display:none;">
+      <%Language.all.each do |lang|%>
+        <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
+      <%end%>
+    </div>
+    <span id="selected_languages"></span>
+     <div class="popover-markup">
+      <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
+      <div class="content hide" style="top: 280px; left: 389px; display: block;">
+        <%Language.all.each do |language|%>
+          <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <%Language.all.each do |language|%>
+    <input type="text" placeholder="Company Name (in <%=language.name%>)" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>">
+  <%end%>
+  <%Language.all.each do |language|%>
+    <input type="text" placeholder="Located in (in <%=language.name%> Language)" id="location_<%=language.id%>" name="location_<%=language.id%>" class="location">
+  <%end%>
+  <input type="text" placeholder="Number of Employee">
+  <input type="text" placeholder="Website">
+  <%Language.all.each do |language|%>
+    <textarea rows="6" placeholder="Company introduction (in <%=language.name%>)" id="introduction_<%=language.id%>" name="introduction_<%=language.id%>" class="company_introduction"></textarea>
+  <%end%>
+  <div class="upload-logo-area">
+    <div class="upload-logo">+Upload Logo</div>
+    <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+    </p>
+  </div>
+  <div class="client-logo">
+    <h5>Upload Client Logo (Publisher only)</h5>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div><br>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+    <div class="ex-img">img</div>
+  </div>
+  <div class="company-introduction">
+    <h5>Upload Company Introduction (Publisher only)</h5>
+    <div class="upload-logo-area">
+      <div class="upload-logo">+Upload File</div>
+      <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+      </p>
+    </div>
+  </div>
+  <div class="save-btn">SAVE</div>
+</div>
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>
+
+
+

@@ -137,3 +137,6 @@ materials_array = ["Localization", "Trailer", "Website", "Banner Ad Design", "St
 materials_array.each do |element|
   Marketingtype.create(name: element, filter: 3, parent_id: materials.id)
 end
+
+
+

@@ -30,12 +30,37 @@
           <%if @company != nil && @company.logo.url != "/logos/original/missing.png"%>
             <img src="<%=@company.logo.url(:thumb)%>">
           <%end%>
+            <!-- 
             <div class="upload">
               <input type="file" name="upload" placeholder="load">
+            </div> -->
+            <div class="upload-logo-area">
+              <div class="upload-logo">+Upload File</div>
+              <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+              </p>
             </div>
-          <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
 
-          <p>Publisher only</p>
+          <div class="client-logo">
+            <h5>Upload Client Logo (Publisher only)</h5>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div><br>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+            <div class="ex-img">img</div>
+          </div>
+          <div class="company-introduction">
+            <h5>Upload Company Introduction (Publisher only)</h5>
+            <div class="upload-logo-area">
+              <div class="upload-logo">+Upload File</div>
+              <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+              </p>
+            </div>
+          </div>
         </div>
         <button type="submit" class="btn btn-default">Save</button>
       </div>
