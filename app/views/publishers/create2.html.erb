@@ -87,7 +87,7 @@ function language_click(id){
       <div class="pack marketing-type">
         <h3>Marketing Type</h3>
         <div class="marketing drop">
-          <div class="marketing-btn" id="marketing_btn">Select</div>
+          <div class="marketing-btn" id="marketing_btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
             <div class="marketing-down">
               <ul>
                 <%Marketingtype.where(:filter => 1).each do |marketing1|%>
@@ -126,9 +126,9 @@ function language_click(id){
 
         <div class="platform">
           <h3>Platform</h3>
-          <p><input type="checkbox">All</p>
-          <p><input type="checkbox">iOS</p>
-          <p><input type="checkbox">Android</p>
+          <p><img src="/assets/my_account/radio-02.png"> All</p>
+          <p><img src="/assets/my_account/radio-01.png"> iOS</p>
+          <p><img src="/assets/my_account/radio-01.png"> Android</p>
         </div>
       </div>
 
@@ -143,21 +143,21 @@ function language_click(id){
 
       <div class="pack cost">
         <h3>Cost</h3>
-        <p><input type="checkbox" class="check">Flat Rate</p>
-        <p><input type="checkbox" class="check">Multiple Rate</p>
+        <p><img src="/assets/my_account/radio-02.png"> Flat Rate</p>
+        <p><img src="/assets/my_account/radio-01.png"> Multiple Rate</p>
         <input type="text" placeholder="$">
       </div>
 
       <div class="pack budget">
         <h3>Minimum Budget</h3>
-        <input type="checkbox" class="check">
+        <img src="/assets/my_account/checkbox-01.png">&nbsp;&nbsp;
         <input type="text" placeholder="$">
       </div>
 
       <div class="pack country">
         <h3>Country</h3>
         <div class="country-drop">
-          <div class="country-btn">Select</div>
+          <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
           <div class="country-down">
             <ul>
               <li class="title">All</li><hr>
@@ -184,19 +184,19 @@ function language_click(id){
       <hr class="hr">
 
       <div class="pack optional">
-        <h3>[Optional] Attach Document <input type="checkbox" class="check"></h3><br>
+        <h3>[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png"></h3><br>
         <div class="pack-1">
           <div class="upload-file">Upload File</div>
           <h5 class="upload-file-info">* Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
         </div>
         <div class="pack pack-2">
-          <p>1. <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+          <p><img src="/assets/my_account/circle_plus.png"> <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
         </div>
         <div class="pack pack-2">
-          <p>2. <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+          <p><img src="/assets/my_account/circle_plus.png"> <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
         </div>
         <div class="pack pack-2">
-          <p>3. <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+          <p><img src="/assets/my_account/circle_plus.png"> <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
         </div>
       </div>
 
@@ -223,7 +223,7 @@ function language_click(id){
       <input type="submit" class="btn btn-a" value="Save">
       <button type="button" class="btn btn-b">Delete</button>
 
-      <h5 class="ok"><input type="checkbox">I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <h5 class="ok"><img src="/assets/my_account/radio-02.png"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
       <p>1. 입금확인</p>
       <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
       <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>

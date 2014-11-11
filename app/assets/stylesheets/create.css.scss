@@ -12,6 +12,7 @@
       margin: 12px 0;
       display: inline-block;
       width: 165px;
+      color: #777;
     }
     input {
       border: 1px solid #ddd;
@@ -27,7 +28,7 @@
         font-size: 14px;
         margin: 8px 0;
         padding: 8px 20px;
-        border-radius: 10px;
+        border-radius: 5px;
         border: 1px solid #eee;
         display: inline-block;
       }
@@ -63,10 +64,23 @@
           border: 1px solid #eee;
           border-radius: 10px;
           margin: 0;
+          color: #888;
+          .glyphicon {
+            top: 3px;
+            left: 38px;
+            color: #ccc;
+          }
+        }
+        .marketing-btn:hover {
+          border-color: #5eb12f;
+          color: #5eb12f;
+          .glyphicon {
+            color: #777;
+          }
         }
         .marketing-down {
           display: none;
-          width: 160px;
+          width: 165px;
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
@@ -197,15 +211,28 @@
     .country {
       .country-drop {
         display: inline-block;
+        margin-right: 12px;
         .country-btn {
           padding: 10px 55px;
           border: 1px solid #eee;
           border-radius: 10px;
-
+          color: #888;
+          .glyphicon {
+            top: 3px;
+            left: 38px;
+            color: #ccc;
+          }
+        }
+        .country-btn:hover {
+          border-color: #5eb12f;
+          color: #5eb12f;
+          .glyphicon {
+            color: #777;
+          }
         }
         .country-down {
           display: none;
-          width: 148px;
+          width: 166px;
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
@@ -265,14 +292,14 @@
     
     .hr {
       border: 1px solid #aaa;
-      margin: 10px;
+      margin: 10px 0;
     }
 
     .optional {
       display: inline-block;
 
       h3 {
-        width: 240px;
+        width: 260px;
         input {
           display: inline-block;
         }
