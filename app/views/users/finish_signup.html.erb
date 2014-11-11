@@ -46,6 +46,8 @@ var now_lang = 0;
     $(".trigger").trigger("click");
     $(".trigger").trigger("click");
     $("#check_" + lang_id).attr("checked", false);
+    alert($('input:checked'));
+
     return false;
 
   }
@@ -83,9 +85,9 @@ function language_click(id){
     <form action="create_process" method="post" enctype="multipart/form-data">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
-    <div style="display:none;">
+    <div style="display:none;" id="language_checkbox">
       <%Language.all.each do |lang|%>
-        <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
+        <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>" data-language="<%=lang.id%>"><%=lang.name%>
       <%end%>
     </div>
     <span id="selected_languages"></span>

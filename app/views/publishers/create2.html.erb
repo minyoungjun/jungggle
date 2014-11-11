@@ -4,7 +4,7 @@ var now_lang = 0;
     var lang_nick = lang.getAttribute("data-nickname");
     var lang_id = lang.getAttribute("data-language");
 
-    $("#selected_languages").append("<h5 class='language-select' id='language-select-" + lang_id + "' onclick='language_click(" + lang_id + ");'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></h5>");
+    $("#selected_languages").append("<div class='language-select btn' id='language-select-" + lang_id + "' onclick='language_click(" + lang_id + ");'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></div>");
 
     $(".p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
@@ -36,6 +36,7 @@ function language_click(id){
   $('.language_detail_all').hide();
   $('.language_detail_' + id).css("display","inline-block");
   $('.language-select').css('color','#5eb12f');
+  $('.language-select').css('border','1px solid #5eb12f');
   $('.language-select').css('background-color','white');
   $('#language-select-' + String(id)).css('background-color','#5eb12f');
   $('#language-select-' + String(id)).css('color','white');
