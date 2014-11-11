@@ -55,10 +55,11 @@ function language_click(id){
 <div class="finish-signup">
   <div class="skip">SKIP</div>
   <div class="languages">
-    <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-
     <form action="signup_company" method="post" enctype="multipart/form-data">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+
+
 
     <div style="display:none;" id="language_checkbox">
       <%Language.all.each do |lang|%>
@@ -157,32 +158,31 @@ function delete_logo(){
       <input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">
       <input type="file" name="company_introduction" id="company_introduction" onchange="intro_upload();">
       <input type="file" name="client[0]" id="client_0" onchange="client_upload(0);">
-  </div>
+    </div>
     <div class="upload-logo" onclick="$('#company_logo').trigger('click');" id="upload_logo_btn">+Upload Logo</div>
-    <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+    <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span class="info">* JPG, GIF or PNG, Max size of 000k</span>
     </p>
   </div>
   <div class="client-logo">
-    <p>
-        <img src="/assets/my_account/circle_plus.png" class="upload">
-        Upload Client Logo (Publisher only)</p>
-
-  <div class="upload-logo-area">
-    <div class="upload-logo" onclick="click_client();">+Upload Client</div>
-    <p class="file-name"><span>* JPG, GIF or PNG, Max size of 000k</span>
+    <p><img src="/assets/my_account/circle_plus.png" class="upload">
+        Upload Client Logo (Publisher only)
     </p>
-  </div>
-    <div id="logo-preview" style="max-width:450px; margin:0 auto;">
+
+    <div class="upload-logo-area">
+      <div class="upload-logo" onclick="click_client();">+Upload Client</div>
+      <p class="client-logo-info">* JPG, GIF or PNG, Max size of 000k</span>
+      </p>
+    </div>
+    <div id="logo-preview" style="max-width:450px; margin:20px auto 50px; text-align: left;">
     </div>
   </div>
   <div class="company-introduction">
     <h5>
       <img src="/assets/my_account/circle_plus.png" class="upload">
     Upload Company Introduction (Publisher only)</h5>
-
     <div class="upload-logo-area">
       <div class="upload-logo" onclick="$('#company_introduction').trigger('click');" id="intro_btn">+Upload File</div>
-      <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+      <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span class="info">* JPG, GIF or PNG, Max size of 000k</span>
       </p>
     </div>
   </div>
