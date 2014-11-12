@@ -229,6 +229,114 @@
     margin-bottom: 20px;
   }
 
+  .country{
+    width: 400px;
+    margin: 0 auto;
+    .country-down {
+      display: none;
+      width: 400px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding-top: 10px;
+      cursor: pointer;
+      background-color: white;
+      z-index: 100;
+      margin-top: -14px;
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding: 5px 15px;
+          color: #bbb;
+          font-size: 13px;
+        }
+        li:hover {
+          color: #5bb33a;
+        }
+        .title {
+          color: #777;
+        }
+        hr {
+          margin: 3px 15px;
+        }
+        .other {
+          .other-tooltip {
+            display: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            position: absolute;
+            left: 405px;
+            bottom: -18px;
+            color: #ccc;
+            width: 250px;
+            padding: 10px 13px;
+            background-color: white;
+          }
+        }
+        .other:hover {
+          input {
+            border-color: #5eb12f;
+          }
+          .other-tooltip {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .country:hover {
+    border-color: #5bb33a;
+    z-index: 100;
+    h3 {
+      color: #5bb33a;
+    }
+    .country-down {
+      display: block;
+    }
+  }
+
+
+  .number {
+    width: 400px;
+    margin: 0 auto;
+    .number-drop {
+      display: none;
+      width: 400px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding-top: 10px;
+      cursor: pointer;
+      background-color: white;
+      margin-top: -14px;
+      z-index: 100;
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding: 5px 15px 3px 25px;
+          color: #bbb;
+          font-size: 13px;
+          text-align: left;
+        }
+        li:hover {
+          color: #5bb33a;
+        }
+      }
+    }
+  }
+  .number:hover {
+    input {
+      border-color: #5eb12f;
+    }
+    .number-drop {
+      display: block;
+    }
+  }
+
   .client-logo {
     margin: 50px auto 0;
     width: 400px;
