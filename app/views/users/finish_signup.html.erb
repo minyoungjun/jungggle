@@ -61,8 +61,6 @@ function language_click(id){
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
 
-
-
     <div style="display:none;" id="language_checkbox">
       <%Language.all.each do |lang|%>
         <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>" data-language="<%=lang.id%>"><%=lang.name%>
@@ -81,74 +79,42 @@ function language_click(id){
   <%Language.all.each do |language|%>
     <input type="text" placeholder="Company Name (in <%=language.name%>)" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>">
   <%end%>
-  <select name="country">
-    <% Country.all.each do |country|%>
-      <option value="<%=country.id%>"><%=country.name%></option>
-    <%end%>
-  </select>
   
   <br>
 
-  <select name="employee">
-    <option value="0">1 ~ 10</option>
-    <option value="1">10 ~ 50</option>
-    <option value="2">50 ~ 100</option>
-    <option value="3">100 ~ 500</option>
-    <option value="4">500 ~ 1000</option>
-    <option value="5">1000 +</option>
-  </select>
-
+  <script>
+    function country_select(id){
+      $("#country_text").val($("#country_li_" + id ).html());
+      $("#country_id").val(id);
+    }
+  </script>
+  <input type="hidden" name="country" id="country_id" value="0">
+  <input type="hidden" name="employee" id="employee_id" value="0">
   <div class="country">
-    <input type="text" placeholder="Country">
+    <input type="text" placeholder="Country" disabled id="country_text">
     <div class="country-down">
       <ul>
-        <li>Australia</li>
-        <li>Austria</li>
-        <li>China</li>
-        <li>Japan</li>
-        <li>South Africa</li>
-        <li>South Korea</li>
-        <li>United States</li>
-        <li>Vietnam</li>
-        <li>Australia</li>
-        <li>Austria</li>
-        <li>China</li>
-        <li>Japan</li>
-        <li>South Africa</li>
-        <li>South Korea</li>
-        <li>United States</li>
-        <li>Vietnam</li>
-        <li>Australia</li>
-        <li>Austria</li>
-        <li>China</li>
-        <li>Japan</li>
-        <li>South Africa</li>
-        <li>South Korea</li>
-        <li>United States</li>
-        <li>Vietnam</li>
-        <li>Australia</li>
-        <li>Austria</li>
-        <li>China</li>
-        <li>Japan</li>
-        <li>South Africa</li>
-        <li>South Korea</li>
-        <li>United States</li>
-        <li>Vietnam</li>
+        <% Country.all.each do |country|%>
+          <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
+        <%end%>
+        
       </ul>
     </div>
   </div>
+  <script>
+    function employee_select(id){
+      $("#employee_text").val($("#employee_li_" + id ).html());
+      $("#employee_id").val(id);
+    }
+  </script>
     
-
   <div class="number">
-    <input type="text" placeholder="Number of Employee">
+    <input type="text" placeholder="Number of Employee" id="employee_text" disabled>
     <div class="number-drop">
       <ul>
-        <li>1 ~ 10</li>
-        <li>10 ~ 50</li>
-        <li>50 ~ 100</li>
-        <li>100 ~ 500</li>
-        <li>500 ~ 1000</li>
-        <li>1000 +</li>
+        <%0.upto(5) do |em_num|%>
+          <li id="employee_li_<%=em_num%>"onclick="employee_select(<%=em_num%>);"><%=@em_array[em_num]%></li>
+        <%end%>
       </ul>
     </div>
   </div>

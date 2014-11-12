@@ -1,30 +1,59 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def company_update
+
+
+  end
+
+  def finish_signup
+    @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
+  end
+
+
   def company
     if current_user.member == nil || !(current_user.member.approved)
 
       @has_company = false
     else
       @has_company = true
+      @company = current_user.member.company
     end
+
+      @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
+
   end
+
+
   def signup_company
+
     company = Company.new
     company.num_employee = params[:employee]
     company.website = params[:website]
     company.country_id = params[:country]
     company.save
+    
+    Language.all.each do |lang|
+      if params["lang_#{lang.id}"] != nil
+        comlang = Comlang.new
+        comlang.language_id = lang.id
+        comlang.company_id = company.id
+        comlang.name = params["title_#{lang.id}"]
+        comlang.introduction = params["introduction_#{lang.id}"]
+        comlang.save
+      end
+    end
 
     member = Member.new
     member.company_id = company.id
-    member.user_id = current_user
+    member.user_id = current_user.id
     member.owner = true
     member.approved = true
     member.save
 
 
-    redirect_to :back
+    redirect_to :controller => "users",
+                :action => "company"
 
   end
 
@@ -37,7 +66,7 @@ class UsersController < ApplicationController
       sign_in(this_user, :bypass => true)
 
     end
-    redirect_to "/users/edit"
+    redirect_to "/users/finish_signup"
   end
   def signup_process
     @user = current_user
@@ -68,19 +97,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET/PATCH /users/:id/finish_signup
-  def finish_signup
-    # authorize! :update, @user 
-    if request.patch? && params[:user] #&& params[:user][:email]
-      if @user.update(user_params)
-        @user.skip_reconfirmation!
-        sign_in(@user, :bypass => true)
-        redirect_to @user, notice: 'Your profile was successfully updated.'
-      else
-        @show_errors = true
-      end
-    end
-  end
 
   # DELETE /users/:id.:format
   def destroy

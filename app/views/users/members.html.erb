@@ -1,0 +1,44 @@
+<div class="account">
+  <div class="container">
+    <%=render "/home/left"%>
+    <div class="right-member">
+      <h1>member</h1>
+      <h3>gameberry inc.</h3>
+      <table>
+        <tr class="table-header">
+          <td>name</td>
+          <td>email</td>
+          <td>privlleges</td>
+        </tr>
+        <% current_user.member.company.members.each do |member|%>
+        <tr class="table-body">
+          <td><%=member.user.first_name%> <%=member.user.last_name%></td>
+          <td class="email"><%=member.user.email%></td>
+          <td><img src="/assets/my_account/person_1_gray.png"><%=member.owner%></td>
+        </tr>
+        <%end%>
+      </table>
+      <h3>wailting for approval</h3>
+      <table>
+        <tr class="table-header">
+          <td>name</td>
+          <td>email</td>
+          <td>access</td>
+        </tr>
+        <tr class="table-body">
+          <td>peter carpenter</td>
+          <td class="email">bill_willian@gmail.com</td>
+          <td>
+            <button type="button" class="btn btn-left">approve</button>
+            <button type="button" class="btn btn-right">disapprove</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -10,17 +10,6 @@ before_filter :is_login, :except => [:list]
 
   def create_process
 
-
-=begin
-    company = Company.new
-    company.name = params[:company_name]
-    company.save
-
-    current_user.company_id = company.id
-    current_user.save
-
-=end
-
     product = Product.new
     product.user_id = current_user.id
     
