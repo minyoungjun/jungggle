@@ -175,6 +175,50 @@
   float: right;
   padding: 20px 30px 100px;
 
+  .pack {
+    margin: 30px 0 0;
+    h3 {
+      display: inline-block;
+      color: #555;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    .selected-languages {
+      font-size: 14px;
+      margin: 8px 5px 8px 0;
+      padding: 8px 20px;
+      border-radius: 5px;
+      border: 1px solid #eee;
+      display: inline-block;
+      cursor: pointer;
+      background-color: white;
+    }
+    .selected-languages:hover {
+      border-color: #5eb12f;
+      color: #5eb12f;
+    }
+    .select {
+      background-color: #5eb12f;
+      color: white;
+      border: 1px solid #5eb12f;
+    }
+    .select:hover {
+      color: white;
+      background-color: #4F9E22;
+    }
+  }
+
+
+  .language {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .popover-markup {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
 
   input {
     border: 1px solid #ddd;
