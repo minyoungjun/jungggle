@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   end
   def signup_company
     company = Company.new
-    company.num_employee = params[:num_employee]
+    company.num_employee = params[:employee]
     company.website = params[:website]
+    company.country_id = params[:country]
     company.save
 
     member = Member.new
@@ -22,17 +23,6 @@ class UsersController < ApplicationController
     member.approved = true
     member.save
 
-    Language.all.each do |language|
-      if params["lang_#{language.id}"] != nil
-        comlang = Comlang.new
-        comlang.language_id = language.id
-        comlang.company_id = company.id
-        comlang.name = params["title_#{language.id}"]
-        comlang.location = params["location_#{language.id}"]
-        comlang.introduction = params["introduction_#{language.id}"]
-        comlang.save
-      end
-    end
 
     redirect_to :back
 

@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>'
   }
+  belongs_to :country
   has_many :members
   has_many :products
   has_many :comlangs
