@@ -1458,6 +1458,21 @@
 
 
 
-
+.page-info {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 20px;
+  display: block;
+  margin-bottom: 50px;
+  p {
+    display: inline-block;
+    margin: 10px;
+    font-size: 17px;
+    color: #666;
+  }
+  .select {
+    color: #5eb12f;
+  }
+}
 
 
