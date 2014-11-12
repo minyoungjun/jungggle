@@ -1408,7 +1408,52 @@
   padding: 20px 30px 100px;
 }
 
+.signup-process {
+  padding: 50px 0 100px;
+  h2 {
+    text-align: center;
+    color: #555;
+    font-size: 28px;
+    margin-bottom:  50px;
+  }
+  input {
+    padding: 10px 10px 10px 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 15px auto;
+    display: block;
+  }
+  .name {
+    text-align: center;
+  }
+  .short-form {
+    display: inline-block;
+    margin: 0 7px;
+    width: 190px;
+  }
+  .long-form {
+    width: 400px;
+  }
+  .checkbox {
+    text-align: center;
+    margin: 30px 0 50px;
 
+    p {
+      color: #666;
+      position: relative;
+      top: 10px;
+    }
+  }
+  .btn {
+    background-color: #5eb12f;
+    color: white;
+    font-size: 16px;
+    padding: 10px 80px;
+    border: 0;
+    display: block;
+    margin: 0 auto;
+  }
+}
 
 
 
