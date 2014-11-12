@@ -26,15 +26,25 @@
       margin: 30px 0;
       .selected-languages {
         font-size: 14px;
-        margin: 8px 0;
+        margin: 8px 5px 8px 0;
         padding: 8px 20px;
         border-radius: 5px;
         border: 1px solid #eee;
         display: inline-block;
+        cursor: pointer;
       }
       .selected-languages:hover {
         border-color: #5eb12f;
         color: #5eb12f;
+      }
+      .select {
+        background-color: #5eb12f;
+        color: white;
+        border: 1px solid #5eb12f;
+      }
+      .select:hover {
+        color: white;
+        background-color: #4F9E22;
       }
     }
 
@@ -472,4 +482,63 @@
     }
   }
 }
+
+
+
+.modal {
+  .modal-dialog-language-delete-1 {
+    margin-top: 180px;
+    .modal-language-delete-1 {
+      width: 600px;
+      .modal-body {
+        h2 {
+          color: #666;
+          font-size: 25px;
+        }
+        p {
+          margin: 20px auto 60px;
+        }
+        .btn {
+          padding: 10px 90px;
+          margin: 0 5px;
+        }
+        .btn-b {
+          background-color: white;
+          color: #5eb12f;
+          border: 1px solid #5eb12f;
+        }
+      }
+    }
+  }
+
+
+  .modal-dialog-language-delete-2 {
+    margin-top: 180px;
+    .modal-language-delete-2 {
+      width: 600px;
+      .modal-body {
+        h2 {
+          color: #666;
+          font-size: 25px;
+          margin-bottom: 60px;
+        }
+        p {
+          margin: 20px auto 60px;
+        }
+        .btn {
+          padding: 10px 100px;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+
 
