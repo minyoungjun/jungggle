@@ -3,7 +3,7 @@ class CreateMembers < ActiveRecord::Migration
     create_table :members do |t|
       t.integer :company_id
       t.integer :user_id
-      t.string  :privilege
+      t.boolean :owner, default: false
       t.boolean :approved
       t.timestamps
     end

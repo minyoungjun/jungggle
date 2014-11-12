@@ -1,11 +1,26 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def company
+    if current_user.member == nil || !(current_user.member.approved)
+
+      @has_company = false
+    else
+      @has_company = true
+    end
+  end
   def signup_company
     company = Company.new
     company.num_employee = params[:num_employee]
     company.website = params[:website]
     company.save
+
+    member = Member.new
+    member.company_id = company.id
+    member.user_id = current_user
+    member.owner = true
+    member.approved = true
+    member.save
 
     Language.all.each do |language|
       if params["lang_#{language.id}"] != nil

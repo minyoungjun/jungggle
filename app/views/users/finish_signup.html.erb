@@ -35,8 +35,6 @@ $(document).ready(function(){
 function language_click(id){
   $('.company_name').hide();
   $('#title_' + String(id)).show();
-  $('.location').hide();
-  $('#location_' + String(id)).show();
   $('.company_introduction').hide();
   $('#introduction_' + String(id)).show();
   $('.language_detail_all').hide();
@@ -79,9 +77,7 @@ function language_click(id){
   <%Language.all.each do |language|%>
     <input type="text" placeholder="Company Name (in <%=language.name%>)" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>">
   <%end%>
-  <%Language.all.each do |language|%>
-    <input type="text" placeholder="Located in (in <%=language.name%> Language)" id="location_<%=language.id%>" name="location_<%=language.id%>" class="location">
-  <%end%>
+  <input type="text" placeholder="Located in" name="country">
   <input type="text" placeholder="Number of Employee">
   <input type="text" placeholder="Website" name="website" value="http://">
   <%Language.all.each do |language|%>
