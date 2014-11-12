@@ -1,6 +1,20 @@
 .create-service {
   background-color: #f1f1f1;
   .right-create-service {
+    $black-opacity: 0.3;
+
+    .black-bg {
+      //background-color: rgba(0, 0, 0, 0.5);
+      height: 74px;
+      width: 990px;
+      z-index: 200;
+      position: absolute;
+      margin: -15px -30px;
+    }
+    .plus {
+      height: 500px;
+    }
+
     width: 990px;
     display: inline-block;
     background-color: white;
@@ -14,6 +28,7 @@
       border-radius: 10px;
       float: right;
       font-size: 16px;
+      background-color: white;
     } 
     .back:hover {
       color: white;
@@ -47,6 +62,7 @@
         border: 1px solid #eee;
         display: inline-block;
         cursor: pointer;
+        background-color: white;
       }
       .selected-languages:hover {
         border-color: #5eb12f;
@@ -102,6 +118,9 @@
           .glyphicon {
             color: #777;
           }
+        }
+        .slot {
+          opacity: $black-opacity;
         }
         .marketing-down {
           display: none;
@@ -220,6 +239,9 @@
           margin-right: 5px;
         }
       }
+      .slot {
+        opacity: $black-opacity;
+      }
      
     }
 
@@ -230,6 +252,9 @@
       .check {
         width: 20px;
         margin-right: 20px;
+      }
+      .slot {
+        opacity: $black-opacity;
       }
     }
 
@@ -254,6 +279,9 @@
           .glyphicon {
             color: #777;
           }
+        }
+        .slot {
+          opacity: $black-opacity;
         }
         .country-down {
           display: none;
@@ -322,8 +350,11 @@
       display: inline-block;
       font-size: 16px;
       float: right;
-      position: relative;
-      bottom: 8px;
+      position: absolute;
+      background-color: white;
+      z-index: 600;
+      margin-top: -1px;
+      margin-left: 450px;
     }
     .preview:hover {
       color: white;
@@ -411,6 +442,9 @@
           cursor: pointer;
           vertical-align: top
         }
+        .slot {
+          opacity: $black-opacity;
+        }
         .file-name {
           font-size: 18px;
           display: inline-block;
@@ -431,6 +465,7 @@
             bottom: 3px;
           }
         }
+      
         .plus-upload {
           margin: 0 0 50px;
           img {
@@ -441,6 +476,7 @@
             display: inline-block;
           }
         }
+      
       }
     }
     
@@ -487,6 +523,13 @@
         color: #5eb12f;
       }
     }
+    .slot {
+      opacity: $black-opacity;
+    }
+ 
+  }
+  .black {
+    background-color: #656565;
   }
 }
 
@@ -562,13 +605,8 @@
         }
       }
     }
-    .black-bg {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
   }
 }
-
-
 
 
 

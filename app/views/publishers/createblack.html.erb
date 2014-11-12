@@ -48,10 +48,7 @@ function language_click(id){
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-create-service">
-
-      <!-- 반투명 검은색 배경 -->
-      <div class="black-bg"></div>
+    <div class="right-create-service black">
       
       <h1>Create Service <span class="back">Back</span></h1>
       <form action="create_process" method="post" enctype="multipart/form-data">
@@ -87,10 +84,12 @@ function language_click(id){
 
       </div>
 
+      <!-- 반투명 검은색 배경 -->
+      <div class="black-bg"></div>
       <div class="pack marketing-type">
         <h3>Marketing Type</h3>
         <div class="marketing drop">
-          <div class="marketing-btn" id="marketing_btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+          <div class="marketing-btn slot" id="marketing_btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
             <div class="marketing-down">
               <ul>
                 <%Marketingtype.where(:filter => 1).each do |marketing1|%>
@@ -129,9 +128,9 @@ function language_click(id){
 
         <div class="platform">
           <h3>Platform</h3>
-          <p><img src="/assets/my_account/radio-02.png"> All</p>
-          <p><img src="/assets/my_account/radio-01.png"> iOS</p>
-          <p><img src="/assets/my_account/radio-01.png"> Android</p>
+          <p><img src="/assets/my_account/radio-02.png" class="slot"> All</p>
+          <p><img src="/assets/my_account/radio-01.png" class="slot"> iOS</p>
+          <p><img src="/assets/my_account/radio-01.png" class="slot"> Android</p>
         </div>
       </div>
 
@@ -144,23 +143,32 @@ function language_click(id){
         <img src="/assets/my_account/circle_plus.png">
       </div>
 
+      <!-- 반투명 검은색 배경 -->
+      <div class="black-bg"></div>
+
       <div class="pack cost">
         <h3>Cost</h3>
-        <p><img src="/assets/my_account/radio-02.png"> Flat Rate</p>
-        <p><img src="/assets/my_account/radio-01.png"> Multiple Rate</p>
-        <input type="text" placeholder="$">
+        <p><img src="/assets/my_account/radio-02.png" class="slot"> Flat Rate</p>
+        <p><img src="/assets/my_account/radio-01.png" class="slot"> Multiple Rate</p>
+        <input type="text" placeholder="$" class="slot">
       </div>
+
+      <!-- 반투명 검은색 배경 -->
+      <div class="black-bg"></div>
 
       <div class="pack budget">
         <h3>Minimum Budget</h3>
-        <img src="/assets/my_account/checkbox-01.png">&nbsp;&nbsp;
-        <input type="text" placeholder="$">
+        <img src="/assets/my_account/checkbox-01.png" class="slot">&nbsp;&nbsp;
+        <input type="text" placeholder="$" class="slot">
       </div>
+
+      <!-- 반투명 검은색 배경 -->
+      <div class="black-bg"></div>
 
       <div class="pack country">
         <h3>Country</h3>
         <div class="country-drop">
-          <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+          <div class="country-btn slot">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
           <div class="country-down">
             <ul>
               <li class="title">All</li><hr>
@@ -181,7 +189,7 @@ function language_click(id){
             </ul>
           </div>
         </div>
-        <img src="/assets/my_account/circle_plus.png">
+        <img src="/assets/my_account/circle_plus.png" class="slot">
         <h4 class="preview">Preview</h4>
       </div>
 
@@ -207,10 +215,14 @@ function language_click(id){
       <div class="pack cp-intro">
         <h3>Company Introduction</h3>
         <textarea type="text" placeholder="Company Introduction" name="company_name" rows="4"></textarea>
+
+        <!-- 반투명 검은색 배경 -->
+        <div class="black-bg plus"></div>
+
         <div class="upload-logo-area">
-          <div class="upload-logo">+Upload Logo</div>
-          <p class="file-name">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span></p>
-          <div class="plus-upload">
+          <div class="upload-logo slot">+Upload Logo</div>
+          <p class="file-name slot">Company_CI.jpg <a href="#none">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span></p>
+          <div class="plus-upload slot">
             <img src="/assets/my_account/circle_plus.png" class="upload">
             <p>Clients logo</p>
             <br>
@@ -221,19 +233,15 @@ function language_click(id){
       </div>
 
 
-      
+      <input type="submit" class="btn btn-a slot" value="Save">
+      <button type="button" class="btn btn-b slot">Delete</button>
 
-
-      <input type="submit" class="btn btn-a" value="Save">
-      <button type="button" class="btn btn-b">Delete</button>
-
-      <h5 class="ok"><img src="/assets/my_account/radio-02.png"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
-      <p>1. 입금확인</p>
-      <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
-      <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
-      <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 완료된 후에 대금을 지급힌다.</p>
-      <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
-
+      <h5 class="ok slot"><img src="/assets/my_account/radio-02.png" class="slot"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <p class="slot">1. 입금확인</p>
+      <p class="slot">2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
+      <p class="slot">3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
+      <p class="slot">4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로 완료된 후에 대금을 지급힌다.</p>
+      <p class="slot">5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
     </div>
   </div>
 </div>
