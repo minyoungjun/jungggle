@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get 'publishers/create2'
   get 'users/finish_signup'
   post 'users/signup_company'
+  get 'publishers/createblack'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end

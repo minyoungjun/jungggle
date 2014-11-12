@@ -235,6 +235,7 @@
     .country-down {
       display: none;
       width: 400px;
+      height: 250px;
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
@@ -244,44 +245,18 @@
       background-color: white;
       z-index: 100;
       margin-top: -14px;
+      overflow: scroll;
       ul {
         list-style: none;
         padding-left: 0;
         li {
-          padding: 5px 15px;
+          padding: 5px 15px 5px 25px;
           color: #bbb;
           font-size: 13px;
+          text-align: left;
         }
         li:hover {
           color: #5bb33a;
-        }
-        .title {
-          color: #777;
-        }
-        hr {
-          margin: 3px 15px;
-        }
-        .other {
-          .other-tooltip {
-            display: none;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            position: absolute;
-            left: 405px;
-            bottom: -18px;
-            color: #ccc;
-            width: 250px;
-            padding: 10px 13px;
-            background-color: white;
-          }
-        }
-        .other:hover {
-          input {
-            border-color: #5eb12f;
-          }
-          .other-tooltip {
-            display: block;
-          }
         }
       }
     }
