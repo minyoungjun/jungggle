@@ -49,7 +49,7 @@ function language_click(id){
     <%= render "/home/left"%>
 
     <div class="right-create-service">
-      <h1>Create Service</h1>
+      <h1>Create Service <span class="back">Back</span></h1>
 
       <form action="create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -62,7 +62,8 @@ function language_click(id){
 
       <div class="pack languages">
         <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-        <div class="selected-languages">EN &nbsp;&nbsp;&nbsp;X</div>
+        <div class="selected-languages" data-toggle="modal" data-target="#Modal-language-delete-1">EN &nbsp;&nbsp;&nbsp;X</div>
+        <div class="selected-languages select" data-toggle="modal" data-target="#Modal-language-delete-2">EN &nbsp;&nbsp;&nbsp;X</div>
         <span id="selected_languages"></span>
         
          <div class="popover-markup">
@@ -179,6 +180,7 @@ function language_click(id){
           </div>
         </div>
         <img src="/assets/my_account/circle_plus.png">
+        <h4 class="preview">Preview</h4>
       </div>
 
       <hr class="hr">
@@ -234,6 +236,37 @@ function language_click(id){
   </div>
 </div>
 
+
+
+<!-- language-delete-1 Modal -->
+<div class="modal fade" id="Modal-language-delete-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-language-delete-1">
+    <div class="modal-content modal-language-delete-1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Are you sure to delete this language?</h2>
+        <p>All of your writings with this language will be deleted</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-b">No</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- language-delete-2 Modal -->
+<div class="modal fade" id="Modal-language-delete-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-language-delete-2">
+    <div class="modal-content modal-language-delete-2">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>You must maintain at least one language.</h2>
+        
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
