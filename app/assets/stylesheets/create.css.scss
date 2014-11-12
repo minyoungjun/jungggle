@@ -7,6 +7,20 @@
     float: right;
     padding: 20px 30px 100px;
 
+    .back {
+      color: #aaa;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      float: right;
+      font-size: 16px;
+    } 
+    .back:hover {
+      color: white;
+      border-color: #5eb12f;
+      background-color: #5eb12f;
+    }
+
     h3 {
       font-size: 16px;
       margin: 12px 0;
@@ -14,6 +28,7 @@
       width: 165px;
       color: #777;
     }
+
     input {
       border: 1px solid #ddd;
       border-radius: 5px;
@@ -299,7 +314,23 @@
       }
     }
     
-    
+    .preview {
+      color: #aaa;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 16px;
+      float: right;
+      position: relative;
+      bottom: 8px;
+    }
+    .preview:hover {
+      color: white;
+      border-color: #5eb12f;
+      background-color: #5eb12f;
+    }
+
     .hr {
       border: 1px solid #aaa;
       margin: 10px 0;
