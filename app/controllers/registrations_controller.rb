@@ -19,6 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource_saved = resource.save
     resource.email_confirmed = true
+    resource.confirmation_token = SecureRandom.hex(6)
     resource.save
     yield resource if block_given?
     if resource_saved
@@ -128,10 +129,9 @@ class RegistrationsController < Devise::RegistrationsController
   # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
     if current_user.identities.count == 0
-
-      after_sign_in_path_for(resource)
+      "/users/finish_signup"
     else
-      "/users/edit"
+      "/users/signup_process"
     end
   end
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :is_login
 
   def company_update
 
@@ -61,6 +62,7 @@ class UsersController < ApplicationController
     this_user = current_user
     if !(current_user.email_confirmed)
       this_user.email_confirmed = true
+      this_user.confirmation_token = SecureRandom.hex(6)
       this_user.save
       this_user.update(user_params)
       sign_in(this_user, :bypass => true)

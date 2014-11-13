@@ -161,7 +161,7 @@ function delete_logo(){
       <%end%>
       <select name="country">
         <% Country.all.each do |country|%>
-          <option value="<%=country.id%>" <%if @company.country.id == country.id%>selected="true"<%end%>><%=country.name%></option>
+          <option value="<%=country.id%>" <%if @has_company && @company.country.id == country.id%>selected="true"<%end%>><%=country.name%></option>
         <%end%>
       </select>
       

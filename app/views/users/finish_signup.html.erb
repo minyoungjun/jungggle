@@ -55,7 +55,9 @@ function language_click(id){
     <p>Profile</p>
     <p class="select">Company Profile</p>
   </div>
-  <div class="skip">SKIP</div>
+  <a href="/">
+    <div class="skip">SKIP</div>
+  </a>
   <div class="languages">
     <form action="signup_company" method="post" enctype="multipart/form-data">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
