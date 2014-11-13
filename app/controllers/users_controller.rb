@@ -11,6 +11,14 @@ class UsersController < ApplicationController
     @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
   end
 
+  def email_confirmation
+      @user = User.find(params[:id])
+    if @user.confirmation_token == params[:token]
+      @user.confirmed_at = Time.now
+      @user.save
+    end
+    render :text => "success"
+  end
 
   def company
     if current_user.member == nil || !(current_user.member.approved)
@@ -62,9 +70,9 @@ class UsersController < ApplicationController
     this_user = current_user
     if !(current_user.email_confirmed)
       this_user.email_confirmed = true
-      this_user.confirmation_token = SecureRandom.hex(6)
       this_user.save
       this_user.update(user_params)
+      User.send_confirmation_email(this_user.id)
       sign_in(this_user, :bypass => true)
 
     end

@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20141111020828) do
     t.integer  "parent_id"
     t.string   "name"
     t.integer  "filter"
+    t.boolean  "global",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

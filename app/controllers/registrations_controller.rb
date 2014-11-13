@@ -1,4 +1,3 @@
-require 'rest_client'
 class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, only: [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
@@ -20,16 +19,10 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource_saved = resource.save
     resource.email_confirmed = true
-    resource.confirmation_token = SecureRandom.hex(6)
     resource.save
-=begin
-    RestClient.post "https://api:key-d9dd9c0e53befa87a8e213df42ba5da0"\
-      "@api.mailgun.net/v2/jungggle.com/messages",
-      :from => "Jungggle Mailer <admin@jungggle.com>",
-      :to => resource.email,
-      :subject => "Jungggle Confirm your Email",
-      :text => "To confirm your email, click =>  #{confirmation_url(resource, confirmation_token: @token)}"
-=end
+
+    User.send_confirmation_email(resource.id)
+
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?

@@ -4,6 +4,7 @@ class CreateMarketingtypes < ActiveRecord::Migration
       t.integer :parent_id
       t.string  :name
       t.integer :filter
+      t.boolean :global, default: false
       t.timestamps
     end
   end
