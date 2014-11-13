@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'home/faq'
   get 'home/how'
-  get 'publishers/create'
+  get 'publishers/create' => "publishers#create2"
+  get 'publishers/create2'
   post 'publishers/create_process'
   get 'publishers/manage'
   get 'products/search_result/:id' => "products#search_result"
@@ -46,7 +47,6 @@ Rails.application.routes.draw do
   get 'home/whoru'
   get 'home/account_billing_invoice'
   get 'home/account_billing_receipt'
-  get 'publishers/create2'
   get 'users/finish_signup'
   post 'users/signup_company'
   get 'confirmation/:id' => "users#email_confirmation"
