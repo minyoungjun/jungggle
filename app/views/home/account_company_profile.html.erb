@@ -1,4 +1,4 @@
-<%#<script>
+<script>
   function new_check(){
     if ($("input:checkbox[id='first_time']").is(":checked")){
         $("#detail").show();
@@ -10,37 +10,23 @@
       
   }
 </script>
-%>
+
 <div class="account">
   <div class="container">
     <%= render "/home/left"%>
     <div class="right-company-profile">
       <h1>Company Profile</h1>
-
-      <div class="pack languages">
-        <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-        <div class="selected-languages" data-toggle="modal" data-target="#Modal-language-delete-1">EN &nbsp;&nbsp;&nbsp;X</div>
-        <div class="selected-languages select" data-toggle="modal" data-target="#Modal-language-delete-2">EN &nbsp;&nbsp;&nbsp;X</div>
-        <span id="selected_languages"></span>
-        
-         <div class="popover-markup">
-          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
-          <div class="content hide" style="top: 280px; left: 389px; display: block;">
-            <%Language.all.each do |language|%>
-              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
-            <%end%>
-          </div>
-        </div>
-      </div>
-      
       <form action="/users/company_update" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-        <input type="text" name="company_name" data-autocomplete="/home/autocomplete_company_name" placeholder="Company Name" >
-        <div id="detail" >
-          <input type="text" placeholder="Located In" name="located_in" >
-          <input type="text" placeholder="Number of Employee" name="number_of_employee" >
-          <input type="text" placeholder="Website"  name="website">
-          <textarea rows="4" placeholder="Company Introduction" name="company_introduction" ></textarea>
+        <input type="text" name="company_name" data-autocomplete="/home/autocomplete_company_name" placeholder="Company Name" <%if @company != nil%>value="<%=@company.name%>"<%end%>>
+        <%if @company == nil%>
+          <input type="checkbox"  id="first_time" name="first_time" onclick="new_check();">first time company?<br>
+        <%end%>
+        <div id="detail"<%if @company == nil%>style="display:none;"<%end%>>
+          <input type="text" placeholder="Located In" name="located_in" value="<%if @company != nil%><%=@company.location%><%end%>">
+          <input type="text" placeholder="Number of Employee" name="number_of_employee" value="<%if @company != nil%><%=@company.num_employee%><%end%>">
+          <input type="text" placeholder="Website" value="<%if @company != nil%><%=@company.website%><%end%>" name="website">
+          <textarea rows="4" placeholder="Company Introduction" name="company_introduction" ><%if @company != nil%><%= @company.introduction%><%end%></textarea>
           <%if @company != nil && @company.logo.url != "/logos/original/missing.png"%>
             <img src="<%=@company.logo.url(:thumb)%>">
           <%end%>
@@ -85,16 +71,4 @@
 
 
 
-<script>
-  $('.popover-markup > .trigger').popover({
-    html : true,
-    content: function() {
-      return $(this).parent().find('.content').html();
-    },
-    container: 'body',
-    placement: 'bottom'
-  });
 
-  $(function () { $('.popover-hide').popover('hide');});
-
-</script>
