@@ -11,6 +11,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+
+gem 'rest_client'
 #active admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'kaminari'
