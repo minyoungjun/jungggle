@@ -244,7 +244,7 @@
       cursor: pointer;
       background-color: white;
       z-index: 100;
-      margin-top: -14px;
+      margin-top: -16px;
       overflow: scroll;
       ul {
         list-style: none;
@@ -263,9 +263,10 @@
   }
   .country:hover {
     border-color: #5bb33a;
-    z-index: 100;
-    h3 {
-      color: #5bb33a;
+    z-index: 101;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    input {
+      color: #5eb12f;
     }
     .country-down {
       display: block;
@@ -276,6 +277,10 @@
   .number {
     width: 400px;
     margin: 0 auto;
+    input {
+      z-index: 150;
+    }
+
     .number-drop {
       display: none;
       width: 400px;
@@ -286,7 +291,7 @@
       padding-top: 10px;
       cursor: pointer;
       background-color: white;
-      margin-top: -14px;
+      margin-top: -16px;
       z-index: 100;
       ul {
         list-style: none;
@@ -304,8 +309,9 @@
     }
   }
   .number:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     input {
-      border-color: #5eb12f;
+      color: #5eb12f;
     }
     .number-drop {
       display: block;
