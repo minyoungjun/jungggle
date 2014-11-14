@@ -211,7 +211,6 @@
       display: inline-block;
       margin-left: 20px;
     }
-
   }
   input {
     display: block;
@@ -228,6 +227,52 @@
     width: 400px;
     margin-bottom: 20px;
   }
+
+  .language-input {
+    width: 400px;
+    margin: 0 auto;
+    .language-drop {
+      display: none;
+      width: 400px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding-top: 10px; 
+      background-color: white;
+      cursor: pointer;
+      z-index: 100;
+      margin-top: -16px;
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding: 5px 15px 5px 25px;
+          color: #bbb;
+          font-size: 13px;
+          text-align: left;
+        }
+        li:hover {
+          color: #5bb33a;
+        }
+      }
+    }
+  }
+
+
+  .language-input:hover {
+    border-color: #5bb33a;
+    z-index: 101;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    input {
+      color: #5eb12f;
+    }
+    .language-drop {
+      display: block;
+    }
+  }
+
+  
 
   .country{
     width: 400px;
