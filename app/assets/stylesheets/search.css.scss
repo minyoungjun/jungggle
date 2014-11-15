@@ -79,6 +79,17 @@
               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             }
           }
+          .download {
+            font-size: 15px;
+            a {
+              text-decoration: none;
+              color: #666;
+
+            }
+            a:hover {
+              color: #5eb12f;
+            }
+          }
           .img-hover:hover {
             cursor: pointer;
             text-decoration: underline;
@@ -255,6 +266,11 @@
           border-radius: 5px;
           width: 500px;
           margin: 20px 0 40px;
+        }
+        h3 {
+          font-size: 18px;
+          color: #999;
+          margin: 40px 0 50px;
         }
         .btn-a {
           padding: 10px 100px;
