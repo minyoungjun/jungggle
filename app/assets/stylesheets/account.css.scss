@@ -1294,7 +1294,7 @@
     span {
       padding-left: 10px;
       color: #aaa;
-      font-size: 15px;
+      font-size: 13px;
     }
   }
 
@@ -1352,6 +1352,9 @@
         padding: 10px 12px; 
         font-size: 13px;
         text-align: center;
+        img {
+          cursor: pointer;
+        }
       }
       .name {
         color: #5eb12f;
@@ -1387,6 +1390,16 @@
         top: 8px;
         left: 8px;
       }
+      .ongoing-btn-a {
+        padding-bottom: 3px;
+        padding: 2px 15px;
+        border-radius: 5px;
+        color: white;
+        position: relative;
+        top: 6px;
+        left: 9px;
+        font-size: 11px;
+      }
       .result-btn {
         padding-bottom: 3px;
         padding: 2px 22px;
@@ -1395,7 +1408,7 @@
         position: relative;
         top: 6px;
         left: 9px;
-        font-size: 11px
+        font-size: 11px;
       }
       .result-btn-a {
         background-color: #df6c5a;
@@ -1417,6 +1430,49 @@
     }
   }
 }
+
+.modal {
+  .modal-dialog-projects {
+    .modal-projects {
+      width: 600px;
+      padding: 30px;
+      .modal-body {
+        h2 {
+          font-size: 25px;
+          color: #444;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 20px;
+          font-size: 15px;
+          width: 500px;
+          margin: 20px 0 40px;
+          text-align: center;
+        }
+        .complain-info {
+          font-size: 12px;
+          margin: -24px 0 20px;
+          .point {
+            color: #dc3522;
+          }
+        }
+        .btn {
+          padding: 10px 60px;
+          margin: 5px 10px;
+        }
+        .btn-b {
+          background-color: white;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+        }
+      }
+    }
+  }
+}
+
+
+
 
 
 /* account-manage-service */

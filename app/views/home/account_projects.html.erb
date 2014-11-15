@@ -103,8 +103,8 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="kick-btn btn">Kick-off</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td class="kick-btn btn" data-toggle="modal" data-target="#Modal-kick-off">Kick-off</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
@@ -115,8 +115,8 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="kick-btn btn">Kick-off</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td class="kick-btn btn" data-toggle="modal" data-target="#Modal-kick-off">Kick-off</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
@@ -128,7 +128,7 @@
           <td>$500</td>
           <td>5.4%</td>
           <td class="refunded">Refunded</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
       <h3>Ongoing Projects</h3>
@@ -154,8 +154,20 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="ongoing-btn btn">Complete</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td class="ongoing-btn btn" data-toggle="modal" data-target="#Modal-complete">Complete</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
+        </tr>
+        <tr class="table-body">
+          <td>2014.07.10</td>
+          <td class="name">Gameberry Inc.</td>
+          <td>FMA</td>
+          <td>CPI(iOS)</td>
+          <td>$0.5</td>
+          <td>1,000</td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="ongoing-btn-a result-btn-a btn" data-toggle="modal" data-target="#Modal-complain">Complain<br>Received</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
       <h3>Complete Projects<span>(You need to fill out the Result in order to receive the fee)</span></h3>
@@ -181,8 +193,8 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="result-btn result-btn-a btn">Project<br>Result</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td class="result-btn result-btn-a btn" data-toggle="modal" data-target="#Modal-result">Project<br>Result</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
@@ -194,7 +206,7 @@
           <td>$500</td>
           <td>5.4%</td>
           <td class="result-btn result-btn-b btn">Project<br>Result</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
@@ -205,10 +217,107 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="disapprove-btn btn">Disapproved</td>
-          <td><img src="/assets/my_account/project-mail.png"></td>
+          <td class="disapprove-btn btn" data-toggle="modal" data-target="#Modal-disapprove">Disapproved</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
     </div>
   </div>
 </div>
+
+
+
+
+<!-- mail Modal -->
+<div class="modal fade" id="Modal-mail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Send a message to your customer.</h2>
+        <textarea rows="5"></textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Send</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- kick-off Modal -->
+<div class="modal fade" id="Modal-kick-off" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Kick-off the project!</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- complete Modal -->
+<div class="modal fade" id="Modal-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>complete</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- complain Modal -->
+<div class="modal fade" id="Modal-complain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Cancel Request from the Advertiser</h2>
+        <textarea rows="5"></textarea>
+        <p class="complain-info">If you agree to refund 100% fee, please click <span class="point">"Approve"</span> button.<br>However, if you disagree to refund, or want to refund only part of fee,<br>then please click <span class="point">"Disapprove"</span> button.</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Approve</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Disapprove</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- result Modal -->
+<div class="modal fade" id="Modal-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>result</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- disapprove Modal -->
+<div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>disapprove</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
