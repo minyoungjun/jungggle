@@ -80,7 +80,11 @@ class UsersController < ApplicationController
     member.owner = true
     member.approved = true
     member.save
-
+    
+    if params[:company_logo] != nil
+      company.logo = params[:company_logo]
+      company.save
+    end
 
     redirect_to :controller => "users",
                 :action => "company"
