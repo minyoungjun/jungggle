@@ -12,13 +12,14 @@
 
     .sns-login {
       display: inline-block;
-      padding: 15px 25px;
+      padding: 12px 25px;
       border-radius: 10px;
       font-size: 14px;
-      margin: 0 5px;
+      margin: 20px 5px 0;
       color: white;
       img {
         margin-right: 12px;
+        margin-top: -3px;
       }
       
     }
@@ -56,7 +57,7 @@
       }
     }
     .log-btn {
-      margin: 10px 0 20px;
+      margin: 30px 0 20px;
       input {
         background-color: #5eb12f;
         color: white;
@@ -68,7 +69,7 @@
     }
   }
   .remember {
-    margin: 20px 0;
+    margin: 10px 0;
     .check {
       width: 20px;
     } 
