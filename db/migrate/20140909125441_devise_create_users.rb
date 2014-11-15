@@ -4,7 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## added for Jungggle
       t.integer :company_id
       t.integer :credit, default: 0
+
+
+
       ## Database authenticatable
+      #
+      #
+      t.boolean :is_admin, default: false
+
       t.string :email,              null: false, default: ""
       t.boolean :email_confirmed, default: false
       t.boolean :company_confirmed, default: false

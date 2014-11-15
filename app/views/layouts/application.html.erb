@@ -26,7 +26,10 @@ woopra.track();
 
 </script>
 
-  <%= javascript_include_tag 'application'%>
+<%= javascript_include_tag 'application'%>
+<script>
+  $('input, textarea').placeholder();
+</script>
   <%= csrf_meta_tags %>
 </head>
 <body>

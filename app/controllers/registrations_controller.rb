@@ -19,9 +19,9 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource_saved = resource.save
     resource.email_confirmed = true
-    resource.save
-
-    User.send_confirmation_email(resource.id)
+    if resource.save
+      User.send_confirmation_email(resource.id)
+    end
 
     yield resource if block_given?
     if resource_saved

@@ -2,10 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :is_login
 
-  def company_update
-
-
-  end
 
   def finish_signup
     @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
@@ -20,21 +16,7 @@ class UsersController < ApplicationController
     render :text => "success"
   end
 
-  def company
-    if current_user.member == nil || !(current_user.member.approved)
-
-      @has_company = false
-    else
-      @has_company = true
-      @company = current_user.member.company
-    end
-
-      @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
-
-  end
-
-
-  def signup_company
+  def company_update
 
     company = Company.new
     company.num_employee = params[:employee]
@@ -52,6 +34,45 @@ class UsersController < ApplicationController
         comlang.save
       end
     end
+
+    member = Member.new
+    member.company_id = company.id
+    member.user_id = current_user.id
+    member.owner = true
+    member.approved = true
+    member.save
+
+
+    redirect_to :controller => "users",
+                :action => "company"
+  end
+
+  def company
+    if current_user.member == nil || !(current_user.member.approved)
+
+      @has_company = false
+    else
+      @has_company = true
+      @company = current_user.member.company
+    end
+      @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
+  end
+
+  def signup_company
+
+    company = Company.new
+    company.num_employee = params[:employee]
+    company.website = params[:website]
+    company.country_id = params[:country]
+    company.save
+    
+    language = Language.find(params[:language_id])
+    comlang = Comlang.new
+    comlang.language_id = language.id
+    comlang.company_id = company.id
+    comlang.name = params[:title]
+    comlang.introduction = params[:company_introduction]
+    comlang.save
 
     member = Member.new
     member.company_id = company.id

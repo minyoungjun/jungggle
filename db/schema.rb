@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20141111020828) do
   end
 
   create_table "comdocuments", force: true do |t|
-    t.integer  "company_id"
+    t.integer  "comlang_id"
     t.string   "name"
     t.string   "saved_name"
     t.text     "original_name"
@@ -221,7 +221,7 @@ ActiveRecord::Schema.define(version: 20141111020828) do
   end
 
   create_table "prodocuments", force: true do |t|
-    t.integer  "product_id"
+    t.integer  "prolang_id"
     t.string   "name"
     t.string   "saved_name"
     t.text     "original_name"
@@ -278,6 +278,7 @@ ActiveRecord::Schema.define(version: 20141111020828) do
   create_table "users", force: true do |t|
     t.integer  "company_id"
     t.integer  "credit",                 default: 0
+    t.boolean  "is_admin",               default: false
     t.string   "email",                  default: "",    null: false
     t.boolean  "email_confirmed",        default: false
     t.boolean  "company_confirmed",      default: false

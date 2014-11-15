@@ -14,37 +14,6 @@ class HomeController < ApplicationController
     @selected = "member"
 
   end
-  def company_update
-
-    if params[:first_time] == "on" && Company.where(:name => params[:company_name]).count == 0
-        company = Company.new
-        company.name = params[:company_name]
-        company.location = params[:located_in]
-        company.num_employee = params[:number_of_employee]
-        company.website = params[:website]
-        company.introduction = params[:company_introduction]
-        if params[:upload] != nil
-          company.logo = params[:upload]
-        end
-        company.save
-    elsif params[:first_time] != "on" && Company.where(:name => params[:company_name]).count == 0
-      render :text => "wow"
-    else
-      company = Company.where(:name => params[:company_name]).first
-    end
-
-    if current_user.member == nil
-      member = Member.new
-    else
-      member = current_user.member
-    end
-    member.user_id = current_user.id
-    member.company_id = company.id
-    member.save
-
-    redirect_to :back
-
-  end
 
   def main
     @main = true

@@ -8,5 +8,4 @@ class Product < ActiveRecord::Base
   has_many  :payables
   has_many  :procons
   has_many  :details
-  has_many  :prodocuments
 end
