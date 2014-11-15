@@ -1387,7 +1387,7 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 30px 130px;
 
   .sub-title {
     margin: 30px 0;
@@ -1404,21 +1404,26 @@
       border-radius: 10px;
       padding: 8px 25px;
       float: right;
+      position: relative;
+      bottom: 6px;
     }
   }
 
   table {
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 50px;
 
     .table-header {
-      background-color: #eee;
+      font-size: 12px;
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
       td {
         padding: 10px 12px;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
+      font-size: 13px;
       td {
         padding: 20px 12px; 
       }
