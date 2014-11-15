@@ -107,6 +107,20 @@ body {
             text-decoration: none;
             color: #6b6b6b;
           }
+          .login-btn {
+            background-color: white;
+            border: 1px solid #5eb12f;
+            border-radius: 5px;
+            color: #5eb12f;
+            padding: 5px 15px;
+          }
+          .signup-btn {
+            background-color: #5eb12f;
+            border: 1px solid #5eb12f;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 10px;
+          }
         }
       }
       .log-name {
