@@ -1290,55 +1290,68 @@
   h3 {
     display: inline-block;
     margin: 0;
-    font-size: 18px;
+    font-size: 24px;
     span {
       padding-left: 10px;
       color: #aaa;
       font-size: 15px;
     }
   }
-  .top-info {
-    margin-bottom: 30px;
-    .table-header {
-      background-color: white;
-      color: #999;
-      td {
-        padding: 2px 12px;
-      }
-    }
-    .table-body {
-      color: #5eb12f;
-      font-size: 25px;
-      border: 0;
 
-      td {
-        padding: 5px 12px;
-        span {
-          font-size: 14px;
-          font-weight: bold;
-          color: #888;
-        }
+  .top-info {
+    margin: 25px 0 60px;
+    .info {
+      display: inline-block;
+      border: 5px solid #eee;
+      border-radius: 10px;
+      padding: 10px 5px;
+      width: 175px;
+      height: 90px;
+      margin: 0 4px;
+      text-align: center;
+      vertical-align: middle;
+      p {
+        color: #ccc;
+        font-size: 12.5px;
       }
-      .sm-font {
-        font-size: 16px;
+      h2 {
+        color: #5eb12f;
+        font-weight: 700;
+        font-size: 25px;
+        margin: 0;
+      }
+      .small {
+        font-size: 14px;
       }
     }
   }
 
+
   table {
     width: 100%;
-    margin: 30px 0;
-
+    margin: 20px 0 60px;
     .table-header {
-      background-color: #eee;
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #888;
+      font-size: 12px;
+      color: #bbb;
       td {
         padding: 10px 12px;
+        text-align: center;
+      }
+      .marketing {
+        width: 200px;
+      }
+      .qty {
+        width: 100px;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
       td {
-        padding: 20px 12px; 
+        padding: 10px 12px; 
+        font-size: 13px;
+        text-align: center;
       }
       .name {
         color: #5eb12f;
@@ -1346,35 +1359,60 @@
           color: #bbb;
         }
       }
-      .font-bold {
-        font-size: 15px;
-        font-weight: bold;
-      }
       .kick-btn {
         padding-bottom: 3px;
-        .btn {
-          padding: 3px 22px;
-          font-size: 13px;
-          border-radius: 10px;
-        }
-        span {
-          font-size: 12px;
-          color: #aaa;
-        }
-        .btn:hover {
-          background-color: white;
-          border: 1px solid #5eb12f;
-          color: #5eb12f;
-        }
+        padding: 6px 12px;
+        font-size: 13px;
+        border-radius: 5px;
+        background-color: #aaa;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
+      }
+      .kick-btn:hover {
+        background-color: #999;
+      }
+      .refunded {
+        color: #df6c5a;
       }
       .ongoing-btn {
-        .btn {
-          background-color: #5eb12f;
-          color: white;
-          border: 0;
-          border-radius: 10px;
-          padding: 4px 25px;
-        }
+        padding-bottom: 3px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border-radius: 5px;
+        background-color: #5eb12f;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
+      }
+      .result-btn {
+        padding-bottom: 3px;
+        padding: 2px 22px;
+        border-radius: 5px;
+        color: white;
+        position: relative;
+        top: 6px;
+        left: 9px;
+        font-size: 11px
+      }
+      .result-btn-a {
+        background-color: #df6c5a;
+      }
+      .result-btn-b {
+        background-color: #999;
+      }
+      .disapprove-btn {
+        padding-bottom: 3px;
+        padding: 6px 10px;
+        font-size: 11px;
+        border-radius: 5px;
+        background-color: #ffaa51;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
       }
     }
   }
