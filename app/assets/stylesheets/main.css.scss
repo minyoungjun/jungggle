@@ -36,14 +36,14 @@
 
     .country {
       width: 150px;
-      border: 1px solid #eee;
-      border-radius: 10px 0 0 10px;
       position: relative;
       left: 4px;
       h3 {
         font-size: 14px;
-        margin: 20px 0;
-        padding-left: 20px;
+        margin: 0 0 10px;
+        border: 1px solid #eee;
+        border-radius: 10px 0 0 10px;
+        padding: 20px 0 20px 20px;
       }
       .country-down {
         display: none;
@@ -54,7 +54,7 @@
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         padding-top: 10px;
         cursor: pointer;
-        top: 56px;
+        top: 63px;
         ul {
           list-style: none;
           padding-left: 0;
@@ -107,11 +107,11 @@
 
     .marketing {
       width: 230px;
-      border: 1px solid #eee;
       h3 {
         font-size: 14px;
-        margin: 20px 0;
-        padding-left: 20px;
+        margin: 0 0 10px;
+        border: 1px solid #eee;
+        padding: 20px 0 20px 20px;
       }
       .marketing-down {
         display: none;
@@ -121,7 +121,7 @@
         position: absolute;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         cursor: pointer;
-        top: 56px;
+        top: 63px;
         ul {
           list-style: none;
           padding-left: 0;
