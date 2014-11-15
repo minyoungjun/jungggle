@@ -37,7 +37,7 @@
     font-size: 15px;
     width: 30px;
     height: 30px;
-    line-height: 30px;
+    line-height: 27px;
   }
 
   form {
@@ -56,14 +56,14 @@
       }
     }
     .log-btn {
-      margin: 30px 0 10px;
+      margin: 10px 0 20px;
       input {
-        background-color: #6dc54d;
+        background-color: #5eb12f;
         color: white;
         border: 0;
         font-size: 15px;
-        width: 150px;
-        padding: 20px 0;
+
+        padding: 10px 0;
       }
     }
   }
@@ -71,7 +71,13 @@
     margin: 20px 0;
     .check {
       width: 20px;
-    }  
+    } 
+    label {
+      color: #666;
+    } 
+  }
+  p {
+    font-size: 16px;
   }
 }
 
