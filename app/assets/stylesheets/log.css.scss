@@ -43,16 +43,16 @@
   form {
     div {
       input {
-        width: 370px;
+        width: 400px;
         padding: 15px 20px;
-        margin: 5px 0;
+        margin: 8px 0;
         font-size: 14px;
         border-radius: 10px;
-        border: 2px solid #d9d9d9;
+        border: 1px solid #d9d9d9;
         color: black;
       }
       input:focus {
-        border: 2px solid #6dc54d;
+        border-color: #5eb12f;
       }
     }
     .log-btn {
@@ -66,6 +66,12 @@
         padding: 20px 0;
       }
     }
+  }
+  .remember {
+    margin: 20px 0;
+    .check {
+      width: 20px;
+    }  
   }
 }
 
@@ -234,12 +240,12 @@
       display: block;
       border: 1px solid #eee;
       border-radius: 5px;
-      position: relative;
+      position: absolute;
       padding: 10px 0;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       z-index: 100;
       background-color: white;
-      min-width: 400px;
+      min-width: 401px;
       margin-top: -16px;
       .company-autocomplete {
         text-align: left;
