@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get 'publishers/createblack'
   get 'users/finish_signup2'
   get 'users/email_confirm'
+  get 'home/upgrade'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
