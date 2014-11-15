@@ -153,13 +153,14 @@
             .division-hover {
               display: none;
               border: 1px solid #eee;
-              width: 495px;
+              width: 530px;
               position: absolute;
-              left: 158px;
+              left: 163px;
               top: 26px;
               color: #333;
               padding: 5px 10px;
               background-color: white;
+              z-index: 610;
               ul {
                 display: inline-block;
                 padding: 10px 3px;
@@ -368,7 +369,7 @@
     }
 
     .optional {
-      display: inline-block;
+      //display: inline-block;
 
       h3 {
         width: 260px;

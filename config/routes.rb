@@ -52,6 +52,8 @@ Rails.application.routes.draw do
   get 'confirmation/:id' => "users#email_confirmation"
 
   get 'publishers/createblack'
+  get 'users/finish_signup2'
+  get 'users/email_confirm'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
