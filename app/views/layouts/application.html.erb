@@ -187,7 +187,7 @@ woopra.track();
       <a href="/products/cart"><img src="/assets/cart.png" class="nav-cart"></a>
     </div>
   </div>
-  <%if user_signed_in? && current_user.confirmed_at == nil%>
+  <%if user_signed_in? && current_user.email_confirmed && current_user.confirmed_at == nil%>
     <h5 class="resend">Please confirm your email address, a confirmation message was sent to <%=current_user.email%> <span class="underline">Resend confrimation</span></h5>
   <%end%>
   <%#

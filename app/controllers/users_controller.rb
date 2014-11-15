@@ -67,11 +67,21 @@ class UsersController < ApplicationController
     company.save
     
     language = Language.find(params[:language_id])
+
     comlang = Comlang.new
     comlang.language_id = language.id
     comlang.company_id = company.id
     comlang.name = params[:title]
-    comlang.introduction = params[:company_introduction]
+    if params[:company_introduction] != nil
+      comdocu = Comdocument.new
+      comdocu.comlang_id = comlang.id
+      comdocu.saved_name = SecureRandom.hex(10) +"." + params["company_introduction"].original_filename.split('.').last
+      comdocu.original_name = params["company_introduction"].original_filename
+      f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
+      f.write(params[:company_introduction].read)
+      f.close
+      comdocu.save
+    end
     comlang.save
 
     member = Member.new
@@ -85,6 +95,15 @@ class UsersController < ApplicationController
       company.logo = params[:company_logo]
       company.save
     end
+
+    params[:client].each do |client_file|
+      client = Comclient.new
+      client.company_id = company.id
+      client.logo = client_file.last
+      client.save
+    end
+
+
 
     redirect_to :controller => "users",
                 :action => "company"

@@ -93,6 +93,7 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
       :text => "To confirm your email, click =>  http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}"
 
     user.confirmation_sent_at = Time.now
+    user.save
 
   end
 
