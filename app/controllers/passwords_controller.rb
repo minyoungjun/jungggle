@@ -5,6 +5,7 @@ class PasswordsController < Devise::PasswordsController
 
   # GET /resource/password/new
   def new
+    @main = true
     self.resource = resource_class.new
   end
 
