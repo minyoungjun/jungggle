@@ -13,7 +13,7 @@
         font-size: 25px;
         color: #e6e6e6;
         text-align: center;
-        margin: 30px 0;
+        margin: 30px 0 15px;
       }
 
       table {
@@ -35,6 +35,9 @@
           .list-icon {
             text-align: center;
             width: 50px;
+            img {
+              opacity: 0.4;
+            }
           }
           .list-title {
             padding-left: 15px;
@@ -48,6 +51,9 @@
           }
           .select {
             color: white;
+          }
+          img {
+            opacity: 1;
           }
         }
       }
@@ -1290,55 +1296,71 @@
   h3 {
     display: inline-block;
     margin: 0;
-    font-size: 18px;
+    font-size: 24px;
     span {
       padding-left: 10px;
       color: #aaa;
-      font-size: 15px;
+      font-size: 13px;
     }
   }
-  .top-info {
-    margin-bottom: 30px;
-    .table-header {
-      background-color: white;
-      color: #999;
-      td {
-        padding: 2px 12px;
-      }
-    }
-    .table-body {
-      color: #5eb12f;
-      font-size: 25px;
-      border: 0;
 
-      td {
-        padding: 5px 12px;
-        span {
-          font-size: 14px;
-          font-weight: bold;
-          color: #888;
-        }
+  .top-info {
+    margin: 25px 0 60px;
+    .info {
+      display: inline-block;
+      border: 5px solid #eee;
+      border-radius: 10px;
+      padding: 10px 5px;
+      width: 175px;
+      height: 90px;
+      margin: 0 4px;
+      text-align: center;
+      vertical-align: middle;
+      p {
+        color: #ccc;
+        font-size: 12.5px;
       }
-      .sm-font {
-        font-size: 16px;
+      h2 {
+        color: #5eb12f;
+        font-weight: 700;
+        font-size: 25px;
+        margin: 0;
+      }
+      .small {
+        font-size: 14px;
       }
     }
   }
+
 
   table {
     width: 100%;
-    margin: 30px 0;
-
+    margin: 20px 0 60px;
     .table-header {
-      background-color: #eee;
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #888;
+      font-size: 12px;
+      color: #bbb;
       td {
         padding: 10px 12px;
+        text-align: center;
+      }
+      .marketing {
+        width: 200px;
+      }
+      .qty {
+        width: 100px;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
       td {
-        padding: 20px 12px; 
+        padding: 10px 12px; 
+        font-size: 13px;
+        text-align: center;
+        img {
+          cursor: pointer;
+        }
       }
       .name {
         color: #5eb12f;
@@ -1346,39 +1368,117 @@
           color: #bbb;
         }
       }
-      .font-bold {
-        font-size: 15px;
-        font-weight: bold;
-      }
       .kick-btn {
         padding-bottom: 3px;
-        .btn {
-          padding: 3px 22px;
-          font-size: 13px;
-          border-radius: 10px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border-radius: 5px;
+        background-color: #aaa;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
+      }
+      .kick-btn:hover {
+        background-color: #999;
+      }
+      .refunded {
+        color: #df6c5a;
+      }
+      .ongoing-btn {
+        padding-bottom: 3px;
+        padding: 6px 12px;
+        font-size: 13px;
+        border-radius: 5px;
+        background-color: #5eb12f;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
+      }
+      .ongoing-btn-a {
+        padding-bottom: 3px;
+        padding: 2px 15px;
+        border-radius: 5px;
+        color: white;
+        position: relative;
+        top: 6px;
+        left: 9px;
+        font-size: 11px;
+      }
+      .result-btn {
+        padding-bottom: 3px;
+        padding: 2px 22px;
+        border-radius: 5px;
+        color: white;
+        position: relative;
+        top: 6px;
+        left: 9px;
+        font-size: 11px;
+      }
+      .result-btn-a {
+        background-color: #df6c5a;
+      }
+      .result-btn-b {
+        background-color: #999;
+      }
+      .disapprove-btn {
+        padding-bottom: 3px;
+        padding: 6px 10px;
+        font-size: 11px;
+        border-radius: 5px;
+        background-color: #ffaa51;
+        color: white;
+        position: relative;
+        top: 8px;
+        left: 8px;
+      }
+    }
+  }
+}
+
+.modal {
+  .modal-dialog-projects {
+    .modal-projects {
+      width: 600px;
+      padding: 30px;
+      .modal-body {
+        h2 {
+          font-size: 25px;
+          color: #444;
         }
-        span {
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 20px;
+          font-size: 15px;
+          width: 500px;
+          margin: 20px 0 40px;
+          text-align: center;
+        }
+        .complain-info {
           font-size: 12px;
-          color: #aaa;
+          margin: -24px 0 20px;
+          .point {
+            color: #dc3522;
+          }
         }
-        .btn:hover {
+        .btn {
+          padding: 10px 60px;
+          margin: 5px 10px;
+        }
+        .btn-b {
           background-color: white;
           border: 1px solid #5eb12f;
           color: #5eb12f;
         }
       }
-      .ongoing-btn {
-        .btn {
-          background-color: #5eb12f;
-          color: white;
-          border: 0;
-          border-radius: 10px;
-          padding: 4px 25px;
-        }
-      }
     }
   }
 }
+
+
+
 
 
 /* account-manage-service */
@@ -1387,7 +1487,7 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 30px 130px;
 
   .sub-title {
     margin: 30px 0;
@@ -1404,21 +1504,26 @@
       border-radius: 10px;
       padding: 8px 25px;
       float: right;
+      position: relative;
+      bottom: 6px;
     }
   }
 
   table {
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 50px;
 
     .table-header {
-      background-color: #eee;
+      font-size: 12px;
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
       td {
         padding: 10px 12px;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
+      font-size: 13px;
       td {
         padding: 20px 12px; 
       }

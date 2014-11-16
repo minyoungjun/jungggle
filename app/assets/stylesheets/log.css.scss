@@ -359,7 +359,8 @@
       background-color: white;
       z-index: 100;
       margin-top: -16px;
-      overflow: scroll;
+      overflow-y: scroll;
+
       ul {
         list-style: none;
         padding-left: 0;

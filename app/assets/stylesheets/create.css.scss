@@ -102,8 +102,8 @@
         display: inline-block;
         .marketing-btn {
           padding: 10px 55px;
-          border: 1px solid #eee;
-          border-radius: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
           margin: 0;
           color: #888;
           .glyphicon {
@@ -221,12 +221,17 @@
       }
       .attach-img-btn {
         display: inline-block;
-        padding: 14px 18px;
+        padding: 12px 18px;
         background-color: #aaa;
         color: white;
         cursor: pointer;
         border-radius: 5px;
-        margin: 0 15px
+        margin: 0 13px;
+        position: relative;
+        top: 1px;
+      }
+      .attach-img-btn:hover {
+        background-color: #888;
       }
     }
 
@@ -265,8 +270,8 @@
         margin-right: 12px;
         .country-btn {
           padding: 10px 55px;
-          border: 1px solid #eee;
-          border-radius: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
           color: #888;
           .glyphicon {
             top: 3px;
@@ -369,7 +374,7 @@
     }
 
     .optional {
-      //display: inline-block;
+      margin-bottom: 50px;
 
       h3 {
         width: 260px;
@@ -387,6 +392,9 @@
         padding: 10px 50px;
         border-radius: 5px;
         cursor: pointer;
+      }
+      .upload-file:hover {
+        background-color: #888;
       }
       .upload-file-info {
         display: inline-block;
@@ -496,6 +504,10 @@
       display: inline-block;
       margin-right: 20px;
     }
+    .btn-a:hover {
+      background-color: #4F9F22;
+      border-color: #4F9F22;
+    }
     .btn-b {
       background-color: white;
       border: 1px solid red;
@@ -516,7 +528,7 @@
     }
 
     p {
-      margin-bottom: 3px;
+      margin-bottom: 1px;
       font-size: 12px;
       line-height: 23px;
       color: #888;

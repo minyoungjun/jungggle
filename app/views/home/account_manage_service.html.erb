@@ -1,6 +1,6 @@
 <div class="account">
   <div class="container">
-    <div class="left-list">
+    <!-- <div class="left-list">
       <div class="list my-account">
         <h1>My Account</h1>
         <table>
@@ -53,7 +53,8 @@
           </tr> 
         </table>
       </div>
-    </div>
+    </div> -->
+    <%= render "/home/left"%>
     <div class="right-manage-service">
       <h1>Manage Service</h1>
       <div class="sub-title">
@@ -79,7 +80,7 @@
           <td class="font-bold">$0.1 - 0.7</td>
           <td>Multiple</td>
           <td class="font-bold">$0</td>
-          <td>on</td>
+          <td><img src="/assets/my_account/on.jpg"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
@@ -89,7 +90,7 @@
           <td class="font-bold">$1,000 - 7,500</td>
           <td>5,000,000 Imps</td>
           <td class="font-bold">$15,000</td>
-          <td>off</td>
+          <td><img src="/assets/my_account/off.jpg"></td>
         </tr>
       </table>
       <h3>There is no current service right now. <span>Create one!</span></h3>

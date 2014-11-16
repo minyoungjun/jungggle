@@ -1,6 +1,6 @@
 <div class="account">
   <div class="container">
-    <div class="left-list">
+    <!--<div class="left-list">
       <div class="list my-account">
         <h1>My Account</h1>
         <table>
@@ -53,25 +53,31 @@
           </tr> 
         </table>
       </div>
-    </div>
+    </div>-->
+    <%= render "/home/left"%>
     <div class="right-projects">
-      <h1>Projects</h1>
-      <table class="top-info">
-        <tr class="table-header">
-          <td>Completed Project</td>
-          <td>Total Earning</td>
-          <td>Most Popular Service</td>
-          <td>Most Profitable Service</td>
-          <td>Rating</td>
-        </tr>
-        <tr class="table-body">
-          <td>5</td>
-          <td>$100,000</td>
-          <td class="sm-font">CashSlide CPI (iOS) <span>3 purchases</span></td>
-          <td class="sm-font">FAAD(Promotional App) <span>$70,000</span></td>
-          <td>8.7</td>
-        </tr>
-      </table>
+      <div class="top-info">
+        <div class="info">
+          <p>Total Earning</p>
+          <h2>$100,000</h2>
+        </div>
+        <div class="info">
+          <p>Most Popular Service</p>
+          <h2 class="small">CashSlide CPI(iOS)<br>(3 purchases)</h2>
+        </div>
+        <div class="info">
+          <p>Most Profitable Service</p>
+          <h2 class="small">FAAD(Promotional App)<br>($70,000)</h2>
+        </div>
+        <div class="info">
+          <p>Rating</p>
+          <h2>8.7</h2>
+        </div>
+        <div class="info">
+          <p>Current Fee</p>
+          <h2>5.4%</h2>
+        </div>
+      </div>
 
 
       <h3>Wailting for Kick-off</h3>
@@ -79,50 +85,50 @@
         <tr class="table-header">
           <td>Payment Date</td>
           <td>Company Name</td>
-          <td>User Name</td>
-          <td>Marketing Type</td>
-          <td>Qty.</td>
-          <td>Coast</td>
+          <td>Service Name</td>
+          <td class="marketing">Marketing Type</td>
+          <td>Cost</td>
+          <td class="qty">Qty.</td>
           <td>Total</td>
-          <td></td>
+          <td>Fee</td>
           <td></td>
           <td></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/paypal.png"></td>
-          <td class="kick-btn"><button type="button" class="btn btn-default">Kick-off</button><br><span>reject this project</span></td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="kick-btn btn" data-toggle="modal" data-target="#Modal-kick-off">Kick-off</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/jugggle_icon.jpg"></td>
-          <td class="kick-btn"><button type="button" class="btn btn-default">Kick-off</button><br><span>reject this project</span></td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="kick-btn btn" data-toggle="modal" data-target="#Modal-kick-off">Kick-off</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/jugggle_icon.jpg"></td>
-          <td>Refunded</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="refunded">Refunded</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
       <h3>Ongoing Projects</h3>
@@ -130,26 +136,38 @@
         <tr class="table-header">
           <td>Payment Date</td>
           <td>Company Name</td>
-          <td>User Name</td>
-          <td>Marketing Type</td>
-          <td>Qty.</td>
-          <td>Coast</td>
+          <td>Service Name</td>
+          <td class="marketing">Marketing Type</td>
+          <td>Cost</td>
+          <td class="qty">Qty.</td>
           <td>Total</td>
-          <td></td>
+          <td>Fee</td>
           <td></td>
           <td></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/mark.png"></td>
-          <td class="ongoing-btn"><button type="button" class="btn btn-default">Complete</button></td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="ongoing-btn btn" data-toggle="modal" data-target="#Modal-complete">Complete</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
+        </tr>
+        <tr class="table-body">
+          <td>2014.07.10</td>
+          <td class="name">Gameberry Inc.</td>
+          <td>FMA</td>
+          <td>CPI(iOS)</td>
+          <td>$0.5</td>
+          <td>1,000</td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="ongoing-btn-a result-btn-a btn" data-toggle="modal" data-target="#Modal-complain">Complain<br>Received</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
       <h3>Complete Projects<span>(You need to fill out the Result in order to receive the fee)</span></h3>
@@ -157,52 +175,149 @@
         <tr class="table-header">
           <td>Payment Date</td>
           <td>Company Name</td>
-          <td>User Name</td>
-          <td>Marketing Type</td>
-          <td>Qty.</td>
-          <td>Coast</td>
+          <td>Service Name</td>
+          <td class="marketing">Marketing Type</td>
+          <td>Cost</td>
+          <td class="qty">Qty.</td>
           <td>Total</td>
-          <td></td>
+          <td>Fee</td>
           <td></td>
           <td></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
-          <td>Project Result</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="result-btn result-btn-a btn" data-toggle="modal" data-target="#Modal-result">Project<br>Result</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
-          <td>Project Result</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="result-btn result-btn-b btn">Project<br>Result</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
           <td>2014.07.10</td>
           <td class="name">Gameberry Inc.</td>
-          <td>James Lim</td>
+          <td>FMA</td>
           <td>CPI(iOS)</td>
+          <td>$0.5</td>
           <td>1,000</td>
-          <td class="font-bold">$0.5</td>
-          <td class="font-bold">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
-          <td>Disapproved</td>
-          <td><img src="/assets/my_account/mail.png"></td>
+          <td>$500</td>
+          <td>5.4%</td>
+          <td class="disapprove-btn btn" data-toggle="modal" data-target="#Modal-disapprove">Disapproved</td>
+          <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
     </div>
   </div>
 </div>
+
+
+
+
+<!-- mail Modal -->
+<div class="modal fade" id="Modal-mail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Send a message to your customer.</h2>
+        <textarea rows="5"></textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Send</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- kick-off Modal -->
+<div class="modal fade" id="Modal-kick-off" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Kick-off the project!</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- complete Modal -->
+<div class="modal fade" id="Modal-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>complete</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- complain Modal -->
+<div class="modal fade" id="Modal-complain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Cancel Request from the Advertiser</h2>
+        <textarea rows="5"></textarea>
+        <p class="complain-info">If you agree to refund 100% fee, please click <span class="point">"Approve"</span> button.<br>However, if you disagree to refund, or want to refund only part of fee,<br>then please click <span class="point">"Disapprove"</span> button.</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Approve</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Disapprove</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- result Modal -->
+<div class="modal fade" id="Modal-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>result</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- disapprove Modal -->
+<div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>disapprove</h2>
+        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
