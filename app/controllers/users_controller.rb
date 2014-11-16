@@ -26,26 +26,45 @@ class UsersController < ApplicationController
     company.website = params[:website]
     company.country_id = params[:country]
     company.save
+
+
+    if params[:company_logo] != nil
+      company.logo = params[:company_logo]
+      company.save
+    end
+    if params[:client] != nil
+      params[:client].each do |client_file|
+        client = Comclient.new
+        client.company_id = company.id
+        client.logo = client_file.last
+        client.save
+      end
+    end
     
     Language.all.each do |lang|
       if params["lang_#{lang.id}"] != nil
-        comlang = Comlang.new
+        if company.comlangs.where(:language_id => lang.id).count != 0
+          comlang = company.comlangs.where(:language_id => lang.id).first
+        else
+          comlang = Comlang.new
+        end
         comlang.language_id = lang.id
         comlang.company_id = company.id
         comlang.name = params["title_#{lang.id}"]
         comlang.introduction = params["introduction_#{lang.id}"]
         comlang.save
-        comdocu_params = params[:company_introduction]["#{lang.id}"]
-        if comdocu_params != nil
-          comdocu = Comdocument.new
-          comdocu.comlang_id = comlang.id
-          comdocu.saved_name = SecureRandom.hex(10) + "." + comdocu_params.original_filename.split('.').last
-          comdocu.original_name = comdocu_params.original_filename
-          f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
-          f.write(comdocu_params.read)
-          f.close
-          comdocu.save
-
+        if params[:company_introduction] != nil
+          comdocu_params = params[:company_introduction]["#{lang.id}"]
+          if comdocu_params != nil
+            comdocu = Comdocument.new
+            comdocu.comlang_id = comlang.id
+            comdocu.saved_name = SecureRandom.hex(10) + "." + comdocu_params.original_filename.split('.').last
+            comdocu.original_name = comdocu_params.original_filename
+            f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
+            f.write(comdocu_params.read)
+            f.close
+            comdocu.save
+          end
         end
       end
 
@@ -112,15 +131,14 @@ class UsersController < ApplicationController
       company.logo = params[:company_logo]
       company.save
     end
-
-    params[:client].each do |client_file|
-      client = Comclient.new
-      client.company_id = company.id
-      client.logo = client_file.last
-      client.save
+    if params[:client] != nil
+      params[:client].each do |client_file|
+        client = Comclient.new
+        client.company_id = company.id
+        client.logo = client_file.last
+        client.save
+      end
     end
-
-
 
     redirect_to :controller => "users",
                 :action => "company"

@@ -11,8 +11,62 @@
 
     <h3>Company profile</h3>
     <br>
-  <input type="text" placeholder="Company Name" name="title">
-    <script>
+
+
+      <div class="company-name">
+        <input type="text" placeholder="Company Name" id="auto_name" name="title">
+
+        <div class="company-name-drop" style="display:none;">
+          <div class="company-autocomplete auto_div" data-company="gameberry">
+            <img src="/assets/product_card_view/02.jpg"><h5>gameberry</h5>
+          </div>
+          <div class="company-autocomplete auto_div" data-company="man">
+            <img src="/assets/product_card_view/03.jpg"><h5>man</h5>
+          </div>
+          <div class="company-autocomplete auto_div" data-company="wow berry">
+            <img src="/assets/product_card_view/04.jpg"><h5>wow berry</h5>
+          </div>
+          <div class="company-autocomplete" onclick="new_company();">
+            <h5>Will you make new company?</h5>
+          </div>
+        </div>
+      </div>
+      <script>
+function new_company(){
+  $(".company-name-drop").hide();
+};
+function auto_func(){
+  if ($('#auto_name').val() != ""){
+          $(".company-name-drop").show();
+          $(".auto_div").hide();
+            var auto_count = 0
+          $(".auto_div").each(function(){
+            if ($(this).data("company").indexOf($('#auto_name').val()) != -1 )
+            {
+                auto_count = auto_count + 1;
+                $(this).show();             
+                }
+            
+                });
+            if (auto_count == 0){
+              $(".auto_div").hide();
+            }
+          }else{
+          $(".auto_div").hide();
+          $(".company-name-drop").hide();
+          
+          }
+
+}
+
+$('#auto_name').keyup(function(){
+    auto_func();
+    });
+$('#auto_name').change(function(){
+    
+    auto_func()
+    });
+
       function language_select(id){
         $("#language_input").val($("#language_li_" + id).html());
         $("#language_id").val(id);

@@ -36,6 +36,9 @@ $(document).ready(function(){
       <%end%>
         $("#language-select-<%=@company.comlangs.first.language.id%>").trigger("click");
         $(".trigger").trigger("click");
+        country_select(<%=@company.country.id%>);
+        employee_select(<%=@company.num_employee%>);
+
     <%else%>
       $('#p_language_1').trigger("click");
       $(".trigger").trigger("click");
@@ -88,31 +91,12 @@ function language_click(id){
             </div>
           </div>
         </div>
-
-
-      <%Language.all.each do |language|%>
-        <input type="text" placeholder="Company Name (in <%=language.name%>)" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>" data-autocomplete="/home/autocomplete_company_name" <%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%> value="<%=@company.comlangs.where(:language_id => language.id).first.name%>"<%end%> >
-      <%end%>
-
-
-      <select name="country">
-        <% Country.all.each do |country|%>
-          <option value="<%=country.id%>" <%if @has_company && @company.country.id == country.id%>selected="true"<%end%>><%=country.name%></option>
-        <%end%>
-      </select>
-      
-      <br>
-
-      <select name="employee">
-        <% 0.upto(5) do |employee|%>
-          <option value="<%=employee%>" <%if @has_company && @company.num_employee == employee%>selected="true"<%end%>><%= @em_array[employee]%></option>
-      <%end%>
-      </select>
-      <br><br>
-      
+     
 
       <div class="company-name">
-        <input type="text" placeholder="Company Name" id="auto_name">
+        <%Language.all.each do |language|%>
+          <input type="text" placeholder="Company Name (in <%=language.name%>)" onchange="auto_func(<%=language.id%>);" onkeyup="auto_func(<%=language.id%>);" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>" <%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%> value="<%if @has_company%><%=@company.comlangs.where(:language_id => language.id).first.name%><%end%>"<%end%> autocomplete="off">
+        <%end%>
 
         <div class="company-name-drop" style="display:none;">
           <div class="company-autocomplete auto_div" data-company="gameberry">
@@ -124,6 +108,13 @@ function language_click(id){
           <div class="company-autocomplete auto_div" data-company="wow berry">
             <img src="/assets/product_card_view/04.jpg"><h5>wow berry</h5>
           </div>
+          <%Company.all.each do |company|%>
+            <%company.comlangs.each do |comlang|%>
+              <div class="company-autocomplete auto_div" data-company="<%=comlang.name%>">
+                <img src="<%=company.logo.url(:thumb)%>"><h5><%=comlang.name%></h5>
+              </div>
+            <%end%>
+          <%end%>
           <div class="company-autocomplete" onclick="new_company();">
             <h5>Will you make new company?</h5>
           </div>
@@ -133,13 +124,13 @@ function language_click(id){
 function new_company(){
   $(".company-name-drop").hide();
 };
-function auto_func(){
-  if ($('#auto_name').val() != ""){
+function auto_func(id){
+  if ($('#title_' + id).val() != ""){
           $(".company-name-drop").show();
           $(".auto_div").hide();
             var auto_count = 0
           $(".auto_div").each(function(){
-            if ($(this).data("company").indexOf($('#auto_name').val()) != -1 )
+            if ($(this).data("company").indexOf($('#title_' + id).val()) != -1 )
             {
                 auto_count = auto_count + 1;
                 $(this).show();             
@@ -157,19 +148,23 @@ function auto_func(){
 
 }
 
-$('#auto_name').keypress(function(){
-    auto_func();
-    });
-$('#auto_name').change(function(){
-    
-    auto_func()
-    });
 
       </script>
 
 
+
+  <script>
+    function country_select(id){
+      $("#country_text").val($("#country_li_" + id ).html());
+      $("#country_id").val(id);
+    }
+  </script>
+  <input type="hidden" name="country" id="country_id" value="0">
+  <input type="hidden" name="employee" id="employee_id" value="0">
+
+
       <div class="country">
-        <input type="text" disabled id="country_text" value="Country">
+        <input type="text" disabled id="country_text" placeholder="Country">
         <div class="country-down">
           <ul>
             <% Country.all.each do |country|%>
@@ -180,13 +175,24 @@ $('#auto_name').change(function(){
         </div>
       </div>
 
+  <script>
+    function employee_select(id){
+      $("#employee_text").val($("#employee_li_" + id ).html());
+      $("#employee_id").val(id);
+    }
+  </script>
 
 
-      <div class="number">
-        <input type="text" value="Number of Employee" id="employee_text" disabled>
-        <div class="number-drop">
-        </div>
-      </div>
+  <div class="number">
+    <input type="text" placeholder="Number of Employee" id="employee_text" disabled>
+    <div class="number-drop">
+      <ul>
+        <%0.upto(5) do |em_num|%>
+          <li id="employee_li_<%=em_num%>"onclick="employee_select(<%=em_num%>);"><%=@em_array[em_num]%></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
 
 
       
@@ -233,7 +239,7 @@ function delete_intro(id){
                 if (typeof (FileReader) != "undefined") {
                     var reader = new FileReader();
                     reader.onload = function (e) {
-      $("#logo-preview").append("<div class='ex-img' style='background-image:url(" + e.target.result + ");'></div>");
+                      $("#logo-preview").append("<div class='test-upload-img ex-img' style='background-image:url(" + e.target.result + ")'><p>Delete</p></div>");
                     }
                     reader.readAsDataURL($('#client_' + client_count)[0].files[0]);
                     client_count = client_count + 1
@@ -257,8 +263,6 @@ function delete_logo(){
   
   }
   </script>
-
-
 
 
   <div id="detail" <%if @company == nil%> <%#style="display:none;"%> <%end%>>
@@ -300,22 +304,12 @@ function delete_logo(){
           <div id="logo-preview" style="max-width:450px; margin:10px 0;">
             <%if @has_company %>
               <%@company.comclients.each do |comclient|%>
-                <div class="ex-img" style="background-image:url('<%=comclient.logo.url(:thumb)%>');"></div>
+                <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:thumb)%>');">
+                  <p onclick="delete_client(<%=comclient.id%>);">Delete</p>
+                </div>
               <%end%>
             <%end%>
           </div>
-        </div>
-        <div class="test-upload-img">
-          <img src="/assets/product_card_view/02.jpg">
-          <p>Delete</p>
-        </div>
-        <div class="test-upload-img">
-          <img src="/assets/product_card_view/03.jpg">
-          <p>Delete</p>
-        </div>
-        <div class="test-upload-img">
-          <img src="/assets/product_card_view/04.jpg">
-          <p>Delete</p>
         </div>
         
           <div class="company-introduction">

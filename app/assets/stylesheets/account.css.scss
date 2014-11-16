@@ -433,20 +433,19 @@
     height: $img-width-height;
     display: inline-block;
     margin: 5px;
-    img {
-      width: $img-width-height;
-      height: $img-width-height; 
-    }
+
+    vertical-align:middle;
     p {
       display: none;
+      position:absolute;
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
-      position: absolute;
       width: $img-width-height;
       height: $img-width-height;
-      margin: -$img-width-height 0 0;
-      padding: 30px 0;
+      padding-top:30px;
+      padding-bottom:30px;
       text-align: center;
+      vertical-align:middle;
     }
   }
   .test-upload-img:hover {
