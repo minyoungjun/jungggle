@@ -3,20 +3,20 @@
     <h1>My Account</h1>
     <table>
       <tr onclick="#none" style="cursor: pointer">
-        <td class="list-icon"><img src="/assets/my_account/account_profile.png"></td>
+        <td class="list-icon"><img src="/assets/my_account/account_profile.png"<%if @selected =="profile"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title"><a href="/users/edit"<%if @selected =="profile"%> class="select" <%end%>>Profile</a></td>
       </tr>
       <tr onclick="#none" style="cursor: pointer">            
-        <td class="list-icon"><img src="/assets/my_account/account_company_profile.png"></td>
+        <td class="list-icon"><img src="/assets/my_account/account_company_profile.png" <%if @selected =="company"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title" ><a href="/users/company"<%if @selected =="company"%> class="select" <%end%>>Company<br>Profile</a></td>
       </tr>
       <tr onclick="#none" style="cursor: pointer">
-        <td class="list-icon"><img src="/assets/my_account/account_member.png"></td>
+        <td class="list-icon"><img src="/assets/my_account/account_member.png" <%if @selected =="member"%> style="opacity:1;" <%end%>  ></td>
         <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Member</a></td>
       </tr>
       <tr onclick="#none" style="cursor: pointer">
         <td class="list-icon"><img src="/assets/my_account/My_account_upgrade.png"></td>
-        <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Upgrade</a></td>
+        <td class="list-title" ><a href="/users/members" <%if @selected == "upgrade"%> class="select" <%end%>>Upgrade</a></td>
       </tr>
     </table>
   </div>

@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :is_login
+  def members
 
+    @selected = "member"
+
+  end
 
   def finish_signup
     @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
@@ -70,8 +74,11 @@ class UsersController < ApplicationController
 
 
     end
-
-    member = Member.new
+    if current_user.member == nil
+      member = Member.new
+    else
+      member = current_user.member
+    end
     member.company_id = company.id
     member.user_id = current_user.id
     member.owner = true
@@ -84,6 +91,7 @@ class UsersController < ApplicationController
   end
 
   def company
+    @selected = "company"
     if current_user.member == nil || !(current_user.member.approved)
 
       @has_company = false
