@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'advertisers/product_table_view'
   get 'home/home_biddings'
   get 'home/search'
+  get 'home/search_detail'
   get 'home/whoru'
   get 'home/account_billing_invoice'
   get 'home/account_billing_receipt'
