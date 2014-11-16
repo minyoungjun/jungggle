@@ -181,6 +181,7 @@
   float: right;
   padding: 20px 30px 100px;
 
+
   .pack {
     margin: 30px 0 0;
     h3 {
@@ -270,6 +271,143 @@
       }
     }
   }
+
+
+  .company-name {
+    display: inline-block;
+    input {
+      margin: 0 5px;
+    }
+    .company-name-drop {
+      display: block;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      padding: 10px 0;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      background-color: white;
+      min-width: 450px;
+      margin-top: -1px;
+      margin-left: 5px;
+      .company-autocomplete {
+        text-align: left;
+        padding: 8px 20px;
+        img {
+          width: 70px;
+          margin-right: 15px;
+        }
+        h5 {
+          display: inline-block;
+          color: #666;
+          font-size: 14px;
+        }
+      }
+      .company-autocomplete:hover {
+        background-color: #5eb12f;
+        h5 {
+          color: white;  
+        }
+      }
+    }
+  }
+  .company-name:hover {
+    .company-name-drop {
+      display: block;
+    }
+  }
+
+
+  .country{
+    width: 450px;
+    .country-down {
+      display: none;
+      width: 450px;
+      height: 250px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding-top: 10px;
+      cursor: pointer;
+      background-color: white;
+      z-index: 100;
+      margin-top: -16px;
+      overflow-y: scroll;
+      margin-left: 5px;
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding: 5px 15px 5px 25px;
+          color: #bbb;
+          font-size: 13px;
+          text-align: left;
+        }
+        li:hover {
+          color: #5bb33a;
+        }
+      }
+    }
+  }
+  .country:hover {
+    border-color: #5bb33a;
+    z-index: 101;
+    input {
+      color: #5eb12f;
+    }
+    .country-down {
+      display: block;
+    }
+  }
+
+
+  .number {
+    width: 450px;
+    input {
+      z-index: 150;
+    }
+
+    .number-drop {
+      display: none;
+      width: 450px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      position: absolute;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      padding-top: 10px;
+      cursor: pointer;
+      background-color: white;
+      margin-top: -16px;
+      z-index: 100;
+      margin-left: 5px;
+      ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+          padding: 5px 15px 3px 25px;
+          color: #bbb;
+          font-size: 13px;
+          text-align: left;
+        }
+        li:hover {
+          color: #5bb33a;
+        }
+      }
+    }
+  }
+  .number:hover {
+    input {
+      color: #5eb12f;
+    }
+    .number-drop {
+      display: block;
+    }
+  }
+
+
+
   .client-logo {
     margin-bottom: 40px;
     h5 {
@@ -1384,6 +1522,7 @@
       }
       .refunded {
         color: #df6c5a;
+        cursor: pointer;
       }
       .ongoing-btn {
         padding-bottom: 3px;
@@ -1463,6 +1602,17 @@
             color: #dc3522;
           }
         }
+
+        .insert-img {
+          display: inline-block;
+          background-color: #eee;
+          width: 114px;
+          height: 114px;
+          color: #aaa;
+          margin: 0 5px 35px;
+          padding: 36px 0;
+        }
+
         .btn {
           padding: 10px 60px;
           margin: 5px 10px;

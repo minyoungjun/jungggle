@@ -70,10 +70,7 @@ function language_click(id){
       <form action="/users/company_update" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
-
-
         <div class="pack languages">
-
           <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
           <div style="display:none;" id="language_checkbox">
             <%Language.all.each do |lang|%>
@@ -96,6 +93,8 @@ function language_click(id){
       <%Language.all.each do |language|%>
         <input type="text" placeholder="Company Name (in <%=language.name%>)" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>" data-autocomplete="/home/autocomplete_company_name" <%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%> value="<%=@company.comlangs.where(:language_id => language.id).first.name%>"<%end%> >
       <%end%>
+
+
       <select name="country">
         <% Country.all.each do |country|%>
           <option value="<%=country.id%>" <%if @has_company && @company.country.id == country.id%>selected="true"<%end%>><%=country.name%></option>
@@ -109,7 +108,46 @@ function language_click(id){
           <option value="<%=employee%>" <%if @has_company && @company.num_employee == employee%>selected="true"<%end%>><%= @em_array[employee]%></option>
       <%end%>
       </select>
-      <br>
+      <br><br>
+
+      <div class="company-name">
+        <input type="text" placeholder="Company Name">
+        <div class="company-name-drop">
+          <div class="company-autocomplete">
+            <img src="/assets/product_card_view/02.jpg"><h5>App flyer Inc.</h5>
+          </div>
+          <div class="company-autocomplete">
+            <img src="/assets/product_card_view/03.jpg"><h5>App flyer App flyer Inc.</h5>
+          </div>
+          <div class="company-autocomplete">
+            <img src="/assets/product_card_view/04.jpg"><h5>App flyer Inc.</h5>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="country">
+        <input type="text" disabled id="country_text" value="Country">
+        <div class="country-down">
+          <ul>
+            <% Country.all.each do |country|%>
+              <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
+            <%end%>
+            
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div class="number">
+        <input type="text" value="Number of Employee" id="employee_text" disabled>
+        <div class="number-drop">
+        </div>
+      </div>
+
+
+      
       
       <input type="text" placeholder="Website" name="website" <%if @has_company%> value="<%=@company.website%>"<%end%>>
       <%Language.all.each do |language|%>
