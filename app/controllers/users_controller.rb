@@ -32,7 +32,21 @@ class UsersController < ApplicationController
         comlang.name = params["title_#{lang.id}"]
         comlang.introduction = params["introduction_#{lang.id}"]
         comlang.save
+        comdocu_params = params[:company_introduction]["#{lang.id}"]
+        if comdocu_params != nil
+          comdocu = Comdocument.new
+          comdocu.comlang_id = comlang.id
+          comdocu.saved_name = SecureRandom.hex(10) + "." + comdocu_params.original_filename.split('.').last
+          comdocu.original_name = comdocu_params.original_filename
+          f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
+          f.write(comdocu_params.read)
+          f.close
+          comdocu.save
+
+        end
       end
+
+
     end
 
     member = Member.new
