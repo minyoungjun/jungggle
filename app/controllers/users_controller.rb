@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def company_update
-    if current_user.member.approved
+    if current_user.member != nil && current_user.member.approved
       company = current_user.member.company
     else
       company = Company.new
