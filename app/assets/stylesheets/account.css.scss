@@ -1384,6 +1384,7 @@
       }
       .refunded {
         color: #df6c5a;
+        cursor: pointer;
       }
       .ongoing-btn {
         padding-bottom: 3px;
@@ -1463,6 +1464,17 @@
             color: #dc3522;
           }
         }
+
+        .insert-img {
+          display: inline-block;
+          background-color: #eee;
+          width: 114px;
+          height: 114px;
+          color: #aaa;
+          margin: 0 5px 35px;
+          padding: 36px 0;
+        }
+
         .btn {
           padding: 10px 60px;
           margin: 5px 10px;

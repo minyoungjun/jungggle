@@ -193,7 +193,7 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="result-btn result-btn-a btn" data-toggle="modal" data-target="#Modal-result">Project<br>Result</td>
+          <td class="result-btn result-btn-a btn" data-toggle="modal" data-target="#Modal-red-result">Project<br>Result</td>
           <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
@@ -205,7 +205,7 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="result-btn result-btn-b btn">Project<br>Result</td>
+          <td class="result-btn result-btn-b btn" data-toggle="modal" data-target="#Modal-gray-result">Project<br>Result</td>
           <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
         <tr class="table-body">
@@ -306,15 +306,54 @@
 </div><!-- /.modal -->
 
 
-<!-- result Modal -->
-<div class="modal fade" id="Modal-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- red-result Modal -->
+<div class="modal fade" id="Modal-red-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-projects">
     <div class="modal-content modal-projects">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>result</h2>
-        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
-        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+        <h2>Explain the outstanding feature of this project! 추가 디테일 작업 예정</h2>
+        <textarea rows="5">Please explain the feature in detail  to show your power to the potential clients! Clients want to see the specific data such as.. Impressions / CTR / CVR / Clicks /  Installs / Ranks etc</textarea>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <button type="button" class="btn btn-b" data-dismiss="modal" data-toggle="modal" data-target="#Modal-thankyou">Save</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- thankyou Modal -->
+<div class="modal fade" id="Modal-thankyou" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Thanks for sharing us the great result!</h2>
+        <p>Project Result will be visible "when the Advertiser finishes writing the comments" or "15 days after no reponse from the Advertiser"</p>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- gray-result Modal -->
+<div class="modal fade" id="Modal-gray-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Explain the outstanding feature of this project! 추가 디테일 작업 예정</h2>
+        <textarea rows="5">Please explain the feature in detail  to show your power to the potential clients! Clients want to see the specific data such as.. Impressions / CTR / CVR / Clicks /  Installs / Ranks etc</textarea>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <div class="insert-img">DROP IMAGE HERE</div>
+        <button type="button" class="btn btn-b" data-dismiss="modal" data-toggle="modal" data-target="#Modal-thankyou">Edit</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -330,7 +369,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h2>disapprove</h2>
         <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
-        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
