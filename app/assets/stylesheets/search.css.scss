@@ -8,43 +8,73 @@
 
     table {
       width: 100%;
-      margin-top: 50px;
-      text-align: left;
-      color: #424242;
+      margin: 25px 0 50px;
+      text-align: center;
+      color: #555555;
 
       .table-header {
-        font-size: 12px;
-        border-top: 1px solid #777;
-        border-bottom: 1px solid #777;
-        color: #aaa;
+        font-size: 13px;
+        border-top: 2px solid #777;
+        border-bottom: 2px solid #777;
+        
         td {
           padding: 10px 20px;       
         }
         .company-img {
           padding-left: 20px; 
+          min-width: 230px;
         }
       }
       .table-body {
 
-        $table-big-font: 17px;
+        $table-big-font: 14px;
 
         td {
-          border-bottom: 2px dotted #bbb;
-          padding: 22px 20px;
+          border-bottom: 1px solid #ddd;
+          padding: 12px 8px;
           font-size: $table-big-font;
           button {
             background-color: #5eb12f;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border: 0;
-            border-radius: 10px;
+            border-radius: 5px;
           }
+        }
+        a {
+          text-decoration: none;
+          color: #555555;
+        }
+        a:hover {
+          color: #5eb12f;
         }
         .company-img {
           padding-right: 0;
           width: 140px;
+          text-align: left;
           img {
             width: 120px;
+            margin-right: 10px;
+          }
+        }
+        .service-name {
+          min-width: 140px;
+        }
+        .detail {
+          text-align: left;
+          min-width: 400px;
+        }
+        .cost {
+          min-width: 140px;
+          font-size: 22px;
+          line-height: 22px;
+          .rating {
+            color: #5eb12f;
+            font-size: 15px;
+          }
+          .review {
+            color: #ccc;
+            font-size: 12px;
           }
         }
         
