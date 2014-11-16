@@ -4,7 +4,7 @@ var now_lang = 0;
     var lang_nick = lang.getAttribute("data-nickname");
     var lang_id = lang.getAttribute("data-language");
 
-    $("#selected_languages").append("<div class='language-select btn' id='language-select-" + lang_id + "' onclick='language_click(" + lang_id + ");'>" + lang_nick + " &nbsp;&nbsp; <span onclick='languagedelete(this); return false;' data-delete='" + lang_id + "'>X</span></div>");
+    $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' data-toggle='modal' data-target='#Modal-language-delete-1'  data-delete='" + lang_id + "'>X</span></div>");
 
     $(".p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
@@ -35,9 +35,9 @@ function language_click(id){
   $('#title_' + String(id)).show();
   $('.language_detail_all').hide();
   $('.language_detail_' + id).css("display","inline-block");
-  $('.language-select').css('color','#5eb12f');
-  $('.language-select').css('border','1px solid #5eb12f');
-  $('.language-select').css('background-color','white');
+  $('.selected-languages').css('color','black');
+  $('.selected-languages').css('border','1px solid #eee');
+  $('.selected-languages').css('background-color','white');
   $('#language-select-' + String(id)).css('background-color','#5eb12f');
   $('#language-select-' + String(id)).css('color','white');
   now_lang = id;
@@ -62,8 +62,7 @@ function language_click(id){
 
       <div class="pack languages">
         <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-        <div class="selected-languages" data-toggle="modal" data-target="#Modal-language-delete-1">EN &nbsp;&nbsp;&nbsp;X</div>
-        <div class="selected-languages select" data-toggle="modal" data-target="#Modal-language-delete-2">EN &nbsp;&nbsp;&nbsp;X</div>
+        
         <span id="selected_languages"></span>
         
          <div class="popover-markup">
@@ -133,9 +132,9 @@ function language_click(id){
         </div>
       </div>
 
-      <div class="pack service-detail">
+      <div class="pack service-detail" id="detail_box">
         <h3>Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
-        <input type="text" placeholder="* Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px;">
+        <input type="text" placeholder="()Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px;">
         <div class="attach-img-btn">
           Attach Image
         </div>

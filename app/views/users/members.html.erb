@@ -3,14 +3,14 @@
     <%=render "/home/left"%>
     <div class="right-member">
       <h1>member</h1>
-      <h3>gameberry inc.</h3>
+      <h3><%=@company.comlangs.first.name%></h3>
       <table>
         <tr class="table-header">
           <td>name</td>
           <td>email</td>
           <td>privlleges</td>
         </tr>
-        <% current_user.member.company.members.each do |member|%>
+        <%@company.members.each do |member|%>
         <tr class="table-body">
           <td><%=member.user.first_name%> <%=member.user.last_name%></td>
           <td class="email"><%=member.user.email%></td>
@@ -18,7 +18,7 @@
         </tr>
         <%end%>
       </table>
-      <h3>wailting for approval</h3>
+      <h3>waiting for approval</h3>
       <table>
         <tr class="table-header">
           <td>name</td>

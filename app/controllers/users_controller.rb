@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   def members
 
     @selected = "member"
+    if current_user.member == nil || !(current_user.member.approved)
+      redirect_to :controller => "users",
+                  :action => "company"
+    else
+      @company = current_user.member.company
+    end
 
   end
 
