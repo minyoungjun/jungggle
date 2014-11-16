@@ -17,8 +17,11 @@ class UsersController < ApplicationController
   end
 
   def company_update
-
-    company = Company.new
+    if current_user.member.approved
+      company = current_user.member.company
+    else
+      company = Company.new
+    end
     company.num_employee = params[:employee]
     company.website = params[:website]
     company.country_id = params[:country]
@@ -86,6 +89,7 @@ class UsersController < ApplicationController
     comlang.language_id = language.id
     comlang.company_id = company.id
     comlang.name = params[:title]
+    comlang.save
     if params[:company_introduction] != nil
       comdocu = Comdocument.new
       comdocu.comlang_id = comlang.id
@@ -96,7 +100,6 @@ class UsersController < ApplicationController
       f.close
       comdocu.save
     end
-    comlang.save
 
     member = Member.new
     member.company_id = company.id

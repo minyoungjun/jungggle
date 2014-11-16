@@ -75,7 +75,7 @@
 function logo_upload(){ 
         $('#logo_name').html($('#company_logo').val().replace(/^.*[\\\/]/, ''));
         $('#upload_logo_btn').html('Change Logo');
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
         if (regex.test($('#company_logo').val().toLowerCase())) {
             
         } else {
@@ -103,8 +103,8 @@ function delete_intro(){
 
       var client_count = 0;
       function client_upload(){
+        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
 
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
         if (regex.test($('#client_' + client_count).val().toLowerCase())) {
                 if (typeof (FileReader) != "undefined") {
                     var reader = new FileReader();
