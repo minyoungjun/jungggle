@@ -127,7 +127,7 @@
           <td>1,000</td>
           <td>$500</td>
           <td>5.4%</td>
-          <td class="refunded">Refunded</td>
+          <td class="refunded" data-toggle="modal" data-target="#Modal-refunded">Refunded</td>
           <td><img src="/assets/my_account/project-mail.png" data-toggle="modal" data-target="#Modal-mail"></td>
         </tr>
       </table>
@@ -258,15 +258,31 @@
 </div><!-- /.modal -->
 
 
+<!-- refunded Modal -->
+<div class="modal fade" id="Modal-refunded" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-projects">
+    <div class="modal-content modal-projects">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Client had canceled the project.</h2>
+        <p>Client can cancel the project only before you press the Kick-off button.</p>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <!-- complete Modal -->
 <div class="modal fade" id="Modal-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-projects">
     <div class="modal-content modal-projects">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>complete</h2>
-        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
-        <button type="button" class="btn btn-b" data-dismiss="modal">Kick-off</button>
+        <h2>Are  you sure you completed the project?</h2>
+        <p>Confimation message will be sent to the client.</p>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-a" data-dismiss="modal">No</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
