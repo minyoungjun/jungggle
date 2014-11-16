@@ -135,12 +135,12 @@ function language_click(id){
       <div class="pack service-detail" id="detail_box">
         <h3>Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
         <%Language.all.each do |language|%>
-          <input type="text" placeholder="()Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px;">
-          <div class="attach-img-btn">
-            Attach Image
-          </div>
-          <img src="/assets/my_account/circle_plus.png">
+          <input type="text" placeholder="()Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;">
         <%end%>
+        <div class="attach-img-btn">
+          Attach Image
+        </div>
+        <img src="/assets/my_account/circle_plus.png">
       </div>
 
       <div class="pack cost">
