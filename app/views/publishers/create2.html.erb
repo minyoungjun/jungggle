@@ -167,17 +167,18 @@ function platform_change(id){
         <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
-
-          <%Language.all.each do |language|%>
-            <input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
-          <%end%>
-          <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
-            <p>delete</p>
+          <div id="detail_row_0">
+            <%Language.all.each do |language|%>
+              <input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
+            <%end%>
+            <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
+              <p>delete</p>
+            </div>
+            <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
+              Attach Image
+            </div>
+            <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer;">
           </div>
-          <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
-            Attach Image
-          </div>
-          <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer;">
         </div>
         <div style="display:none;"id="detail_file_box">
           <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
@@ -206,13 +207,17 @@ function photo_trigger(id){
         $('#detail_photo_' + num).trigger('click');
       }
     function add_detail(){
-      $("#detail_box").append('<%Language.all.each do |language|%><input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>"><%end%><div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');">');
+      $("#detail_box").append('<div id="detail_row_' + detail_num + '"><%Language.all.each do |language|%><input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>"><%end%> <div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');"> <img src="/assets/my_account/circle_minus.png" class="attach-plus" onclick="detail_remove(' + detail_num + ');" style="cursor:pointer;">');
 
         $('#service_detail_' + detail_num + '_' + now_lang).css("display", "inline-block");
 
         $("#detail_count").val(detail_num);
         detail_num = detail_num + 1;
-      }
+    }
+function detail_remove(id){
+  $("#detail_row_" + id).remove();
+
+}
       
       function onchange_image(num){
 
