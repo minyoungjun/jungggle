@@ -69,14 +69,42 @@
 }
 
 
+  .test-upload-img {
+    $img-width-height: 80px;
+    cursor:pointer;
+    width: $img-width-height;
+    height: $img-width-height;
+    display: inline-block;
+    margin: 5px;
+
+    vertical-align:middle;
+    p {
+      display: none;
+      position:absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white !important;
+      width: $img-width-height;
+      height: $img-width-height;
+      padding-top:30px;
+      padding-bottom:30px;
+      text-align: center;
+      vertical-align:middle;
+    }
+  }
+  .test-upload-img:hover {
+    p {
+      display: block;
+    }
+  }
 
 
 
 .imagepreview {
+  vertical-align:middle;
      background-position: center center;
     background-size: cover;
     -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-display:none;width:100px !important; height:100px !important;   
+  display:none; width:80px !important; height:80px !important;   
 
 }
 .img_name {

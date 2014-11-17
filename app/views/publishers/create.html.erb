@@ -160,6 +160,8 @@ function language_click(id){
         <div class="btn btn-a" onclick="$('#detail_photo_0').trigger('click');" style="display:inline-block; width:150px;" id="add_image_0">Add Image</div>
         <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
       </div>
+      <img src="/assets/my_account/circle_plus.png" onclick="add_detail();" class="country-plus"/>
+
       <script>
         var detail_num = 1;
         function add_photo(num){
@@ -173,9 +175,6 @@ function language_click(id){
         $("#detail_count").val(detail_num);
         detail_num = detail_num + 1;
       }
-      </script>
-      <img src="/assets/my_account/circle_plus.png" onclick="add_detail();" class="country-plus"/>
-      <script>
       
       function onchange_image(num){
 

@@ -49,7 +49,7 @@ function language_click(id){
     <%= render "/home/left"%>
 
     <div class="right-create-service">
-      <h1>Create Service <span class="back">Back</span></h1>
+      <h1>Create Service </h1>
 
       <form action="create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -82,7 +82,23 @@ function language_click(id){
             <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name">
           <%end%>
 
-      </div>
+        </div>
+
+        <script>
+          function marketing_click(id){
+            $("#marketing_btn").html($("#marketing_li_" + id).data("marketing"));
+            $("#marketing_id").val(id);
+            if(id > 10 && id < 57){
+              $(".platform").show();
+              $("#platform_0").trigger("click");
+            }else{
+              $(".platform").hide();
+            
+            }
+          }
+        </script>
+
+      <input type="hidden" name="marketing_id" value="1" id="marketing_id">
 
       <div class="pack marketing-type">
         <h3>Marketing Type</h3>
@@ -122,38 +138,137 @@ function language_click(id){
             </ul>
           </div>
         </div>
+        <script>
+function platform_change(id){
+    $(".platform_img").attr("src", "/assets/my_account/radio-01.png");
+    $("#platform_" + id).attr("src", "/assets/my_account/radio-02.png");
+    $("#platform_type").val(id);
+          
+          }
+        </script>
 
-
-        <div class="platform">
+        <div class="platform" style="display:none;">
           <h3>Platform</h3>
-          <p><img src="/assets/my_account/radio-02.png"> All</p>
-          <p><img src="/assets/my_account/radio-01.png"> iOS</p>
-          <p><img src="/assets/my_account/radio-01.png"> Android</p>
+          <input type="hidden" value="0" name="platform" id="platform_type">
+          <p onclick="platform_change(0);" class="platform_p" ><img src="/assets/my_account/radio-02.png" id="platform_0" class="platform_img"/> All</p>
+          <p   onclick="platform_change(1);" class="platform_p" ><img src="/assets/my_account/radio-01.png"id="platform_1"class="platform_img" /> iOS</p>
+          <p  onclick="platform_change(2);" class="platform_p"><img src="/assets/my_account/radio-01.png"  id="platform_2" class="platform_img"/> Android</p>
         </div>
       </div>
 
       <div class="pack service-detail" id="detail_box">
         <h3>Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
         <%Language.all.each do |language|%>
-          <input type="text" placeholder="()Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;">
+          <input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
         <%end%>
-        <div class="attach-img-btn">
+        <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
+          <p>delete</p>
+        </div>
+        <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
           Attach Image
         </div>
-        <img src="/assets/my_account/circle_plus.png">
+        <img src="/assets/my_account/circle_plus.png" onclick="add_detail();" style="cursor:pointer;">
+      </div>
+      <div style="display:none;"id="detail_file_box">
+        <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
       </div>
 
+
+      <script>
+function delete_img(id){
+    
+        $('#add_image_' + id).show();
+        $("#imagepreview_" + id).hide();
+        $("#detail_photo_" + id).remove();
+        $("#detail_file_box").append("<input type='file' name='detail_photo_" + id + "' style='display:none;' id='detail_photo_" + id + "' onchange='onchange_image(" + id + ");'>");
+
+        
+        }       
+
+
+var detail_num = 1;
+function photo_trigger(id){
+  $('#detail_photo_' + id).trigger('click');
+
+}
+      function add_photo(num){
+        $('#detail_photo_' + num).trigger('click');
+      }
+    function add_detail(){
+      $("#detail_box").append('<%Language.all.each do |language|%><input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>"><%end%><div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');">');
+
+        $('#service_detail_' + detail_num + '_' + now_lang).css("display", "inline-block");
+
+        $("#detail_count").val(detail_num);
+        detail_num = detail_num + 1;
+      }
+      
+      function onchange_image(num){
+
+        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
+        if (regex.test($('#detail_photo_' + num).val().toLowerCase())) {
+            if (false) {
+                $("#imagepreview_" + num).show();
+                $("#imagepreview_" + num)[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $('#detail_photo_' + num).val();
+            }
+            else {
+                if (typeof (FileReader) != "undefined") {
+                    $('#add_image_' + num).hide();
+                    $("#imagepreview_" + num).css("display", "inline-block");
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#imagepreview_" + num).css("background-image", "url('" + e.target.result + "')");
+                    }
+                    reader.readAsDataURL($('#detail_photo_' + num)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            }
+        } else {
+            alert("Please upload a valid image file.");
+        }
+
+      }
+      function radio_cost(id){
+        $("#cost_type").val(id);
+        if (id == 0){
+          $("#radio_cost_0").attr("src", "/assets/my_account/radio-02.png");
+          $("#radio_cost_1").attr("src", "/assets/my_account/radio-01.png");
+        }
+        else{
+          $("#radio_cost_0").attr("src", "/assets/my_account/radio-01.png");
+          $("#radio_cost_1").attr("src", "/assets/my_account/radio-02.png");
+        
+        }
+      }
+      </script>
       <div class="pack cost">
+        <input type="hidden" name="cost_count" value="0" id="cost_count">
+        <input type="hidden" name="cost_type" value="0" id="cost_type">
         <h3>Cost</h3>
-        <p><img src="/assets/my_account/radio-02.png"> Flat Rate</p>
-        <p><img src="/assets/my_account/radio-01.png"> Multiple Rate</p>
+        <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
+        <p onclick="radio_cost(1);"><img src="/assets/my_account/radio-01.png" id="radio_cost_1"> Multiple Rate</p>
         <input type="text" placeholder="$">
       </div>
 
+      <script>
+function minimum_check(id){
+  if (id == 1 ){
+    $("#minimum_img").attr("onclick", "minimum_check(0);");
+    $("#minimum_img").attr("src", "/assets/my_account/checkbox-02.png");
+  }
+  else{
+    
+    $("#minimum_img").attr("onclick", "minimum_check(1);")
+    $("#minimum_img").attr("src", "/assets/my_account/checkbox-01.png");
+    $("#minimum_budget").val("");
+  }
+        }
+      </script>
       <div class="pack budget">
         <h3>Minimum Budget</h3>
-        <img src="/assets/my_account/checkbox-01.png">&nbsp;&nbsp;
-        <input type="text" placeholder="$">
+        <img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img">&nbsp;&nbsp;
+        <input type="text" placeholder="$" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget">
       </div>
 
       <div class="pack country">
