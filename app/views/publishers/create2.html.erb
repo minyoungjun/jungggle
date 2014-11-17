@@ -166,8 +166,8 @@ function platform_change(id){
         </div>
         <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
           Attach Image
-        </div>
-        <img src="/assets/my_account/circle_plus.png" onclick="add_detail();" style="cursor:pointer;">
+        </div><br>
+        <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer;">
       </div>
       <div style="display:none;"id="detail_file_box">
         <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
@@ -247,7 +247,7 @@ function photo_trigger(id){
         <input type="hidden" name="cost_type" value="0" id="cost_type">
         <h3>Cost</h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
-        <p onclick="radio_cost(1);"><img src="/assets/my_account/radio-01.png" id="radio_cost_1"> Multiple Rate</p>
+        <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <input type="text" placeholder="$">
       </div>
 
@@ -273,6 +273,50 @@ function minimum_check(id){
 
       <div class="pack country">
         <h3>Country</h3>
+        <div class="country-drop">
+          <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+          <div class="country-down">
+            <ul>
+              <li class="title">All</li><hr>
+              <li>Australia</li>
+              <li>Austria</li>
+              <li>China</li>
+              <li>Japan</li>
+              <li>South Africa</li>
+              <li>South Korea</li>
+              <li>United States</li>
+              <li>Vietnam</li><hr>
+              <li class="title other">
+                Other Countries..
+                <div class="other-tooltip">
+                  Countries are still adding whenever Publisher create service on particular country.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="country-drop">
+          <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+          <div class="country-down">
+            <ul>
+              <li class="title">All</li><hr>
+              <li>Australia</li>
+              <li>Austria</li>
+              <li>China</li>
+              <li>Japan</li>
+              <li>South Africa</li>
+              <li>South Korea</li>
+              <li>United States</li>
+              <li>Vietnam</li><hr>
+              <li class="title other">
+                Other Countries..
+                <div class="other-tooltip">
+                  Countries are still adding whenever Publisher create service on particular country.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="country-drop">
           <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
           <div class="country-down">
@@ -362,6 +406,20 @@ function minimum_check(id){
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h2>You must maintain at least one language.</h2>
         
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- multiple-rate Modal -->
+<div class="modal fade" id="Modal-multiple-rate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-multiple-rate">
+    <div class="modal-content modal-multiple-rate">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4>You'd better state the difference of Est. <br>Result among to the prices in Service Detail.</h4>
         <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
       </div>
     </div><!-- /.modal-content -->

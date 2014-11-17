@@ -233,6 +233,11 @@
       .attach-img-btn:hover {
         background-color: #888;
       }
+      .attach-plus {
+        display: block;
+        margin: 12px auto;  
+
+      }
     }
 
     .cost {
@@ -353,14 +358,12 @@
       padding: 10px 20px;
       border: 1px solid #ddd;
       border-radius: 10px;
-      display: inline-block;
       font-size: 16px;
       float: right;
-      position: absolute;
+      position: relative;
       background-color: white;
       z-index: 600;
-      margin-top: -1px;
-      margin-left: 450px;
+      margin-top: 2px;
     }
     .preview:hover {
       color: white;
@@ -615,6 +618,17 @@
         .btn {
           padding: 10px 100px;
           margin: 0 5px;
+        }
+      }
+    }
+  }
+  .modal-dialog-multiple-rate {
+    .modal-multiple-rate {
+      width: 600px;
+      .modal-body {
+        h4 {
+          line-height: 24px;
+          margin: 40px 0;
         }
       }
     }
