@@ -306,6 +306,11 @@ function minimum_check(id){
         <input type="text" placeholder="$" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px;">
       </div>
 
+
+      
+
+
+
       <div class="pack country">
         <h3>Country &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
        
@@ -314,38 +319,9 @@ function minimum_check(id){
             <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
             <div class="country-down">
               <ul>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>              
+                <%Country.all.each do |country|%>
+                  <li><%=country.name%></li>
+                <%end%>
               </ul>
             </div>
           </div>
