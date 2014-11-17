@@ -429,13 +429,29 @@ function minimum_check(id){
 
       <input type="submit" class="btn btn-a" value="Save">
       <button type="button" class="btn btn-b">Delete</button>
-
-      <h5 class="ok"><img src="/assets/my_account/radio-02.png"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <script>
+var term_check_boolean = false;
+function term_check(id){
+  if( id == 0 ){
+    $("#term_check_img").attr("src", "/assets/my_account/checkbox-02.png");
+    $("#term_check_img").attr("onclick", "term_check(1);");
+    term_check_boolean = true;
+  }else{
+    $("#term_check_img").attr("src", "/assets/my_account/checkbox-01.png");
+    $("#term_check_img").attr("onclick", "term_check(0);");
+    term_check_boolean = false;
+  
+  }
+        
+    }
+      </script>
+      <h5 class="ok"><img id="term_check_img" style="cursor:pointer;" src="/assets/my_account/checkbox-01.png" onclick="term_check(0);"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
       <p>1. 입금확인</p>
       <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
       <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
       <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
       <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
+      </form>
 
     </div>
   </div>
