@@ -518,27 +518,42 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 30px 150px;
+  h1 {
+    display: inline-block;
+  }
+  h4 {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  h3 {
+    margin: 50px 0 20px;
+  }
 
   table {
     width: 100%;
+    margin: 20px 0 50px;
 
     .table-header {
-      background-color: #eee;
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
+
       td {
         padding: 10px 25px;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ccc;
       td {
-        padding: 20px 25px; 
+        padding: 15px 25px; 
         img {
-          margin-right: 15px;
+          margin: 0 20px 0 5px;
         }
         .btn {
-          border-radius: 15px;
-          padding:6px 20px;
+          border-radius: 10px;
+          padding: 5px 20px;
           margin-right: 10px;
         }
         .btn-left {
@@ -552,8 +567,12 @@
           border: 1px solid #ff0000;
         }
       }
+      .name {
+        width: 250px;
+      }
       .email {
         color: #5eb12f;
+        width: 400px;
       }
     }
   }

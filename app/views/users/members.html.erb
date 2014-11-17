@@ -2,31 +2,31 @@
   <div class="container">
     <%=render "/home/left"%>
     <div class="right-member">
-      <h1>member</h1>
-      <h3><%=@company.comlangs.first.name%></h3>
+      <h1>Member</h1>
+      <h4><%=@company.comlangs.first.name%></h4>
       <table>
         <tr class="table-header">
-          <td>name</td>
-          <td>email</td>
-          <td>privlleges</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Owner</td>
         </tr>
         <%@company.members.each do |member|%>
         <tr class="table-body">
-          <td><%=member.user.first_name%> <%=member.user.last_name%></td>
+          <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
           <td class="email"><%=member.user.email%></td>
           <td><img src="/assets/my_account/person_1_gray.png"><%=member.owner%></td>
         </tr>
         <%end%>
       </table>
-      <h3>waiting for approval</h3>
+      <h3>Waiting for approval</h3>
       <table>
         <tr class="table-header">
-          <td>name</td>
-          <td>email</td>
-          <td>access</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Access</td>
         </tr>
         <tr class="table-body">
-          <td>peter carpenter</td>
+          <td class="name">peter carpenter</td>
           <td class="email">bill_willian@gmail.com</td>
           <td>
             <button type="button" class="btn btn-left">approve</button>
