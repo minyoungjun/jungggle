@@ -1790,13 +1790,26 @@
       border-bottom: 1px solid #ddd;
       font-size: 13px;
       td {
-        padding: 20px 12px; 
+        padding: 14px 12px; 
+        .embed-btn {
+          background-color: #eee;
+          padding: 8px 13px 5px;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .embed-btn:hover {
+          background-color: #e3e3e3;
+        }
       }
       .name {
         color: #5eb12f;
         span {
           color: #bbb;
         }
+      }
+      .marketing {
+        width: 260px;
       }
       .font-bold {
         font-size: 15px;
