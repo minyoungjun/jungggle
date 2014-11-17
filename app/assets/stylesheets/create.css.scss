@@ -253,7 +253,23 @@
       .slot {
         opacity: $black-opacity;
       }
-     
+      .input-area {
+        display: block;
+        margin: 0 0 10px 165px;
+        input {
+          min-width: 350px;
+          margin: 10px 0;
+        }
+        img {
+          margin: 0 15px;
+        }
+      }
+      .circle-icon {
+        opacity: 0.3;
+      }
+      .circle-icon:hover {
+        opacity: 1; 
+      }
     }
 
     .budget {
@@ -272,16 +288,19 @@
     .country {
       .country-drop {
         display: inline-block;
-        margin-right: 12px;
+        //margin-right: 12px;
         .country-btn {
           padding: 10px 55px;
           border: 1px solid #ddd;
           border-radius: 5px;
           color: #888;
+          width: 170px;
+          text-align: center;
           .glyphicon {
             top: 3px;
             left: 38px;
             color: #ccc;
+            float: right;
           }
         }
         .country-btn:hover {
@@ -296,7 +315,8 @@
         }
         .country-down {
           display: none;
-          width: 166px;
+          width: 170px;
+          height: 230px;
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
@@ -305,6 +325,7 @@
           cursor: pointer;
           background-color: white;
           z-index: 100;
+          overflow: scroll;
 
           ul {
             list-style: none;
@@ -323,25 +344,6 @@
             hr {
               margin: 3px 15px;
             }
-            .other {
-              .other-tooltip {
-                display: none;
-                border: 1px solid #eee;
-                border-radius: 5px;
-                position: absolute;
-                left: 170px;
-                bottom: -18px;
-                color: #ccc;
-                width: 250px;
-                padding: 10px 13px;
-                background-color: white;
-              }
-            }
-            .other:hover {
-              .other-tooltip {
-                display: block;
-              }
-            }
           }
         }
       }
@@ -350,6 +352,13 @@
         .country-down {
           display: block;
         }
+      }
+      .circle-icon {
+        margin: 0 10px 0 5px;
+        opacity: 0.4;
+      }
+      .circle-icon:hover {
+        opacity: 1;
       }
     }
     
