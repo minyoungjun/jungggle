@@ -250,12 +250,24 @@ function detail_remove(id){
         if (id == 0){
           $("#radio_cost_0").attr("src", "/assets/my_account/radio-02.png");
           $("#radio_cost_1").attr("src", "/assets/my_account/radio-01.png");
+          $("#multiple-area").hide();
+          $("#cost_add_img").hide();
         }
         else{
           $("#radio_cost_0").attr("src", "/assets/my_account/radio-01.png");
           $("#radio_cost_1").attr("src", "/assets/my_account/radio-02.png");
+          $("#multiple-area").show();
+          $("#cost_add_img").show();
         
         }
+      }
+      function cost_delete(id){
+        $("#cost_div_" + id).remove();
+      }
+      var cost_count = 2;
+      function cost_add(){
+        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><input type="text" placeholder="$" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
+        cost_count = cost_count + 1;
       }
       </script>
       <div class="pack cost">
@@ -264,10 +276,13 @@ function detail_remove(id){
         <h3>Cost &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
-        <div class="input-area">
-          <input type="text" placeholder="$"><img src="/assets/my_account/circle_plus.png"><br>
-          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
-          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
+        <div class="input-area" id="input-area">
+          <input type="text" placeholder="$" name="cost[0]"><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <div id="multiple-area" style="display:none;">
+            <div id="cost_div_1" class="">
+              <input type="text" placeholder="$" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -391,6 +406,8 @@ function minimum_check(id){
             <div class="pack-1">
               <div class="upload-file" id="#upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
               <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+            </div>
+            <div id ="upload_input_<%=language.id%>" style="display:none;">
               <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach(<%=language.id%>, 0);">
             </div>
 
