@@ -166,7 +166,7 @@ function platform_change(id){
 
         <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
 
-        <div class="service-detail" id="detail_box" style="display:inline-block; width: 700px; margin: 0;">
+        <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
 
           <%Language.all.each do |language|%>
             <input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
@@ -176,7 +176,7 @@ function platform_change(id){
           </div>
           <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
             Attach Image
-          </div><br>
+          </div>
           <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer;">
         </div>
         <div style="display:none;"id="detail_file_box">
@@ -256,13 +256,13 @@ function photo_trigger(id){
       <div class="pack cost">
         <input type="hidden" name="cost_count" value="0" id="cost_count">
         <input type="hidden" name="cost_type" value="0" id="cost_type">
-        <h3>Cost</h3>
+        <h3>Cost &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area">
-          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
-          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
           <input type="text" placeholder="$"><img src="/assets/my_account/circle_plus.png"><br>
+          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
+          <input type="text" placeholder="$"><img src="/assets/my_account/circle_minus.png" class="circle-icon"><br>
         </div>
       </div>
 
@@ -287,7 +287,9 @@ function minimum_check(id){
       </div>
 
       <div class="pack country">
-        <h3>Country</h3>
+        <h3>Country &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+       
+
         <div class="country-drop">
           <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
           <div class="country-down">
@@ -327,7 +329,7 @@ function minimum_check(id){
             </ul>
           </div>
         </div>
-        <img src="/assets/my_account/circle_minus.png" class="circle-icon">
+        <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;">
 
         <div class="country-drop">
           <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
@@ -369,47 +371,6 @@ function minimum_check(id){
           </div>
         </div>
         <img src="/assets/my_account/circle_minus.png" class="circle-icon">
-
-        <div class="country-drop">
-          <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
-          <div class="country-down">
-            <ul>
-              <li>Australia</li>
-              <li>Austria</li>
-              <li>China</li>
-              <li>Japan</li>
-              <li>South Africa</li>
-              <li>South Korea</li>
-              <li>United States</li>
-              <li>Vietnam</li>
-              <li>Australia</li>
-              <li>Austria</li>
-              <li>China</li>
-              <li>Japan</li>
-              <li>South Africa</li>
-              <li>South Korea</li>
-              <li>United States</li>
-              <li>Vietnam</li>
-              <li>Australia</li>
-              <li>Austria</li>
-              <li>China</li>
-              <li>Japan</li>
-              <li>South Africa</li>
-              <li>South Korea</li>
-              <li>United States</li>
-              <li>Vietnam</li>
-              <li>Australia</li>
-              <li>Austria</li>
-              <li>China</li>
-              <li>Japan</li>
-              <li>South Africa</li>
-              <li>South Korea</li>
-              <li>United States</li>
-              <li>Vietnam</li>              
-            </ul>
-          </div>
-        </div>
-        <img src="/assets/my_account/circle_plus.png" style="margin-left: 5px;">
         <h4 class="preview">Preview</h4>
       </div>
 
@@ -429,13 +390,13 @@ function minimum_check(id){
             </div>
 
           <div class="pack pack-2">
-            <p><img src="/assets/my_account/file.png"> <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
           </div>
           <div class="pack pack-2">
-            <p><img src="/assets/my_account/file.png"> <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
           </div>
           <div class="pack pack-2">
-            <p><img src="/assets/my_account/file.png"> <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
+            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
           </div>
         </div>
       <%end%>

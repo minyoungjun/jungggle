@@ -363,13 +363,21 @@
 
 <!-- disapprove Modal -->
 <div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-projects">
-    <div class="modal-content modal-projects">
+  <div class="modal-dialog modal-dialog-disapprove">
+    <div class="modal-content modal-disapprove">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>disapprove</h2>
-        <textarea rows="5">Congrat you got the new project! Let your client know what he should prepare to move further.</textarea>
-        <button type="button" class="btn btn-b" data-dismiss="modal">Close</button>
+        <h2>Reason for Disapprove</h2>
+        <textarea rows="7"></textarea>
+        <p>Please resolve the dispute with the Advertiser and insert the revised budget of this project.</p>
+        <h5>Revised Amount<input type="text" placeholder="$7,000"></h5>
+        <div class="amount">
+          <h3>Initial Amount <span class="amount-1 initial">$10,000</span></h3>
+          <h3>Refund Amount <span class="amount-1 refund">$3,000</span></h3>
+          <h3>You will receive <span class="amount-1 receive">$7,000</span></h3>
+        </div>
+        <p><input type="checkbox" class="checkbox"> &nbsp;&nbsp;I admit that the Advertiser agreed the above Revised Amount and I agree to receive the amount that I inserted on Revised Amount. And I'll not make an any objection.</p>
+        <button type="button" class="btn btn-b" data-dismiss="modal">Submit</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

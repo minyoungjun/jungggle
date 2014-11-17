@@ -1651,6 +1651,76 @@
       }
     }
   }
+
+  .modal-dialog-disapprove {
+    margin-top: 100px;
+    .modal-disapprove {
+      width: 600px;
+      padding: 30px;
+      .modal-body {
+        h2 {
+          font-size: 25px;
+          color: #444;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 13px;
+          width: 500px;
+          margin: 20px 0;
+        }
+        h5 {
+          text-align: left;
+          margin: 30px 10px 13px;
+          font-size: 18px;
+          input {
+            text-align: center;
+            float: right;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px 45px;
+            position: relative;
+            bottom: 9px;
+            font-size: 15px;
+          }
+        }
+        .amount {
+          width: 310px;
+          display: inline-block;
+          float: right;
+          margin-bottom: 20px;
+          h3 {
+            font-size: 16px;
+            text-align: left;
+            margin: 10px 17px;
+            .amount-1 {
+              float: right;
+            }
+            .refund {
+              color: #df6c5a;
+            }
+            .receive {
+              color: #5eb12f;
+            }
+          }
+        }
+      
+        p {
+          display: inline-block;
+          text-align: left;
+          margin: 0 10px;
+          .checkbox {
+            display: inline-block;
+          }
+        }
+        .btn {
+          padding: 10px 60px;
+          margin: 5px 10px;
+        }
+      }
+    }
+  }
 }
 
 
