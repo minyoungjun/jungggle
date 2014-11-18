@@ -8,7 +8,9 @@
         </button>
         <ul class="dropdown-menu" role="menu">
           <%@countries.each do |country_hash|%>
-            <li><a href="/products/search_detail/<%=country_hash.first.id%>"><%=country_hash.last.name%></a></li>
+            <%if country_hash[1] != nil%>
+              <li><a href="/products/search_detail/<%=country_hash[0].id%>"><%=country_hash[1].name%></a></li>  
+            <%end%>
           <%end%>
         </ul>
       </div>

@@ -14,8 +14,8 @@ before_filter :is_login, :except => [:list]
     product.company_id = current_user.member.company.id
     product.status = 1 #0: off , 1:on, 2:etc
     
-    if 10 < params[:marketingtype_id].to_i  && params[:marketingtype_id].to_i < 60
-      product.marketingtype_id = (params[:marketingtype_id].to_i + params[:platform].to_i + 1).to_i
+    if (10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60)
+      product.marketingtype_id = (params[:marketing_id].to_i + params[:platform].to_i + 1).to_i
     else
       product.marketingtype_id = params[:marketing_id]
     end
@@ -83,20 +83,20 @@ before_filter :is_login, :except => [:list]
       procon.country_id = value
       procon.save
     end
-    
-    params[:prodocu].each do |key, prodocu_language|
-      prodocu_language.each do |num, value|
-        prodocument = Prodocument.new
-        prodocument.prolang_id = product.prolangs.where(:language_id => key).first.id
-        prodocument.saved_name = SecureRandom.hex(6) + "." + value.original_filename.split('.').last
-        f = File.open(Rails.root.join("uploads", prodocument.saved_name), "wb")
-        prodocument.original_name = value.original_filename
-        f.write(value.read)
-        f.close
-        prodocument.name = params[:attach_name]["#{key}"]["#{num}"]
-        prodocument.save
 
-
+    if params[:prodocu] != nil
+      params[:prodocu].each do |key, prodocu_language|
+        prodocu_language.each do |num, value|
+          prodocument = Prodocument.new
+          prodocument.prolang_id = product.prolangs.where(:language_id => key).first.id
+          prodocument.saved_name = SecureRandom.hex(6) + "." + value.original_filename.split('.').last
+          f = File.open(Rails.root.join("uploads", prodocument.saved_name), "wb")
+          prodocument.original_name = value.original_filename
+          f.write(value.read)
+          f.close
+          prodocument.name = params[:attach_name]["#{key}"]["#{num}"]
+          prodocument.save
+        end
       end
     end
 

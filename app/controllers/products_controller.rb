@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
         @countries << [ product , procon.country ]
       end
     end
-    @countries.uniq!
+    @countries.uniq! { |s| s.last } 
 
   end
 
