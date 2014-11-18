@@ -76,12 +76,13 @@ before_filter :is_login, :except => [:list]
         cost.save
       end
     end
-
-    params[:country].each do |key, value|
-      procon = Procon.new
-      procon.product_id = product.id
-      procon.country_id = value
-      procon.save
+    if params[:country] != nil
+      params[:country].each do |key, value|
+        procon = Procon.new
+        procon.product_id = product.id
+        procon.country_id = value
+        procon.save
+      end
     end
 
     if params[:prodocu] != nil

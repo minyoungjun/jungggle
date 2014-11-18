@@ -155,8 +155,8 @@ class UsersController < ApplicationController
       end
     end
 
-    redirect_to :controller => "users",
-                :action => "company"
+    redirect_to :controller => "home",
+                :action => "account_manage_service"
 
   end
 
