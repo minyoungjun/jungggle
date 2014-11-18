@@ -632,6 +632,34 @@
       }
     }
   }
+
+
+  .modal-dialog-before-leaving {
+    .modal-before-leaving {
+      width: 600px;
+      .modal-body {
+        h3 {
+          line-height: 24px;
+          margin: 40px 0;
+        }
+        .btn {
+          padding: 10px 50px;
+          border-radius: 5px;
+          margin: 0 10px;
+        }
+        .btn-a {
+          border: 1px solid #5eb12f;
+        }
+        .btn-b {
+          color: red;
+          background-color: white;
+          border: 1px solid red;
+        }
+      }
+    }
+  }
+
+
   .modal-dialog-multiple-rate {
     .modal-multiple-rate {
       width: 600px;
