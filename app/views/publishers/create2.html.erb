@@ -67,7 +67,7 @@ function language_click(id){
 
 
       <div class="pack languages">
-        <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <h3>Language &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
         
         <span id="selected_languages"></span>
         
@@ -167,13 +167,13 @@ function platform_change(id){
 
       <div class="pack">
 
-        <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
         <input type="hidden" name="detail_count" id="detail_count" value="0">
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
           <div id="detail_row_0">
             <%Language.all.each do |language|%>
-              <input type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 12px; height: 44px; display:none;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="language_detail_all language_detail_<%=language.id%>">
+              <textarea type="text" placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" style="font-size: 14px; display:none; vertical-align:middle;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea>
             <%end%>
             <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
               <p>delete</p>
@@ -276,14 +276,17 @@ function detail_remove(id){
       </script>
       <div class="pack cost">
         <input type="hidden" name="cost_type" value="0" id="cost_type">
-        <h3>Cost &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <h3>Cost &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
-          <input type="text" placeholder="$" name="cost[0]"><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+          <input type="text" name="cost[0]"><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
           <div id="multiple-area" style="display:none;">
             <div id="cost_div_1" class="">
-              <input type="text" placeholder="$" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+              <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+
+              <input type="text" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
             </div>
           </div>
         </div>
@@ -306,7 +309,8 @@ function minimum_check(id){
       <div class="pack budget">
         <h3>Minimum Budget</h3>
         <img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img">&nbsp;&nbsp;
-        <input type="text" placeholder="$" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px;">
+        <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+        <input type="text" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;">
       </div>
 
 
@@ -331,7 +335,7 @@ function delete_country(id){
 
 
       <div class="pack country">
-        <h3>Country &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <h3>Country &nbsp;<img src="/assets/my_account/circle_info.png"></h3>
        
         <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
           <div id="country_box_0">
@@ -510,4 +514,20 @@ function term_check(id){
 
   $(function () { $('.popover-hide').popover('hide');});
 
+
+
+$(document).ready(function(){
+   $(".textarea").on("keyup", function(){
+      textarea_resize(this, 10);
+   });
+});
+ 
+function textarea_resize(obj, offset) {
+   obj.style.height = "1px";
+   obj.style.height = (obj.scrollHeight + offset) + "px";
+}
+
+
 </script>
+
+

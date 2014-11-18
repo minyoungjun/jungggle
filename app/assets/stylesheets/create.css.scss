@@ -215,9 +215,13 @@
     }
 
     .service-detail {
-      input {
+      textarea {
         display: inline-block;
         width: 550px;
+        padding: 10px 15px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        font-size: 15px;
       }
       .attach-img-btn {
         display: inline-block;
@@ -228,10 +232,10 @@
         border-radius: 5px;
         margin: 0 13px;
         position: relative;
-        top: 1px;
+        top: 3px;
       }
       .attach-img-btn:hover {
-        background-color: #888;
+        background-color: #5eb12f;
       }
       .attach-plus {
         
@@ -258,6 +262,7 @@
         input {
           min-width: 350px;
           margin: 10px 0;
+          padding-left: 35px;
         }
         img {
           margin: 0 15px;
@@ -325,7 +330,7 @@
           cursor: pointer;
           background-color: white;
           z-index: 100;
-          overflow: scroll;
+          overflow-y: scroll;
           margin-top: -15px;
 
           ul {
