@@ -420,10 +420,16 @@ function term_check(id){
       <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
       <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
       </form>
+      <button class="btn btn-default" data-toggle="modal" data-target="#Modal-language-delete-2">At least one language-modal</button>
+      <button class="btn btn-default" data-toggle="modal" data-target="#Modal-before-leaving">At least one language-modal</button>
 
     </div>
+
+    
   </div>
 </div>
+
+
 
 
 
@@ -452,6 +458,23 @@ function term_check(id){
         <h2>You must maintain at least one language.</h2>
         
         <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- before-leaving Modal -->
+<div class="modal fade" id="Modal-before-leaving" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-before-leaving">
+    <div class="modal-content modal-before-leaving">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Will you save before leaving?</h3>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">
+          Delete</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
