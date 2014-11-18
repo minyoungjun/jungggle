@@ -131,13 +131,12 @@ function language_select(id){
           <td>
             <div class="btn-group">
               <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
-                $0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                <%=number_to_currency(@product.costs.first.amount, :unit => "$")%><span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">$0.2</a></li>
-                <li><a href="#">$0.3</a></li>
-                <li><a href="#">$0.4</a></li>
-                <li><a href="#">$0.5</a></li>
+                <%@product.costs.each do |cost|%>
+                  <li><a href="#"><%=number_to_currency(cost.amount, :unit => "$")%></a></li>
+                <%end%>
               </ul>
             </div>
           </td>
