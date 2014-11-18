@@ -28,6 +28,7 @@ var now_lang = 0;
 $(document).ready(function(){
     $('.p_language_1').trigger("click");
     $(".trigger").trigger("click");
+
     });
 
 function language_click(id){
@@ -307,66 +308,44 @@ function minimum_check(id){
       </div>
 
 
-      
+      <script>
+        function country_select(box_id, country_id){
+          $("#country_btn_" + box_id).html($("#country_li_" + box_id + "_" + country_id).html());
+          $("#country_input_" + box_id).val(country_id);
+        }
+
+var country_count = 1;
+function add_country(){
+  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
+  country_count = country_count + 1;
+        
+}
+function delete_country(id){
+  $("#country_box_" + id).remove();
+
+}
+      </script>
 
 
 
       <div class="pack country">
         <h3>Country &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
        
-        <div class="country-drop-area" style="display:inline-block; vertical-align:top;">
-          <div class="country-drop">
-            <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
-            <div class="country-down">
-              <ul>
-                <%Country.all.each do |country|%>
-                  <li><%=country.name%></li>
-                <%end%>
-              </ul>
+        <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
+          <div id="country_box_0">
+            <input type="hidden" id="country_input_0" name="country[0]">
+            <div class="country-drop">
+              <div class="country-btn" id="country_btn_0">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+              <div class="country-down">
+                <ul>
+                  <%Country.all.each do |country|%>
+                    <li onclick="country_select(0, <%=country.id%>);" id="country_li_0_<%=country.id%>"><%=country.name%></li>
+                  <%end%>
+                </ul>
+              </div>
             </div>
+            <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;" onclick="add_country();">
           </div>
-          <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;"><br>
-
-          <div class="country-drop">
-            <div class="country-btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
-            <div class="country-down">
-              <ul>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>
-                <li>Australia</li>
-                <li>Austria</li>
-                <li>China</li>
-                <li>Japan</li>
-                <li>South Africa</li>
-                <li>South Korea</li>
-                <li>United States</li>
-                <li>Vietnam</li>              
-              </ul>
-            </div>
-          </div>
-          <img src="/assets/my_account/circle_minus.png" class="circle-icon">
 
         </div>
         <h4 class="preview">Preview</h4>
@@ -376,30 +355,39 @@ function minimum_check(id){
 
       <script>
 
+function attach_file(language_id, prodocu_id){
 
+  $("#upload_box_" + language_id).append('<div class="pack pack-2" id="attach_div_' + language_id + '_' + prodocu_id + '"><p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"name="attach_name[' + language_id + '][' + prodocu_id + ']">' + $('#prodocu_' + language_id + '_' + prodocu_id).val().replace(/^.*[\\\/]/, '') + '</p><a href="#none" onclick="delete_attach(' + language_id + ',' + prodocu_id + ');">X &nbsp;&nbsp;Delete</a></div>');
+
+  $("#upload_input_" + language_id).append('<input type="file" name="prodocu[' + language_id + '][' + String(prodocu_id + 1) + ']" id="prodocu_' + language_id + '_' + String(prodocu_id + 1) + '" onchange="attach_file(' + language_id + ',' + String(prodocu_id + 1) + ');">');
+
+  $('#upload_file_' + language_id).remove();
+  $('#upload-btn-div-' + language_id).prepend('<div class="upload-file" id="upload_file_' + language_id + '" onclick="trigger_prodocu(' + language_id + ',' + String(prodocu_id + 1) + ');">Upload File</div>');
+}
+function trigger_prodocu(language_id, prodocu_id){
+  $('#prodocu_' + language_id + '_' + prodocu_id).trigger('click');
+
+}
+function delete_attach(language_id, prodocu_id){
+  $("#attach_div_" + language_id + "_" + prodocu_id).remove();
+  $("#prodocu_" + language_id + "_" + prodocu_id).remove();
+
+}
       </script>
-      <%Language.all.each do |language|%>
-        <div class="pack optional upload_box" id="upload_box_<%=language.id%>">
+        <div class="pack optional " >
           <h3>[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png"></h3><br>
-            <div class="pack-1">
-              <div class="upload-file" id="#upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
-              <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+          <%Language.all.each do |language|%>
+            <div  class="upload_box"  id="upload_box_<%=language.id%>">
+              <div class="pack-1" id="upload-btn-div-<%=language.id%>">
+                <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
+                <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+              </div>
+              <div id ="upload_input_<%=language.id%>"style="display:none;">
+                <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
+              </div>
             </div>
-            <div id ="upload_input_<%=language.id%>" style="display:none;">
-              <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach(<%=language.id%>, 0);">
-            </div>
-
-          <div class="pack pack-2">
-            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> (주) 게임베리 회사소개.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
-          </div>
-          <div class="pack pack-2">
-            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> CPI Media Kit_2014.ppt</p><a href="#none">X &nbsp;&nbsp;Delete</a>
-          </div>
-          <div class="pack pack-2">
-            <p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"> GameberryIntroduction.pdf</p><a href="#none">X &nbsp;&nbsp;Delete</a>
-          </div>
+          <%end%>
         </div>
-      <%end%>
 
 
       
