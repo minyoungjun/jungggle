@@ -140,20 +140,15 @@ function language_select(id){
               </ul>
             </div>
           </td>
-          <td><button type="button" class="btn-buy">Buy</button></td>
+          <td><button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');">Buy</button></td>
         </tr>
       </table>
       <h5>* Last update on 2014.7.11</h5>
       <div class="clients">
         <h1>Clients</h1>
-        <img src="/assets/search/img_09.png">
-        <img src="/assets/search/img_10.png">
-        <img src="/assets/search/img_13.png">
-        <img src="/assets/search/img_14.png">
-        <img src="/assets/search/img_15.png">
-        <img src="/assets/search/img_16.png">
-        <img src="/assets/search/img_17.png">
-        <img src="/assets/search/img_18.png">
+        <%@company.comclients.each do |client|%>
+          <div class="clients_images" style="background-image:url('<%=client.logo.url(:medium)%>');"></div>
+        <%end%>
       </div>
       <div class="results">
         <h1>Project Results <span>See all</span></h1>
@@ -165,16 +160,10 @@ function language_select(id){
             <td>Budget</td>
           </tr>
           <tr class="table-body">
-            <td class="date">2014.8.26</td>
-            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-1">CPC(iOS) Project Result</td>
-            <td>USA</td>
-            <td class="budget">$500,000</td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014.7.26</td>
-            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-2">CPC(iOS) Project Result</td>
-            <td>USA</td>
-            <td class="budget">$500,000</td>
+            <td class="date"></td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-1"></td>
+            <td></td>
+            <td class="budget"></td>
           </tr>
         </table>
       </div>
@@ -182,31 +171,37 @@ function language_select(id){
 
     <div class="right">
       <div class="right-top">
-        <img src="/assets/search/img_11.png">
-        <h3>Hi-Res Photoset Company</h3>
+        <%if @company.logo_file_name != nil%><img src="<%=@company.logo.url(:medium)%>"/><%else%><img src="/assets/search/img_11.png"><%end%>
+        <% @company.comlangs.each do |comlang| %>
+          <h3 class="company_name company_name_<%=comlang.language_id%>"><%=comlang.name%></h3>
+        <%end%>
         <div class="contents">
           <table>
             <tr>
               <td class="name">website :</td>
-              <td><a href="#none">www.hiresphotoset.com</a></td>
+              <td><a href="#none"><%=@company.website%></a></td>
             </tr>
             <tr>
               <td class="name">Located In :</td>
-              <td>USA</td>
+              <td><%=@company.country.name%></td>
             </tr>
             <tr>
               <td class="name"># of employee :</td>
-              <td>24</td>
+              <td><%=@company.employee_count%></td>
             </tr>
           </table>
         </div>
-        <h1>8.7 <span>18 advertisers rated</span></h1>
-        <button type="button" class="btn" data-toggle="modal" data-target="#Modal-send-message">Send Message</button>
+        <h1>0.0 <span>0 advertisers rated</span></h1>
+        <button type="button" class="btn" onclick="alert('You can use it after Update.');" <%#data-toggle="modal" data-target="#Modal-send-message"%>>Send Message</button>
       </div>
       <div class="right-bottom">
         <h3>Company Introduction</h3>
-        <a href="#none"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
-        <p>The quality, artisanal skill and the creative impulse of a company that has always looked to the future, choosing the high technology and modernity, whilst keeping alive that involvement and unique, singular passion typical of a family-run business.<br><br>Initially it was Enzo Fusco who gave a name and face to FGF Industry, this solid reality with authentic Made in Italy DNA. Then, following in the footsteps of this talented stylist and charismatic leader who was ready to pass on the values of Italian style with enthusiasm and ability, came his family, a united and competent staff, the heirs to a challenge and a successful entrepreneurial history.</p>
+        <%@company.comlangs.each do |comlang|%>
+          <%if comlang.comdocuments.count != 0%>
+            <a href="/products/attachment/<%=comlang.comdocuments.first.saved_name%>"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
+          <%end%>
+          <p><%=simple_format(comlang.introduction)%></p>
+        <%end%>
       </div>
     </div>
   </div>
