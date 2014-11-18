@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'publishers/create2'
   post 'publishers/create_process'
   get 'publishers/manage'
+  get 'products/search_detail/:id' => "products#search_detail"
   get 'products/search_result/:id' => "products#search_result"
   get 'products/cart'
   post 'products/add_cart'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   post 'advertisers/add_credit'
   get 'advertisers/new_bidding'
   post 'advertisers/new_process'
+  get "/products/attachment/:id" => "products#attachment"
 
 
   devise_for :users, :controllers => {:registrations => "registrations" ,:sessions => "sessions" , :passwords => "passwords", :omniauth_callbacks => "omniauth_callbacks"}

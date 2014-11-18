@@ -1,5 +1,27 @@
-class ProductsController < ApplicationController
+require 'open-uri'
 
+class ProductsController < ApplicationController
+  
+
+  def attachment
+    prodocument = Prodocument.find(params[:id])
+
+  send_data open(Rails.root.join("uploads", prodocument.saved_name)).read, :filename => prodocument.original_name, :type => "multipart/related"
+
+  end
+  def search_detail
+
+    @product = Product.find(params[:id])
+    @company = @product.company
+    @countries = Array.new
+    @company.products.each do |product|
+      product.procons.each do |procon|
+        @countries << [ product , procon.country ]
+      end
+    end
+    @countries.uniq!
+
+  end
 
   def search_result
     @product = Product.find(params[:id])

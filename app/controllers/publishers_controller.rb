@@ -11,18 +11,17 @@ before_filter :is_login, :except => [:list]
   def create_process
 
     product = Product.new
-    product.user_id = current_user.id
+    product.company_id = current_user.member.company.id
+    product.status = 1 #0: off , 1:on, 2:etc
     
-    if params[:marketingtype_id].to_i > 15 && params[:marketingtype_id].to_i < 62
-      product.marketingtype_id = params[:marketingtype_id].to_i + params[:platform].to_i + 1
+    if 10 < params[:marketingtype_id].to_i  && params[:marketingtype_id].to_i < 60
+      product.marketingtype_id = (params[:marketingtype_id].to_i + params[:platform].to_i + 1).to_i
     else
       product.marketingtype_id = params[:marketing_id]
     end
 
-    product.status = 1 #0: off , 1:on, 2:etc
-
-    if params[:budget] != nil
-      product.minimum_budget = params[:budget]
+    if params[:minimum_budget] != nil
+      product.minimum_budget = params[:minimum_budget]
     end
 
     product.save
@@ -64,36 +63,45 @@ before_filter :is_login, :except => [:list]
       end
     end
     
-    0.upto(params[:cost_count].to_i) do |cost_count|
+    if params[:cost_type].to_i == 0
       cost = Cost.new
       cost.product_id = product.id
-      cost.amount = params["cost_#{cost_count}"]
+      cost.amount  = params[:cost].first
       cost.save
-    end
-    0.upto(params[:country_count].to_i) do |country_count|
-      if params["country_#{country_count}"]!= nil
-        procon = Procon.new
-        procon.product_id = product.id
-        procon.country_id = params["country_#{country_count}"]
-        procon.save
+    else
+      params[:cost].each do |key, value|
+        cost = Cost.new
+        cost.product_id = product.id
+        cost.amount = value
+        cost.save
       end
     end
-    0.upto(params[:docu_count].to_i) do |docu_count|
-      if params["docufile_#{docu_count}"] != nil
+
+    params[:country].each do |key, value|
+      procon = Procon.new
+      procon.product_id = product.id
+      procon.country_id = value
+      procon.save
+    end
+    
+    params[:prodocu].each do |key, prodocu_language|
+      prodocu_language.each do |num, value|
         prodocument = Prodocument.new
-        prodocument.product_id = product.id
-        prodocument.name = params["docuname_#{docu_count}"]
-        prodocument.saved_name = SecureRandom.hex(6) + "." + params["docufile_#{docu_count}"].original_filename.split('.').last
+        prodocument.prolang_id = product.prolangs.where(:language_id => key).first.id
+        prodocument.saved_name = SecureRandom.hex(6) + "." + value.original_filename.split('.').last
         f = File.open(Rails.root.join("uploads", prodocument.saved_name), "wb")
-        prodocument.original_name = params["docufile_#{docu_count}"].original_filename
-        f.write(params["docufile_#{docu_count}"].read)
+        prodocument.original_name = value.original_filename
+        f.write(value.read)
         f.close
+        prodocument.name = params[:attach_name]["#{key}"]["#{num}"]
         prodocument.save
 
+
       end
     end
 
-    redirect_to :action => "search_result", :controller => "products", :id => product.id
+
+    redirect_to :action => "search_detail", :controller => "products", :id => product.id
 
 
   end

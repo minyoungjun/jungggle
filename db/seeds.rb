@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 #
-lan_array = ["English", "Spanish", "Vietnamese", "Chinese", "German", "Portuguese", "Japanese", "French", "Italian", "Korean", "Russian", "Malay"]
-lan_nick = ["EN", "SP", "VI", "CH", "GE", "PO", "JP", "FR", "IT", "KO", "RU", "MA"]
+lan_array = ["English", "Chinese", "Japanese", "Korean", "Spanich", "German", "French", "Russian", "Vietbamese", "Portuguese", "Italian", "Malay"]
+lan_nick = ["EN", "ZH", "JA", "KO", "ES", "DE", "FR", "RU", "VI", "PT", "IT", "MS"]
 lan_num = 0
 lan_array.each do |lan|
   lan = Language.create(name: lan)
@@ -62,6 +62,10 @@ mobile.filter = 2
 mobile.name = "Mobile"
 mobile.parent_id = ad.id
 mobile.save
+
+Marketingtype.create(name: "All", filter: 4, parent_id: mobile.id)
+Marketingtype.create(name: "iOS", filter: 4, parent_id: mobile.id)
+Marketingtype.create(name: "Android", filter: 4, parent_id: mobile.id)
 
 ad_mobiles = ["CPI","CPI(non-incentive)","CPC", "CPM", "CPP(cost per period)", "Text ad", "Video", "SNS", "App Discovery" "Messaging", "Rank Guarantee", "Reviews & Ratings", "ASO"]
 

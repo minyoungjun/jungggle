@@ -94,7 +94,7 @@ function language_click(id){
           function marketing_click(id){
             $("#marketing_btn").html($("#marketing_li_" + id).data("marketing"));
             $("#marketing_id").val(id);
-            if(id > 10 && id < 57){
+            if(id > 10 && id < 60){
               $(".platform").show();
               $("#platform_0").trigger("click");
             }else{
@@ -127,7 +127,9 @@ function language_click(id){
                                   <li class="title" onclick="marketing_click(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_<%=marketing2.id%>" ><%=marketing2.name%></li>
                                   <%if marketing2.child_types.count != 0%>
                                     <%marketing2.child_types.each do |marketing3|%>
-                                      <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                      <%if marketing3.filter != 4%>
+                                        <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                      <%end%>
                                     <%end%>
                                   <%end%>
                                 </ul>
@@ -166,6 +168,7 @@ function platform_change(id){
       <div class="pack">
 
         <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+        <input type="hidden" name="detail_count" id="detail_count" value="0">
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
           <div id="detail_row_0">
@@ -272,7 +275,6 @@ function detail_remove(id){
       }
       </script>
       <div class="pack cost">
-        <input type="hidden" name="cost_count" value="0" id="cost_count">
         <input type="hidden" name="cost_type" value="0" id="cost_type">
         <h3>Cost &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
@@ -357,7 +359,7 @@ function delete_country(id){
 
 function attach_file(language_id, prodocu_id){
 
-  $("#upload_box_" + language_id).append('<div class="pack pack-2" id="attach_div_' + language_id + '_' + prodocu_id + '"><p><img src="/assets/my_account/folder.png"> <input type="text" class="optional"name="attach_name[' + language_id + '][' + prodocu_id + ']">' + $('#prodocu_' + language_id + '_' + prodocu_id).val().replace(/^.*[\\\/]/, '') + '</p><a href="#none" onclick="delete_attach(' + language_id + ',' + prodocu_id + ');">X &nbsp;&nbsp;Delete</a></div>');
+  $("#upload_box_" + language_id).append('<div class="pack pack-2" id="attach_div_' + language_id + '_' + prodocu_id + '"><p><img src="/assets/my_account/folder.png"> <input type="text" class="optional" placeholder="Document Name..." name="attach_name[' + language_id + '][' + prodocu_id + ']">' + $('#prodocu_' + language_id + '_' + prodocu_id).val().replace(/^.*[\\\/]/, '') + '</p><a href="#none" onclick="delete_attach(' + language_id + ',' + prodocu_id + ');">X &nbsp;&nbsp;Delete</a></div>');
 
   $("#upload_input_" + language_id).append('<input type="file" name="prodocu[' + language_id + '][' + String(prodocu_id + 1) + ']" id="prodocu_' + language_id + '_' + String(prodocu_id + 1) + '" onchange="attach_file(' + language_id + ',' + String(prodocu_id + 1) + ');">');
 

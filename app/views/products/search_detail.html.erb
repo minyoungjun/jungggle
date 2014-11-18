@@ -1,0 +1,282 @@
+<div class="search-detail">
+  <div class="container">
+    <div class="left">
+
+      <div class="btn-group btn-tab">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+          Country <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <%@countries.each do |country_hash|%>
+            <li><a href="/products/search_detail/<%=country_hash.first.id%>"><%=country_hash.last.name%></a></li>
+          <%end%>
+        </ul>
+      </div>
+
+      <div class="btn-group btn-tab">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+          <%if @product.marketingtype.parent_type != nil%>
+            <%if @product.marketingtype.parent_type.parent_type != nil%>
+              <%if @product.marketingtype.parent_type.parent_type.parent_type != nil%>
+                <%=@product.marketingtype.parent_type.parent_type.parent_type.name%> /
+              <%end%>
+              <%=@product.marketingtype.parent_type.parent_type.name%> /
+            <%end%>
+              <%=@product.marketingtype.parent_type.name%> /
+            <%end%>
+              <%=@product.marketingtype.name%>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <%@company.products.each do |product|%>
+            <li>
+            
+            <a href="/products/search_detail/<%=product.id%>">
+            <%if product.marketingtype.parent_type != nil%>
+              <%if product.marketingtype.parent_type.parent_type != nil%>
+                <%if product.marketingtype.parent_type.parent_type.parent_type != nil%>
+                  <%=product.marketingtype.parent_type.parent_type.parent_type.name%> /
+                <%end%>
+                <%=product.marketingtype.parent_type.parent_type.name%> /
+              <%end%>
+                <%=product.marketingtype.parent_type.name%> /
+              <%end%>
+                <%=product.marketingtype.name%>
+              </a>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+<style>
+.language_btn .long{
+  display:none;
+}
+.language_btn:hover .long{
+  display:block;
+}
+.language_btn .short{
+  display:block;
+}
+.language_btn:hover .short{
+  display:none;
+}
+</style>
+
+<script>
+
+$(document).ready(function(){
+  $("#language_btn_<%=@product.prolangs.first.language_id%>").trigger("click");
+    });
+
+function language_select(id){
+  $(".language_btn").css("border", "1px solid #ddd");
+  $(".language_btn").css("background-color", "white");
+  $(".language_btn").css("color", "#666");
+  $("#language_btn_" + id).css("background-color", "#5eb12f");
+  $("#language_btn_" + id).css("color", "white");
+  $("#language_btn_" + id).css("border", "1px solid #5eb12f");
+  $(".language_name").hide();
+  $(".language_name_" + id).show();
+  $(".detail_div").hide();
+  $(".detail_div_" + id).show();
+
+
+}
+
+</script>
+
+      <div class="btn-toolbar">
+        <%@product.prolangs.each do |prolang|%>
+          <div class="btn-group">
+            <button type="button" class="btn language_btn" onclick="language_select(<%=prolang.language_id%>);" id ="language_btn_<%=prolang.language_id%>"><span class="long"><%=prolang.language.name%></span><span class="short"><%=prolang.language.nickname%></span></button>
+          </div>
+        <%end%>
+      </div>
+      <table>
+        <tr class="table-header">
+          <td class="service-name">Service name</td>
+          <td>Service details</td>
+          <td>Cost</td>
+          <td></td>
+        </tr>
+        <tr class="table-body">
+          <td class="service-name"><%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%></td>
+          <td>
+            <%@product.prolangs.each do |prolang|%>
+              <div class="detail_div  detail_div_<%=prolang.language_id%>" >
+                <% prolang.detailangs.each do |detailang| %>
+                  <%if detailang.detail.proimages.count != 0%>
+                    <div class="detail_content">
+                      <h5 class="img-hover">— <%=detailang.content%>
+                      <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
+                      </h5>
+                    </div>
+                  <%else%>
+                    <div class="detail_content">
+                      <h5 class="font-color"><%=detailang.content%>
+                      </h5>
+                    </div>
+                  <%end%>
+              
+                <%end%>
+                <%prolang.prodocuments.each do |prodocument|%>
+                  <h4 class="download"><a href="/products/attachment/<%=prodocument.id%>"><span class="glyphicon glyphicon-link"></span> &nbsp;<%=prodocument.name%></a></h4>
+                <%end%>
+
+              </div>
+            <%end%>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
+                $0.1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">$0.2</a></li>
+                <li><a href="#">$0.3</a></li>
+                <li><a href="#">$0.4</a></li>
+                <li><a href="#">$0.5</a></li>
+              </ul>
+            </div>
+          </td>
+          <td><button type="button" class="btn-buy">Buy</button></td>
+        </tr>
+      </table>
+      <h5>* Last update on 2014.7.11</h5>
+      <div class="clients">
+        <h1>Clients</h1>
+        <img src="/assets/search/img_09.png">
+        <img src="/assets/search/img_10.png">
+        <img src="/assets/search/img_13.png">
+        <img src="/assets/search/img_14.png">
+        <img src="/assets/search/img_15.png">
+        <img src="/assets/search/img_16.png">
+        <img src="/assets/search/img_17.png">
+        <img src="/assets/search/img_18.png">
+      </div>
+      <div class="results">
+        <h1>Project Results <span>See all</span></h1>
+        <table>
+          <tr class="table-header">
+            <td class="date">Complite date</td>
+            <td>Project Results URL</td>
+            <td>Country</td>
+            <td>Budget</td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014.8.26</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-1">CPC(iOS) Project Result</td>
+            <td>USA</td>
+            <td class="budget">$500,000</td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014.7.26</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-2">CPC(iOS) Project Result</td>
+            <td>USA</td>
+            <td class="budget">$500,000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="right-top">
+        <img src="/assets/search/img_11.png">
+        <h3>Hi-Res Photoset Company</h3>
+        <div class="contents">
+          <table>
+            <tr>
+              <td class="name">website :</td>
+              <td><a href="#none">www.hiresphotoset.com</a></td>
+            </tr>
+            <tr>
+              <td class="name">Located In :</td>
+              <td>USA</td>
+            </tr>
+            <tr>
+              <td class="name"># of employee :</td>
+              <td>24</td>
+            </tr>
+          </table>
+        </div>
+        <h1>8.7 <span>18 advertisers rated</span></h1>
+        <button type="button" class="btn" data-toggle="modal" data-target="#Modal-send-message">Send Message</button>
+      </div>
+      <div class="right-bottom">
+        <h3>Company Introduction</h3>
+        <a href="#none"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
+        <p>The quality, artisanal skill and the creative impulse of a company that has always looked to the future, choosing the high technology and modernity, whilst keeping alive that involvement and unique, singular passion typical of a family-run business.<br><br>Initially it was Enzo Fusco who gave a name and face to FGF Industry, this solid reality with authentic Made in Italy DNA. Then, following in the footsteps of this talented stylist and charismatic leader who was ready to pass on the values of Italian style with enthusiasm and ability, came his family, a united and competent staff, the heirs to a challenge and a successful entrepreneurial history.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- project-result-1 Modal -->
+<div class="modal fade" id="Modal-project-result-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-result-1">
+    <div class="modal-content modal-project-result-1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>project-result-1</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- project-result-2 Modal -->
+<div class="modal fade" id="Modal-project-result-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-result-2">
+    <div class="modal-content modal-project-result-2">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>project-result-2</h2>
+        <p>내용삽입</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<!-- send-message Modal -->
+<div class="modal fade" id="Modal-send-message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-send-message">
+    <div class="modal-content modal-send-message">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Send a message to the publisher.</h2>
+        <textarea rows="6"></textarea>
+        <button type="button" class="btn btn-a" data-dismiss="modal" data-toggle="modal" data-target="#Modal-send-ok">Send</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- send-ok Modal -->
+<div class="modal fade" id="Modal-send-ok" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-send-message">
+    <div class="modal-content modal-send-message">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Message has sent to the publisher.</h2>
+        <h3>You will receive the reply through your email ceo@gameberry.co.kr.</h3>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
