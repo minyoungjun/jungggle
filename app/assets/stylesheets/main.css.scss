@@ -17,11 +17,7 @@
     font-size: 26px;
     margin: 30px 0 10px;
   }
-  h3 {
-    font-size: 18px;
-    color: #bbb;
-    margin: 5px 0 30px;
-  }
+
 
   .select {
     background-color: white;
@@ -41,7 +37,7 @@
     .country {
       width: 150px;
       position: relative;
-      left: 4px;
+      left: 5px;
       h3 {
         font-size: 14px;
         margin: 0 0 10px;
@@ -190,18 +186,75 @@
       }
     }
 
+    .platform {
+      display: inline-block;
+      width: 163px;
+      position: relative;
+      font-size: 14px;
+      right: 4px;
+      h3 {
+        font-size: 14px;
+        margin: 0 0 10px;
+        border: 1px solid #eee;
+        padding: 20px 0 20px 20px;
+        text-align: left;
+      }
+      h3:hover {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
+      
+      .platform-down {
+        display: none;
+        width: 160px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        padding-top: 10px;
+        cursor: pointer;
+        top: 63px;
+        ul {
+          list-style: none;
+          padding-left: 0;
+          li {
+            padding: 3px 15px;
+            color: #bbb;
+            font-size: 13px;
+          }
+          li:hover {
+            color: #5bb33a;
+          }
+          .title {
+            color: #777;
+          }
+          hr {
+            margin: 3px 15px;
+          }
+        }
+      }  
+    }
+    .platform:hover {
+      border-color: #5bb33a;
+      z-index: 100;
+ 
+      .platform-down {
+        display: block;
+      }
+    }
+
+
     .cost {
       display: inline-block;
       width: 200px;
       border: 1px solid #eee;
       position: relative;
-      bottom: 1px;
       font-size: 14px;
-      right: 4px;
+      right: 8px;
       input {
         border: 0;
         padding-left: 10px;
-        height: 55px;
+        height: 56px;
       }
       .cost-hover {
         display: none;
@@ -239,11 +292,12 @@
       width: 170px;
       padding: 16px 0;
       margin: 0;
-      border: 0;
+      border: 1px solid #5eb12f;
       border-radius: 0 10px 10px 0;
       font-size: 17px;
       position: relative;
-      right: 7px;
+      right: 11px;
+      height: 58px;
       img {
         position: relative;
         margin-left: 10px;
