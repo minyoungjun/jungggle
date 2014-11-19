@@ -85,7 +85,6 @@
             font-size: 12px;
           }
         }
-        
       }
     }
   }
@@ -391,6 +390,55 @@
         }
         .btn-a {
           padding: 10px 100px;
+        }
+      }
+    }
+  }
+
+  .modal-dialog-ready {
+    margin-top: 100px;
+    width: 800px;
+    .modal-ready {
+      width: 800px;
+      .modal-body {
+
+        .ready-search-detail {
+          text-align: center;
+          padding: 50px 0 0;
+         
+          h1 {
+            color: #555;
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            span {
+              color: #5eb12f;
+            }
+          }
+          img {
+            margin: 40px 0;
+          }
+          p {
+            font-size: 18px;
+            line-height: 28px;
+            margin: 10px 0 25px;
+            color: #858585;
+          }
+          .date {
+            font-size: 20px;
+            padding: 13px 15px;
+            border: 3px solid #aaa;
+            border-radius: 5px;
+            margin: 55px auto;
+            span {
+              color: #5eb12f;
+            }
+          }
+          .btn {
+            padding: 12px 80px;
+            font-size: 16px;
+          }
         }
       }
     }

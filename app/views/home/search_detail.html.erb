@@ -79,7 +79,7 @@
               </ul>
             </div>
           </td>
-          <td><button type="button" class="btn-buy">Buy</button></td>
+          <td><button type="button" class="btn-buy" data-toggle="modal" data-target="#Modal-ready">Buy</button></td>
         </tr>
         <tr class="table-body">
           <td class="service-name">Free App A Day <br><span class="a">B </span><span class="b">Package</span></td>
@@ -125,7 +125,7 @@
         <img src="/assets/search/img_18.png">
       </div>
       <div class="results">
-        <h1>Project Results <span>See all</span></h1>
+        <h1 data-toggle="modal" data-target="#Modal-ready" style="cursor: pointer;">Project Results <span>See all</span></h1>
         <table>
           <tr class="table-header">
             <td class="date">Complite date</td>
@@ -135,13 +135,13 @@
           </tr>
           <tr class="table-body">
             <td class="date">2014.8.26</td>
-            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-1">CPC(iOS) Project Result</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-ready">CPC(iOS) Project Result</td>
             <td>USA</td>
             <td class="budget">$500,000</td>
           </tr>
           <tr class="table-body">
             <td class="date">2014.7.26</td>
-            <td class="font-color" data-toggle="modal" data-target="#Modal-project-result-2">CPC(iOS) Project Result</td>
+            <td class="font-color" data-toggle="modal" data-target="#Modal-ready">CPC(iOS) Project Result</td>
             <td>USA</td>
             <td class="budget">$500,000</td>
           </tr>
@@ -246,6 +246,32 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
+
+<!-- ready Modal -->
+<div class="modal fade" id="Modal-ready" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-ready">
+    <div class="modal-content modal-ready">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="ready-search-detail">
+          <h1>We are developing<br>a new feature of <span>Jungggle.</span></h1>
+          <img src="/assets/ready.png">
+          <p>We are currently on Beta version for service provider’s opening business in advance. <br>The official release date for Advertisers to see actual project results would be early December.</p>
+          <p>Thanks for waiting. We are preparing enough results to help you make decisions on marketing. <br>you could open all the project results with Pro accounts here soon.  </p>
+          <h3 class="date"><b>Will be finished before <span>Dec 11th, 2014.</span><b></h3>
+          <button type="button" class="btn btn-a" data-dismiss="modal">Close</button>
+        </div><!-- /.ready-search-detail-->
+      </div><!-- /.modal-body-->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 
 
