@@ -2,6 +2,13 @@ require 'open-uri'
 
 class ProductsController < ApplicationController
 
+
+  def search_company
+
+    @products = Company.find(params[:id]).products.order('created_at DESC')
+
+  end
+
   def search
 
     @products_array = Array.new

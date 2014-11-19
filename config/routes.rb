@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/products/attachment/:id" => "products#attachment"
 
   post "products/search"
+  get '/products/search_company/:id' => "products#search_company"
 
   devise_for :users, :controllers => {:registrations => "registrations" ,:sessions => "sessions" , :passwords => "passwords", :omniauth_callbacks => "omniauth_callbacks"}
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
