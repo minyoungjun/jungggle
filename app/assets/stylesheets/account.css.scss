@@ -1841,8 +1841,11 @@
       padding: 30px;
       margin: 15px 0;
       text-align: left;
+      height: 405px;
+      vertical-align: top;
       h4 {
         color: #5eb12f;
+        margin-top: 20px;
       }
       p {
         color: #aaa;
@@ -1855,7 +1858,7 @@
     .center {
       border-right: 1px solid #ddd;
       border-left: 1px solid #ddd;
-      padding: 20px;
+   
     }
   }
 
