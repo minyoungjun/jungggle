@@ -36,7 +36,7 @@ $(document).ready(function(){
       <%end%>
         $("#language-select-<%=@company.comlangs.first.language.id%>").trigger("click");
         $(".trigger").trigger("click");
-        country_select(<%=@company.country.id%>);
+        country_select(<%=@company.country_id%>);
         employee_select(<%=@company.num_employee%>);
 
     <%else%>

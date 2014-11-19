@@ -5,18 +5,51 @@ $p-width: 600px;
 .aboutus {
   padding: 100px 0 150px;
   text-align: center;
-  h1 {
-    margin: 30px;
-  }
-  p {
-    text-align: left;
-    margin: 30px auto 50px;
-    width: $p-width;
-    line-height: 25px;
-
-    span {
-      color: #6dc54d;
+  h2 {
+    font-size: 24px;
+    margin: 50px 0;
+    color:  #333;
+    line-height: 40px;
+    .color {
+      color: #5eb12f;
+      font-size: 30px;
     }
+  }
+  .for {
+    border: 5px solid #eee;
+    border-radius: 10px;
+    padding: 30px 50px 50px;
+    width: 1100px;
+    margin: 0 auto;
+    .contents {
+      display: inline-block;
+      text-align: left;
+      vertical-align: top;
+      h3 {
+        color: #5eb12f;
+        img {
+          margin-right: 10px;
+        }
+      }
+      h5 {
+        font-size: 15px;
+        line-height: 23px;
+        font-weight: 700;
+        height: 80px;
+        color:  #555;
+        margin-top: 20px;
+      }
+      p {
+        color: #888;
+      }
+
+    }
+
+    .advertiser {
+      margin-right: 70px;
+
+    }
+
   }
 }
 

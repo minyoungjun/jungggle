@@ -7,12 +7,12 @@
     </div>
     <h2>Complete the form below for sign up</h2>
     <div class="name">
-      <input type="text" name="user[first_name]" placeholder="James" class="short-form" value="<%=@user.first_name%>">
-      <input type="text" placeholder="Lim" name="user[last_name]" class="short-form" value= "<%=@user.last_name%>">
+      <input type="text" name="user[first_name]" placeholder="James" class="short-form" value="<%=@user.first_name%>" required>
+      <input type="text" placeholder="Lim" name="user[last_name]" class="short-form" value= "<%=@user.last_name%>" required>
     </div>
-    <input type="email"name="user[email]" class="long-form" placeholder="Email">
-    <input type="password" name="user[password_confirmation]" placeholder="Password" class="long-form">
-    <input type="password" name="user[password]" placeholder="Confirm password" class="long-form">
+    <input type="email"name="user[email]" class="long-form" placeholder="Email" required>
+    <input type="password" name="user[password_confirmation]" placeholder="Password" class="long-form" required>
+    <input type="password" name="user[password]" placeholder="Confirm password" class="long-form" required>
     <div class="checkbox">
       <label>
         <input type="checkbox" name="user[news_mailing]" <%if current_user.news_mailing%>checked="true"<%end%>>
