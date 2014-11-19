@@ -67,12 +67,14 @@ before_filter :is_login, :except => [:list]
       cost = Cost.new
       cost.product_id = product.id
       cost.amount  = params[:cost].first
+      cost.price  = params[:cost].first
       cost.save
     else
       params[:cost].each do |key, value|
         cost = Cost.new
         cost.product_id = product.id
         cost.amount = value
+        cost.price = value
         cost.save
       end
     end

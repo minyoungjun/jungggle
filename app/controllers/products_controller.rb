@@ -5,20 +5,28 @@ class ProductsController < ApplicationController
   def search
 
     @products_array = Array.new
+    order_number = 0
 
     if params[:cost_from] != nil && params[:cost_to] != nil
-      Cost.where("amount > ? AND amount < ?", params[:cost_from].to_i, params[:cost_to].to_i).each do |cost|
-        @products_array[] << cost
+      @products_array[order_number] = Array.new
 
+      Cost.where("price >= ? AND price <= ?", params[:cost_from].to_i, params[:cost_to].to_i).each do |cost|
+        @products_array[order_number] << cost.product
       end
+        
+    elsif params[:cost_from] != nil
+
+    elsif params[:cost_to] != nil
+
+    else
 
     end
 
-    @marketingtype
+    order_number = order_number + 1
 
-    @procons = Procon.where(:country_id => params[:country_hidden])
+    if params[:marketing_type].to_i != 0
 
-    @procons.each do |procon|
+
     end
 
   end
