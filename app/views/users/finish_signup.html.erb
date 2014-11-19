@@ -41,7 +41,7 @@ function auto_func(){
           $(".auto_div").hide();
             var auto_count = 0
           $(".auto_div").each(function(){
-            if ($(this).data("company").indexOf($('#auto_name').val()) != -1 )
+            if ($(this).data("company").toLowerCase().indexOf($('#auto_name').val().toLowerCase()) != -1 )
             {
                 auto_count = auto_count + 1;
                 $(this).show();             

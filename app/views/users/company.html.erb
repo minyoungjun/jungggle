@@ -130,7 +130,7 @@ function auto_func(id){
           $(".auto_div").hide();
             var auto_count = 0
           $(".auto_div").each(function(){
-            if ($(this).data("company").indexOf($('#title_' + id).val()) != -1 )
+            if ($(this).data("company").toLowerCase().indexOf($('#title_' + id).val().toLowerCase()) != -1 )
             {
                 auto_count = auto_count + 1;
                 $(this).show();             

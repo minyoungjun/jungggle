@@ -198,7 +198,7 @@ function language_select(id){
         <h3>Company Introduction</h3>
         <%@company.comlangs.each do |comlang|%>
           <%if comlang.comdocuments.count != 0%>
-            <a href="/products/attachment/<%=comlang.comdocuments.first.saved_name%>"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
+            <a href="/products/attachment/<%=comlang.comdocuments.first.id%>"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
           <%end%>
           <p><%=simple_format(comlang.introduction)%></p>
         <%end%>
