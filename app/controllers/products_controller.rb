@@ -1,8 +1,27 @@
 require 'open-uri'
 
 class ProductsController < ApplicationController
-  
 
+  def search
+
+    @products_array = Array.new
+
+    if params[:cost_from] != nil && params[:cost_to] != nil
+      Cost.where("amount > ? AND amount < ?", params[:cost_from].to_i, params[:cost_to].to_i).each do |cost|
+        @products_array[] << cost
+
+      end
+
+    end
+
+    @marketingtype
+
+    @procons = Procon.where(:country_id => params[:country_hidden])
+
+    @procons.each do |procon|
+    end
+
+  end
   def attachment
     prodocument = Prodocument.find(params[:id])
 

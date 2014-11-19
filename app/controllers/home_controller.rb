@@ -22,6 +22,7 @@ class HomeController < ApplicationController
       @countries << procon.country
     end
     @countries.uniq!
+    @countries.sort! { |a,b| a.name.downcase <=> b.name.downcase }
 
   end
 

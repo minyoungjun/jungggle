@@ -256,7 +256,7 @@ function language_click(id){
         <div id="country_box">
           <input type="hidden" value="0" name="country_count" id="country_count">
           <select name="country_0">
-            <%Country.all.each do |country|%>
+            <%Country.order(:name).each do |country|%>
               <option value="<%=country.id%>">
                 <%=country.name%>
               </option>

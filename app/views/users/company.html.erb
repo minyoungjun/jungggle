@@ -167,7 +167,7 @@ function auto_func(id){
         <input type="text" disabled id="country_text" placeholder="Country">
         <div class="country-down">
           <ul>
-            <% Country.all.each do |country|%>
+            <% Country.all.order(:name).each do |country|%>
               <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
             <%end%>
             
