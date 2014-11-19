@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   get 'home/ready_dashboard'
   get 'home/ready_project'
   get 'home/ready_search_detail'
+  get 'home/fees'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end

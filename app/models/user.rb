@@ -89,9 +89,8 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
       "@api.mailgun.net/v2/jungggle.com/messages",
       :from => "Jungggle <admin@jungggle.com>",
       :to => user.email,
-      :subject => "Jungggle Confirm your Email",
-      :text => "To confirm your email, click =>  http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}"
-
+      :subject => "[Jungggle] Please confirm your e-mail address",
+      :text => "<h2>Welcome to Jungggle!</h2><h5>Thanks again for joining us, the best way to buy & sell marketing service. <br><br>Your account is ready to go.<br>Email: #{user.email}<br><br>Please confirm your e-mail address to protect our relationship with you.</h5><a href='http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}'>http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}</a><h4>Thanks for your support!<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
     user.confirmation_sent_at = Time.now
     user.save
 
