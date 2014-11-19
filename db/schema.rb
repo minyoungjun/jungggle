@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119063722) do
+ActiveRecord::Schema.define(version: 20141119080638) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -200,11 +200,9 @@ ActiveRecord::Schema.define(version: 20141119063722) do
   end
 
   create_table "notifications", force: true do |t|
-    t.integer  "user_id"
     t.integer  "level"
-    t.text     "content"
+    t.text     "information"
     t.boolean  "is_important"
-    t.boolean  "is_deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -240,11 +238,8 @@ ActiveRecord::Schema.define(version: 20141119063722) do
   end
 
   create_table "products", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "country_id"
     t.integer  "marketingtype_id"
     t.integer  "company_id"
-    t.string   "name"
     t.boolean  "saved"
     t.integer  "minimum_budget"
     t.integer  "status"
@@ -281,6 +276,15 @@ ActiveRecord::Schema.define(version: 20141119063722) do
     t.integer  "product_id"
     t.integer  "language_id"
     t.text     "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usernotis", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "notification_id"
+    t.text     "content"
+    t.boolean  "is_deleted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
