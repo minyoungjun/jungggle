@@ -32,12 +32,14 @@
       display: inline-block;
       text-align: left;
       position: relative;
+      
     }
 
     .country {
       width: 150px;
       position: relative;
       left: 5px;
+
       h3 {
         font-size: 14px;
         margin: 0 0 10px;
@@ -109,139 +111,146 @@
       }
     }
 
-    .marketing {
-      width: 230px;
-      h3 {
-        font-size: 14px;
-        margin: 0 0 10px;
-        border: 1px solid #eee;
-        padding: 20px 0 20px 20px;
-      }
-      .marketing-down {
-        display: none;
-        width: 150px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        position: absolute;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        cursor: pointer;
-        top: 63px;
-        ul {
-          list-style: none;
-          padding-left: 0;
-          li {
-            padding: 10px 15px;
-            color: #bbb;
-            font-size: 13px;
-          }
-          li:hover {
-            color: #5bb33a;
-          }
-          .title {
-            color: #777;
-          }
-          hr {
-            margin: 3px 15px;
-          }
-          .division-hover {
-            display: none;
-            border: 1px solid #eee;
-            min-width: 530px;
-            position: absolute;
-            left: 148px;
-            top: -1px;
-            color: #333;
-            background-color: white;
-            z-index: 100;
-            ul {
-              display: inline-block;
-              padding: 8px;
-              vertical-align: top;
-              li {
-                padding: 2px 10px;
-              }
-              .title {
-                font-size: 16px;
-                padding-bottom: 10px;
-                color: #777;
-              }
-            }
-          }
-
-          .division:hover {
-            .division-hover {
-              display: block;
-            }
-          }
-        }
-      }
-    }
-    .marketing:hover {
-      border-color: #5bb33a;
-      z-index: 100;
-      h3 {
-        color: #5bb33a;
-        border-color: #5eb12f;
-      }
-      .marketing-down {
-        display: block;
-      }
-    }
-
-    .platform {
+    .marketing-mobile {
       display: inline-block;
-      width: 163px;
       position: relative;
-      font-size: 14px;
-      right: 4px;
-      h3 {
-        font-size: 14px;
-        margin: 0 0 10px;
-        border: 1px solid #eee;
-        padding: 20px 0 20px 20px;
-        text-align: left;
-      }
-      h3:hover {
-        border-color: #5eb12f;
-        color: #5eb12f;
-      }
-      
-      .platform-down {
-        display: none;
-        width: 160px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        position: absolute;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        padding-top: 10px;
-        cursor: pointer;
-        top: 63px;
-        ul {
-          list-style: none;
-          padding-left: 0;
-          li {
-            padding: 3px 15px;
-            color: #bbb;
-            font-size: 13px;
-          }
-          li:hover {
-            color: #5bb33a;
-          }
-          .title {
-            color: #777;
-          }
-          hr {
-            margin: 3px 15px;
+      //margin-right: -4px;
+
+      .marketing {
+        width: 230px;
+        h3 {
+          font-size: 14px;
+          margin: 0 0 10px;
+          border: 1px solid #eee;
+          padding: 20px 0 20px 20px;
+        }
+        .marketing-down {
+          display: none;
+          width: 150px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          position: absolute;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          cursor: pointer;
+          top: 63px;
+          ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+              padding: 10px 15px;
+              color: #bbb;
+              font-size: 13px;
+            }
+            li:hover {
+              color: #5bb33a;
+            }
+            .title {
+              color: #777;
+            }
+            hr {
+              margin: 3px 15px;
+            }
+            .division-hover {
+              display: none;
+              border: 1px solid #eee;
+              min-width: 530px;
+              position: absolute;
+              left: 148px;
+              top: -1px;
+              color: #333;
+              background-color: white;
+              z-index: 100;
+              ul {
+                display: inline-block;
+                padding: 8px;
+                vertical-align: top;
+                li {
+                  padding: 2px 10px;
+                }
+                .title {
+                  font-size: 16px;
+                  padding-bottom: 10px;
+                  color: #777;
+                }
+              }
+            }
+
+            .division:hover {
+              .division-hover {
+                display: block;
+              }
+            }
           }
         }
-      }  
-    }
-    .platform:hover {
-      border-color: #5bb33a;
-      z-index: 100;
- 
-      .platform-down {
-        display: block;
+      }
+      .marketing:hover {
+        border-color: #5bb33a;
+        z-index: 100;
+        h3 {
+          color: #5bb33a;
+          border-color: #5eb12f;
+        }
+        .marketing-down {
+          display: block;
+        }
+      }
+
+      .platform {
+        display: inline-block;
+        width: 163px;
+        position: relative;
+        font-size: 14px;
+        right: 4px;
+        margin-right: -5px;
+        h3 {
+          font-size: 14px;
+          margin: 0 0 10px;
+          border: 1px solid #eee;
+          padding: 20px 0 20px 20px;
+          text-align: left;
+        }
+        h3:hover {
+          border-color: #5eb12f;
+          color: #5eb12f;
+        }
+        
+        .platform-down {
+          display: none;
+          width: 160px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          position: absolute;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          padding-top: 10px;
+          cursor: pointer;
+          top: 63px;
+          ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+              padding: 3px 15px;
+              color: #bbb;
+              font-size: 13px;
+            }
+            li:hover {
+              color: #5bb33a;
+            }
+            .title {
+              color: #777;
+            }
+            hr {
+              margin: 3px 15px;
+            }
+          }
+        }  
+      }
+      .platform:hover {
+        border-color: #5bb33a;
+        z-index: 100;
+   
+        .platform-down {
+          display: block;
+        }
       }
     }
 
@@ -252,7 +261,7 @@
       border: 1px solid #eee;
       position: relative;
       font-size: 14px;
-      right: 8px;
+      right: 4px;
       input {
         border: 0;
         padding-left: 10px;
