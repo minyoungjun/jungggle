@@ -328,16 +328,17 @@ body {
           .division-hover {
             display: none;
             border: 1px solid #eee;
-            width: 455px;
+            width: 570px;
             position: absolute;
             left: 144px;
             top: 26px;
             color: #333;
-            padding: 5px 10px;
+            //padding: 5px 10px;
             background-color: white;
             ul {
               display: inline-block;
               padding: 10px;
+              vertical-align: top;
               li {
                 padding: 2px 15px;
               }

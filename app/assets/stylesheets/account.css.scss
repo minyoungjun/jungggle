@@ -1824,6 +1824,47 @@
       color: #5eb12f;
     }
   }
+
+
+  /* manage service empty */
+  .empty {
+    text-align: center;
+    margin-top: 80px;
+    h3 {
+      text-align: center;
+      margin: 15px auto;
+      font-size: 23px;
+
+    }
+    .selling-info {
+      display: inline-block;
+      padding: 30px;
+      margin: 15px 0;
+      text-align: left;
+      height: 405px;
+      vertical-align: top;
+      h4 {
+        color: #5eb12f;
+        margin-top: 20px;
+      }
+      p {
+        color: #aaa;
+        .color {
+          color: #444;
+          font-weight: 700;
+        }
+      }
+    }
+    .center {
+      border-right: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+   
+    }
+  }
+
+
+
+
 }
 /* manage service embed modal */
 .modal {
@@ -1862,6 +1903,9 @@
     }
   }
 }
+
+
+
 
 
 

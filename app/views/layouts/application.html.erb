@@ -30,6 +30,41 @@ woopra.track();
 <script>
   $('input, textarea').placeholder();
 </script>
+
+  <script>
+
+function country_select(id){
+
+  $("#country_text").html($("#country_" + id).html());
+  $("#country_hidden").val(id);
+}
+function marketing_click(id){
+  $("#marketing_text").html($("#marketing_li_" + id).html());
+  $("#marketing_hidden").val(id);
+
+    if(id > 10 && id < 60){
+      $(".platform").show();
+    }else{
+      $(".platform").hide();
+    
+    }
+
+}
+function platform_click(id){
+  $("#platform_text").html($("#platform_" + id).html());
+  $("#platform_hidden").val(id);
+}
+function cost_key(){
+  $(".cost").css("border-color", "#5bb33a");
+  $(".cost-hover").css("display", "block");
+  $(".cost-hover").css("color", "#5bb33a");
+  $("#empty").css("display", "block");
+
+}
+
+  </script>
+
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -128,24 +163,36 @@ function search_auto_func(){
       </div>
     </div>
   </div>
+
+
+
+
+
   <div class="nav" <%if @main %>style="display:none;"<%end%>>
+
+<form action="/products/search" method="post" id="search_form">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input type="hidden" name="country" id="country_hidden" value="0">
+  <input type="hidden" name="marketing" id="marketing_hidden" value="1">
+  <input type="hidden" name="platform" id="platform_hidden" value="1">
+  <input type="hidden" name="cost_from" id="cost_from_hidden" value="0">
+
+
+
+
     <div class="container">
       <!-- 단버튼 -->
       <div class="btn-group country">
-        <button type="button" class="btn dropdown-toggle">
-          Country <span class="caret"></span>
+        <button type="button" class="btn dropdown-toggle"><span id="country_text">Country</span><span class="caret"></span>
         </button>
         <div class="country-down">
+
           <ul>
-            <li class="title">All</li><hr>
-            <li>Australia</li>
-            <li>Austria</li>
-            <li>China</li>
-            <li>Japan</li>
-            <li>South Africa</li>
-            <li>South Korea</li>
-            <li>United States</li>
-            <li>Vietnam</li><hr>
+            <li class="title" id="country_0" onclick="country_select(0);">All</li><hr>
+            <%Country.able_list.each do |country|%>
+              <li id="country_<%=country.id%>" onclick="country_select(<%=country.id%>);"><%=country.name%></li>
+            <%end%>
+            <hr>
             <li class="title other">
               Other Countries..
               <div class="other-tooltip">
@@ -154,74 +201,59 @@ function search_auto_func(){
             </li>
           </ul>
         </div>
-
-        <!-- 
-        <ul class="dropdown-menu" role="menu">
-          <%Country.all.each do |country|%>
-            <li><a href="#"><%=country.name%></a></li>
-          <%end%>
-        </ul> 
-        -->
       </div>
       <div class="btn-group marketing">
-        <button type="button" class="btn dropdown-toggle">Marketing type <span class="caret"></span></button>
-        <div class="marketing-down">
-          <ul>
-            <li class="title">All</li><hr>
-            <li class="division">
-              Ads
-              <div class="division-hover">
-                <ul>
-                  <li class="title">Online</li>
-                  <li>CPM</li>
-                  <li>Video</li>
-                  <li>Banner (period)</li>
-                  <li>Direct Email</li>
-                  <li>Text ad</li>
-                  <li>SEO</li>
-                  <li>SNS</li>
-                </ul>
-                <ul>
-                  <li class="title">Mobile</li>
-                  <li>CPM</li>
-                  <li>Video</li>
-                  <li>Banner (period)</li>
-                  <li>Direct Email</li>
-                  <li>Text ad</li>
-                  <li>SEO</li>
-                  <li>SNS</li>
-                </ul>
-                <ul>
-                  <li class="title">Offline</li>
-                  <li>CPM</li>
-                  <li>Video</li>
-                  <li>Banner (period)</li>
-                  <li>Direct Email</li>
-                  <li>Text ad</li>
-                  <li>SEO</li>
-                  <li>SNS</li>
-                </ul>
-              </div>
-            </li>
-            <li>Promotion</li>
-            <li>Management</li>
-            <li>Test</li>
-            <li>Material</li>
-          </ul>
+        <button type="button" class="btn dropdown-toggle"><span id="marketing_text">Marketing type</span> <span class="caret"></span></button>
+          <div class="marketing-down">
+
+              <ul>
+                <%Marketingtype.where(:filter => 1).each do |marketing1|%>
+                  <%if marketing1.name == "All"%>
+                    <li class="title" onclick="marketing_click(<%=marketing1.id%>);" id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
+                  <%else%>
+                    <li class="division" >
+                    <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                      <%if marketing1.child_types.count != 0%>
+                        <div class="division-hover" style="min-height:230px;">
+                          <ul>
+                            <% marketing1.child_types.each do |marketing2|%>
+                              <%if marketing2.filter == 2%>
+                                <ul>
+                                  <li class="title" onclick="marketing_click(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_<%=marketing2.id%>" ><%=marketing2.name%></li>
+                                  <%if marketing2.child_types.count != 0%>
+                                    <%marketing2.child_types.each do |marketing3|%>
+                                      <%if marketing3.filter != 4%>
+                                        <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                      <%end%>
+                                    <%end%>
+                                  <%end%>
+                                </ul>
+                              <%else%>
+                                <li onclick="marketing_click(<%=marketing2.id%>);"id="marketing_li_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                            <%end%>
+                          <%end%>
+                        </ul>
+                    </div>
+                  <%end%>
+                  </li>
+                <%end%>
+              <%end%>
+            </ul>
         </div>
       </div>
 
       <div class="btn-group">
         <div class="cost">
-          <input type="text" placeholder="Cost">
+          <input type="text" placeholder="Cost" id="fake_cost">
           <div class="cost-hover">
-            $ | <input type="text">to&nbsp;
-            $ | <input type="text">
+            $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
+            $ | <input type="text" name="cost_to" onkeyup="cost_key();">
           </div>
         </div>         
       </div>
-      <button type="button" class="btn nav-btn">Jungggling<img src="/assets/main/search_logo.png"></button>
-      <!--<a href="/products/cart"><img src="/assets/cart.png" class="nav-cart"></a>-->
+        <button type="button" class="btn nav-btn" onclick="$('#search_form').submit();">Jungggling<img src="/assets/main/search_logo.png"></button>
+      </form>
+
     </div>
   </div>
   <%if user_signed_in? && current_user.email_confirmed && current_user.confirmed_at == nil%>

@@ -21,64 +21,13 @@
           </td>
           <td><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%=procon.country.name%><br><%end%><%end%></td>
           <td><%=product.marketingtype.name%></td>
-          <td class="cost"><%if product.costs.count > 1%><%=product.costs.order(:money).first.money%> - <%=product.costs.order(:money).last.money%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span></td>
+          <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span></td>
           <td><a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a></td>
         </tr>
       <%end%>
 
-
-      <tr class="table-body">
-        <td class="company-img"><img src="/assets/product_card_view/02.jpg"> Fiksu</td>
-        <td class="service-name"><a href="/home/search_detail">FreeMyApps</a></td>
-        <td class="detail"><a href="/home/search_detail">- 3 day feature on "Free App A Day" app<br>- Top banner for 24 hours on website<br>- Push notification to FAAD users (over 100k users)<br>- Featured for 30 days on "Daily Double Calendar"</a>
-        </td>
-        <td>Japan</td>
-        <td>CPI(iOS)</td>
-        <td class="cost">$0.1 - $0.5<br><span class="rating">10 /</span>&nbsp;<span class="review">110 reviews</span></td>
-        <td><a href="/home/search_detail"><button type="button" class="btn btn-default  ">Detail</button></a></td>
-      </tr>
-      <tr class="table-body">
-        <td class="company-img"><img src="/assets/product_card_view/03.jpg"> Gameberry</td>
-        <td class="service-name"><a href="/home/search_detail">FreeMyApps<br>(CPA)</a></td>
-        <td class="detail"><a href="/home/search_detail">- 3 day feature on "Free App A Day" app<br>- Top banner for 24 hours on website<br>- Push notification to FAAD users (over 100k users)<br>- Featured for 30 days on "Daily Double Calendar"</a>
-        </td>
-        <td>Japan</td>
-        <td>CPI(iOS)</td>
-        <td class="cost">$0.7<br><span class="rating">2.7 /</span>&nbsp;<span class="review">99 reviews</span></td>
-        <td><a href="/home/search_detail"><button type="button" class="btn btn-default  ">Detail</button></a></td>
-      </tr>
-      <tr class="table-body">
-        <td class="company-img"><img src="/assets/product_card_view/04.jpg"> Gameberry</td>
-        <td class="service-name"><a href="/home/search_detail">FreeMyApps<br>(CPA)</a></td>
-        <td class="detail"><a href="/home/search_detail">- 3 day feature on "Free App A Day" app<br>- Top banner for 24 hours on website<br>- Push notification to FAAD users (over 100k users)<br>- Featured for 30 days on "Daily Double Calendar"</a>
-        </td>
-        <td>Japan</td>
-        <td>CPI(iOS)</td>
-        <td class="cost">$0.5<br><span class="rating">8.5 /</span>&nbsp;<span class="review">65 reviews</span></td>
-        <td><a href="/home/search_detail"><button type="button" class="btn btn-default">Detail</button></a></td>
-      </tr>
-      <tr class="table-body">
-        <td class="company-img"><img src="/assets/product_card_view/02.jpg"> Tapjoy</td>
-        <td class="service-name"><a href="/home/search_detail">Package A</a></td>
-        <td class="detail"><a href="/home/search_detail">- 3 day feature on "Free App A Day" app<br>- Top banner for 24 hours on website<br>- Push notification to FAAD users (over 100k users)<br>- Featured for 30 days on "Daily Double Calendar"</a>
-        </td>
-        <td>Japan</td>
-        <td>CPI(iOS)</td>
-        <td class="cost">$0.1 - $1.2<br><span class="rating">3.0 /</span>&nbsp;<span class="review">10 reviews</span></td>
-        <td><a href="/home/search_detail"><button type="button" class="btn btn-default">Detail</button></a></td>
-      </tr>
-      <tr class="table-body">
-        <td class="company-img"><img src="/assets/product_card_view/03.jpg"> Fiksu</td>
-        <td class="service-name"><a href="/home/search_detail">Package B</a></td>
-        <td class="detail"><a href="/home/search_detail">- 3 day feature on "Free App A Day" app<br>- Top banner for 24 hours on website<br>- Push notification to FAAD users (over 100k users)<br>- Featured for 30 days on "Daily Double Calendar"</a>
-        </td>
-        <td>Japan</td>
-        <td>CPI(iOS)</td>
-        <td class="cost">$0.1<br><span class="review">none</span></td>
-        <td><a href="/home/search_detail"><button type="button" class="btn btn-default">Detail</button></a></td>
-      </tr>      
     </table>
-
+    <%#>
     <ul class="pagination">
       <li class="disabled"><a href="#">«</a></li>
       <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
@@ -91,6 +40,7 @@
       <li><a href="#">8</a></li>
       <li class="disabled"><a href="#">«</a></li>
     </ul>
+  %>
   </div>
 </div>
 
