@@ -17,6 +17,12 @@ class HomeController < ApplicationController
 
   def main
     @main = true
+    @countries = Array.new
+    Procon.all.each do |procon|
+      @countries << procon.country
+    end
+    @countries.uniq!
+
   end
 
   def who
