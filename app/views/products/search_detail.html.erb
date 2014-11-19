@@ -143,7 +143,7 @@ function language_select(id){
           <td><button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');" data-toggle="modal" data-target="#Modal-ready">Buy</button></td>
         </tr>
       </table>
-      <h5>* Last update on 2014.7.11</h5>
+      <h5>* Last update on <%=@product.updated_at.to_s[0..9]%></h5>
       <div class="clients">
         <h1>Clients</h1>
         <%@company.comclients.each do |client|%>
