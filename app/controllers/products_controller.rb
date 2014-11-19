@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
       end
         
     elsif params[:cost_from] != nil #최소만 설정돼있음 얼마이상
-      Cost.where("money >= ?", params[:cost_from].to_)
+      Cost.where("money >= ?", params[:cost_from].to_f)
 
     elsif params[:cost_to] != nil #최대금액만있음
 

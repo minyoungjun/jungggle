@@ -66,7 +66,7 @@ before_filter :is_login, :except => [:list]
     if params[:cost_type].to_i == 0
       cost = Cost.new
       cost.product_id = product.id
-      cost.money  = params[:cost].first
+      cost.money  = params[:cost].first.last
       cost.save
     else
       params[:cost].each do |key, value|

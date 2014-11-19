@@ -87,7 +87,7 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
     user.confirmation_token = SecureRandom.hex(15)
     RestClient.post "https://api:key-d9dd9c0e53befa87a8e213df42ba5da0"\
       "@api.mailgun.net/v2/jungggle.com/messages",
-      :from => "Jungggle Mailer <admin@jungggle.com>",
+      :from => "Jungggle <admin@jungggle.com>",
       :to => user.email,
       :subject => "Jungggle Confirm your Email",
       :text => "To confirm your email, click =>  http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}"
