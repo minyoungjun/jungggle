@@ -10,17 +10,17 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    <input class="firstname" placeholder="First name" name="user[first_name]">
-    <input placeholder="Last name" name="user[last_name]">
+    <input class="firstname" placeholder="First name" name="user[first_name]" required>
+    <input placeholder="Last name" name="user[last_name]" required>
 
     <div>
-    <%= f.email_field :email, autofocus: true, placeholder: "Email" %></div>
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", required: true %></div>
 
     <div>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Password(최소6자)" %></div>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password(최소6자)", required: true %></div>
 
     <div>
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password" %></div>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", required: true%></div>
 
     <div class="sign-btn"><%= f.submit "Sign up" %></div>
   <% end %>
