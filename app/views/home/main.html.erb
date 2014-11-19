@@ -3,38 +3,6 @@
   <img src="/assets/logo-01.png">
   <p class="subheadline">The best way to buy &amp; sell marketing services</p>
 
-  <script>
-
-function country_select(id){
-
-  $("#country_text").html($("#country_" + id).html());
-  $("#country_hidden").val(id);
-}
-function marketing_click(id){
-  $("#marketing_text").html($("#marketing_li_" + id).html());
-  $("#marketing_hidden").val(id);
-
-    if(id > 10 && id < 60){
-      $(".platform").show();
-    }else{
-      $(".platform").hide();
-    
-    }
-
-}
-function platform_click(id){
-  $("#platform_text").html($("#platform_" + id).html());
-  $("#platform_hidden").val(id);
-}
-function cost_key(){
-  $(".cost").css("border-color", "#5bb33a");
-  $(".cost-hover").css("display", "block");
-  $(".cost-hover").css("color", "#5bb33a");
-  $("#empty").css("display", "block");
-
-}
-
-  </script>
 
 <form action="/products/search" method="post">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -68,7 +36,6 @@ function cost_key(){
       <div class="marketing drop">
         <h3 id="marketing_text">Marketing type</h3>
         <div class="marketing-down">
-
                 <ul>
                   <%Marketingtype.where(:filter => 1).each do |marketing1|%>
                     <%if marketing1.name == "All"%>

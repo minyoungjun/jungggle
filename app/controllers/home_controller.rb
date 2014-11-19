@@ -17,15 +17,7 @@ class HomeController < ApplicationController
 
   def main
     @main = true
-    @countries = Array.new
-    Procon.all.each do |procon|
-      @countries << procon.country
-    end
-    if @countries.uniq.count != 0
-      @countries.uniq!
-      @countries.compact!
-      @countries.sort! { |a,b| a.name.downcase <=> b.name.downcase }
-    end
+    @countries = Country.able_list
 
   end
 
