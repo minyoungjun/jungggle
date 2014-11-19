@@ -6,33 +6,39 @@ class ProductsController < ApplicationController
 
     @products_array = Array.new
     order_number = 0
-
     if params[:cost_from] != nil && params[:cost_to] != nil
       @products_array[order_number] = Array.new
 
       Cost.where("money >= ? AND money <= ?", params[:cost_from].to_f, params[:cost_to].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
+      order_number = order_number + 1
         
     elsif params[:cost_from] != nil #최소만 설정돼있음 얼마이상
 
       Cost.where("money >= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
+      order_number = order_number + 1
 
     elsif params[:cost_to] != nil #최대금액만있음
 
       Cost.where("money <= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
-
-    else
+      order_number = order_number + 1
 
     end
 
-    order_number = order_number + 1
+    if order_number == 0
 
-    if params[:marketing_type].to_i != 0
+      marketing = Marketingtype.find(params[:marketing_hidden])
+
+      marketing.products.each do |product|
+
+        @products_array[order_number] <<  product
+
+      end
 
 
     end
