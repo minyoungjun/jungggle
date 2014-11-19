@@ -58,6 +58,11 @@ Rails.application.routes.draw do
   get 'users/finish_signup2'
   get 'users/email_confirm'
   get 'home/ready'
+  get 'home/ready_billing'
+  get 'home/ready_cashout'
+  get 'home/ready_dashboard'
+  get 'home/ready_project'
+  get 'home/ready_search_detail'
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end
