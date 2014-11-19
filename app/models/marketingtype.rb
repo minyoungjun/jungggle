@@ -18,5 +18,26 @@ class Marketingtype < ActiveRecord::Base
     return mkt_array
   end
 
+  def upper_types
+    mkt_array = Array.new
+    mkt_array << self
+
+    first_parent =  self.parent_type
+    if first_parent != nil
+      mkt_array << first_parent
+      second_parent =  first_parent.parent_type
+      if second_parent != nil
+        mkt_array << second_parent
+          third_parent =  second_parent.parent_type
+          if third_parent != nil
+            mkt_array << third_parent
+          end
+      end
+    end
+
+    return mkt_array.reverse
+  end
+
+
 
 end

@@ -1,60 +1,103 @@
-<h1>Current Services</h1>
-<table>
-  <tr>
-    <td>
-      Last Update
-    </td>
-    <td>
-      Service Name
-    </td>
-    <td>
-      Marketing Type(Last Filter)
-    </td>
-    <td>
-      Cost
-    </td>
-    <td>
-      Earning
-    </td>
-    <td>
-      Status
-    </td>
-  </tr>
-  <% @user.products.each do |product|%>
-  <tr>
-    <td>
-      <%=product.updated_at.to_formatted_s(:db)%> </td>
-    <td>
-      <%=product.name%>
-    </td>
-    <td>
-      <%=product.marketingtype.name%>
-    </td>
-    <td>
-      <select>
-      
-      <%product.costs.each do |cost|%>
-        <option><%=cost.amount%></option>
-      <%end%>
-      </select>
-    </td>
-    <td>
-    </td>
-    <td>
-      <%if product.status == 1%>
-      ON
-    <%else%>
-      OFF
-    <%end%>
-    </td>
-  </tr>
-  <%end%>
-</table>
-<h3>checkout</h3>
-<a href="">Jungggle Credit</a>
-<br>
-<a href="">Credit Card</a>
-<br>
-<a href="">Paypal</a>
-<br><br>
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>
+    <div class="right-manage-service">
+      <h1>Manage Service</h1>
+      <div class="sub-title">
+        <h3>Current Services</h3>
+        <button type="button" class="btn btn-default" onclick="location.href= '/publishers/create';">Create Service</button>
+      </div>
+      <table>
+        <tr class="table-header">
+          <td>Last Update</td>
+          <td>Service Name</td>
+          <td>Country</td>
+          <td class="marketing">Marketing Type</td>
+          <td>Cost</td>
+          <td>Earning</td>
+          <td>Status</td>
+          <td></td>
+        </tr>
+        <%@services.each do |service|%>
+          <tr class="table-body">
+            <td><%=service.updated_at.to_s[0..9]%></td>
+            <td class="name"><%=service.prolangs.first.title%></td>
+            <td><%service.procons.each do |procon|%><%=procon.country.name%><br><%end%></td>
+            <td class="marketing"><%service.marketingtype.upper_types.each do |marketing|%><%=marketing.name%>/<%end%></td>
+            <td class="font-bold">$0.1 - 0.7</td>
+            <td class="font-bold">$0</td>
+            <td><img src="/assets/my_account/on.png"></td>
+            <td><div class="embed-btn" data-toggle="modal" data-target="#Modal-embed"><img src="/assets/my_account/embed.png"><br>EMBED</div></td>
+          </tr>
+        <%end%>
+        <tr class="table-body">
+          <td>2014.07.10</td>
+          <td class="name">Free App A Day<br><span>A Package</span></td>
+          <td>Japan</td>
+          <td class="marketing">AD / Mobile / iOS / Promotional App</td>
+          <td class="font-bold">$1,000 - 7,500</td>
+          <td class="font-bold">$15,000</td>
+          <td><img src="/assets/my_account/off.png"></td>
+          <td><div class="embed-btn" data-toggle="modal" data-target="#Modal-embed"><img src="/assets/my_account/embed.png"><br>EMBED</div></td>
+        </tr>
+      </table>
 
+      <div class="empty">
+        <h3>Start selling your service!</h3>
+        <div class="selling-info">
+          <img src="/assets/my_account/empty-01.png" style="position: relative; bottom: 22px;">
+          <h4>1. Enter the information</h4>
+          <p><span <span class="color">Click 'Create Service' </span>button<br>and enter the detail information<br>about your service as specific<br>as you can.</p>
+        </div>
+        <div class="selling-info center">
+          <img src="/assets/my_account/empty-02.png">
+          <h4>2. Translate [optional]</h4>
+          <p>You can also <span class="color">provide your service</span><br>information in various language<br>to Advertisers as you want.</p>
+        </div>
+        <div class="selling-info">
+          <img src="/assets/my_account/empty-03.png">
+          <h4>3. Service Launched!</h4>
+          <p>Your service will be <span <span class="color">globally<br>exposed</span> to thousands<br>of Advertisers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- embed Modal -->
+<div class="modal fade" id="Modal-embed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-embed">
+    <div class="modal-content modal-embed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Embeded this service</h1>
+        <h4>Copy the code below and paste it into your website.</h4>
+        <textarea type="text" rows="6">Code<iframe width="560" height="315"src="//www.youtube.com/embed/yhcrbrZyxbU" frameborder="0"   allowfullscreen></iframe></textarea>
+        <p>- You can now easily insert this purchasable service page to your own places : website, blog, etc.</p>
+        <p>- <span class="redcolor">We do not charge 3.8% commission</span> if the Advertiser buy your service through this embeded page.</p>
+        <p class="greencolor">Need a guide to embed the code?</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>

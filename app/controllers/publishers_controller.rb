@@ -111,7 +111,13 @@ before_filter :is_login, :except => [:list]
 
   end
   def manage
-    @user = current_user
+    if current_user.member != nil && current_user.member.approved
+      @services = current_user.member.company.services
+
+    else
+      redirect_to :controller => "users",
+                  :action => "company"
+    end
 
   end
 end
