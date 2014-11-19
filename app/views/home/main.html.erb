@@ -10,15 +10,38 @@ function country_select(id){
   $("#country_text").html($("#country_" + id).html());
   $("#country_hidden").val(id);
 }
+function marketing_click(id){
+  $("#marketing_text").html($("#marketing_li_" + id).html());
+  $("#marketing_hidden").val(id);
+
+    if(id > 10 && id < 60){
+      $(".platform").show();
+    }else{
+      $(".platform").hide();
+    
+    }
+
+}
+function platform_click(id){
+  $("#platform_text").html($("#platform_" + id).html());
+  $("#platform_hidden").val(id);
+}
+function cost_key(){
+  $(".cost").css("border-color", "#5bb33a");
+  $(".cost-hover").css("display", "block");
+  $(".cost-hover").css("color", "#5bb33a");
+  $("#empty").css("display", "block");
+
+}
 
   </script>
 
-  <form action="search_result">
-  <input type="hidden" name="country" id="country_hidden">
-  <input type="hidden" name="marketing" id="marketing_hidden">
-  <input type="hidden" name="platform" id="platform_hidden">
-  <input type="hidden" name="cost_from" id="cost_from_hidden">
-  <input type="hidden" name="cost_to" id="cost_to">
+<form action="/products/search" method="post">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input type="hidden" name="country" id="country_hidden" value="0">
+  <input type="hidden" name="marketing" id="marketing_hidden" value="1">
+  <input type="hidden" name="platform" id="platform_hidden" value="1">
+  <input type="hidden" name="cost_from" id="cost_from_hidden" value="0">
 
   <div class="select">
     <div class="country drop">
@@ -40,7 +63,7 @@ function country_select(id){
       </div>
     </div>
     <div class="marketing drop">
-      <h3>Marketing type</h3>
+      <h3 id="marketing_text">Marketing type</h3>
       <div class="marketing-down">
 
               <ul>
@@ -79,23 +102,23 @@ function country_select(id){
 
       </div>
     </div>
-    <div class="platform">
-      <h3>Platform</h3>
+    <div class="platform" style="display:none;">
+      <h3 id="platform_text">Platform</h3>
       <div class="platform-down">
         <ul>
-          <li class="title">All</li><hr>
-          <li>iOS</li>
-          <li>Andriod</li>
+          <li class="title" id="platform_0" onclick="platform_click(0);">All</li><hr>
+          <li id="platform_1" onclick="platform_click(1);" >iOS</li>
+          <li id = "platform_2" onclick="platform_click(2);" >Andriod</li>
         </ul>
       </div>
     </div>
     <div class="cost">
-      <input type="text" placeholder="Cost">
+      <input type="text" placeholder="Cost" id="fake_cost">
       <div class="cost-hover">
-        $ | <input type="text">to&nbsp;
-        $ | <input type="text">
+        $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
+        $ | <input type="text" name="cost_to" onkeyup="cost_key();">
       </div>
-      <h5>Empty for All</h5>
+      <h5 id="empty">Empty for All</h5>
     </div>
     
     <button>Jungggling<img src="/assets/main/search_logo.png"></button>
@@ -104,8 +127,6 @@ function country_select(id){
   </div>
 </div>
 </form>
-
-
 
 
 <script>
