@@ -15,7 +15,11 @@ before_filter :is_login, :except => [:list]
     product.status = 1 #0: off , 1:on, 2:etc
     
     if (10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60)
-      product.marketingtype_id = (params[:marketing_id].to_i + params[:platform].to_i + 1).to_i
+      if params[:platform].to_i != 0
+        product.marketingtype_id = (params[:marketing_id].to_i + params[:platform].to_i + 1).to_i
+      else
+        product.marketingtype_id = params[:marketing_id]
+      end
     else
       product.marketingtype_id = params[:marketing_id]
     end

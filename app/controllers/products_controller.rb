@@ -5,43 +5,70 @@ class ProductsController < ApplicationController
   def search
 
     @products_array = Array.new
+    
+    0.upto(2) do |x|
+      @products_array[x] = Array.new
+    end
+
     order_number = 0
-    if params[:cost_from] != nil && params[:cost_to] != nil
-      @products_array[order_number] = Array.new
+    if params[:cost_from] != "" && params[:cost_to] != ""
 
       Cost.where("money >= ? AND money <= ?", params[:cost_from].to_f, params[:cost_to].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
-      order_number = order_number + 1
         
     elsif params[:cost_from] != nil #최소만 설정돼있음 얼마이상
 
       Cost.where("money >= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
-      order_number = order_number + 1
 
     elsif params[:cost_to] != nil #최대금액만있음
 
       Cost.where("money <= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
-      order_number = order_number + 1
 
+    else
+      @products_array[order_number] = Product.all
     end
 
-    if order_number == 0
+    order_number = order_number + 1
 
-      marketing = Marketingtype.find(params[:marketing_hidden])
+    if params[:marketing].to_i != 1
 
-      marketing.products.each do |product|
-
-        @products_array[order_number] <<  product
-
+      if (10 < params[:marketing].to_i) && (params[:marketing].to_i < 60)
+        if params[:platform].to_i != 0
+          @marketing = Marketingtype.find(params[:marketing].to_i + params[:platform].to_i + 1)
+        else
+          @marketing = Marketingtype.find(params[:marketing])
+        end
+      else
+        @marketing = Marketingtype.find(params[:marketing])
       end
+      @marketing.subtypes.each do |subtype|
+        
+        subtype.products.each do |product|
 
-
+          @products_array[order_number] <<  product
+        end
+      end
+    else
+      @products_array[order_number] = Product.all
     end
+    order_number = order_number + 1
+
+    if params[:country].to_i != 0
+      @country = Country.find(params[:country])
+      @country.procons.each do |procon|
+        @products_array[order_number] << procon.product
+      end
+    else
+      @products_array[order_number] = Product.all
+    end
+
+    @products = @products_array[0] & @products_array[1] & @products_array[2]
+
 
   end
   def attachment

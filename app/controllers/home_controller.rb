@@ -21,8 +21,11 @@ class HomeController < ApplicationController
     Procon.all.each do |procon|
       @countries << procon.country
     end
-    @countries.uniq!
-    @countries.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    if @countries.uniq.count != 0
+      @countries.uniq!
+      @countries.compact!
+      @countries.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+    end
 
   end
 
