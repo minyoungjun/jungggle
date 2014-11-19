@@ -10,13 +10,14 @@ class ProductsController < ApplicationController
     if params[:cost_from] != nil && params[:cost_to] != nil
       @products_array[order_number] = Array.new
 
-      Cost.where("price >= ? AND price <= ?", params[:cost_from].to_i, params[:cost_to].to_i).each do |cost|
+      Cost.where("price >= ? AND price <= ?", params[:cost_from].to_f, params[:cost_to].to_f).each do |cost|
         @products_array[order_number] << cost.product
       end
         
-    elsif params[:cost_from] != nil
+    elsif params[:cost_from] != nil #최소만 설정돼있음 얼마이상
+      Cost.where("price >= ?", params[:cost_from].to_)
 
-    elsif params[:cost_to] != nil
+    elsif params[:cost_to] != nil #최대금액만있음
 
     else
 
