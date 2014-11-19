@@ -22,8 +22,9 @@ class UsersController < ApplicationController
     if @user.confirmation_token == params[:token]
       @user.confirmed_at = Time.now
       @user.save
+    else
+      render :text => "fail"
     end
-    render :text => "success"
   end
 
   def company_update
