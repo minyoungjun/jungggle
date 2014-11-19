@@ -5,7 +5,9 @@ class ProductsController < ApplicationController
 
   def search_company
 
-    @products = Company.find(params[:id]).products.order('created_at DESC')
+    @company = Company.find(params[:id])
+
+    @products = @company.products.order('created_at DESC')
 
   end
 
