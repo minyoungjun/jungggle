@@ -1,0 +1,200 @@
+/* about us */
+
+$p-width: 600px;
+
+.aboutus {
+  padding: 100px 0 150px;
+  text-align: center;
+  h1 {
+    margin: 30px;
+  }
+  p {
+    text-align: left;
+    margin: 30px auto 50px;
+    width: $p-width;
+    line-height: 25px;
+
+    span {
+      color: #6dc54d;
+    }
+  }
+}
+
+/* how it works */
+.how {
+  padding: 100px 0 150px;
+
+  h1 {
+    text-align: center;
+    margin: 50px;
+  }
+  p {
+    margin: 30px auto;
+    width: $p-width;
+    line-height: 25px
+
+  }
+}
+
+/* faq */
+.faq {
+  padding: 100px 0 150px;
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  p {
+    width: $p-width;
+    margin: 20px auto;
+    line-height: 23px;
+    font-size: 16px;
+    span {
+      color: #6dc54d;
+      font-size: 20px;
+    }
+  }
+}
+
+
+/* contact */
+.contact {
+  padding: 40px 0 150px;
+  
+  input {
+    width: 430px;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid #d9d9d9;
+    display: inline-block;
+  }
+  input:focus {
+    border: 2px solid #5eb12f;
+  }
+  textarea {
+    width: 430px;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid #d9d9d9;
+    display: inline-block;
+    line-height: 25px;
+  }
+  
+  .left-form {
+    display: inline-block;
+
+  }
+  .right-form {
+    width: 600px;
+    display: inline-block;
+    float: right;
+    .check {
+      margin: 20px 0 30px 170px;
+      p {
+        display: inline;
+        margin: 0 25px 0 0;
+      }
+      p:hover {
+        color: #5eb12f;
+      }
+    }
+
+    .write {
+      height: 50px;
+      h5 {
+        input {
+          float: right;
+          position: relative;
+          bottom: 10px;
+        }
+        textarea {
+          float: right;
+          position: relative;
+          bottom: 10px;
+          margin-top: 0;
+        }
+      }  
+    }
+
+    .send-btn {
+      background-color: #5eb12f;
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      font-size: 17px;
+      padding: 15px 35px;
+      display: inline-block;
+      float: right;
+    }
+  }
+}
+
+
+/* fees */
+.fees {
+  padding: 60px 0 150px;
+  text-align: center;
+  .lowest {
+    padding: 20px;
+    border: 5px solid #777;
+    border-radius: 8px;
+    width: 1000px;
+    margin: 0 auto 60px;
+    p {
+      font-size: 16px;
+      color: #bbb;
+    }
+  }
+  h1 {
+    font-size: 30px;
+    margin: 20px 0;
+    .color {
+      color: #5eb12f;
+    }
+    .font-samll {
+      font-size: 18px;
+    }
+  }
+
+  .fee-table {
+    width: 500px; 
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 60px auto;
+    .table-header {
+      color: #555;
+      font-size: 20px;
+      padding: 20px 40px;
+    }
+    h4 {
+      margin: 0 auto;
+      border-bottom: 1px dotted #ddd;
+      padding: 20px 50px;
+      width: 500px;
+      text-align: left;
+      color: #999;
+      .percent {
+        float: right;
+        color: #555;
+        font-size: 20px;
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    .link {
+      color: #5eb12f;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+
+
+

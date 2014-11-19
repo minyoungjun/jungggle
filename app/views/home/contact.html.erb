@@ -1,13 +1,49 @@
+<div id="map-canvas" style="width:100%; height:400px;"></div>
+
 <div class="contact container">
-  <h1>Contact</h1>
-  <!-- <p>Find me in app/views/home/contact.html.erb</p> -->
-  <p>If you could not find a solution to your question on the <span>FAQ</span> section of our site or in the User Guide, please send us a detailed request and we will get back to you as soon as possible. <br><br>You can also email us directly at <span>support@jungggle.com</span> or call +1 (877) 562-2729.</p>
-  <input placeholder="Your Full name">
-  <input placeholder="Your Email">
-  <textarea placeholder="Your Message"></textarea>
-  <div class="contact-check">
-    <input type="checkbox">
-    <h5>Send a copy to myself</h5>
+  <div class="left-form">
+    <h1>Contact Us</h1>
+    <h3>Gameberry Inc.</h3>
+    <p>401 Seodo-building 9, Seocho-daero 49-gil<br>Seocho-gu Seoul, Korea</p>
   </div>
-  <input type="submit" value="Send Inquiry" class="send-btn">
+
+  <div class="right-form">
+    <div class="check">
+      <p><img src="/assets/my_account/radio-02.png">&nbsp;&nbsp;Customer Support</p>
+      <p><img src="/assets/my_account/radio-01.png">&nbsp;&nbsp;Feedback</p>
+      <p><img src="/assets/my_account/radio-01.png">&nbsp;&nbsp;Press</p>
+    </div>
+    <div class="write">
+      <h5>Name <input type="text" name="Name"></h5>
+    </div>
+    <div class="write">
+      <h5>Company Name<input type="text" name="Company Name"></h5>
+    </div>
+    <div class="write">
+      <h5>E-mail Address<input type="mail" name="E-mail Address"></h5>
+    </div>
+    <div class="write" style="margin-top: 30px;">
+      <h5>Your Message<textarea rows="6" placeholder="Need any help? Reach out to us. Your happiness is our no.1 priority."></textarea></h5>
+    </div>
+
+    <div class="send-btn"><img src="/assets/bottom/contact_send.png"> &nbsp;Send message</div>
+  </div>
 </div>
+
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<script>
+  function initialize() {
+    var mapCanvas = document.getElementById('map-canvas');
+    var mapOptions = {
+      center: new google.maps.LatLng(44.5403, -78.5463),
+      zoom: 8,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions)
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
