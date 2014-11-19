@@ -14,7 +14,7 @@
 
 
       <div class="company-name">
-        <input type="text" placeholder="Company Name" id="auto_name" name="title" autocomplete="false">
+        <input type="text" placeholder="Company Name" id="auto_name" name="title" autocomplete="false" required>
 
         <div class="company-name-drop" style="display:none;">
           <div class="company-autocomplete auto_div" data-company="gameberry">
@@ -74,7 +74,7 @@ $('#auto_name').change(function(){
     </script>
     <input type="hidden" value="1" name="language_id" id="language_id">
   <div class="language-input">
-    <input type="text" placeholder="Language" id="language_input" disabled>
+    <input type="text" placeholder="Language" id="language_input" disabled required>
     <div class="language-drop">
       <ul>
         <%Language.all.each do |language|%>
@@ -94,7 +94,7 @@ $('#auto_name').change(function(){
   <input type="hidden" name="country" id="country_id" value="0">
   <input type="hidden" name="employee" id="employee_id" value="0">
   <div class="country">
-    <input type="text" disabled id="country_text" placeholder="Country">
+    <input type="text" disabled id="country_text" placeholder="Country" required>
     <div class="country-down">
       <ul>
         <% Country.all.order(:name).each do |country|%>
