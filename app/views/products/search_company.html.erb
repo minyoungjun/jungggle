@@ -1,0 +1,47 @@
+<%if @products.count == 0%><p class="oops">Oops! there is no matched result currently with "$0.1 to $0.5" on the Cost Filter.</p><%end%>
+<div class="search">
+  <div class="container">
+    <table>
+      <tr class="table-header">
+        <td class="company-img">Company name</td>
+        <td>Service Name</td>
+        <td>Service details</td>
+        <td>Country</td>
+        <td>Marketing type</td>
+        <td>Cost</td>
+        <td></td>
+      </tr>
+
+      <%@products.each do |product|%>
+        <%company = product.company%>
+        <tr class="table-body">
+          <td class="company-img"><img src="<%=company.logo.url(:medium)%>"> <%=company.comlangs.first.name%></td>
+          <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.first.title%></a></td>
+          <td class="detail"><a href="/products/search_detail/<%=product.id%>"><%product.prolangs.first.detailangs.each do |detailang|%>- <%=simple_format(detailang.content, {}, wrapper_tag: "span")%><br><%end%></a>
+          </td>
+          <td><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%=procon.country.name%><br><%end%><%end%></td>
+          <td><%=product.marketingtype.name%></td>
+          <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span></td>
+          <td><a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a></td>
+        </tr>
+      <%end%>
+
+    </table>
+    <%#>
+    <ul class="pagination">
+      <li class="disabled"><a href="#">«</a></li>
+      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+      <li><a href="#">7</a></li>
+      <li><a href="#">8</a></li>
+      <li class="disabled"><a href="#">«</a></li>
+    </ul>
+  %>
+  </div>
+</div>
+
+
