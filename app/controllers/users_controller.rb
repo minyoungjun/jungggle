@@ -19,9 +19,12 @@ class UsersController < ApplicationController
 
   def email_confirmation
       @user = User.find(params[:id])
-    if @user.confirmation_token == params[:token]
+    if @user.confirmed_at != nil
+      render :text => "Your Email is confirmed already!"
+    elsif @user.confirmation_token == params[:token]
       @user.confirmed_at = Time.now
       @user.save
+      @user.send_welcome_email
     else
       render :text => "fail"
     end
