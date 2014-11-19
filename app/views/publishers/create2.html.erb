@@ -1,10 +1,11 @@
 <script>
-var now_lang = 0;
+  var now_lang = 0;
+  var del_to_lang = 0;
   function languagebox(lang){
     var lang_nick = lang.getAttribute("data-nickname");
     var lang_id = lang.getAttribute("data-language");
 
-    $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' data-toggle='modal' data-target='#Modal-language-delete-1'  data-delete='" + lang_id + "'>X</span></div>");
+    $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' id='del-language-"+lang_id+"' data-delete='" + lang_id + "'>X</span></div>");
 
     $(".p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
@@ -13,16 +14,28 @@ var now_lang = 0;
     language_click(lang_id);
     return false;
   }
-
-  function languagedelete(lang){
-    var lang_id = lang.getAttribute("data-delete");
-    $(".p_language_" + String(lang_id)).css('display', 'inline-block');
+  function languagedelcomplete(){
+    lang = $("#del-language-"+ del_to_lang);
+    $(".p_language_" + del_to_lang).css('display', 'inline-block');
     $(lang).parent().remove();
     $(".trigger").trigger("click");
     $(".trigger").trigger("click");
-    $("#check_" + lang_id).attr("checked", false);
+    $("#check_" + del_to_lang).attr("checked", false);
+    var first_id = $(".language_checks:checked:first").data("id");
+    language_click(first_id);
     return false;
+  }
 
+  function languagedelete(lang){
+    var lang_id = lang.getAttribute("data-delete");
+    del_to_lang = lang_id
+    if ($(".language_checks:checked").length != 1) {
+      $("#Modal-language-delete-1").modal();
+      return false;
+    } else {
+      $("#Modal-language-delete-2").modal();
+      return false;
+    }
   }
 
 $(document).ready(function(){
@@ -61,7 +74,7 @@ function language_click(id){
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
         <div style="display:none;">
           <%Language.all.each do |lang|%>
-            <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
+            <input type="checkbox" class="language_checks" data-id="<%=lang.id%>" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
           <%end%>
         </div>
 
@@ -430,15 +443,15 @@ function term_check(id){
 
 
 <!-- language-delete-1 Modal -->
-<div class="modal fade" id="Modal-language-delete-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="Modal-language-delete-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-id="">
   <div class="modal-dialog modal-dialog-language-delete-1">
     <div class="modal-content modal-language-delete-1">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h2>Are you sure to delete this language?</h2>
         <p>All of your writings with this language will be deleted</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">Yes</button>
-        <button type="button" class="btn btn-b">No</button>
+        <button type="button" class="btn btn-a" data-dismiss="modal" onclick="languagedelcomplete();">Yes</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">No</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
