@@ -72,7 +72,7 @@ function language_click(id){
     <div class="right-create-service">
       <h1>Create Service</h1>
 
-      <form action="create_process" method="post" enctype="multipart/form-data">
+      <form action="/publishers/create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
         <div style="display:none;">
           <%Language.all.each do |lang|%>
