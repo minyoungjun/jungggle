@@ -173,7 +173,7 @@ function search_auto_func(){
                     <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
                   <%else%>
                     <li class="division" >
-                    <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search_(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                    <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
                       <%if marketing1.child_types.count != 0%>
                         <div class="division-hover" style="min-height:230px;">
                           <ul>
@@ -184,13 +184,13 @@ function search_auto_func(){
                                   <%if marketing2.child_types.count != 0%>
                                     <%marketing2.child_types.each do |marketing3|%>
                                       <%if marketing3.filter != 4%>
-                                        <li onclick="marketing_click_search_(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                        <li onclick="marketing_click_search(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
                                       <%end%>
                                     <%end%>
                                   <%end%>
                                 </ul>
                               <%else%>
-                                <li onclick="marketing_click_search_(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                                <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
                             <%end%>
                           <%end%>
                         </ul>
@@ -256,7 +256,7 @@ function country_select_search(id){
   $("#country_hidden").val(id);
 }
 function marketing_click_search(id){
-  $("#marketing_text").html($("#marketing_li_" + id).html());
+  $("#marketing_text").html($("#marketing_li_search_" + id).html());
   $("#marketing_hidden").val(id);
 
     if(id > 10 && id < 60){
