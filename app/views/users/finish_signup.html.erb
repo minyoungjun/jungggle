@@ -223,7 +223,7 @@ function delete_logo(){
       </p>
     </div>
   </div>
-  <input type="submit" value="SAVE" class="save-btn">
+  <input type="submit" id="finish_submit_btn" value="SAVE" class="save-btn">
   </form>
 </div>
 
@@ -238,7 +238,10 @@ function delete_logo(){
     placement: 'bottom'
   });
 
-  $(function () { $('.popover-hide').popover('hide');});
+$(function () {
+  $('.popover-hide').popover('hide');
+  });
+
 
 </script>
 

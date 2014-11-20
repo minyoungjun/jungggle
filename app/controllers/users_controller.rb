@@ -172,7 +172,6 @@ class UsersController < ApplicationController
       this_user.update(user_params)
       User.send_confirmation_email(this_user.id)
       sign_in(this_user, :bypass => true)
-
     end
     redirect_to "/users/finish_signup"
   end
