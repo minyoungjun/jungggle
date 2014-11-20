@@ -242,6 +242,8 @@ body {
         padding-top: 10px;
         cursor: pointer;
         background-color: white;
+        max-height: 250px;
+        overflow-y: scroll; 
         ul {
           list-style: none;
           padding-left: 0;
