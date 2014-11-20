@@ -32,6 +32,10 @@
         </div>
       </div>
       <script>
+        function signup_submit() {
+          alert("test");
+          return false;
+        };
 function new_company(){
   $(".company-name-drop").hide();
 };
@@ -44,9 +48,8 @@ function auto_func(){
             if ($(this).data("company").toLowerCase().indexOf($('#auto_name').val().toLowerCase()) != -1 )
             {
                 auto_count = auto_count + 1;
-                $(this).show();             
+                $(this).show();
                 }
-            
                 });
             if (auto_count == 0){
               $(".auto_div").hide();
@@ -223,10 +226,9 @@ function delete_logo(){
       </p>
     </div>
   </div>
-  <input type="submit" id="finish_submit_btn" value="SAVE" class="save-btn">
+  <input type="submit" id="finish_submit_btn" value="SAVE" class="save-btn" onclick="signup_submit();">
   </form>
 </div>
-
 
 <script>
   $('.popover-markup > .trigger').popover({
@@ -241,9 +243,4 @@ function delete_logo(){
 $(function () {
   $('.popover-hide').popover('hide');
   });
-
-
 </script>
-
-
-
