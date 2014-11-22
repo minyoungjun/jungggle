@@ -6,7 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-#
+
+Notification.create(level: 0, information: "confirm email address", is_important: true)
+
+Notification.create(level: 1, information: "confirm email resent", is_important: false)
+
+Notification.create(level: 0, information: "company need", is_important: true)
+
+Notification.create(level: 1, information: "account updated", is_important: false)
+
+Notification.create(level: 0, information: "sns_confirm", is_important: true)
+
+Notification.create(level: 1, information: "company_confirm", is_important: false)
+
+
 lan_array = ["English", "Chinese", "Japanese", "Korean", "Spanich", "German", "French", "Russian", "Vietbamese", "Portuguese", "Italian", "Malay"]
 lan_nick = ["EN", "ZH", "JA", "KO", "ES", "DE", "FR", "RU", "VI", "PT", "IT", "MS"]
 lan_num = 0
@@ -137,5 +150,4 @@ end
 materials_array2.each do |element|
   Marketingtype.create(name: element, filter: 3, parent_id: production.id, global: true)
 end
-
 

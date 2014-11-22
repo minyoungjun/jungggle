@@ -3,6 +3,9 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
   before_filter :configure_permitted_parameters
 
+  before_filter :sns_confirmed, only: [:edit]
+  before_filter :is_confirmed, only: [:edit]
+
   # GET /resource/sign_up
 
   def new
@@ -18,11 +21,17 @@ class RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    resource_saved = resource.save
     resource.email_confirmed = true
+    resource_saved = resource.save
+
+
     if resource_saved
+      resource.user_notify(1)
       User.send_confirmation_email(resource.id)
     end
+    
+
+
 
     yield resource if block_given?
     if resource_saved

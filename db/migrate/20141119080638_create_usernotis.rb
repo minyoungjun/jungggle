@@ -4,7 +4,7 @@ class CreateUsernotis < ActiveRecord::Migration
       t.integer :user_id
       t.integer :notification_id
       t.text  :content
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
       t.timestamps
     end
   end

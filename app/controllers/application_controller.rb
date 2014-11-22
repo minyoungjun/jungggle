@@ -10,6 +10,40 @@ class ApplicationController < ActionController::Base
       
   end
 
+  def is_confirmed
+    if current_user.confirmed_at == nil
+      if current_user.usernotis.where(:notification_id => 1, :is_deleted => false).count == 0
+        current_user.user_notify(1)
+      end
+      redirect_to "/"
+    end
+  end
+
+  def sns_confirmed
+    
+    unless current_user.email_confirmed
+      current_user.user_notify(5)
+      redirect_to :controller => "users",
+                  :action => "signup_process"
+    end
+  end
+
+  def company_confirmed
+    if current_user.member == nil
+      
+      current_user.user_notify(3)
+      redirect_to :controller => "users",
+                  :action => "company"
+      
+    elsif !(current_user.member.approved)
+
+      current_user.user_notify(6)
+      redirect_to :root
+      
+    end
+  end
+
+
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'

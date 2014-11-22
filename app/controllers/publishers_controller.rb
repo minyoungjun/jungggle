@@ -1,5 +1,8 @@
 class PublishersController < ApplicationController
-before_filter :is_login, :except => [:list]
+  before_filter :is_login
+  before_filter :sns_confirmed
+  before_filter :is_confirmed
+  before_filter :company_confirmed
 
   def create
     @languages = Language.all
@@ -115,8 +118,6 @@ before_filter :is_login, :except => [:list]
       @services = current_user.member.company.services
 
     else
-      redirect_to :controller => "users",
-                  :action => "company"
     end
 
   end

@@ -217,10 +217,14 @@ function search_auto_func(){
 
     </div>
   <%end%>
-  </div>
-  <%if user_signed_in? && current_user.email_confirmed && current_user.confirmed_at == nil%>
-    <h5 class="resend">Please confirm your email address, a confirmation message was sent to <%=current_user.email%> <span class="underline">Resend confrimation</span></h5>
+</div>
+<% if user_signed_in?%>
+  <%current_user.usernotis.where(:is_deleted => false).each do |usernoti|%>
+    <h5 <%if usernoti.notification.level == 0%> class="resend" <%else%>class="account-update"<%end%>><%=usernoti.content.html_safe%></h5>
   <%end%>
+<%end%>
+
+
   <%#
     <h5 class="account-update">Your account has been updated.</h5>
   %>

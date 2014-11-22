@@ -286,7 +286,7 @@ ActiveRecord::Schema.define(version: 20141119162751) do
     t.integer  "user_id"
     t.integer  "notification_id"
     t.text     "content"
-    t.boolean  "is_deleted"
+    t.boolean  "is_deleted",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

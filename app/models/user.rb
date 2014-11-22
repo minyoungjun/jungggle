@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many  :billings
   has_many  :biddings
   has_many  :identities
+  has_many  :usernotis
 
 
 validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
@@ -105,6 +106,32 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
       :html => "<h2>Thank you for joining Jungggle!<h2><h5>We are excited to welcome you to Jungggle and are looking forward to a successful partnership. <br> Jungggle allows you to find the right solutions for your business to buy and sell marketing services. For advertisers, Jungggle collects and organizes data from marketing companies around the globe. Through Jungggle's filtering mechanism, you can easily find local marketing companies that suit your needs. For service providers, you can now conduct direct sales not only to your local client but also to global clients. You no longer have to exchange countless emails to provide detailed information.</h5><br><h4>Discover <span style='text-decoration: underline;'>Jungggle</span><Br>Continue to explore the website and get started right away!<br>Questions? Contact <a href='http://jungggle.com'>Jungggle</a></h4><br><br><h4>Best,<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
   end
 
+  def user_notify(id)
+    
+    if self.usernotis.where(:notification_id => id, :is_deleted => false).count == 0
+      usernoti = Usernoti.new
+      usernoti.user_id = self.id
+      usernoti.notification_id = id
+
+      case id
+      when 1
+        usernoti.content = "Please confirm you email address, a confirm mail was sent to #{self.email} <a href='#'><span class='underline'>resend confirmation</span></a>"
+      when 2
+        usernoti.content = "The confirm message is resent to #{self.email}"
+      when 3
+        usernoti.content = "Please complete company profile, first."
+      when 4
+        usernoti.content = "Your account has been updated"
+      when 5
+        usernoti.content = "Please complete your profile, first."
+      when 6
+        usernoti.content = "You can manage your Service after your company(#{self.member.company.comlangs.first.name}) approve you."
+      end
+      usernoti.is_deleted = false
+      usernoti.save
+    end
+
+  end
 
 
 end

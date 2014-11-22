@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :is_login
+  before_filter :is_login, except: [:email_confirmation]
+  before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation]
+  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company]
+
+
   def members
 
     @selected = "member"
@@ -24,6 +28,10 @@ class UsersController < ApplicationController
     elsif @user.confirmation_token == params[:token]
       @user.confirmed_at = Time.now
       @user.save
+      @user.usernotis.where(:notification_id => 1).each do |usernoti|
+        usernoti.is_deleted = true
+        usernoti.save
+      end
       @user.send_welcome_email
     else
       render :text => "fail"
@@ -35,6 +43,10 @@ class UsersController < ApplicationController
       company = current_user.member.company
     else
       company = Company.new
+      current_user.usernotis.where(:notification_id => 3).each do |usernoti|
+        usernoti.is_deleted = true
+        usernoti.save
+      end
     end
     company.num_employee = params[:employee]
     company.website = params[:website]
@@ -167,12 +179,16 @@ class UsersController < ApplicationController
   def confirm
     this_user = current_user
     if !(current_user.email_confirmed)
-      this_user.email_confirmed = true
-      this_user.save
-      this_user.update(user_params)
-      User.send_confirmation_email(this_user.id)
-      sign_in(this_user, :bypass => true)
-
+      if this_user.update(user_params)
+        this_user.email_confirmed = true
+        this_user.save
+        this_user.usernotis.where(:notification_id => 5).each do |usernoti|
+          usernoti.is_deleted = true
+          usernoti.save
+        end
+        User.send_confirmation_email(this_user.id)
+        sign_in(this_user, :bypass => true)
+      end
     end
     redirect_to "/users/finish_signup"
   end
