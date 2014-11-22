@@ -60,6 +60,8 @@
         padding-top: 10px;
         cursor: pointer;
         top: 63px;
+        max-height: 250px;
+        overflow-y: scroll; 
         ul {
           list-style: none;
           padding-left: 0;

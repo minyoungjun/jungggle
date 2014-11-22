@@ -11,6 +11,7 @@
     $(".trigger").trigger("click");
     $('.popover').hide();
     $("#check_" + lang_id).attr("checked", true);
+    $("#title_" + lang_id).attr("required", true);
     language_click(lang_id);
     return false;
   }
@@ -21,6 +22,7 @@
     $(".trigger").trigger("click");
     $(".trigger").trigger("click");
     $("#check_" + del_to_lang).attr("checked", false);
+    $("#title_" + del_to_lang).attr("required", false);
     var first_id = $(".language_checks:checked:first").data("id");
     language_click(first_id);
     return false;
@@ -70,7 +72,7 @@ function language_click(id){
     <div class="right-create-service">
       <h1>Create Service</h1>
 
-      <form action="create_process" method="post" enctype="multipart/form-data">
+      <form action="/publishers/create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
         <div style="display:none;">
           <%Language.all.each do |lang|%>
@@ -347,7 +349,7 @@ function delete_country(id){
         <h3>Country &nbsp;<img src="/assets/my_account/circle_info.png"></h3>
         <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
           <div id="country_box_0">
-            <input type="hidden" id="country_input_0" name="country[0]" required>
+            <input type="hidden" id="country_input_0" name="country[0]">
             <div class="country-drop">
               <div class="country-btn" id="country_btn_0">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
               <div class="country-down">
@@ -429,8 +431,6 @@ function term_check(id){
       <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
       <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
       </form>
-      <button class="btn btn-default" data-toggle="modal" data-target="#Modal-language-delete-2">At least one language-modal</button>
-      <button class="btn btn-default" data-toggle="modal" data-target="#Modal-before-leaving">At least one language-modal</button>
 
     </div>
 

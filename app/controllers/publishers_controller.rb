@@ -5,10 +5,15 @@ class PublishersController < ApplicationController
   before_filter :company_confirmed
 
   def create
-    @languages = Language.all
-    @marketing = Marketingtype.where(:filter => 1)
-    @countries = Country.all
-    @payments = Payment.all
+    logger.debug "==" + current_user.member.inspect
+    if current_user.member == nil
+      redirect_to "users/company"
+    else
+      @languages = Language.all
+      @marketing = Marketingtype.where(:filter => 1)
+      @countries = Country.all
+      @payments = Payment.all
+    end
   end
 
   def create_process
