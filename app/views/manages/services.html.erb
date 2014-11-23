@@ -1,0 +1,74 @@
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>
+    <div class="right-manage-service">
+      <h1>Manage Service for Admin</h1>
+      <div class="sub-title">
+        <h3>All Services</h3>
+        <button type="button" class="btn btn-default" onclick="location.href= '/manages/create';">Create Service</button>
+      </div>
+      <table>
+        <tr class="table-header">
+          <td>Last Update</td>
+          <td>Service Name</td>
+          <td>Country</td>
+          <td class="marketing">Marketing Type</td>
+          <td>Cost</td>
+          <td>Earning</td>
+          <td>Status</td>
+          <td></td>
+        </tr>
+        <%@services.each do |service|%>
+          <tr class="table-body">
+            <td><%=service.updated_at.to_s[0..9]%></td>
+            <td class="name"><%=service.prolangs.first.title%></td>
+            <td><%service.procons.each do |procon|%><%=procon.country.name%><br><%end%></td>
+            <td class="marketing"><%service.marketingtype.upper_types.each do |marketing|%><%=marketing.name%>/<%end%></td>
+            <td class="font-bold">$0.1 - 0.7</td>
+            <td class="font-bold">$0</td>
+            <td><img src="/assets/my_account/on.png"></td>
+            <td><div class="embed-btn" data-toggle="modal" data-target="#Modal-embed"><img src="/assets/my_account/embed.png"><br>EMBED</div></td>
+          </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- embed Modal -->
+<div class="modal fade" id="Modal-embed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-embed">
+    <div class="modal-content modal-embed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Embeded this service</h1>
+        <h4>Copy the code below and paste it into your website.</h4>
+        <textarea type="text" rows="6">Code<iframe width="560" height="315"src="//www.youtube.com/embed/yhcrbrZyxbU" frameborder="0"   allowfullscreen></iframe></textarea>
+        <p>- You can now easily insert this purchasable service page to your own places : website, blog, etc.</p>
+        <p>- <span class="redcolor">We do not charge 3.8% commission</span> if the Advertiser buy your service through this embeded page.</p>
+        <p class="greencolor">Need a guide to embed the code?</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>

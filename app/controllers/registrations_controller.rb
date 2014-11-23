@@ -4,7 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
 
   before_filter :sns_confirmed, only: [:edit]
-  before_filter :is_confirmed, only: [:edit]
 
   # GET /resource/sign_up
 

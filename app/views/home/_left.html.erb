@@ -10,6 +10,13 @@
         <td class="list-icon"><img src="/assets/my_account/account_company_profile.png" <%if @selected =="company"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title" ><a href="/users/company"<%if @selected =="company"%> class="select" <%end%>>Company<br>Profile</a></td>
       </tr>
+      <%if user_signed_in? && current_user.is_admin%>
+        <tr onclick="#none" style="cursor: pointer">            
+          <td class="list-icon"><img src="/assets/my_account/account_company_profile.png"  ></td>
+          <td class="list-title" ><a href="/manages/companies">Manage<br>companies</a></td>
+        </tr>
+      <%end%>
+
       <tr onclick="#none" style="cursor: pointer">
         <td class="list-icon"><img src="/assets/my_account/account_member.png" <%if @selected =="member"%> style="opacity:1;" <%end%>  ></td>
         <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Member</a></td>
@@ -41,10 +48,20 @@
         <td class="list-icon"><img src="/assets/my_account/publishers_project.png"></td>
         <td class="list-title"><a href="/home/ready_project">Projects</a></td>
       </tr>
-      <tr onclick="#none" style="cursor: pointer">
-        <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
-        <td class="list-title"><a href="/publishers/manage">Manage<br>Service</a></td>
-      </tr>
+
+      <%if user_signed_in? && current_user.is_admin%>
+        <tr onclick="#none" style="cursor: pointer">
+          <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
+          <td class="list-title"><a href="/manages/services">Manage<br>Services <br>(Admin)</a></td>
+        </tr>
+      <%else%>
+
+        <tr onclick="#none" style="cursor: pointer">
+          <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
+          <td class="list-title"><a href="/publishers/manage">Manage<br>Service</a></td>
+        </tr>
+
+      <%end%>
       <tr onclick="#none" style="cursor: pointer">
         <td class="list-icon"><img src="/assets/my_account/Publishers_cashout.png"></td>
         <td class="list-title"><a href="/home/ready_cashout">Cash Out</a></td>

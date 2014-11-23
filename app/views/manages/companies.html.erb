@@ -1,0 +1,37 @@
+<div class="account">
+  <div class="container">
+    <%=render "/home/left"%>
+    <div class="right-member">
+      <h1>Manage Companies</h1>
+    
+      <table>
+        <tr class="table-header">
+          <td>Logo</td>
+          <td>Name</td>
+          <td>Owner</td>
+          <td>Edit Profile</td>
+          <td>Edit Members</td>
+        </tr>
+      
+        <%@company.each do |company|%>
+        <tr class="table-body">
+          <td><img src="<%=company.logo.url(:thumb)%>"/></td>
+          <td><%=company.comlangs.first.name%></td>
+          <td><%=company.members.where(:owner => true).first.user.email%></td>
+          <td>
+            <a href="/manages/company_profile/<%=company.id%>">Profile</a>
+          </td>
+          <td>
+            <a href="#">Members</a>
+          </td>
+        </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+

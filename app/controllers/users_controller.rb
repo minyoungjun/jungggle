@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :is_login, except: [:email_confirmation]
   before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation]
-  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company]
+  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members ]
 
 
   def members
 
     @selected = "member"
     if current_user.member == nil || !(current_user.member.approved)
+      current_user.user_notify(3)
       redirect_to :controller => "users",
                   :action => "company"
     else
@@ -96,16 +97,20 @@ class UsersController < ApplicationController
 
 
     end
-    if current_user.member == nil
-      member = Member.new
-    else
-      member = current_user.member
+    
+    unless current_user.is_admin 
+
+      if current_user.member == nil
+        member = Member.new
+      else
+        member = current_user.member
+      end
+      member.company_id = company.id
+      member.user_id = current_user.id
+      member.owner = true
+      member.approved = true
+      member.save
     end
-    member.company_id = company.id
-    member.user_id = current_user.id
-    member.owner = true
-    member.approved = true
-    member.save
 
 
     redirect_to :controller => "users",
@@ -182,10 +187,7 @@ class UsersController < ApplicationController
       if this_user.update(user_params)
         this_user.email_confirmed = true
         this_user.save
-        this_user.usernotis.where(:notification_id => 5).each do |usernoti|
-          usernoti.is_deleted = true
-          usernoti.save
-        end
+        this_user.user_notify(1)
         User.send_confirmation_email(this_user.id)
         sign_in(this_user, :bypass => true)
       end

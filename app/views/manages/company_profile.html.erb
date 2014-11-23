@@ -1,4 +1,3 @@
-
 <script>
   
 
@@ -72,7 +71,7 @@ function language_click(id){
       <h1>Company Profile</h1>
       <form <%if current_user.confirmed_at != nil %> action="/users/company_update" <%end%> method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-
+        <input type="hidden" name="id" value="<%=@company.id%>">
         <div class="pack languages">
           <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
           <div style="display:none;" id="language_checkbox">

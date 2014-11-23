@@ -66,6 +66,13 @@ Rails.application.routes.draw do
   get 'home/ready_project'
   get 'home/ready_search_detail'
   get 'home/fees'
+
+
+  get '/manages/companies'
+  get '/manages/company_profile/:id' => "manages#company_profile"
+  get '/manages/services'
+  get '/manages/create'
+
   resources "home" do
     get :autocomplete_company_name, :on => :collection
   end

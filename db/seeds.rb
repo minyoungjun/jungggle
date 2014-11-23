@@ -18,7 +18,6 @@ Notification.create(level: 1, information: "account updated", is_important: fals
 Notification.create(level: 0, information: "sns_confirm", is_important: true)
 
 Notification.create(level: 1, information: "company_confirm", is_important: false)
-=begin
 
 lan_array = ["English", "Chinese", "Japanese", "Korean", "Spanich", "German", "French", "Russian", "Vietbamese", "Portuguese", "Italian", "Malay"]
 lan_nick = ["EN", "ZH", "JA", "KO", "ES", "DE", "FR", "RU", "VI", "PT", "IT", "MS"]
@@ -150,4 +149,3 @@ end
 materials_array2.each do |element|
   Marketingtype.create(name: element, filter: 3, parent_id: production.id, global: true)
 end
-=end

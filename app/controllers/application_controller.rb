@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def is_admin
+    unless user_signed_in? && current_user.is_admin
+      redirect_to "/users/sign_in"
+    end
+  end
   def is_login
     unless user_signed_in?
       redirect_to "/users/sign_in" 
@@ -30,7 +35,6 @@ class ApplicationController < ActionController::Base
 
   def company_confirmed
     if current_user.member == nil
-      
       current_user.user_notify(3)
       redirect_to :controller => "users",
                   :action => "company"

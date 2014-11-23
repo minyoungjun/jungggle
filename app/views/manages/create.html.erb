@@ -1,0 +1,536 @@
+<script>
+  var now_lang = 0;
+  var del_to_lang = 0;
+  function languagebox(lang){
+    var lang_nick = lang.getAttribute("data-nickname");
+    var lang_id = lang.getAttribute("data-language");
+
+    $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' id='del-language-"+lang_id+"' data-delete='" + lang_id + "'>X</span></div>");
+
+    $(".p_language_" + String(lang_id)).css('display', 'none');
+    $(".trigger").trigger("click");
+    $('.popover').hide();
+    $("#check_" + lang_id).attr("checked", true);
+    $("#title_" + lang_id).attr("required", true);
+    language_click(lang_id);
+    return false;
+  }
+  function languagedelcomplete(){
+    lang = $("#del-language-"+ del_to_lang);
+    $(".p_language_" + del_to_lang).css('display', 'inline-block');
+    $(lang).parent().remove();
+    $(".trigger").trigger("click");
+    $(".trigger").trigger("click");
+    $("#check_" + del_to_lang).attr("checked", false);
+    $("#title_" + del_to_lang).attr("required", false);
+    var first_id = $(".language_checks:checked:first").data("id");
+    language_click(first_id);
+    return false;
+  }
+
+  function languagedelete(lang){
+    var lang_id = lang.getAttribute("data-delete");
+    del_to_lang = lang_id
+    if ($(".language_checks:checked").length != 1) {
+      $("#Modal-language-delete-1").modal();
+      return false;
+    } else {
+      $("#Modal-language-delete-2").modal();
+      return false;
+    }
+  }
+
+$(document).ready(function(){
+    $('.p_language_1').trigger("click");
+    $(".trigger").trigger("click");
+
+    });
+
+function language_click(id){
+  $('.service_name').hide();
+  $('#title_' + String(id)).show();
+  $('.language_detail_all').hide();
+  $('.language_detail_' + id).css("display","inline-block");
+  $('.selected-languages').css('color','black');
+  $('.selected-languages').css('border','1px solid #eee');
+  $('.selected-languages').css('background-color','white');
+  $('#language-select-' + String(id)).css('background-color','#5eb12f');
+  $('#language-select-' + String(id)).css('color','white');
+  
+  $(".upload_box").hide();
+  $("#upload_box_" + id).show();
+
+
+  now_lang = id;
+}
+</script>
+
+<div class="create-service account">
+  <div class="container">
+    <%= render "/home/left"%>
+
+    <div class="right-create-service">
+      <h1>Create Service</h1>
+
+      <form action="/manages/create_process" method="post" enctype="multipart/form-data">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <div style="display:none;">
+          <%Language.all.each do |lang|%>
+            <input type="checkbox" class="language_checks" data-id="<%=lang.id%>" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
+          <%end%>
+        </div>
+
+      <div class="pack service-name">
+        <h3>Select Company</h3>
+        <select name="company_id">
+          <%Company.all.each do |company|%>
+            <option value="<%=company.id%>"><%=company.comlangs.first.name%></option>
+          <%end%>
+        </select>
+
+
+      </div>
+
+      <div class="pack languages">
+        <h3>Language &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <span id="selected_languages"></span>
+         <div class="popover-markup">
+          <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
+          <div class="content hide" style="top: 280px; left: 389px; display: block;">
+            <%Language.all.each do |language|%>
+              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+            <%end%>
+          </div>
+        </div>
+      </div>
+
+      <div class="pack service-name">
+        <h3>Service Name</h3>
+
+          <%Language.all.each do |language|%>
+            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name">
+          <%end%>
+
+      </div>
+
+        <script>
+          function marketing_click(id){
+            $("#marketing_btn").html($("#marketing_li_" + id).data("marketing"));
+            $("#marketing_id").val(id);
+            if(id > 10 && id < 60){
+              $(".platform").show();
+              $("#platform_0").trigger("click");
+            }else{
+              $(".platform").hide();
+            
+            }
+          }
+        </script>
+
+      <input type="hidden" name="marketing_id" value="1" id="marketing_id">
+
+      <div class="pack marketing-type">
+        <h3>Marketing Type</h3>
+        <div class="marketing drop">
+          <div class="marketing-btn" id="marketing_btn">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+            <div class="marketing-down">
+              <ul>
+                <%Marketingtype.where(:filter => 1).each do |marketing1|%>
+                  <%if marketing1.name == "All"%>
+                    <li class="title" onclick="marketing_click(<%=marketing1.id%>);" id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
+                  <%else%>
+                    <li class="division" >
+                    <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                      <%if marketing1.child_types.count != 0%>
+                        <div class="division-hover" style="min-height:230px;">
+                          <ul>
+                            <% marketing1.child_types.each do |marketing2|%>
+                              <%if marketing2.filter == 2%>
+                                <ul>
+                                  <li class="title" onclick="marketing_click(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_<%=marketing2.id%>" ><%=marketing2.name%></li>
+                                  <%if marketing2.child_types.count != 0%>
+                                    <%marketing2.child_types.each do |marketing3|%>
+                                      <%if marketing3.filter != 4%>
+                                        <li onclick="marketing_click(<%=marketing3.id%>);"id="marketing_li_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                      <%end%>
+                                    <%end%>
+                                  <%end%>
+                                </ul>
+                              <%else%>
+                                <li onclick="marketing_click(<%=marketing2.id%>);"id="marketing_li_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                            <%end%>
+                          <%end%>
+                        </ul>
+                    </div>
+                  <%end%>
+                  </li>
+                <%end%>
+              <%end%>
+            </ul>
+          </div>
+        </div>
+        <script>
+function platform_change(id){
+    $(".platform_img").attr("src", "/assets/my_account/radio-01.png");
+    $("#platform_" + id).attr("src", "/assets/my_account/radio-02.png");
+    $("#platform_type").val(id);
+          
+          }
+        </script>
+
+        <div class="platform" style="display:none;">
+          <h3>Platform</h3>
+          <input type="hidden" value="0" name="platform" id="platform_type">
+          <p onclick="platform_change(0);" class="platform_p" ><img src="/assets/my_account/radio-02.png" id="platform_0" class="platform_img"/> All</p>
+          <p   onclick="platform_change(1);" class="platform_p" ><img src="/assets/my_account/radio-01.png"id="platform_1"class="platform_img" /> iOS</p>
+          <p  onclick="platform_change(2);" class="platform_p"><img src="/assets/my_account/radio-01.png"  id="platform_2" class="platform_img"/> Android</p>
+        </div>
+      </div>
+
+
+      <div class="pack">
+
+        <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <input type="hidden" name="detail_count" id="detail_count" value="0">
+
+        <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
+          <div id="detail_row_0">
+            <%Language.all.each do |language|%>
+              <textarea  placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)"  onkeyup="textarea_resize(this, 10);"  style="font-size: 14px; display:none; vertical-align:middle;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea>
+            <%end%>
+            <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
+              <p>delete</p>
+            </div>
+            <div class="attach-img-btn" onclick="$('#detail_photo_0').trigger('click');" id="add_image_0">
+              Attach Image
+            </div>
+            <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer;">
+          </div>
+        </div>
+        <div style="display:none;"id="detail_file_box">
+          <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
+        </div>
+      </div>
+
+
+      <script>
+function delete_img(id){
+    
+        $('#add_image_' + id).show();
+        $("#imagepreview_" + id).hide();
+        $("#detail_photo_" + id).remove();
+        $("#detail_file_box").append("<input type='file' name='detail_photo_" + id + "' style='display:none;' id='detail_photo_" + id + "' onchange='onchange_image(" + id + ");'>");
+
+        
+        }       
+
+
+var detail_num = 1;
+function photo_trigger(id){
+  $('#detail_photo_' + id).trigger('click');
+
+}
+      function add_photo(num){
+        $('#detail_photo_' + num).trigger('click');
+      }
+    function add_detail(){
+      $("#detail_box").append('<div id="detail_row_' + detail_num + '"><%Language.all.each do |language|%><textarea placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" onkeyup="textarea_resize(this, 10);" style="font-size: 14px; vertical-align:middle; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea><%end%> <div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');"> <img src="/assets/my_account/circle_minus.png" class="attach-plus" onclick="detail_remove(' + detail_num + ');" style="cursor:pointer;">');
+
+        $('#service_detail_' + detail_num + '_' + now_lang).css("display", "inline-block");
+
+        $("#detail_count").val(detail_num);
+        detail_num = detail_num + 1;
+    }
+function detail_remove(id){
+  $("#detail_row_" + id).remove();
+
+}
+      
+      function onchange_image(num){
+
+        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
+        if (regex.test($('#detail_photo_' + num).val().toLowerCase())) {
+            if (false) {
+                $("#imagepreview_" + num).show();
+                $("#imagepreview_" + num)[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $('#detail_photo_' + num).val();
+            }
+            else {
+                if (typeof (FileReader) != "undefined") {
+                    $('#add_image_' + num).hide();
+                    $("#imagepreview_" + num).css("display", "inline-block");
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#imagepreview_" + num).css("background-image", "url('" + e.target.result + "')");
+                    }
+                    reader.readAsDataURL($('#detail_photo_' + num)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            }
+        } else {
+            alert("Please upload a valid image file.");
+        }
+
+      }
+      function radio_cost(id){
+        $("#cost_type").val(id);
+        if (id == 0){
+          $("#radio_cost_0").attr("src", "/assets/my_account/radio-02.png");
+          $("#radio_cost_1").attr("src", "/assets/my_account/radio-01.png");
+          $("#multiple-area").hide();
+          $("#cost_add_img").hide();
+        }
+        else{
+          $("#radio_cost_0").attr("src", "/assets/my_account/radio-01.png");
+          $("#radio_cost_1").attr("src", "/assets/my_account/radio-02.png");
+          $("#multiple-area").show();
+          $("#cost_add_img").show();
+        
+        }
+      }
+      function cost_delete(id){
+        $("#cost_div_" + id).remove();
+      }
+      var cost_count = 2;
+      function cost_add(){
+        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><input type="text" placeholder="$" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
+        cost_count = cost_count + 1;
+      }
+      </script>
+      <div class="pack cost">
+        <input type="hidden" name="cost_type" value="0" id="cost_type">
+        <h3>Cost &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
+        <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
+        <div class="input-area" id="input-area">
+          <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+          <input type="number" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <div id="multiple-area" style="display:none;">
+            <div id="cost_div_1" class="">
+              <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+              <input type="number" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+function minimum_check(id){
+  if (id == 1 ){
+    $("#minimum_img").attr("onclick", "minimum_check(0);");
+    $("#minimum_img").attr("src", "/assets/my_account/checkbox-02.png");
+  }
+  else{
+    
+    $("#minimum_img").attr("onclick", "minimum_check(1);")
+    $("#minimum_img").attr("src", "/assets/my_account/checkbox-01.png");
+    $("#minimum_budget").val("");
+  }
+        }
+      </script>
+      <div class="pack budget">
+        <h3>Minimum Budget</h3>
+        <img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img">&nbsp;&nbsp;
+        <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+        <input type="number" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;">
+      </div>
+
+
+      <script>
+        function country_select(box_id, country_id){
+          $("#country_btn_" + box_id).html($("#country_li_" + box_id + "_" + country_id).html());
+          $("#country_input_" + box_id).val(country_id);
+        }
+
+var country_count = 1;
+function add_country(){
+  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
+  country_count = country_count + 1;
+        
+}
+function delete_country(id){
+  $("#country_box_" + id).remove();
+
+}
+      </script>
+
+
+      <div class="pack country">
+        <h3>Country &nbsp;<img src="/assets/my_account/circle_info.png"></h3>
+        <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
+          <div id="country_box_0">
+            <input type="hidden" id="country_input_0" name="country[0]">
+            <div class="country-drop">
+              <div class="country-btn" id="country_btn_0">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
+              <div class="country-down">
+                <ul>
+                  <%Country.all.each do |country|%>
+                    <li onclick="country_select(0, <%=country.id%>);" id="country_li_0_<%=country.id%>"><%=country.name%></li>
+                  <%end%>
+                </ul>
+              </div>
+            </div>
+            <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;" onclick="add_country();">
+          </div>
+        </div>
+      </div>
+
+
+      <script>
+
+function attach_file(language_id, prodocu_id){
+
+  $("#upload_box_" + language_id).append('<div class="pack pack-2" id="attach_div_' + language_id + '_' + prodocu_id + '"><p><img src="/assets/my_account/folder.png"> <input type="text" class="optional" placeholder="Document Name..." name="attach_name[' + language_id + '][' + prodocu_id + ']">' + $('#prodocu_' + language_id + '_' + prodocu_id).val().replace(/^.*[\\\/]/, '') + '</p><a href="#none" onclick="delete_attach(' + language_id + ',' + prodocu_id + ');">X &nbsp;&nbsp;Delete</a></div>');
+
+  $("#upload_input_" + language_id).append('<input type="file" name="prodocu[' + language_id + '][' + String(prodocu_id + 1) + ']" id="prodocu_' + language_id + '_' + String(prodocu_id + 1) + '" onchange="attach_file(' + language_id + ',' + String(prodocu_id + 1) + ');">');
+
+  $('#upload_file_' + language_id).remove();
+  $('#upload-btn-div-' + language_id).prepend('<div class="upload-file" id="upload_file_' + language_id + '" onclick="trigger_prodocu(' + language_id + ',' + String(prodocu_id + 1) + ');">Upload File</div>');
+}
+function trigger_prodocu(language_id, prodocu_id){
+  $('#prodocu_' + language_id + '_' + prodocu_id).trigger('click');
+
+}
+function delete_attach(language_id, prodocu_id){
+  $("#attach_div_" + language_id + "_" + prodocu_id).remove();
+  $("#prodocu_" + language_id + "_" + prodocu_id).remove();
+
+}
+      </script>
+        <div class="pack optional " >
+          <h3>[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png"></h3><br>
+          <%Language.all.each do |language|%>
+            <div  class="upload_box"  id="upload_box_<%=language.id%>">
+              <div class="pack-1" id="upload-btn-div-<%=language.id%>">
+                <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
+                <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+              </div>
+              <div id ="upload_input_<%=language.id%>"style="display:none;">
+                <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
+              </div>
+            </div>
+          <%end%>
+        </div>
+
+
+      
+
+
+      <input type="submit" class="btn btn-a" value="Save">
+      <button type="button" class="btn btn-b">Delete</button>
+      <script>
+var term_check_boolean = false;
+function term_check(id){
+  if( id == 0 ){
+    $("#term_check_img").attr("src", "/assets/my_account/checkbox-02.png");
+    $("#term_check_img").attr("onclick", "term_check(1);");
+    term_check_boolean = true;
+  }else{
+    $("#term_check_img").attr("src", "/assets/my_account/checkbox-01.png");
+    $("#term_check_img").attr("onclick", "term_check(0);");
+    term_check_boolean = false;
+  
+  }
+        
+    }
+      </script>
+      <h5 class="ok"><img id="term_check_img" style="cursor:pointer;" src="/assets/my_account/checkbox-01.png" onclick="term_check(0);"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <p>1. 입금확인</p>
+      <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
+      <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
+      <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
+      <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
+      </form>
+
+    </div>
+
+    
+  </div>
+</div>
+
+
+
+
+
+<!-- language-delete-1 Modal -->
+<div class="modal fade" id="Modal-language-delete-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-id="">
+  <div class="modal-dialog modal-dialog-language-delete-1">
+    <div class="modal-content modal-language-delete-1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Are you sure to delete this language?</h2>
+        <p>All of your writings with this language will be deleted</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal" onclick="languagedelcomplete();">Yes</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">No</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- language-delete-2 Modal -->
+<div class="modal fade" id="Modal-language-delete-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-language-delete-2">
+    <div class="modal-content modal-language-delete-2">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>You must maintain at least one language.</h2>
+        
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- before-leaving Modal -->
+<div class="modal fade" id="Modal-before-leaving" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-before-leaving">
+    <div class="modal-content modal-before-leaving">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Will you save before leaving?</h3>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-b" data-dismiss="modal">
+          Delete</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- multiple-rate Modal -->
+<div class="modal fade" id="Modal-multiple-rate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-multiple-rate">
+    <div class="modal-content modal-multiple-rate">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4>You'd better state the difference of Est. <br>Result among to the prices in Service Detail.</h4>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+function textarea_resize(obj, offset) {
+   obj.style.height = "1px";
+   obj.style.height = (obj.scrollHeight + offset) + "px";
+}
+</script>

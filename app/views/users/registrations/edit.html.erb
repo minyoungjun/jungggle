@@ -4,27 +4,27 @@
 
     <div class="right-profile">
       <div style="display:none">
-        <form accept-charset="UTF-8" action="/users" class="edit_user" id="edit_user" method="post" enctype="multipart/form-data">
+        <form accept-charset="UTF-8" <%if current_user.confirmed_at != nil%> action="/users" <%end%> class="edit_user" id="edit_user" method="post" enctype="multipart/form-data">
           <input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" />
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
       </div>
       <h1>Profile</h1>
       <%= devise_error_messages! %>
-      <input type="text" name="first_name" placeholder="James" class="short-form" value="<%=@user.first_name%>" required>
-      <input type="text" placeholder="Lim" name="last_name" class="short-form" value= "<%=@user.last_name%>" required>
-      <input type="email"name="user[email]" value="<%=@user.email%>" class="long-form" required>
-      <input type="password" name="user[password_confirmation]" placeholder="New Password" class="long-form">
-      <input type="password" name="user[password]" placeholder="Password Confirmation" class="long-form">
-      <input type="password" name="user[current_password]" placeholder="Current Password" class="long-form" required>
+      <input type="text" name="first_name" placeholder="James" class="short-form" value="<%=@user.first_name%>" required <%if current_user.confirmed_at == nil %>disabled<%end%>>
+      <input type="text" placeholder="Lim" name="last_name" class="short-form" value= "<%=@user.last_name%>" required <%if current_user.confirmed_at == nil %>disabled<%end%> >
+      <input type="email"name="user[email]" value="<%=@user.email%>" class="long-form" required  <%if current_user.confirmed_at == nil %>disabled<%end%> >
+      <input type="password" name="user[password_confirmation]" placeholder="New Password" class="long-form" <%if current_user.confirmed_at == nil %>disabled<%end%> >
+      <input type="password" name="user[password]" placeholder="Password Confirmation" class="long-form"  <%if current_user.confirmed_at == nil %>disabled<%end%> >
+      <input type="password" name="user[current_password]" placeholder="Current Password" class="long-form" required  <%if current_user.confirmed_at == nil %>disabled<%end%> >
 
         <div class="upload">
-          <input type="file" name="user[avatar]" placeholder="load">
+          <input type="file" name="user[avatar]" placeholder="load" <%if current_user.confirmed_at == nil %>disabled<%end%>  >
         </div>
       <p class="upload-info">JPG, GIF or PNG, Max size of 000k</p>
 
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="user[news_mailing]" <%if current_user.news_mailing%>checked="true"<%end%>>
+          <input type="checkbox" name="user[news_mailing]" <%if current_user.news_mailing%>checked="true"<%end%>  <%if current_user.confirmed_at == nil %>disabled<%end%> >
           <p>Receive general news (Featured projects, events) from us</p>
         </label>
       </div>
@@ -34,7 +34,12 @@
           <p><span>(Publisher)</span> Receive notice when the new biddings pop for your interested country and marketing type</p>
         </label>
         </div>%>
-      <button type="submit" class="btn btn-default">Save</button>
+      <%if current_user.confirmed_at != nil %>
+
+        <button type="submit" class="btn btn-default">Save</button>
+      <%else%>
+        <p>Please confirm your email address, a confirm mail was sent to <%=current_user.email%></p>
+      <%end%>
       </form>
     </div>
   </div>

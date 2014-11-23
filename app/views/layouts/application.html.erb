@@ -111,7 +111,11 @@ function search_auto_func(){
             <div class="log-info-pub">
               <h5>Service Provider</h5>
               <a href="/home/ready_project">Projects</a><br>
-              <a href="/publishers/manage">Manage Service</a><br>
+              <%if user_signed_in? && current_user.is_admin%>
+                <a href="/manages/services">Manage Services(Admin)</a><br>
+              <%else%>
+                <a href="/publishers/manage">Manage Service</a><br>
+              <%end%>
               <a href="/publishers/create">Create Service</a><br>
               <a href="/home/">Cash out</a>
             </div>
