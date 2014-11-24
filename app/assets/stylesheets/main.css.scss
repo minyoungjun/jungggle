@@ -79,24 +79,23 @@
           hr {
             margin: 3px 15px;
           }
+        }
+        .other-tooltip {
+          display: none;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          position: absolute;
+          left: 158px;
+          bottom: -18px;
+          color: #ccc;
+          width: 250px;
+          padding: 10px 13px;
+          background-color: white;
+        }
 
+        .other:hover {
           .other-tooltip {
-            display: none;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            position: absolute;
-            left: 158px;
-            bottom: -18px;
-            color: #ccc;
-            width: 250px;
-            padding: 10px 13px;
-            background-color: white;
-          }
-
-          .other:hover {
-            .other-tooltip {
-              display: block;
-            }
+            display: block;
           }
         }
       }
@@ -274,12 +273,13 @@
         display: none;
         position: absolute;
         bottom: 0;
-        padding-left: 10px;
+        padding-left: 8px;
         background-color: white;
+        width: 197px;
         input {
-          width: 60px;
+          width: 58px;
           display: inline-block;
-          margin: 0 3px;
+          margin: 0 7px 0 0;
         }
       }
       h5 {
