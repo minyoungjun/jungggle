@@ -564,7 +564,7 @@
       td {
         padding: 15px 25px; 
         img {
-          margin: 0 20px 0 5px;
+          margin: 0 50px 0 5px;
         }
         .btn {
           border-radius: 10px;
@@ -592,15 +592,61 @@
       .owner {
         .delete {
           cursor: pointer;
+          display: inline-block;
+        }
+        .delete-hover {
+          display: none;
+          position: absolute;
+          background-color: white;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 10px 20px;
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          margin-left: -42px;
+          margin-top: 10px;
+          .pointer {
+            margin: 0;
+            position: absolute;
+            top: -11px;
+            right: 46px;
+          }
         }
         .delete:hover {
-          content: url(/assets/my_account/person_1_red.png);
+          .person1 {
+            content: url(/assets/my_account/person_1_red.png);  
+          }
+          .delete-hover {
+            display: block;
+          }
         }
         .change {
           cursor: pointer;
+          display: inline-block;
+        }
+        .change-hover {
+          display: none;
+          position: absolute;
+          background-color: white;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 10px 20px;
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          margin-left: -50px;
+          margin-top: 10px;
+          .pointer {
+            margin: 0;
+            position: absolute;
+            top: -11px;
+            right: 59px;
+          }
         }
         .change:hover {
-          content: url(/assets/my_account/person_2_red.png);
+          .person2 {
+            content: url(/assets/my_account/person_2_red.png);  
+          }
+          .change-hover {
+            display: block;
+          }
         }
       }
     }
