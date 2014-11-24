@@ -120,6 +120,21 @@
       color: #b6b6b6;
     }
 
+    .avatar-btn {
+      margin: 0;
+      border: 0;
+      border-radius: 5px;
+      background-color: #aaa;
+      color: white;
+      padding: 10px 40px;
+      display: inline-block;
+      cursor: pointer;
+      visibility: hidden;
+    }
+    .avatar-btn:hover {
+      background-color: #999;
+    }
+
     .checkbox {
       input {
         margin: 0;
@@ -573,6 +588,20 @@
       .email {
         color: #5eb12f;
         width: 400px;
+      }
+      .owner {
+        .delete {
+          cursor: pointer;
+        }
+        .delete:hover {
+          content: url(/assets/my_account/person_1_red.png);
+        }
+        .change {
+          cursor: pointer;
+        }
+        .change:hover {
+          content: url(/assets/my_account/person_2_red.png);
+        }
       }
     }
   }
