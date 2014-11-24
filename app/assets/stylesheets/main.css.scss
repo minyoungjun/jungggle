@@ -9,13 +9,13 @@
 .main {
   position: relative;
   text-align: center;
-  padding: 150px 0 350px;
+  padding: 150px 0 400px;
 
 
   .subheadline {
     color: #2f2f2f;
     font-size: 26px;
-    margin: 30px 0 10px;
+    margin: 20px 0 40px;
   }
 
 
@@ -32,7 +32,13 @@
       display: inline-block;
       text-align: left;
       position: relative;
-      
+      .glyphicon {
+        font-size: 11px;
+        float: right;
+        margin-right: 20px;
+        position: relative;
+        top: 3px;
+      }
     }
 
     .country {
@@ -84,19 +90,27 @@
        
         .other {
           display: inline-block;
-          content: #777;
-          padding: 3px 15px 10px;
+          color: #777;
+          padding: 3px 20px 10px;
           .other-tooltip {
             display: none;
             border: 1px solid #eee;
             border-radius: 5px;
             position: absolute;
             left: 158px;
-            bottom: -18px;
-            color: #ccc;
+            bottom: -23px;
+            color: #aaa;
             width: 250px;
             padding: 10px 13px;
             background-color: white;
+            img {
+              -ms-transform: rotate(-90deg); /* IE 9 */
+              -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+              transform: rotate(-90deg);
+              position: absolute;
+              top: 33px;
+              left: -13px;
+            }
           }
         }
         .other:hover {
