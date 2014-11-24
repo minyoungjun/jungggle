@@ -29,14 +29,14 @@ body {
       position: absolute;
       margin-top: 10px;
       display: inline-block;
-      left: 45%;
+      left: 43%;
       z-index: 100;
 
       input {
         margin: 0 auto;
         border-radius: 5px;
         border: 0;
-        padding: 9px 10px 5px 35px;
+        padding: 7px 10px 7px 35px;
         font-size: 13px;
         border: 1px solid #eee;
         background-color: #f3f3f3;
@@ -44,7 +44,8 @@ body {
       }
       span {
         position: relative;
-        left: 30px;
+        left: 28px;
+        top: 3px;
         color: #aaa;
       }
       .search-drop {
