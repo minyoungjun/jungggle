@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   get '/manages/company_profile/:id' => "manages#company_profile"
   get '/manages/services'
   get '/manages/create'
+  post '/manages/create_process'
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection
