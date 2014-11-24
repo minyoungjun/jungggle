@@ -77,6 +77,36 @@
         color: white;
         background-color: #4F9E22;
       }
+      .info-hover-area {
+        display: inline-block;
+        margin-bottom: 5px;
+
+        .info-hover {
+          display: none;
+          position: absolute;
+          padding: 15px;
+          width: 240px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          background-color: white;
+          font-size: 12px;
+          line-height: 20px;
+          margin-top: 8px;
+          margin-left: -60px;
+          z-index: 100;
+          img {
+            position: absolute;
+            margin-top: -26px;
+            margin-left: 19%;
+          }
+        }
+      }
+      .info-hover-area:hover {
+        .info-hover {
+          display: block;
+        }
+      }
     }
 
 

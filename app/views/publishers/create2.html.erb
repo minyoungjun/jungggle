@@ -82,7 +82,12 @@ function language_click(id){
 
 
       <div class="pack languages">
-        <h3>Language &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3>Language &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">다양한 언어로 당신의 서비스를 소개하고 싶을 경우에 Language를 추가하여 번역된 텍스트를 입력하세요.</div>
+          </div>
+        </h3>
         <span id="selected_languages"></span>
          <div class="popover-markup">
           <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
@@ -180,7 +185,15 @@ function platform_change(id){
 
       <div class="pack">
 
-        <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3 style="vertical-align: top;">
+          Service Detail &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              서비스에 대한 상세 내용을 입력해주세요.<br><br>1) 광고주가 구매 결정을 내릴 수 있도록 가능한 자세한 정보가 있는 것이 좋습니다. <br><br>2)가독성을 높이기 위해 +버튼을 클릭하여 문장별로 분리하여 작성해주세요.<br><br>3)Attach Image 버튼을 통해 각 문장마다 서비스 소개에 필요한 이미지를 첨부시킬 수 있습니다. 이미지가 첨부된 문장에 마우스 커서를 올리면 해당 이미지가 출력됩니다.
+            </div>
+          </div>
+        </h3>
         <input type="hidden" name="detail_count" id="detail_count" value="0">
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
@@ -289,7 +302,14 @@ function detail_remove(id){
       </script>
       <div class="pack cost">
         <input type="hidden" name="cost_type" value="0" id="cost_type">
-        <h3>Cost &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3>Cost &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              가격에 따라 제공되는 서비스 내용이 다른 경우에는 Multiple Rate을 선택하는 것이 아니라 별도로 새로운 Service를 만들어야 합니다.
+            </div>
+          </div>
+        </h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
@@ -346,7 +366,14 @@ function delete_country(id){
 
 
       <div class="pack country">
-        <h3>Country &nbsp;<img src="/assets/my_account/circle_info.png"></h3>
+        <h3>Country &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              당신의 서비스가 제공되는 국가를 선택하세요. (Please choose the country that your service can cover.)<br>국가별로 금액이나 서비스 내용이 다를 경우에는 본 선택지 상에서 국가를 추가하지 말고 별도로 새로운 Service를 만들어야 합니다.
+            </div>
+          </div>
+        </h3>
         <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
           <div id="country_box_0">
             <input type="hidden" id="country_input_0" name="country[0]">
