@@ -264,10 +264,11 @@
       position: relative;
       font-size: 14px;
       right: 4px;
+      bottom: 1px;
       input {
         border: 0;
         padding-left: 10px;
-        height: 56px;
+        height: 55px;
       }
       .cost-hover {
         display: none;
@@ -309,8 +310,9 @@
       border-radius: 0 10px 10px 0;
       font-size: 17px;
       position: relative;
-      right: 11px;
-      height: 58px;
+      right: 7px;
+      top: 1px;
+      height: 57px;
       img {
         position: relative;
         margin-left: 10px;
