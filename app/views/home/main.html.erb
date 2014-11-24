@@ -23,7 +23,7 @@
           <hr>
           <li class="title other">
             Other Countries..
-            <div class="other-tooltip">
+            <div class="other-tooltip" id="other">
               Countries are still adding whenever Publisher create service on particular country.
             </div>
           </li>
@@ -36,39 +36,39 @@
       <div class="marketing drop">
         <h3 id="marketing_text">Marketing type</h3>
         <div class="marketing-down">
-                <ul>
-                  <%Marketingtype.where(:filter => 1).each do |marketing1|%>
-                    <%if marketing1.name == "All"%>
-                      <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
-                    <%else%>
-                      <li class="division" >
-                      <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
-                        <%if marketing1.child_types.count != 0%>
-                          <div class="division-hover" style="min-height:230px;">
-                            <ul>
-                              <% marketing1.child_types.each do |marketing2|%>
-                                <%if marketing2.filter == 2%>
-                                  <ul>
-                                    <li class="title" onclick="marketing_click_search(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_search_<%=marketing2.id%>" ><%=marketing2.name%></li>
-                                    <%if marketing2.child_types.count != 0%>
-                                      <%marketing2.child_types.each do |marketing3|%>
-                                        <%if marketing3.filter != 4%>
-                                          <li onclick="marketing_click_search(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
-                                        <%end%>
-                                      <%end%>
+            <ul>
+              <%Marketingtype.where(:filter => 1).each do |marketing1|%>
+                <%if marketing1.name == "All"%>
+                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
+                <%else%>
+                  <li class="division" >
+                  <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                    <%if marketing1.child_types.count != 0%>
+                      <div class="division-hover" style="min-height:230px;">
+                        <ul>
+                          <% marketing1.child_types.each do |marketing2|%>
+                            <%if marketing2.filter == 2%>
+                              <ul>
+                                <li class="title" onclick="marketing_click_search(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_search_<%=marketing2.id%>" ><%=marketing2.name%></li>
+                                <%if marketing2.child_types.count != 0%>
+                                  <%marketing2.child_types.each do |marketing3|%>
+                                    <%if marketing3.filter != 4%>
+                                      <li onclick="marketing_click_search(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
                                     <%end%>
-                                  </ul>
-                                <%else%>
-                                  <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
-                              <%end%>
-                            <%end%>
-                          </ul>
-                      </div>
-                    <%end%>
-                    </li>
-                  <%end%>
+                                  <%end%>
+                                <%end%>
+                              </ul>
+                            <%else%>
+                              <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                          <%end%>
+                        <%end%>
+                      </ul>
+                  </div>
                 <%end%>
-              </ul>
+                </li>
+              <%end%>
+            <%end%>
+          </ul>
 
         </div>
       </div>

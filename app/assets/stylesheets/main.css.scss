@@ -79,20 +79,20 @@
           hr {
             margin: 3px 15px;
           }
-          .other {
-            .other-tooltip {
-              display: none;
-              border: 1px solid #eee;
-              border-radius: 5px;
-              position: absolute;
-              left: 158px;
-              bottom: -18px;
-              color: #ccc;
-              width: 250px;
-              padding: 10px 13px;
-              background-color: white;
-            }
+
+          .other-tooltip {
+            display: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            position: absolute;
+            left: 158px;
+            bottom: -18px;
+            color: #ccc;
+            width: 250px;
+            padding: 10px 13px;
+            background-color: white;
           }
+
           .other:hover {
             .other-tooltip {
               display: block;
@@ -324,19 +324,6 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
