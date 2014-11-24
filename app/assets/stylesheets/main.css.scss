@@ -60,11 +60,12 @@
         padding-top: 10px;
         cursor: pointer;
         top: 63px;
-        max-height: 250px;
-        overflow-y: scroll; 
+        
         ul {
           list-style: none;
           padding-left: 0;
+          max-height: 250px;
+          overflow-y: scroll; 
           li {
             padding: 3px 15px;
             color: #bbb;
@@ -80,19 +81,24 @@
             margin: 3px 15px;
           }
         }
-        .other-tooltip {
-          display: none;
-          border: 1px solid #eee;
-          border-radius: 5px;
-          position: absolute;
-          left: 158px;
-          bottom: -18px;
-          color: #ccc;
-          width: 250px;
-          padding: 10px 13px;
-          background-color: white;
+       
+        .other {
+          display: inline-block;
+          content: #777;
+          padding: 3px 15px 10px;
+          .other-tooltip {
+            display: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            position: absolute;
+            left: 158px;
+            bottom: -18px;
+            color: #ccc;
+            width: 250px;
+            padding: 10px 13px;
+            background-color: white;
+          }
         }
-
         .other:hover {
           .other-tooltip {
             display: block;

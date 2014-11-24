@@ -15,15 +15,14 @@
     <div class="country drop">
       <h3 id="country_text_search">Country</h3>
       <div class="country-down">
-        <div class="title" id="country_0" onclick="country_select_search(0);">All</div><hr>
         <ul>
+          <li class="title" id="country_0" onclick="country_select_search(0);">All</li><hr>
           <%@countries.each do |country|%>
             <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
           <%end%>
           <hr>
-          
         </ul>
-        <div class="title other">
+        <div class="other">
           Other Countries..
           <div class="other-tooltip" id="other">
             Countries are still adding whenever Publisher create service on particular country.
