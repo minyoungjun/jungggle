@@ -589,6 +589,20 @@
         color: #5eb12f;
         width: 400px;
       }
+      .owner {
+        .delete {
+          cursor: pointer;
+        }
+        .delete:hover {
+          content: url(/assets/my_account/person_1_red.png);
+        }
+        .change {
+          cursor: pointer;
+        }
+        .change:hover {
+          content: url(/assets/my_account/person_2_red.png);
+        }
+      }
     }
   }
 }

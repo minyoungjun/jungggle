@@ -16,7 +16,8 @@
         <tr class="table-body">
           <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
           <td class="email"><%=member.user.email%></td>
-          <td><img src="/assets/my_account/person_1_gray.png"><%=member.owner%></td>
+          <td class="owner"><img src="/assets/my_account/person_1_gray.png" class="delete" data-toggle="tooltip" title="Delete User" id="element" data-placement="bottom"><!-- <%=member.owner%> --><img src="/assets/my_account/person_2_gray.png" class="change" data-toggle="tooltip" title="Change Owner" id="element2" data-placement="bottom">
+          </td>
         </tr>
         <%end%>
       </table>
@@ -40,6 +41,11 @@
   </div>
 </div>
 
+
+<script>
+$('#element').tooltip('hide')
+$('#element2').tooltip('hide')
+</script>
 
 
 
