@@ -17,7 +17,7 @@
         <tr class="table-body">
           <td><img src="<%=company.logo.url(:thumb)%>"/></td>
           <td><%=company.comlangs.first.name%></td>
-          <td><%=company.members.where(:owner => true).first.user.email%></td>
+          <td><%if company.members.count != 0%><%=company.members.where(:owner => true).first.user.email%><%end%></td>
           <td>
             <a href="/manages/company_profile/<%=company.id%>">Profile</a>
           </td>
