@@ -146,15 +146,10 @@ function language_select(id){
       <h5>* Last update on <%=@product.updated_at.to_s[0..9]%></h5>
       <div class="clients">
         <h1>Clients</h1>
-        <%@company.comclients.each do |client|%>
-          <div class="clients_images" style="background-image:url('<%=client.logo.url(:medium)%>');"></div>
-        <%end%>
-        <br><br>
         <div class="logo-area">
-          <img src="/assets/product_result/sample1.jpg">
-          <img src="/assets/product_result/sample2.jpg">
-          <img src="/assets/product_result/sample3.png">
-          <img src="/assets/product_result/sample4.jpg">
+          <%@company.comclients.each do |client|%>
+            <img src="<%=client.logo.url(:medium)%>"/>
+          <%end%>
         </div>
       </div>
       <div class="results">

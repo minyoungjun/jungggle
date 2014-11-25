@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'publishers/create2'
   post 'publishers/create_process'
   get 'publishers/manage'
+
+  get 'publishers/edit/:id' => 'publishers#edit'
   get 'products/search_detail/:id' => "products#search_detail"
   get 'products/search_result/:id' => "products#search_result"
   get 'products/cart'
@@ -56,7 +58,6 @@ Rails.application.routes.draw do
   post 'users/signup_company'
   get 'confirmation/:id' => "users#email_confirmation"
 
-  get 'publishers/createblack'
   get 'users/finish_signup2'
   get 'users/email_confirm'
   get 'home/ready'

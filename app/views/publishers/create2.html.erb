@@ -7,22 +7,20 @@
 
     $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' id='del-language-"+lang_id+"' data-delete='" + lang_id + "'>X</span></div>");
 
-    $(".p_language_" + String(lang_id)).css('display', 'none');
+    $("#p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
     $('.popover').hide();
     $("#check_" + lang_id).attr("checked", true);
-    $("#title_" + lang_id).attr("required", true);
     language_click(lang_id);
     return false;
   }
   function languagedelcomplete(){
     lang = $("#del-language-"+ del_to_lang);
-    $(".p_language_" + del_to_lang).css('display', 'inline-block');
+    $("#p_language_" + del_to_lang).css('display', 'inline-block');
     $(lang).parent().remove();
     $(".trigger").trigger("click");
     $(".trigger").trigger("click");
     $("#check_" + del_to_lang).attr("checked", false);
-    $("#title_" + del_to_lang).attr("required", false);
     var first_id = $(".language_checks:checked:first").data("id");
     language_click(first_id);
     return false;
@@ -41,7 +39,7 @@
   }
 
 $(document).ready(function(){
-    $('.p_language_1').trigger("click");
+    $('#p_language_1').trigger("click");
     $(".trigger").trigger("click");
 
     });
@@ -93,7 +91,7 @@ function language_click(id){
           <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
           <div class="content hide" style="top: 280px; left: 389px; display: block;">
             <%Language.all.each do |language|%>
-              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" id="p_language_<%=language.id%>"><%=language.name%></p>
             <%end%>
           </div>
         </div>
@@ -314,11 +312,11 @@ function detail_remove(id){
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
           <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-          <input type="number" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <input type="text" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
           <div id="multiple-area" style="display:none;">
             <div id="cost_div_1" class="">
               <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-              <input type="number" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+              <input type="text" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
             </div>
           </div>
         </div>
@@ -342,7 +340,7 @@ function minimum_check(id){
         <h3>Minimum Budget</h3>
         <img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img">&nbsp;&nbsp;
         <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-        <input type="number" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;">
+        <input type="text" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;">
       </div>
 
 
@@ -413,20 +411,27 @@ function delete_attach(language_id, prodocu_id){
   $("#prodocu_" + language_id + "_" + prodocu_id).remove();
 
 }
+function attach_document(){
+  $("#attach_document").slideToggle();
+  $(".check_1").toggle(0);
+}
+
       </script>
         <div class="pack optional " >
-          <h3>[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png"></h3><br>
-          <%Language.all.each do |language|%>
-            <div  class="upload_box"  id="upload_box_<%=language.id%>">
-              <div class="pack-1" id="upload-btn-div-<%=language.id%>">
-                <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
-                <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+          <h3 onclick="attach_document();" style="cursor:pointer;">[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png" class="check_1"/><img src="/assets/my_account/checkbox-02.png" style="display:none;" class="check_1"/></h3><br>
+          <div id="attach_document" style="display:none;">
+            <%Language.all.each do |language|%>
+              <div  class="upload_box"  id="upload_box_<%=language.id%>">
+                <div class="pack-1" id="upload-btn-div-<%=language.id%>">
+                  <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
+                  <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+                </div>
+                <div id ="upload_input_<%=language.id%>"style="display:none;">
+                  <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
+                </div>
               </div>
-              <div id ="upload_input_<%=language.id%>"style="display:none;">
-                <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
-              </div>
-            </div>
-          <%end%>
+            <%end%>
+          </div>
         </div>
 
 
@@ -452,11 +457,13 @@ function term_check(id){
     }
       </script>
       <h5 class="ok"><img id="term_check_img" style="cursor:pointer;" src="/assets/my_account/checkbox-01.png" onclick="term_check(0);"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      <!--
       <p>1. 입금확인</p>
       <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
       <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
       <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
       <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
+      -->
       </form>
 
     </div>

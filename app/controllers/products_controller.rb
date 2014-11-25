@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
     @company = Company.find(params[:id])
 
-    @products = @company.products.order('created_at DESC')
+    @products = @company.products.order('created_at ASC')
 
   end
 
@@ -76,7 +76,7 @@ class ProductsController < ApplicationController
       @products_array[order_number] = Product.all
     end
 
-    @products = @products_array[0] & @products_array[1] & @products_array[2]
+    @products = (@products_array[0] & @products_array[1] & @products_array[2] ).sort_by(&:updated_at).reverse
 
 
   end

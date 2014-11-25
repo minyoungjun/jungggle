@@ -4,6 +4,11 @@ class PublishersController < ApplicationController
   before_filter :is_confirmed
   before_filter :company_confirmed
 
+  def edit
+
+    @product = Product.find(params[:id])
+
+  end
   def create
     logger.debug "==" + current_user.member.inspect
     if current_user.member == nil
