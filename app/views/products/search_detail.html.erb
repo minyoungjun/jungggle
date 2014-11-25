@@ -97,8 +97,7 @@ function language_select(id){
       <table>
         <tr class="table-header">
           <td class="service-name">Service name</td>
-          <td>Service details
-          </td>
+          <td>Service details</td>
           <td>Cost</td>
           <td></td>
         </tr>
@@ -132,7 +131,7 @@ function language_select(id){
             </div> -->
 
           </td>
-          <td style="width: 430px; padding-right: 15px;">
+          <td class="service-details" style="width: 430px; padding-right: 15px;">
             <%@product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
                 <% prolang.detailangs.each do |detailang| %>
