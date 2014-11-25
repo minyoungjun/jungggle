@@ -513,7 +513,6 @@
     }
   }
 
-
   .btn {
     width: 450px;
     padding: 15px 40px;
@@ -523,10 +522,12 @@
     font-size: 16px;
     margin: 40px 0;
   }
+  .no-img {
+    visibility: hidden;
+  }
   .no-img:hover {
     content: url(/assets/noimg-02.png);
   }
-
 }
 
 
