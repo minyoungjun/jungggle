@@ -125,7 +125,7 @@ class PublishersController < ApplicationController
   end
   def manage
     if current_user.member != nil && current_user.member.approved
-      @services = current_user.member.company.services
+      @services = current_user.member.company.products
 
     else
     end
