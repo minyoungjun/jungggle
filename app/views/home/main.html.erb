@@ -1,6 +1,6 @@
 <!-- <img src="/assets/main/main_bg.jpg" class="main-bg"> -->
 <div class="main">
-  <img src="/assets/logo-01.png">
+  <img src="/assets/logo-01.png" style="height: 120px;">
   <p class="subheadline">The best way to buy &amp; sell marketing services</p>
 
 
@@ -13,9 +13,9 @@
 
   <div class="select">
     <div class="country drop">
-      <h3 id="country_text_search">Country</h3>
+      <h3 id="country_text_search">Country<span class="glyphicon glyphicon-chevron-down"></span></h3>
       <div class="country-down">
-        <ul>
+        <ul class="country-down-content">
           <li class="title" id="country_0" onclick="country_select_search(0);">All</li><hr>
           <%@countries.each do |country|%>
             <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
@@ -24,7 +24,8 @@
         </ul>
         <div class="other">
           Other Countries..
-          <div class="other-tooltip" id="other">
+          <div class="other-tooltip">
+            <img src="/assets/my_account/hover_pointer.svg">
             Countries are still adding whenever Publisher create service on particular country.
           </div>
         </div>
@@ -34,14 +35,14 @@
 
     <div class="marketing-mobile">
       <div class="marketing drop">
-        <h3 id="marketing_text">Marketing type</h3>
+        <h3 id="marketing_text">Marketing type<span class="glyphicon glyphicon-chevron-down"></span></h3>
         <div class="marketing-down">
             <ul>
               <%Marketingtype.where(:filter => 1).each do |marketing1|%>
                 <%if marketing1.name == "All"%>
-                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>">All</li><hr>
+                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" style="margin-top: 5px; font-size: 14px;">All</li><hr>
                 <%else%>
-                  <li class="division" >
+                  <li class="division">
                   <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
                     <%if marketing1.child_types.count != 0%>
                       <div class="division-hover" style="min-height:230px;">
@@ -72,8 +73,8 @@
 
         </div>
       </div>
-      <div class="platform" style="display:none;">
-        <h3 id="platform_text">Platform</h3>
+      <div class="platform drop" style="display:none;">
+        <h3 id="platform_text">Platform<span class="glyphicon glyphicon-chevron-down"></span></h3>
         <div class="platform-down">
           <ul>
             <li class="title" id="platform_0" onclick="platform_click_search(0);">All</li><hr>
@@ -87,7 +88,7 @@
 
 
     <div class="cost">
-      <input type="text" placeholder="Cost" id="fake_cost">
+      <input type="text" value="Cost" id="fake_cost">
       <div class="cost-hover">
         $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
         $ | <input type="text" name="cost_to" onkeyup="cost_key();">

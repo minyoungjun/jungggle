@@ -36,7 +36,7 @@ woopra.track();
   <div class="header">
     <div class="container">
       <a href="/home/main" class="logo"><img src="/assets/main/header-logo.png"<%if @main%>style="opacity:0;"<%end%>></a>
-      <div class="header-search">
+      <!-- <div class="header-search">
         <span class="glyphicon glyphicon-search"></span>
         <input type="search" placeholder="Search Company" autofocus autocomplete="off" id="search_title" onchange="search_auto_func();" onkeyup="search_auto_func();" name="search_title" >
         <div class="search-drop search-company-name-drop" style="display:none;">
@@ -50,7 +50,7 @@ woopra.track();
             <%end%>
           <%end%>
         </div>
-      </div>
+      </div> -->
 
       <script>
 function search_auto_func(){
@@ -74,19 +74,28 @@ function search_auto_func(){
           $(".search-company-name-drop").hide();
           
           }
-
 }
-
-
       </script>
-
-
-
+ 
       <div class="header-right">
+        <div class="header-search">
+          <span class="glyphicon glyphicon-search"></span>
+          <input type="search" placeholder="Search Company" autofocus autocomplete="off" id="search_title" onchange="search_auto_func();" onkeyup="search_auto_func();" name="search_title" >
+          <div class="search-drop search-company-name-drop" style="display:none;">
+            <%Company.all.each do |company|%>
+              <%company.comlangs.each do |comlang|%>
+                <a href="/products/search_company/<%=company.id%>">
+                  <div class="search-company search_auto_div" data-company="<%=comlang.name%>">
+                    <img src="<%=company.logo.url(:thumb)%>"><h5><%=comlang.name%></h5>
+                  </div>
+                </a>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
         <ul>
           <!-- <li><a href="#none">Biddings</a></li>-->
           <li><a href="/home/ready_search_detail">Product Results</a></li>
-          
           <%if !(user_signed_in?)%>
             <li><a href="/users/sign_in" class="login-btn">Log in</a></li>
             <li><a href="/users/sign_up" class="signup-btn">Sign up</a></li>
