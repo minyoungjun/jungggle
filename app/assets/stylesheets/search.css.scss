@@ -158,48 +158,7 @@
         td {
           padding: 6px 0;
           color:  #666;
-          .country-view {
-            display: inline-block;
-            cursor: pointer;
-            .country-view-hover {
-              display: none;
-              position: absolute;
-              background-color: white;
-              border: 1px solid #eee;
-              border-radius: 5px;
-              padding: 0;
-              box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
-              margin-top: 12px;
-              margin-left: -20px;
-              .pointer {
-                position: absolute;
-                margin-top: -11px;
-                margin-left: 42px;
-              }
-
-              ul {
-                list-style: none;
-                padding: 13px 30px 13px 20px;
-                height: 200px;
-                overflow-y: scroll;
-                li {
-                  padding-bottom: 3px;
-                }
-                li:hover {
-                  color: #5eb12f;
-                }
-              }
-            }
-          }
-          .country-view:hover {
-            .globe {
-              content: url(/assets/search/country_hover.svg);  
-            }
-            
-            .country-view-hover {
-              display: block;
-            }
-          }
+          
         }
       }
       .table-body {
@@ -214,6 +173,56 @@
           .b {
             color: #bbb;
           }
+
+
+          .country-view {
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 3px;
+            .country-view-hover {
+              display: none;
+              position: absolute;
+              background-color: white;
+              border: 1px solid #eee;
+              border-radius: 5px;
+              padding: 0;
+              box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+              margin-top: 12px;
+              margin-left: -20px;
+              .pointer {
+                position: absolute;
+                margin-top: -11px;
+                margin-left: 26px;
+              }
+
+              ul {
+                list-style: none;
+                padding: 13px 30px 13px 20px;
+                height: 200px;
+                overflow-y: scroll;
+                li {
+                  padding-bottom: 3px;
+                  color: #aaa;
+                }
+                li:hover {
+                  color: #5eb12f;
+                }
+              }
+            }
+          }
+          .country-view:hover {
+            .globe {
+              content: url(/assets/search/globe-02.svg);  
+            }
+            .country-view-hover {
+              display: block;
+            }
+          }
+
+
+
+
+
         }
         .service-detail {
           width: 450px;

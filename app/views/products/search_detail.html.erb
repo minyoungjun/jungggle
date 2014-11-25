@@ -98,8 +98,14 @@ function language_select(id){
         <tr class="table-header">
           <td class="service-name">Service name</td>
           <td>Service details
+          </td>
+          <td>Cost</td>
+          <td></td>
+        </tr>
+        <tr class="table-body">
+          <td class="service-name"><%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%>
             <div class="country-view">
-              <img src="/assets/search/country.svg" style="margin-left: 20px;" class="globe">
+              <img src="/assets/search/globe-01.svg" class="globe">
               <div class="country-view-hover">
                 <img src="/assets/my_account/hover_pointer.svg" class="pointer">
                 <ul>
@@ -124,12 +130,8 @@ function language_select(id){
                 </ul> 
               </div>
             </div>
+
           </td>
-          <td>Cost</td>
-          <td></td>
-        </tr>
-        <tr class="table-body">
-          <td class="service-name"><%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%></td>
           <td style="width: 430px; padding-right: 15px;">
             <%@product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
