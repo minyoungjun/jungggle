@@ -312,7 +312,7 @@ function detail_remove(id){
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
           <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-          <input type="text" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <input type="number" step="any" min="0" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
           <div id="multiple-area" style="display:none;">
             <div id="cost_div_1" class="">
               <h5 style="position:relative; left:27px; display: inline-block">$</h5>
