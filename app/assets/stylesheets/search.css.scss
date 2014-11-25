@@ -59,10 +59,13 @@
         .company-img {
           padding-right: 0;
           width: 140px;
-          text-align: left;
+          text-align: center;
+          font-weight: 700;
+
           img {
             width: 120px;
             margin-right: 10px;
+            margin-bottom: 5px;
           }
         }
         .service-name {
@@ -382,6 +385,10 @@
           }
           .name {
             color: #aaa;
+          }
+          .link {
+            word-break: break-all;
+            width: 200px;
           }
         }
       }
