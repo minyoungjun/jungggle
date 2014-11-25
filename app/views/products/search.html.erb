@@ -19,7 +19,7 @@
           <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.first.title%></a></td>
           <td class="detail"><a href="/products/search_detail/<%=product.id%>"><%product.prolangs.first.detailangs.each do |detailang|%>- <%=simple_format(detailang.content, {}, wrapper_tag: "span")%><br><%end%></a>
           </td>
-          <td><%product.procons.each do |procon|%><%=procon.country.name%><br><%end%></td>
+          <td><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><br><%end%><%end%></td>
           <td><%=product.marketingtype.name%></td>
           <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span></td>
           <td><a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a></td>
