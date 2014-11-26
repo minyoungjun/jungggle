@@ -25,7 +25,9 @@
             <td class="name"><%if service.prolangs.count != 0%><%=service.prolangs.first.title%><%end%></td>
             <td><%service.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%></td>
             <td class="marketing"><%service.marketingtype.upper_types.each do |marketing|%><%=marketing.name%>/<%end%></td>
-            <td class="font-bold">$0.1 - 0.7</td>
+            <td class="font-bold"><%if service.costs.count > 1%>$<%=service.costs.order(:money).first.money.to_f%> - $<%=service.costs.order(:money).last.money.to_f%><%else%>$<%=service.costs.first.money%><%end%>
+              
+              </td>
             <td class="font-bold">$0</td>
             <td><img src="/assets/my_account/on.png"></td>
             <td><a href="/manages/edit_service/<%=service.id%>"><div class="btn btn-default">Edit</div></a></td>
