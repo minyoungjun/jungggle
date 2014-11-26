@@ -7,18 +7,19 @@
 
     $("#selected_languages").append("<div class='selected-languages' onclick='language_click(" + lang_id + ");' id='language-select-" + lang_id + "' >" + lang_nick + "&nbsp;&nbsp;&nbsp;<span onclick='languagedelete(this); return false;' id='del-language-"+lang_id+"' data-delete='" + lang_id + "'>X</span></div>");
 
-    $(".p_language_" + String(lang_id)).css('display', 'none');
+    $("#p_language_" + String(lang_id)).css('display', 'none');
     $(".trigger").trigger("click");
     $('.popover').hide();
     $("#check_" + lang_id).attr("checked", true);
+    $("#delete_language_" + lang_id).remove();
     language_click(lang_id);
     return false;
   }
   function languagedelcomplete(){
     lang = $("#del-language-"+ del_to_lang);
-    $(".p_language_" + del_to_lang).css('display', 'inline-block');
+    $("#p_language_" + del_to_lang).css('display', 'inline-block');
+
     $(lang).parent().remove();
-    $(".trigger").trigger("click");
     $(".trigger").trigger("click");
     $("#check_" + del_to_lang).attr("checked", false);
     var first_id = $(".language_checks:checked:first").data("id");
@@ -36,12 +37,33 @@
       $("#Modal-language-delete-2").modal();
       return false;
     }
+
+
   }
 
 $(document).ready(function(){
-    $('.p_language_1').trigger("click");
-    $(".trigger").trigger("click");
-
+    <%@product.prolangs.each do |prolang|%>
+      $('#p_language_<%=prolang.language.id%>').trigger("click");
+    <%end%>
+      $("#language-select-<%=@product.prolangs.first.language.id%>").trigger("click");
+      $(".trigger").trigger("click");
+      $('#marketing_li_<%=@product.marketingtype.id%>').trigger("click");
+      <%if 1 < @product.costs.count %>
+        radio_cost(1);
+        
+      <%end%>
+      <%if @product.minimum_budget != nil%>
+        minimum_check(1);
+      <%end%>
+      <% docu_array = Array.new%>
+      <%@product.prolangs.each do |prolang|%>
+        <%prolang.prodocuments.each do |docu|%>  
+          <%docu_array << docu%>
+        <%end%>
+      <%end%>
+        <%if docu_array.count != 0%>
+          attach_document();
+        <%end%>
     });
 
 function language_click(id){
@@ -70,33 +92,30 @@ function language_click(id){
     <div class="right-create-service">
       <h1>Create Service</h1>
 
-      <form action="/manages/create_process" method="post" enctype="multipart/form-data">
+      <form action="/manages/edit_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+        <input type="hidden" name="product_id" value="<%=@product.id%>">
+        <div style="display:none;" id="has_delete_box"></div>
         <div style="display:none;">
           <%Language.all.each do |lang|%>
             <input type="checkbox" class="language_checks" data-id="<%=lang.id%>" name="lang_<%=lang.id%>" id="check_<%=lang.id%>"><%=lang.name%>
           <%end%>
         </div>
 
-      <div class="pack service-name">
-        <h3>Select Company</h3>
-        <select name="company_id">
-          <%Company.all.each do |company|%>
-            <option value="<%=company.id%>"><%=company.comlangs.first.name%></option>
-          <%end%>
-        </select>
-
-
-      </div>
 
       <div class="pack languages">
-        <h3>Language &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3>Language &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">다양한 언어로 당신의 서비스를 소개하고 싶을 경우에 Language를 추가하여 번역된 텍스트를 입력하세요.</div>
+          </div>
+        </h3>
         <span id="selected_languages"></span>
          <div class="popover-markup">
           <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
           <div class="content hide" style="top: 280px; left: 389px; display: block;">
             <%Language.all.each do |language|%>
-              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
+              <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" id="p_language_<%=language.id%>"><%=language.name%></p>
             <%end%>
           </div>
         </div>
@@ -106,16 +125,16 @@ function language_click(id){
         <h3>Service Name</h3>
 
           <%Language.all.each do |language|%>
-            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name">
+            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name" <%if @product.prolangs.where(:language_id => language.id).count != 0%> value="<%=@product.prolangs.where(:language_id => language.id).last.title%>"<%end%>>
           <%end%>
 
-      </div>
+        </div>
 
         <script>
           function marketing_click(id){
             $("#marketing_btn").html($("#marketing_li_" + id).data("marketing"));
             $("#marketing_id").val(id);
-            if(id > 10 && id < 60){
+            if((id > 10 && id < 60)|| id == 90){
               $(".platform").show();
               $("#platform_0").trigger("click");
             }else{
@@ -125,7 +144,7 @@ function language_click(id){
           }
         </script>
 
-      <input type="hidden" name="marketing_id" value="1" id="marketing_id">
+        <input type="hidden" name="marketing_id" value="<%=@product.marketingtype.id%>" id="marketing_id">
 
       <div class="pack marketing-type">
         <h3>Marketing Type</h3>
@@ -188,10 +207,37 @@ function platform_change(id){
 
       <div class="pack">
 
-        <h3 style="vertical-align: top;">Service Detail &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3 style="vertical-align: top;">
+          Service Detail &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              서비스에 대한 상세 내용을 입력해주세요.<br><br>1) 광고주가 구매 결정을 내릴 수 있도록 가능한 자세한 정보가 있는 것이 좋습니다. <br><br>2)가독성을 높이기 위해 +버튼을 클릭하여 문장별로 분리하여 작성해주세요.<br><br>3)Attach Image 버튼을 통해 각 문장마다 서비스 소개에 필요한 이미지를 첨부시킬 수 있습니다. 이미지가 첨부된 문장에 마우스 커서를 올리면 해당 이미지가 출력됩니다.
+            </div>
+          </div>
+        </h3>
         <input type="hidden" name="detail_count" id="detail_count" value="0">
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
+
+        <%@product.details.each do |detail|%>
+          <div id="has_detail_row_<%=detail.id%>">
+            <%Language.all.each do |language|%>
+              <textarea  placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)"  onkeyup="textarea_resize(this, 10);"  style="font-size: 14px; display:none; vertical-align:middle;" id = "has_detail_<%=detail.id%>_<%=language.id%>" name="has_detail_<%=detail.id%>_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"><%now_prolangs = @product.prolangs.where(:language_id => language.id)%><%if now_prolangs.where(:language_id => language.id).count != 0%><%=detail.detailangs.where(:prolang_id => now_prolangs.first.id).first.content%><%end%></textarea>
+            <%end%>
+            <div class="imagepreview test-upload-img" id="has_imagepreview_<%=detail.id%>" onclick="has_delete_img(<%=detail.id%>);" <%if detail.proimages.count != 0%> style="display:inline-block; background:url('<%=detail.proimages.first.photo.url(:thumb)%>')"<%end%>>
+              <p>delete</p>
+            </div>
+            <div class="attach-img-btn" onclick="$('#has_detail_photo_<%=detail.id%>').trigger('click');" id="has_add_image_<%=detail.id%>"<%if detail.proimages.count != 0%> style="display:none;"<%end%>
+              >
+              Attach Image
+            </div>
+            <img src="/assets/my_account/circle_minus.png" class="attach-plus" onclick="has_detail_remove(<%=detail.id%>);" style="cursor:pointer;">
+          </div>
+        <%end%>
+
+
+
           <div id="detail_row_0">
             <%Language.all.each do |language|%>
               <textarea  placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)"  onkeyup="textarea_resize(this, 10);"  style="font-size: 14px; display:none; vertical-align:middle;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea>
@@ -206,6 +252,9 @@ function platform_change(id){
           </div>
         </div>
         <div style="display:none;"id="detail_file_box">
+          <%@product.details.each do |detail|%>
+            <input type="file" name="has_detail_photo_<%=detail.id%>" id="has_detail_photo_<%=detail.id%>" onchange = "has_onchange_image(<%=detail.id%>);">
+          <%end%>
           <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
         </div>
       </div>
@@ -220,7 +269,13 @@ function delete_img(id){
         $("#detail_file_box").append("<input type='file' name='detail_photo_" + id + "' style='display:none;' id='detail_photo_" + id + "' onchange='onchange_image(" + id + ");'>");
 
         
-        }       
+}       
+function has_delete_img(id){
+        $('#has_add_image_' + id).show();
+        $("#has_imagepreview_" + id).hide();
+        $("#has_detail_photo_" + id).remove();
+        $("#detail_file_box").append("<input type='file' name='has_detail_photo_" + id + "' style='display:none;' id='has_detail_photo_" + id + "' onchange='has_onchange_image(" + id + ");'>");
+}
 
 
 var detail_num = 1;
@@ -241,6 +296,12 @@ function photo_trigger(id){
     }
 function detail_remove(id){
   $("#detail_row_" + id).remove();
+
+}
+
+function has_detail_remove(id){
+  $("#has_detail_row_" + id).remove();
+  $("#has_delete_box").append("<input type='hidden' name='delete_detail[" + id + "]' id='delete_detail_" + id + "' value ='1'>");
 
 }
       
@@ -270,6 +331,43 @@ function detail_remove(id){
         }
 
       }
+
+      function has_onchange_image(num){
+
+        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
+        if (regex.test($('#has_detail_photo_' + num).val().toLowerCase())) {
+            if (false) {
+                $("#has_imagepreview_" + num).show();
+                $("#has_imagepreview_" + num)[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $('#has_detail_photo_' + num).val();
+            }
+            else {
+                if (typeof (FileReader) != "undefined") {
+                    $('#has_add_image_' + num).hide();
+                    $("#has_imagepreview_" + num).css("display", "inline-block");
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#has_imagepreview_" + num).css("background-image", "url('" + e.target.result + "')");
+                    }
+                    reader.readAsDataURL($('#has_detail_photo_' + num)[0].files[0]);
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            }
+        } else {
+            alert("Please upload a valid image file.");
+        }
+
+      }
+
+
+
+
+
+
+
+
+
+
       function radio_cost(id){
         $("#cost_type").val(id);
         if (id == 0){
@@ -288,31 +386,48 @@ function detail_remove(id){
       }
       function cost_delete(id){
         $("#cost_div_" + id).remove();
+        $("#has_delete_box").append("<input type='hidden' name='delete_cost[" + id + "]' value='1'>");
       }
       var cost_count = 2;
       function cost_add(){
-        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><input type="text" placeholder="$" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
+        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><h5 style="position:relative; left:27px; display: inline-block">$</h5><input type="text" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
         cost_count = cost_count + 1;
       }
       </script>
       <div class="pack cost">
         <input type="hidden" name="cost_type" value="0" id="cost_type">
-        <h3>Cost &nbsp;<img src="/assets/my_account/circle_info.png" style="position: relative; bottom: 2px;"></h3>
+        <h3>Cost &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              가격에 따라 제공되는 서비스 내용이 다른 경우에는 Multiple Rate을 선택하는 것이 아니라 별도로 새로운 Service를 만들어야 합니다.
+            </div>
+          </div>
+        </h3>
         <p onclick="radio_cost(0);"><img src="/assets/my_account/radio-02.png" id="radio_cost_0"> Flat Rate</p>
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
-          <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-          <input type="number" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
-          <div id="multiple-area" style="display:none;">
-            <div id="cost_div_1" class="">
-              <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-              <input type="number" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
-            </div>
+
+          <div id="multiple-area">
+            <%d_cost_number = 0%>
+            <%@product.costs.each do |cost|%>
+              <div id="has_cost_<%=cost.id%>">
+                <h5 style="position:relative; left:27px; display: inline-block">$</h5>
+                <input type="text" name="has_cost[<%=cost.id%>]" value="<%=cost.money%>" ><%if d_cost_number == 0%><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" style="display:none;" id="cost_add_img"><%else%><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="has_cost_delete(<%=cost.id%>);"><%end%><%d_cost_number += 1%>
+              </div>
+            <%end%>
           </div>
         </div>
       </div>
 
       <script>
+
+function has_cost_delete(id){
+
+  $('#has_cost_' + id).remove(); 
+  $("#has_delete_box").append("<input type='hidden' name='delete_cost[" + id + "]' id='delete_cost_" + id + "' value ='1'>");
+
+}
 function minimum_check(id){
   if (id == 1 ){
     $("#minimum_img").attr("onclick", "minimum_check(0);");
@@ -330,7 +445,7 @@ function minimum_check(id){
         <h3>Minimum Budget</h3>
         <img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img">&nbsp;&nbsp;
         <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-        <input type="number" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;">
+        <input type="text" onkeyup="minimum_check(1); if($('#minimum_budget').val() == ''){minimum_check(0)}" id="minimum_budget" name="minimum_budget" style="min-width:302px; padding-left: 35px;" <%if @product.minimum_budget != nil%>value="<%=@product.minimum_budget%>"<%end%>>
       </div>
 
 
@@ -340,6 +455,10 @@ function minimum_check(id){
           $("#country_input_" + box_id).val(country_id);
         }
 
+        function has_country_select(box_id, country_id){
+          $("#has_country_btn_" + box_id).html($("#has_country_li_" + box_id + "_" + country_id).html());
+          $("#has_country_input_" + box_id).val(country_id);
+        }
 var country_count = 1;
 function add_country(){
   $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
@@ -350,26 +469,48 @@ function delete_country(id){
   $("#country_box_" + id).remove();
 
 }
+function has_delete_country(id){
+  $("#has_country_box_" + id).remove();
+  $("#has_delete_box").append("<input type='hidden' name='country_delete[" + id + "]' value='1'>")
+}
       </script>
 
 
       <div class="pack country">
-        <h3>Country &nbsp;<img src="/assets/my_account/circle_info.png"></h3>
-        <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
-          <div id="country_box_0">
-            <input type="hidden" id="country_input_0" name="country[0]">
-            <div class="country-drop">
-              <div class="country-btn" id="country_btn_0">Select <span class="glyphicon glyphicon-chevron-down"></span></div>
-              <div class="country-down">
-                <ul>
-                  <%Country.all.each do |country|%>
-                    <li onclick="country_select(0, <%=country.id%>);" id="country_li_0_<%=country.id%>"><%=country.name%></li>
-                  <%end%>
-                </ul>
-              </div>
+        <h3>Country &nbsp;
+          <div class="info-hover-area">
+            <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+              당신의 서비스가 제공되는 국가를 선택하세요. (Please choose the country that your service can cover.)<br>국가별로 금액이나 서비스 내용이 다를 경우에는 본 선택지 상에서 국가를 추가하지 말고 별도로 새로운 Service를 만들어야 합니다.
             </div>
-            <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;" onclick="add_country();">
           </div>
+        </h3>
+        <div class="country-drop-area" style="display:inline-block; vertical-align:top;"id="country-drop-area">
+        <%con_count = 0%>
+          <%@product.procons.each do |procon|%>
+            <div id="has_country_box_<%=procon.id%>">
+              <input type="hidden" id="has_country_input_<%=procon.id%>" name="has_country[<%=procon.id%>]" value="<%=procon.country.id%>">
+              <div class="country-drop">
+                <div class="country-btn" id="has_country_btn_<%=procon.id%>"><%=procon.country.name%> <span class="glyphicon glyphicon-chevron-down"></span></div>
+                <div class="country-down">
+                  <ul>
+                    <%Country.all.each do |country|%>
+                      <li onclick="has_country_select(<%=procon.id%> , <%=country.id%>);" id="has_country_li_<%=procon.id%>_<%=country.id%>"><%=country.name%></li>
+                    <%end%>
+                  </ul>
+                </div>
+              </div>
+              <%if con_count == 0%> 
+                <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;" onclick="add_country();">
+              <%else%>
+                <img src="/assets/my_account/circle_minus.png" style="margin: 0 13px 0 5px;" onclick="has_delete_country(<%=procon.id%>);">
+            <%end%>
+            <% con_count += 1%>
+            </div>
+          <%end%>
+
+
+
         </div>
       </div>
 
@@ -394,20 +535,49 @@ function delete_attach(language_id, prodocu_id){
   $("#prodocu_" + language_id + "_" + prodocu_id).remove();
 
 }
+
+function has_delete_attach(prodocu_id){
+  $("#has_attach_div_" + prodocu_id).remove();
+  $("#has_prodocu_" + prodocu_id).remove();
+  $("#has_delete_box").append("<input type='hidden' name='has_attach[" + prodocu_id + "]' value='1'>")
+
+}
+
+ function attach_document(){
+    $("#attach_document").slideToggle();
+    $(".check_1").toggle(0);
+  }
+
       </script>
-        <div class="pack optional " >
-          <h3>[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png"></h3><br>
-          <%Language.all.each do |language|%>
-            <div  class="upload_box"  id="upload_box_<%=language.id%>">
-              <div class="pack-1" id="upload-btn-div-<%=language.id%>">
-                <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
-                <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+        <div class="pack optional" >
+          <h3 onclick="attach_document();">[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png" class="check_1"/><img src="/assets/my_account/checkbox-02.png" class="check_1" style="display:none;"/></h3><br>
+          <div id="attach_document" style="display:none;">
+            <%Language.all.each do |language|%>
+              <div  class="upload_box"  id="upload_box_<%=language.id%>">
+                <div class="pack-1" id="upload-btn-div-<%=language.id%>">
+                  <div class="upload-file" id="upload_file_<%=language.id%>" onclick="$('#prodocu_<%=language.id%>_0').trigger('click');" >Upload File</div>
+                  <h5 class="upload-file-info">* (in <%=language.name%>) Any document file such as PDF, PPT, Excel, etc. 25MB file limit</h5>
+                </div>
+                <div id ="upload_input_<%=language.id%>" style="display:none;">
+                  <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
+                </div>
+                <% prolangs = @product.prolangs.where(:language_id => language.id)%>
+                <%if prolangs.count != 0%>
+                  <% prolangs.first.prodocuments.each do |prodocument|%>
+                    <div class="pack pack-2" id="has_attach_div_<%=prodocument.id%>">
+                      <p>
+                        <img src="/assets/my_account/folder.png"/>
+                        <input type="text" class="optional" placeholder="Document Name..." name="has_attach_name[<%=prodocument.id%>]" value="<%=prodocument.name%>"><%=prodocument.original_name%>
+                      </p>
+                      <a href="#none" onclick="has_delete_attach(<%=prodocument.id%>);">X &nbsp;&nbsp;Delete</a>
+                    </div>
+                  <%end%>
+                <%end%>
+
+
               </div>
-              <div id ="upload_input_<%=language.id%>"style="display:none;">
-                <input type="file" name="prodocu[<%=language.id%>][0]" id="prodocu_<%=language.id%>_0" onchange="attach_file(<%=language.id%>, 0);">
-              </div>
-            </div>
-          <%end%>
+            <%end%>
+          </div>
         </div>
 
 

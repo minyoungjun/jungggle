@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   get 'publishers/manage'
 
   get 'publishers/edit/:id' => 'publishers#edit'
+
+  post 'publishers/edit_process'
+  get 'manages/edit_service/:id' => "manages#edit_service"
+  post 'manages/edit_process'
+
   get 'products/search_detail/:id' => "products#search_detail"
   get 'products/search_result/:id' => "products#search_result"
   get 'products/cart'
