@@ -256,11 +256,11 @@ body {
         padding-top: 10px;
         cursor: pointer;
         background-color: white;
-        max-height: 250px;
-        overflow-y: scroll; 
         ul {
           list-style: none;
           padding-left: 0;
+          max-height: 250px;
+          overflow-y: scroll; 
           li {
             padding: 3px 15px;
             color: #bbb;
@@ -275,24 +275,36 @@ body {
           hr {
             margin: 3px 15px;
           }
-          .other {
-            .other-tooltip {
-              display: none;
-              border: 1px solid #eee;
-              border-radius: 5px;
+        }
+        .other {
+          display: inline-block;
+          color: #777;
+          padding: 3px 20px 10px;
+          .other-tooltip {
+            display: none;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            position: absolute;
+            left: 162px;
+            bottom: -25px;
+            color: #ccc;
+            width: 250px;
+            padding: 10px 13px;
+            background-color: white;
+            z-index: 100;
+            img {
+              -ms-transform: rotate(-90deg); /* IE 9 */
+              -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+              transform: rotate(-90deg);
               position: absolute;
-              left: 170px;
-              bottom: -18px;
-              color: #ccc;
-              width: 250px;
-              padding: 10px 13px;
-              background-color: white;
+              top: 33px;
+              left: -13px;
             }
           }
-          .other:hover {
-            .other-tooltip {
-              display: block;
-            }
+        }
+        .other:hover {
+          .other-tooltip {
+            display: block;
           }
         }
       }

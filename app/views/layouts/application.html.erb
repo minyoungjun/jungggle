@@ -158,20 +158,20 @@ function search_auto_func(){
         <button type="button" class="btn dropdown-toggle"><span id="country_text_search">Country</span><span class="caret"></span>
         </button>
         <div class="country-down">
-
-          <ul>
+          <ul class="country-down-content">
             <li class="title" id="country_0" onclick="country_select_search(0);">All</li><hr>
             <%Country.able_list.each do |country|%>
               <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
             <%end%>
             <hr>
-            <li class="title other">
-              Other Countries..
-              <div class="other-tooltip">
-                Countries are still adding whenever Publisher create service on particular country.
-              </div>
-            </li>
           </ul>
+          <div class="other">
+            Other Countries..
+            <div class="other-tooltip">
+              <img src="/assets/my_account/hover_pointer.svg">
+              Countries are still adding whenever Publisher create service on particular country.
+            </div>
+          </div>
         </div>
       </div>
       <div class="btn-group marketing">
