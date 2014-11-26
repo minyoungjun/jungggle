@@ -296,22 +296,24 @@
       font-size: 14px;
       right: 4px;
       bottom: 1px;
-      input {
-        border: 0;
-        padding-left: 10px;
-        height: 55px;
+      .cost-input {
+        padding: 17px 0 18px 20px;
+        text-align: left;
       }
+
       .cost-hover {
         display: none;
         position: absolute;
         bottom: 0;
-        padding-left: 8px;
+        padding: 11px 5px;
         background-color: white;
         width: 197px;
         input {
           width: 58px;
           display: inline-block;
           margin: 0 7px 0 0;
+          padding: 6px 4px;
+          border: 0;
         }
       }
       h5 {
