@@ -135,19 +135,20 @@ function language_select(id){
             <%@product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
                 <% prolang.detailangs.each do |detailang| %>
-                  <%if detailang.detail.proimages.count != 0%>
-                    <div class="detail_content">
-                      <h5 class="img-hover">— <%=detailang.content%>
-                      <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
-                      </h5>
-                    </div>
-                  <%else%>
-                    <div class="detail_content">
-                      <h5 class="font-color">— <%=detailang.content%>
-                      </h5>
-                    </div>
+                  <%if detailang.detail != nil%>
+                    <%if detailang.detail.proimages.count != 0%>
+                      <div class="detail_content">
+                        <h5 class="img-hover">— <%=detailang.content%>
+                        <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
+                        </h5>
+                      </div>
+                    <%else%>
+                      <div class="detail_content">
+                        <h5 class="font-color">— <%=detailang.content%>
+                        </h5>
+                      </div>
+                    <%end%>
                   <%end%>
-              
                 <%end%>
                 <%prolang.prodocuments.each do |prodocument|%>
                   <h4 class="download"><a href="/products/attachment/<%=prodocument.id%>"><span class="glyphicon glyphicon-link"></span> &nbsp;<%=prodocument.name%></a></h4>
