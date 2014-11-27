@@ -489,9 +489,9 @@ function has_delete_country(id){
         <%con_count = 0%>
           <%@product.procons.each do |procon|%>
             <div id="has_country_box_<%=procon.id%>">
-              <input type="hidden" id="has_country_input_<%=procon.id%>" name="has_country[<%=procon.id%>]" value="<%=procon.country.id%>">
+              <input type="hidden" id="has_country_input_<%=procon.id%>" name="has_country[<%=procon.id%>]" value="<%if procon.country != nil%><%=procon.country.id%><%end%>">
               <div class="country-drop">
-                <div class="country-btn" id="has_country_btn_<%=procon.id%>"><%=procon.country.name%> <span class="glyphicon glyphicon-chevron-down"></span></div>
+                <div class="country-btn" id="has_country_btn_<%=procon.id%>"><%if procon.country != nil%><%=procon.country.name%><%end%> <span class="glyphicon glyphicon-chevron-down"></span></div>
                 <div class="country-down">
                   <ul>
                     <%Country.all.each do |country|%>
