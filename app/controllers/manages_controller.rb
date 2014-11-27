@@ -159,12 +159,13 @@ class ManagesController < ApplicationController
         end
       end
     end
-
-    params[:has_attach_name].each do |key, value|
-      product.prolangs.each do |prolang|
-        prolang.prodocuments.where(:id => key).each do |prodocument|
-          prodocument.name = value
-          prodocument.save
+    if params[:has_attach_name] != nil
+      params[:has_attach_name].each do |key, value|
+        product.prolangs.each do |prolang|
+          prolang.prodocuments.where(:id => key).each do |prodocument|
+            prodocument.name = value
+            prodocument.save
+          end
         end
       end
     end
