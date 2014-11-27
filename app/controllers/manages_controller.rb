@@ -62,6 +62,12 @@ class ManagesController < ApplicationController
         detail_proimage.save
       end
 
+      detail.detailangs.each do |detailang|
+        detailang.content = params["has_detail_#{detail.id}_#{detailang.prolang.language_id}"]
+        detailang.save
+
+      end
+
     end
 
 
@@ -153,6 +159,16 @@ class ManagesController < ApplicationController
         end
       end
     end
+
+    params[:has_attach_name].each do |key, value|
+      product.prolangs.each do |prolang|
+        prolang.prodocuments.where(:id => key).each do |prodocument|
+          prodocument.name = value
+          prodocument.save
+        end
+      end
+    end
+
     if params[:has_attach] != nil
 
       params[:has_attach].each do |key, value|
