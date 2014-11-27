@@ -44,7 +44,7 @@ woopra.track();
             <%company.comlangs.each do |comlang|%>
               <a href="/products/search_company/<%=company.id%>">
                 <div class="search-company search_auto_div" data-company="<%=comlang.name%>">
-                  <img src="<%=company.logo.url(:thumb)%>"><h5><%=comlang.name%></h5>
+                  <img src="<%=company.logo.url(:medium)%>"><h5><%=comlang.name%></h5>
                 </div>
               </a>
             <%end%>
