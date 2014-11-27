@@ -17,7 +17,14 @@
         <tr class="table-body">
           <td class="company-img"><img src="<%=company.logo.url(:medium)%>"> <%=company.comlangs.first.name%></td>
           <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.first.title%></a></td>
-          <td class="detail"><a href="/products/search_detail/<%=product.id%>"><%product.prolangs.first.detailangs.each do |detailang|%>- <%=simple_format(detailang.content, {}, wrapper_tag: "span")%><br><%end%></a>
+          <td class="detail">
+            <a href="/products/search_detail/<%=product.id%>">
+              <%product.prolangs.first.detailangs.each do |detailang|%>
+                <%if detailang.detail != nil%>
+                  - <%=simple_format(detailang.content, {}, wrapper_tag: "span")%><br>
+                <%end%>
+              <%end%>
+            </a>
           </td>
           <td><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%></td>
           <td><%=product.marketingtype.name%></td>
