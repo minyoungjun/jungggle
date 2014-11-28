@@ -158,21 +158,18 @@
 
     table {
       width: 100%;
-      .table-header {
-        background-color: white;
-        border-top: 1px solid #555;
-        border-bottom: 1px solid #555;
+      .table-header { 
+        background-color: #2d2d2d;
+        color: white;
         .service-name {
           padding-left: 10px;
         }
         td {
-          padding: 6px 0;
-          color:  #666;
-          
+          padding: 8px 0;
         }
       }
       .table-body {
-        border-bottom: 2px dotted #eee;
+        border-bottom: 1px solid #bbb;
         .service-name {
           padding-left: 10px;
           color: #5eb12f;
@@ -307,11 +304,16 @@
       }
     }
     .clients {
+      border-bottom: 3px solid #2d2d2d;
       margin-top: 50px;
       h1 {
-        font-size: 30px;
-        padding-left: 6px;
+        font-size: 22px;
+        background-color: #2d2d2d;
+        color: white;
+        padding: 7px 15px;
+        margin: 0;
       }
+
       img {
         margin: 5px;
       }
@@ -325,6 +327,7 @@
         height:100px;
       }
       .logo-area {
+        padding: 20px 0;
         img {
           height: 50px;
           margin-right: 8px;

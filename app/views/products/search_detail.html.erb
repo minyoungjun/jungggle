@@ -99,7 +99,7 @@ function language_select(id){
           <td class="service-name">Service name</td>
           <td>Service details</td>
           <td>Cost</td>
-          <td></td>
+          
         </tr>
         <tr class="table-body">
           <td class="service-name"><%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%>
@@ -142,17 +142,25 @@ function language_select(id){
                 <%end%>
               </ul>
             </div>
+            <br>
+            <button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');" data-toggle="modal" data-target="#Modal-ready">Buy</button>
           </td>
-          <td><button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');" data-toggle="modal" data-target="#Modal-ready">Buy</button></td>
+       
         </tr>
       </table>
-      <h5>* Last update on <%=@product.updated_at.to_s[0..9]%></h5>
+      <h5 style="text-align: right; margin-right: 5px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
+
       <div class="clients">
         <h1>Clients</h1>
         <div class="logo-area">
-          <%@company.comclients.each do |client|%>
-            <img src="<%=client.logo.url(:medium)%>"/>
-          <%end%>
+          <div class="logo-list">
+            <%@company.comclients.each do |client|%>
+              <img src="<%=client.logo.url(:medium)%>"/>
+            <%end%>
+            <% @company.comlangs.each do |comlang| %>
+            <h3 class="company_name company_name_<%=comlang.language_id%>"><%=comlang.name%></h3>
+            <%end%>
+          </div>
         </div>
       </div>
       <div class="results">
