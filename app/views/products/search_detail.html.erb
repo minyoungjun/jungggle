@@ -87,13 +87,44 @@ function language_select(id){
 
 </script>
 
-      <div class="btn-toolbar">
-        <%@product.prolangs.each do |prolang|%>
-          <div class="btn-group">
-            <button type="button" class="btn language_btn" onclick="language_select(<%=prolang.language_id%>);" id ="language_btn_<%=prolang.language_id%>"><span class="long"><%=prolang.language.name%></span><span class="short"><%=prolang.language.nickname%></span></button>
+      <div style="margin: 10px 0;">
+        <div class="top-drop">
+          <div class="first">
+            Other Country<span class="glyphicon glyphicon-chevron-down"></span>
           </div>
-        <%end%>
+          <div class="top-country-drop-menu">
+            <h5>South Korea</h5>
+            <h5>Japan</h5>
+            <h5>South Korea</h5>
+            <h5>Japan</h5>
+            <h5>South Korea</h5>
+          </div>
+        </div>
+
+        <div class="top-marketing-drop">
+          <div class="marketing">
+            Other Marketing Type<span class="glyphicon glyphicon-chevron-down"></span>
+          </div>
+          <div class="top-marketing-drop-menu">
+            <h5>AD / Mobile / CPI(non-incentive) / iOS</h5>
+            <h5>Promotion / Reviews Sites</h5>
+          </div>
+        </div>
+
+        <div class="btn-toolbar">
+          <%@product.prolangs.each do |prolang|%>
+            <div class="btn-group">
+              <button type="button" class="btn language_btn" onclick="language_select(<%=prolang.language_id%>);" id ="language_btn_<%=prolang.language_id%>"><span class="long"><%=prolang.language.name%></span><span class="short"><%=prolang.language.nickname%></span></button>
+            </div>
+          <%end%>
+        </div>
+
+
       </div>
+        
+      
+
+
       <table>
         <tr class="table-header">
           <td class="service-name">Service name</td>
@@ -125,13 +156,13 @@ function language_select(id){
                   <%end%>
                 <%end%>
                 <%prolang.prodocuments.each do |prodocument|%>
-                  <h4 class="download"><a href="/products/attachment/<%=prodocument.id%>"><span class="glyphicon glyphicon-link"></span> &nbsp;<%=prodocument.name%></a></h4>
+                  <h4 class="download"><a href="/products/attachment/<%=prodocument.id%>"><img src="/assets/search/download-01.png"> &nbsp;<%=prodocument.name%></a></h4>
                 <%end%>
 
               </div>
             <%end%>
           </td>
-          <td>
+          <td class="cost">
             <div class="btn-group">
               <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
                 <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="caret"></span>
@@ -141,6 +172,24 @@ function language_select(id){
                   <li><a href="#"><%=number_to_currency(cost.money, :unit => "$")%></a></li>
                 <%end%>
               </ul>
+            </div>
+            <br><br>
+            <div class="cost-dropdown">
+              <div class="first">
+                $1,000<span class="glyphicon glyphicon-chevron-down"></span>
+              </div>
+              <div class="cost-dropdown-menu">
+                <h5>$ 1,000</h5>
+                <h5>$ 10,000</h5>
+                <h5>$ 30,000</h5>
+                <h5>$ 50,000</h5>
+                <h5>$ 70,000</h5>
+                <h5>$ 100,000</h5>
+                <h5>$ 200,000</h5>
+                <h5>$ 300,000</h5>
+                <h5>$ 400,000</h5>
+                <h5>$ 1,400,000</h5>
+              </div>
             </div>
             <br>
             <button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');" data-toggle="modal" data-target="#Modal-ready">Buy</button>
@@ -163,8 +212,53 @@ function language_select(id){
           </div>
         </div>
       </div>
+
+
+      <div class="clients">
+        <h1>Clients</h1>
+        <div class="logo-area">
+          <div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample1.jpg">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample2.jpg">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample3.png">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap last">
+              <img src="/assets/product_result/sample4.jpg">
+              <h5>company name</h5>
+            </div>
+          </div>
+          <div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample5.jpg">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample6.jpg">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap">
+              <img src="/assets/product_result/sample7.jpg">
+              <h5>company name</h5>
+            </div>
+            <div class="wrap last">
+              <img src="/assets/product_result/sample8.jpg">
+              <h5>company name</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="results">
-        <h1 data-toggle="modal" data-target="#Modal-ready" style="cursor: pointer;">Project Results <span>See all</span></h1>
+        <h1><img src="/assets/search/results.png">&nbsp;&nbsp;Project Results <span data-toggle="modal" data-target="#Modal-ready" style="cursor: pointer;">See all</span></h1>
         <table>
           <tr class="table-header">
             <td class="date">Complite date</td>
