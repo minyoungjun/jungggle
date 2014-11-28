@@ -76,6 +76,7 @@ Rails.application.routes.draw do
 
   get '/manages/companies'
   get '/manages/company_profile/:id' => "manages#company_profile"
+  post '/manages/company_update'
   get '/manages/services'
   get '/manages/create'
   post '/manages/create_process'
