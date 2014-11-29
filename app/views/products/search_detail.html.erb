@@ -99,12 +99,22 @@ function language_select(id){
           <td class="service-name">Service name</td>
           <td>Service details</td>
           <td>Cost</td>
-          
         </tr>
+<<<<<<< Updated upstream
         <tr class="table-body" style="border-bottom:none;">
           <td>
             <span>Korea</span>
             <span>Japan</span>
+=======
+        <div class="country">Korea</div>
+        <tr class="table-body">
+          
+
+          <td class="service-name">
+
+            <%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%>
+
+>>>>>>> Stashed changes
           </td>
           <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="2">
             <%@product.prolangs.each do |prolang|%>
@@ -113,7 +123,7 @@ function language_select(id){
                   <%if detailang.detail != nil%>
                     <%if detailang.detail.proimages.count != 0%>
                       <div class="detail_content">
-                        <h5 class="img-hover">— <%=detailang.content%>
+                        <h5 class="img-hover"><span style="font-size: 10px; font-weight: 700;">—</span> <%=detailang.content%>
                         <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
                         </h5>
                       </div>
