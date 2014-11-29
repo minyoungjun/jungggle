@@ -273,6 +273,17 @@
       }
       .table-body {
         border-bottom: 1px solid #bbb;
+        .country {
+          padding-top: 15px;
+          span {
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 3px 18px;
+            color: #aaa;
+            font-size: 12px;
+            margin: 0 5px;
+          }
+        }
         .service-name {
           padding-left: 10px;
           color: #5eb12f;
