@@ -1,21 +1,24 @@
 <%if @products.count == 0%><p class="oops">Oops! there is no service from <%=@company.comlangs.first.name%></p><%end%>
-<div class="search">
+<div class="search search-company">
   <div class="container">
+    <img src="/assets/product_result/sample2.jpg" width="220px;">
+    <h4>Company Name</h4>
+
     <table>
       <tr class="table-header">
-        <td class="company-img">Company name</td>
-        <td>Service Name</td>
+        <!--<td class="company-img">Company name</td>-->
+        <td class="service" width="170px;">Service Name</td>
         <td>Service details</td>
-        <td>Country</td>
-        <td>Marketing type</td>
-        <td>Cost</td>
-        <td></td>
+        <td class="country">Country</td>
+        <td class="marketing">Marketing type</td>
+        <td class="cost">Cost</td>
       </tr>
 
       <%@products.each do |product|%>
         <%company = product.company%>
         <tr class="table-body">
-          <td class="company-img"><img src="<%=company.logo.url(:medium)%>"> <%=company.comlangs.first.name%></td>
+          <!--
+          <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%></td>-->
           <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.first.title%></a></td>
           <td class="detail">
             <a href="/products/search_detail/<%=product.id%>">
@@ -27,9 +30,10 @@
             </a>
           </td>
           <td><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%></td>
-          <td><%=product.marketingtype.name%></td>
-          <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span></td>
-          <td><a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a></td>
+          <td class="marketing"><%=product.marketingtype.name%></td>
+          <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span>
+            <a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a>
+          </td>
         </tr>
       <%end%>
 
