@@ -2,53 +2,6 @@
   <div class="container">
     <div class="left">
 
-      <div class="btn-group btn-tab">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-          Country <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <%@countries.each do |country_hash|%>
-            <%if country_hash[1] != nil%>
-              <li><a href="/products/search_detail/<%=country_hash[0].id%>"><%=country_hash[1].name%></a></li>  
-            <%end%>
-          <%end%>
-        </ul>
-      </div>
-
-      <div class="btn-group btn-tab">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-          <%if @product.marketingtype.parent_type != nil%>
-            <%if @product.marketingtype.parent_type.parent_type != nil%>
-              <%if @product.marketingtype.parent_type.parent_type.parent_type != nil%>
-                <%=@product.marketingtype.parent_type.parent_type.parent_type.name%> /
-              <%end%>
-              <%=@product.marketingtype.parent_type.parent_type.name%> /
-            <%end%>
-              <%=@product.marketingtype.parent_type.name%> /
-            <%end%>
-              <%=@product.marketingtype.name%>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <%@company.products.each do |product|%>
-            <li>
-            
-            <a href="/products/search_detail/<%=product.id%>">
-            <%if product.marketingtype.parent_type != nil%>
-              <%if product.marketingtype.parent_type.parent_type != nil%>
-                <%if product.marketingtype.parent_type.parent_type.parent_type != nil%>
-                  <%=product.marketingtype.parent_type.parent_type.parent_type.name%> /
-                <%end%>
-                <%=product.marketingtype.parent_type.parent_type.name%> /
-              <%end%>
-                <%=product.marketingtype.parent_type.name%> /
-              <%end%>
-                <%=product.marketingtype.name%>
-              </a>
-            </li>
-          <%end%>
-        </ul>
-      </div>
 <style>
 .language_btn .long{
   display:none;
@@ -93,11 +46,11 @@ function language_select(id){
             Other Country<span class="glyphicon glyphicon-chevron-down"></span>
           </div>
           <div class="top-country-drop-menu">
-            <h5>South Korea</h5>
-            <h5>Japan</h5>
-            <h5>South Korea</h5>
-            <h5>Japan</h5>
-            <h5>South Korea</h5>
+            <%@countries.each do |country_hash|%>
+              <%if country_hash[1] != nil%>
+                <a href="/products/search_detail/<%=country_hash[0].id%>"><h5><%=country_hash[1].name%></h5></a>  
+              <%end%>
+            <%end%>
           </div>
         </div>
 
@@ -106,8 +59,24 @@ function language_select(id){
             Other Marketing Type<span class="glyphicon glyphicon-chevron-down"></span>
           </div>
           <div class="top-marketing-drop-menu">
-            <h5>AD / Mobile / CPI(non-incentive) / iOS</h5>
-            <h5>Promotion / Reviews Sites</h5>
+
+          <%@company.products.each do |product|%>
+            
+            <a href="/products/search_detail/<%=product.id%>">
+              <h5>
+                <%if product.marketingtype.parent_type != nil%>
+                  <%if product.marketingtype.parent_type.parent_type != nil%>
+                    <%if product.marketingtype.parent_type.parent_type.parent_type != nil%>
+                      <%=product.marketingtype.parent_type.parent_type.parent_type.name%> /
+                    <%end%>
+                    <%=product.marketingtype.parent_type.parent_type.name%> /
+                  <%end%>
+                    <%=product.marketingtype.parent_type.name%> /
+                  <%end%>
+                  <%=product.marketingtype.name%>
+                </h5>
+              </a>
+            <%end%>
           </div>
         </div>
 
@@ -132,11 +101,12 @@ function language_select(id){
           <td>Cost</td>
           
         </tr>
-        <tr class="table-body">
-          <td class="service-name"><%@product.prolangs.each do |prolang|%><div class="language_name language_name_<%=prolang.language_id%>"><%=prolang.title%></div><%end%>
-
+        <tr class="table-body" style="border-bottom:none;">
+          <td>
+            <span>Korea</span>
+            <span>Japan</span>
           </td>
-          <td class="service-details" style="width: 430px; padding-right: 15px;">
+          <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="2">
             <%@product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
                 <% prolang.detailangs.each do |detailang| %>
@@ -162,39 +132,31 @@ function language_select(id){
               </div>
             <%end%>
           </td>
-          <td class="cost">
-            <div class="btn-group">
-              <button type="button" class="btn-dd dropdown-toggle" data-toggle="dropdown">
-                <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <%@product.costs.each do |cost|%>
-                  <li><a href="#"><%=number_to_currency(cost.money, :unit => "$")%></a></li>
-                <%end%>
-              </ul>
-            </div>
-            <br><br>
+          <td class="cost" rowspan="2" style="border-bottom:1px solid #bbb;">
+            <br>
             <div class="cost-dropdown">
-              <div class="first">
-                $1,000<span class="glyphicon glyphicon-chevron-down"></span>
+              <div class="first" id="cost_<%=@product.id%>" >
+                <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
               </div>
               <div class="cost-dropdown-menu">
-                <h5>$ 1,000</h5>
-                <h5>$ 10,000</h5>
-                <h5>$ 30,000</h5>
-                <h5>$ 50,000</h5>
-                <h5>$ 70,000</h5>
-                <h5>$ 100,000</h5>
-                <h5>$ 200,000</h5>
-                <h5>$ 300,000</h5>
-                <h5>$ 400,000</h5>
-                <h5>$ 1,400,000</h5>
+                <%@product.costs.each do |cost|%>
+                  <h5 onclick='$("#cost_<%=@product.id%>").html($("#cost_val_<%=cost.id%>").html());' id='cost_val_<%=cost.id%>'><%=number_to_currency(cost.money, :unit => "$")%></h5>
+                <%end%>
               </div>
             </div>
             <br>
-            <button type="button" class="btn-buy" onclick="alert('Sorry, You can use it after update.');" data-toggle="modal" data-target="#Modal-ready">Buy</button>
+            <button type="button" class="btn-buy" data-toggle="modal" data-target="#Modal-ready">Buy</button>
           </td>
        
+        </tr>
+        <tr class="table-body">
+          <td class="service-name">
+            <%@product.prolangs.each do |prolang|%>
+              <div class="language_name language_name_<%=prolang.language_id%>">
+                <%=prolang.title%>
+              </div>
+            <%end%>
+          </td>
         </tr>
       </table>
       <h5 style="text-align: right; margin-right: 5px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
@@ -202,57 +164,23 @@ function language_select(id){
       <div class="clients">
         <h1>Clients</h1>
         <div class="logo-area">
-          <div class="logo-list">
-            <%@company.comclients.each do |client|%>
+          <% client_order = 1%>
+          <%@company.comclients.each do |client|%>
+            <%if client_order%4 == 1%>
+              <div>
+            <%end%>
+            <%if client_order%4 == 0 %>
+                <div class="wrap last">
+              <%else%>
+                <div class="wrap">
+              <%end%>
               <img src="<%=client.logo.url(:medium)%>"/>
+            </div>
+            <%if client_order%4 == 0 || @company.comclients.count == client_order%>
+              </div>
             <%end%>
-            <% @company.comlangs.each do |comlang| %>
-            <h3 class="company_name company_name_<%=comlang.language_id%>"><%=comlang.name%></h3>
-            <%end%>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="clients">
-        <h1>Clients</h1>
-        <div class="logo-area">
-          <div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample1.jpg">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample2.jpg">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample3.png">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap last">
-              <img src="/assets/product_result/sample4.jpg">
-              <h5>company name</h5>
-            </div>
-          </div>
-          <div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample5.jpg">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample6.jpg">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap">
-              <img src="/assets/product_result/sample7.jpg">
-              <h5>company name</h5>
-            </div>
-            <div class="wrap last">
-              <img src="/assets/product_result/sample8.jpg">
-              <h5>company name</h5>
-            </div>
-          </div>
+            <% client_order += 1%>
+          <%end%>
         </div>
       </div>
 
@@ -303,7 +231,7 @@ function language_select(id){
         </div>
         <div class="rate">
           <h1>0.0<br><span>0 advertisers rated</span></h1>
-          <button type="button" class="btn" onclick="alert('You can use it after Update.');" <%#data-toggle="modal" data-target="#Modal-send-message"%>>Send Message</button>
+          <button type="button" class="btn"data-toggle="modal" data-target="#Modal-ready">Send Message</button>
         </div>
       </div>
       <div class="right-bottom">

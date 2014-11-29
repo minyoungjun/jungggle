@@ -320,7 +320,7 @@
               display: none;
               position: absolute;
               width: 139px;
-              height: 200px;
+              max-height: 200px;
               overflow: scroll;
               background-color: white;
               border: 1px solid #ccc;
