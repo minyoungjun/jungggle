@@ -24,7 +24,7 @@
             <a href="/products/search_detail/<%=product.id%>">
               <%product.prolangs.first.detailangs.each do |detailang|%>
                 <%if detailang.detail != nil%>
-                  <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5")%><br>
+                  <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5")%>
                 <%end%>
               <%end%>
             </a>
