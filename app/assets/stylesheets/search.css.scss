@@ -73,7 +73,7 @@
           font-weight: 700;
 
           img {
-            height: 55px;
+            width: 140px;
             margin-bottom: 8px;
           }
         }
@@ -86,9 +86,14 @@
           }
           a {
             h5 {
-              text-indent: -8px;
-              margin-left: 8px;
+              text-indent: -11px;
+              margin-left: 11px;
               line-height: 20px;
+              span {
+                font-size: 16px;
+                font-weight: 700;
+                margin-right: 5px;
+              }
             }
           }
         }
