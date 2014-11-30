@@ -458,19 +458,25 @@
         padding: 20px 0;
         .wrap {
           display: inline-block;
-          width: 190px;
+          width: 186px;
           text-align: center;
           margin: 15px 0;
-          border-right: 1px solid #eee;
+          //border-right: 1px solid #eee;
           h5 {
             margin-top: 5px;
           }
+        }
+        .line {
+          display: inline-block;
+          border-right: 1px solid #eee;
+          height:60px;
+          vertical-align: middle;
         }
         .last {
           border-right: 0;
         }
         img {
-          height: 50px;
+          width: 100px;
         }
       }
     }
