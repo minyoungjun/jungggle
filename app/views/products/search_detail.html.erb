@@ -99,7 +99,7 @@ function language_select(id){
         <tr class="table-body" style="border-bottom:none; height: 20px;">
           <td class="country">
             <span>Korea</span>
-            <span>Japan</span>
+            
           </td>
           <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="2">
             <%@product.prolangs.each do |prolang|%>
@@ -211,7 +211,7 @@ function language_select(id){
           <table>
             <tr>
               <td class="name">website :</td>
-              <td class="link"><a href="<%if @company.website[0..6] != "http://" && @company.website[0..7] != "https://"%>http://<%end%><%=@company.website%>"><%=@company.website%></a></td>
+              <td class="link"><a href="<%if @company.website[0..6] != "http://" && @company.website[0..7] != "https://"%>http://<%end%><%=@company.website%>" target="_blank"><%=@company.website%></a></td>
             </tr>
             <tr>
               <td class="name">Located In :</td>
