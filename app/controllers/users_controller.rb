@@ -176,8 +176,7 @@ class UsersController < ApplicationController
       end
     end
 
-    redirect_to :controller => "home",
-                :action => "account_manage_service"
+    redirect_to :root
 
   end
 
