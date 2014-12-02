@@ -17,10 +17,13 @@ body {
     vertical-align: middle;
     padding: 10px 0;
     .logo {
+      float: left;
+      margin-right: 270px;
       img {
         height: 48px;
         position: relative;
         top: 5px;
+
       }
       .beta {
         color: white;
@@ -38,9 +41,10 @@ body {
     .search-area {
       display: inline-block;
       position: static;
-      //width: 202px;
-      //height: 39px;
+      width: 202px;
+      height: 37px;
       //left: 29%;
+      margin-top: 8px;
 
       .header-search {
         position: absolute;
