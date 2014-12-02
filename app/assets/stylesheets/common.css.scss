@@ -157,14 +157,15 @@ body {
         display: inline-block;
         position: relative;
         bottom: 12px;
+        vertical-align: middle;
         a {
           color: #5eb12f;
           padding: 17px 0 30px;
           img {
             position: relative;
-
             padding: 0 12px;
             border-radius: 50%;
+            vertical-align: middle;
           }
         }
         .log-info-hover {
@@ -179,19 +180,28 @@ body {
           z-index: 100;
           background-color: white;
           margin-top: 10px;
+          text-align: left;
+          .title {
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+
           h5 {
             margin-top: 0;
-            font-size: 16px;
-          }
-          a {
-            text-decoration: none;
-            padding: 0;
-            color: #999;
+            margin-bottom: 5px;
             font-size: 14px;
+            display: inline-block;
+            a {
+              text-decoration: none;
+              padding: 0;
+              color: #999;
+              font-size: 14px;
+            }
+            a:hover {
+              color: #5eb12f;
+            }
           }
-          a:hover {
-            color: #5eb12f;
-          }
+          
           .log-info-account {
             margin-bottom: 25px;
             a {
@@ -208,6 +218,15 @@ body {
           }
           .log-info-footer {
             margin-top: 20px;
+            h5 {
+              a {
+                font-size: 16px;
+                color: #333;  
+              }
+              a:hover {
+                color: #5eb12f;
+              }
+            }
             p {
               display: inline-block;
               font-size: 12px;

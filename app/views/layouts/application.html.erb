@@ -91,30 +91,30 @@ function search_auto_func(){
         <div class="log-name"><%if current_user != nil%><a href="/users/edit"><img src="<%if current_user.avatar_file_name == nil%><%fb_identity = current_user.identities.where(:provider => "facebook").first%><%if fb_identity != nil%>https://graph.facebook.com/v2.1/<%=fb_identity.uid%>/picture?type=square<%else%>/assets/main/log-img.png<%end%><%else%><%=current_user.avatar.url(:thumb)%><%end%>"> <%=current_user.first_name%> <%=current_user.last_name%> <img src="/assets/main/header-content.png" class="contents"></a><%end%>
           <div class="log-info-hover">
             <div class="log-info-account">
-              <h5>My Account</h5>
-              <a href="/users/edit">Profile</a>
-              <a href="/users/company">Company Profile</a>
-              <a href="/users/company_members">Member</a>
-              <a href="/users/ready_dashboard">Upgrade</a>
+              <h4 class="title">My Account</h4>
+              <h5><a href="/users/edit">Profile</a></h5>
+              <h5><a href="/users/company">Company Profile</a></h5>
+              <h5><a href="/users/company_members">Member</a></h5>
+              <h5><a href="/users/ready_dashboard">Upgrade</a></h5>
             </div>
             <div class="log-info-adv">
-              <h5>Advertiser</h5>
-              <a href="/home/ready_dashboard">Dashboard</a><br>
-              <a href="/home/ready_billing">Billing</a><br>
+              <h4 class="title">Advertiser</h4>
+              <h5><a href="/home/ready_dashboard">Dashboard</a></h5><br>
+              <h5><a href="/home/ready_billing">Billing</a></h5><br>
             </div>
             <div class="log-info-pub">
-              <h5>Service Provider</h5>
-              <a href="/home/ready_project">Projects</a><br>
+              <h4 class="title">Service Provider</h4>
+              <h5><a href="/home/ready_project">Projects</a></h5><br>
               <%if user_signed_in? && current_user.is_admin%>
-                <a href="/manages/services">Manage Services(Admin)</a><br>
+                <h5><a href="/manages/services">Manage Services(Admin)</a></h5><br>
               <%else%>
-                <a href="/publishers/manage">Manage Service</a><br>
+                <h5><a href="/publishers/manage">Manage Service</a></h5><br>
               <%end%>
-              <a href="/publishers/create">Create Service</a><br>
-              <a href="/home/">Cash out</a>
+              <h5><a href="/publishers/create">Create Service</a></h5><br>
+              <h5><a href="/home/">Cash out</a></h5>
             </div>
             <div class="log-info-footer">
-              <a href="/users/sign_out">Log out</a>
+              <h5><a href="/users/sign_out">Log out</a></h5>
               <!--<p><span>3 ietms</span> on your cart<img src="/assets/cart.png"></p>-->
             </div>
           </div>
