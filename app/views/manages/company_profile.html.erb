@@ -33,7 +33,9 @@ $(document).ready(function(){
       <%@company.comlangs.each do |comlang|%>
         $("#p_language_<%=comlang.language.id%>").trigger("click");
       <%end%>
-        $("#language-select-<%=@company.comlangs.first.language.id%>").trigger("click");
+        <%if @company.comlangs.count != 0%>
+          $("#language-select-<%=@company.comlangs.first.language.id%>").trigger("click");
+        <%end%>
         $(".trigger").trigger("click");
         country_select(<%=@company.country_id%>);
         employee_select(<%=@company.num_employee%>);
