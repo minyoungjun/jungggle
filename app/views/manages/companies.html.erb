@@ -16,7 +16,7 @@
         <%@company.each do |company|%>
         <tr class="table-body">
           <td><img src="<%=company.logo.url(:thumb)%>"/></td>
-          <td><%=company.comlangs.first.name%></td>
+          <td><%if company.comlangs.count != 0%><%=company.comlangs.first.name%><%end%></td>
           <td><%if company.members.count != 0%><%=company.members.where(:owner => true).first.user.email%><%end%></td>
           <td>
             <a href="/manages/company_profile/<%=company.id%>">Profile</a>
