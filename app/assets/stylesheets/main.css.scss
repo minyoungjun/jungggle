@@ -10,6 +10,7 @@
   position: relative;
   text-align: center;
   padding: 150px 0 400px;
+  height: 900px;
   .beta {
     color: white;
     background-color: #F47474;
@@ -75,25 +76,28 @@
         border-radius: 5px;
         position: absolute;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        padding-top: 10px;
+        padding-top: 9px;
         cursor: pointer;
         top: 63px;
         
+        .title {
+          color: #555;
+          font-size: 15px;
+          padding: 7px 15px;
+        }
+
         ul {
           list-style: none;
           padding-left: 0;
-          max-height: 250px;
+          max-height: 260px;
           overflow-y: scroll; 
           li {
-            padding: 3px 15px;
-            color: #bbb;
+            padding: 7px 15px;
+            color: #999;
             font-size: 13px;
           }
           li:hover {
             color: #5bb33a;
-          }
-          .title {
-            color: #777;
           }
           hr {
             margin: 3px 15px;
@@ -103,24 +107,26 @@
         .other {
           display: inline-block;
           color: #777;
-          padding: 3px 20px 10px;
+          padding: 10px 14px 15px;
+          font-size: 13px;
           .other-tooltip {
             display: none;
             border: 1px solid #eee;
             border-radius: 5px;
             position: absolute;
             left: 158px;
-            bottom: -23px;
+            bottom: -18px;
             color: #aaa;
             width: 250px;
-            padding: 10px 13px;
+            padding: 12px 15px;
             background-color: white;
+            line-height: 17px;
             img {
               -ms-transform: rotate(-90deg); /* IE 9 */
               -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
               transform: rotate(-90deg);
               position: absolute;
-              top: 33px;
+              top: 31px;
               left: -13px;
             }
           }
@@ -147,7 +153,6 @@
     .marketing-mobile {
       display: inline-block;
       position: relative;
-      //margin-right: -4px;
 
       .marketing {
         width: 230px;
@@ -166,11 +171,12 @@
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
           cursor: pointer;
           top: 63px;
+          padding: 9px 0 15px;
           ul {
             list-style: none;
             padding-left: 0;
             li {
-              padding: 8px 15px;
+              padding: 7px 15px;
               color: #999;
               font-size: 13px;
             }
@@ -179,9 +185,10 @@
             }
             .title {
               color: #555;
+              padding: 8px 15px;
             }
             hr {
-              margin: 3px 10px;
+              margin: 0 12px 10px;
             }
             .division-hover {
               display: none;
@@ -189,21 +196,23 @@
               min-width: 530px;
               position: absolute;
               left: 148px;
-              top: -1px;
+              top: 39px;
               color: #333;
               background-color: white;
               z-index: 100;
+              padding: 10px;
               ul {
                 display: inline-block;
-                padding: 8px;
                 vertical-align: top;
                 li {
-                  padding: 2px 10px;
+                  padding: 7px 10px;
                 }
                 .title {
-                  font-size: 16px;
-                  padding-bottom: 10px;
+                  font-size: 14px;
                   color: #777;
+                  padding-left: 0;
+                  border-bottom: 1px solid #ddd;
+                  margin: 0 10px;
                 }
               }
             }
@@ -249,30 +258,32 @@
         
         .platform-down {
           display: none;
-          width: 160px;
+          width: 161px;
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-          padding-top: 10px;
           cursor: pointer;
           top: 63px;
+          left: 1px;
+          padding: 10px 0 15px;
           ul {
             list-style: none;
             padding-left: 0;
             li {
-              padding: 3px 15px;
-              color: #bbb;
+              padding: 7px 15px;
+              color: #999;
               font-size: 13px;
             }
             li:hover {
               color: #5bb33a;
             }
             .title {
-              color: #777;
+              color: #555;
+              font-size: 14px;
             }
             hr {
-              margin: 3px 15px;
+              margin: 0 15px 10px;
             }
           }
         }  
@@ -295,9 +306,8 @@
       position: relative;
       font-size: 14px;
       right: 4px;
-      bottom: 1px;
       .cost-input {
-        padding: 17px 0 18px 20px;
+        padding: 20px;
         text-align: left;
       }
 
@@ -321,6 +331,7 @@
         color: #5bb33a;
         position: absolute;
         left: 10px;
+        margin-top: 10px;
       }
     }
     .cost:hover {
@@ -338,18 +349,22 @@
       background-color: #5bb33a;
       color: white;
       width: 170px;
-      padding: 16px 0;
+      //padding: 16px 0;
       margin: 0;
       border: 1px solid #5eb12f;
       border-radius: 0 10px 10px 0;
       font-size: 17px;
       position: relative;
-      right: 7px;
-      top: 1px;
-      height: 57px;
+      right: 8px;
+      bottom: 1px;
+      //top: 1px;
+      height: 56px;
+      vertical-align: middle;
+
       img {
         position: relative;
         margin-left: 10px;
+        vertical-align: middle;
       }
 
     }
