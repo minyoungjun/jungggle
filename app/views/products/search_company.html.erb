@@ -19,10 +19,10 @@
         <tr class="table-body">
           <!--
           <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%></td>-->
-          <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.first.title%></a></td>
+          <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.order(:language_id).first.title%></a></td>
           <td class="detail">
             <a href="/products/search_detail/<%=product.id%>">
-              <%product.prolangs.first.detailangs.each do |detailang|%>
+              <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
                 <%if detailang.detail != nil%>
                   <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5")%>
                 <%end%>

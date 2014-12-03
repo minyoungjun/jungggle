@@ -16,9 +16,9 @@
           <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%>
           </td>
           <td class="detail">
-            <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.first.title%></a></h5>
+            <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
             <a href="/products/search_detail/<%=product.id%>">
-              <%product.prolangs.first.detailangs.each do |detailang|%>
+              <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
                 <%if detailang.detail != nil%>
                   <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5")%>
                 <%end%>
