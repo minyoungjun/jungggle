@@ -142,11 +142,12 @@ function search_auto_func(){
     <div class="container">
       <!-- 단버튼 -->
       <div class="btn-group country">
-        <button type="button" class="btn dropdown-toggle"><span id="country_text_search">Country</span><span class="caret"></span>
+        <button type="button" class="btn dropdown-toggle country-btn"><span id="country_text_search">Country</span><span class="glyphicon glyphicon-chevron-down"></span>
         </button>
         <div class="country-down">
+          <div class="title" id="country_0" onclick="country_select_search(0);">All</div>
           <ul class="country-down-content">
-            <li class="title" id="country_0" onclick="country_select_search(0);">All</li><hr>
+            <hr>
             <%Country.able_list.each do |country|%>
               <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
             <%end%>
@@ -162,7 +163,7 @@ function search_auto_func(){
         </div>
       </div>
       <div class="btn-group marketing">
-        <button type="button" class="btn dropdown-toggle"><span id="marketing_text">Marketing type</span> <span class="caret"></span></button>
+        <button type="button" class="btn dropdown-toggle marketing-btn"><span id="marketing_text">Marketing type</span> <span class="glyphicon glyphicon-chevron-down"></span></button>
           <div class="marketing-down">
 
               <ul>
@@ -173,7 +174,7 @@ function search_auto_func(){
                     <li class="division" >
                     <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
                       <%if marketing1.child_types.count != 0%>
-                        <div class="division-hover" style="min-height:230px;">
+                        <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
                           <ul>
                             <% marketing1.child_types.each do |marketing2|%>
                               <%if marketing2.filter == 2%>
@@ -201,9 +202,9 @@ function search_auto_func(){
         </div>
       </div>
 
-      <div class="btn-group">
+      <div class="btn-group" style="margin-left: 2px;">
         <div class="cost">
-          <input type="text" placeholder="Cost" id="fake_cost">
+          <input type="text" value="Cost" id="fake_cost">
           <div class="cost-hover">
             $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
             $ | <input type="text" name="cost_to" onkeyup="cost_key();">

@@ -262,21 +262,44 @@ body {
     padding: 12px 0;
 
     .btn-group {
-      margin-right: 20px;
+      margin-right: 10px;
       button {
         border: 0; 
-        padding: 6px 20px; 
+        padding: 6px 12px; 
         background-color: white;
         color: #868787;
       }
-      
+      .country-btn {
+        width: 150px;
+        text-align: left;
+        font-size: 14px;
+        .glyphicon {
+          font-size: 10px;
+          float: right;
+          position: relative;
+          top: 6px;
+        }
+      }
+      .marketing-btn {
+        width: 165px;
+        text-align: left;
+        font-size: 14px;
+        .glyphicon {
+          font-size: 10px;
+          float: right;
+          position: relative;
+          top: 6px;
+        }
+      }
     }
     .nav-btn {
       background-color: #5bb33a;
       color: white;
-      padding: 4px 15px;
+      padding: 3px 15px;
+      font-size: 15px;
       img {
         margin-left: 10px;
+        vertical-align: middle;
       }
     }
 
@@ -289,24 +312,27 @@ body {
         position: absolute;
         top: 32px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        padding-top: 10px;
+        padding-top: 7px;
         cursor: pointer;
         background-color: white;
+        z-index: 100;
+        .title {
+          color: #555;
+          font-size: 14px;
+          padding: 7px 15px;
+        }
         ul {
           list-style: none;
           padding-left: 0;
           max-height: 250px;
           overflow-y: scroll; 
           li {
-            padding: 3px 15px;
-            color: #bbb;
+            padding: 7px 15px;
+            color: #aaa;
             font-size: 13px;
           }
           li:hover {
             color: #5bb33a;
-          }
-          .title {
-            color: #777;
           }
           hr {
             margin: 3px 15px;
@@ -315,17 +341,19 @@ body {
         .other {
           display: inline-block;
           color: #777;
-          padding: 3px 20px 10px;
+          padding: 10px 14px 15px;
+          font-size: 13px;
           .other-tooltip {
             display: none;
             border: 1px solid #eee;
             border-radius: 5px;
             position: absolute;
             left: 162px;
-            bottom: -25px;
+            bottom: -18px;
             color: #ccc;
             width: 250px;
-            padding: 10px 13px;
+            padding: 12px 15px;
+            line-height: 17px;
             background-color: white;
             z-index: 100;
             img {
@@ -333,7 +361,7 @@ body {
               -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
               transform: rotate(-90deg);
               position: absolute;
-              top: 33px;
+              top: 31px;
               left: -13px;
             }
           }
@@ -364,7 +392,7 @@ body {
       
       .marketing-down {
         display: none;
-        width: 146px;
+        width: 165px;
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
@@ -372,12 +400,14 @@ body {
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         cursor: pointer;
         background-color: white;
+        z-index: 100;
+        padding: 9px 0 15px;
         ul {
           list-style: none;
           padding-left: 0;
           li {
-            padding: 10px 15px;
-            color: #bbb;
+            padding: 7px 15px;
+            color: #aaa;
             font-size: 13px;
           }
           li:hover {
@@ -387,29 +417,31 @@ body {
             color: #777;
           }
           hr {
-            margin: 3px 15px;
+            margin: 0 12px 10px;
           }
+          
           .division-hover {
             display: none;
             border: 1px solid #eee;
-            width: 570px;
+            width: 200px;
             position: absolute;
-            left: 144px;
-            top: 26px;
+            left: 163px;
+            top: 36px;
             color: #333;
-            //padding: 5px 10px;
             background-color: white;
+            padding: 10px;
             ul {
               display: inline-block;
-              padding: 10px;
               vertical-align: top;
               li {
-                padding: 2px 15px;
+                padding: 7px 10px;
               }
               .title {
-                font-size: 16px;
-                padding-bottom: 10px;
+                font-size: 14px;
                 color: #777;
+                padding-left: 0;
+                border-bottom: 1px solid #ddd;
+                margin: 0 10px;
               }
             }
           }
@@ -418,6 +450,9 @@ body {
             .division-hover {
               display: block;
             }
+          }
+          .division-hover-plus {
+            width: 480px;
           }
         }
       }
@@ -439,7 +474,7 @@ body {
       position: relative;
       font-size: 13px;
       right: 4px;
-      margin-right: -15px;
+      margin-right: -10px;
       
       input {
         border: 0;
