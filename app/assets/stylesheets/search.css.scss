@@ -141,8 +141,6 @@
     margin: 10px 0 35px;
     font-size: 18px;
   }
-
-
   table {
     .table-header {
       .service {
@@ -161,7 +159,6 @@
     }
   }
 }
-
 
 
 
@@ -192,17 +189,18 @@
         border: 1px solid #eee;
         border-radius: 5px;
         background-color: white;
-        padding: 7px 12px;
+        padding: 8px 12px;
         width: 150px;
         color: #666;
         margin-bottom: 5px;
         margin-right: 10px;
         cursor: pointer;
+        font-size: 14px;
         span {
           font-size: 10px;
           float: right;
           position: relative;
-          top: 6px;
+          top: 3px;
         }
       }
       .top-country-drop-menu {
@@ -219,6 +217,8 @@
           cursor: pointer;
           color: #aaa;
           font-weight: 400;
+          font-size: 13px;
+          margin: 8px;
         }
         h5:hover {
           color: #444;
@@ -243,17 +243,18 @@
         border: 1px solid #eee;
         border-radius: 5px;
         background-color: white;
-        padding: 7px 12px;
+        padding: 8px 12px;
         width: 200px;
         color: #666;
         margin-bottom: 5px;
         margin-right: 10px;
         cursor: pointer;
+        font-size: 14px;
         span {
           font-size: 10px;
           float: right;
           position: relative;
-          top: 6px;
+          top: 3px;
         }
       }
       .top-marketing-drop-menu {
@@ -269,6 +270,8 @@
           cursor: pointer;
           color: #aaa;
           font-weight: 400;
+          font-size: 13px;
+          margin: 8px;
         }
         h5:hover {
           color: #444;
@@ -291,6 +294,8 @@
 
     .btn-toolbar {
       float: right;
+      position: relative;
+      top: 4px;
       .btn-group {
         .btn {
           border: 1px solid #ddd;
@@ -298,6 +303,7 @@
           padding: 5px 12px;
           background-color: white;
           color: #666;
+          font-size: 12px;
         }
         .btn:hover {
           border-color: #5eb12f;
@@ -320,7 +326,8 @@
           padding-left: 10px;
         }
         td {
-          padding: 8px 0;
+          padding: 10px 0;
+          font-size: 14px;
         }
       }
       .table-body {
@@ -342,6 +349,7 @@
           font-weight: bold;
           position: relative;
           bottom: 20px;
+          vertical-align: middle;
           .a {
             color: #555;
           }
@@ -359,9 +367,11 @@
         }
         .service-detail {
           width: 450px;
+          vertical-align: middle;
         }
         .cost {
           width: 150px;
+          vertical-align: middle;
 
           .cost-dropdown {
             width: 140px;            
@@ -386,7 +396,7 @@
               position: absolute;
               width: 139px;
               max-height: 200px;
-              overflow: scroll;
+              overflow-y: scroll;
               background-color: white;
               border: 1px solid #ccc;
               border-radius: 5px;
@@ -395,6 +405,7 @@
                 cursor: pointer;
                 color: #666;
                 padding: 0 10px;
+
               }
               h5:hover {
                 color: #5eb12f;
@@ -415,18 +426,21 @@
             color: white;
             border: 0;
             border-radius: 5px;
-            padding: 5px;
+            padding: 7px;
             width: 140px;
+            font-size: 15px;
           }
         }
 
         td {
-          padding: 10px 0;
+          padding: 12px 0;
 
           h5 {
             color: #5eb12f;
             padding-left: 0;
             line-height: 20px;
+            font-size: 14px;
+            margin: 0 0 10px;
             img {
               display: none;
               position: absolute;
@@ -440,9 +454,14 @@
           }
           .download {
             font-size: 15px;
+            margin: 5px 0;
             a {
               text-decoration: none;
               color: #666;
+              img {
+                position: relative;
+                top: 3px;
+              }
 
             }
             a:hover {
@@ -483,7 +502,7 @@
       border-bottom: 3px solid #2d2d2d;
       margin-top: 50px;
       h1 {
-        font-size: 22px;
+        font-size: 20px;
         background-color: #2d2d2d;
         color: white;
         padding: 7px 15px;
@@ -506,7 +525,7 @@
           width: 186px;
           text-align: center;
           margin: 15px 0;
-          //border-right: 1px solid #eee;
+          vertical-align: middle;
           h5 {
             margin-top: 5px;
           }
@@ -530,6 +549,7 @@
       h1 {
         font-size: 26px;
         padding-left: 12px;
+        margin: 12px 0;
         span {
           color: #5eb12f;
           font-size: 13px;
@@ -539,6 +559,7 @@
           float: right;
           position: relative;
           top: 3px;
+          right: 5px;
         }
         span:hover {
           background-color: #5eb12f;
@@ -596,6 +617,9 @@
       .company-logo-area {
         text-align: center;
         padding: 40px 0;
+        img {
+          width: 180px;
+        }
       }
 
       .contents {
@@ -609,6 +633,7 @@
             td {
               padding: 5px;
               color: #ddd;
+              font-size: 14px;
               a {
                 text-decoration: none;
                 color: white;
@@ -671,7 +696,7 @@
           background-color: #414141;
           text-align: center;
           padding: 8px;
-          font-size: 12px;
+          font-size: 13px;
           color: #ddd;
           margin-bottom: 20px;
           border-radius: 3px;
@@ -684,7 +709,8 @@
       }
       p {
         color: #bbb;
-        line-height: 22px;
+        line-height: 23px;
+        font-size: 14px;
       }
     }
   }
@@ -747,13 +773,13 @@
             margin: 40px 0;
           }
           p {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 28px;
             margin: 10px 0 25px;
             color: #858585;
           }
           .date {
-            font-size: 20px;
+            font-size: 18px;
             padding: 13px 15px;
             border: 3px solid #aaa;
             border-radius: 5px;
