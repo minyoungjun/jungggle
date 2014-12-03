@@ -7,7 +7,7 @@
         <td class="list-title"><a href="/users/edit"<%if @selected =="profile"%> class="select" <%end%>>Profile</a></td>
       </tr>
       <tr onclick="#none" style="cursor: pointer">            
-        <td class="list-icon"><img src="/assets/my_account/account_company_profile.png" <%if @selected =="company"%> style="opacity:1;" <%end%> ></td>
+        <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/account_company_profile.png" <%if @selected =="company"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title" ><a href="/users/company"<%if @selected =="company"%> class="select" <%end%>>Company<br>Profile</a></td>
       </tr>
       <%if user_signed_in? && current_user.is_admin%>
@@ -51,13 +51,13 @@
 
       <%if user_signed_in? && current_user.is_admin%>
         <tr onclick="#none" style="cursor: pointer">
-          <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
+          <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/publishers_manage_service.png"></td>
           <td class="list-title"><a href="/manages/services">Manage<br>Services <br>(Admin)</a></td>
         </tr>
       <%else%>
 
         <tr onclick="#none" style="cursor: pointer">
-          <td class="list-icon"><img src="/assets/my_account/publishers_manage_service.png"></td>
+          <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/publishers_manage_service.png"></td>
           <td class="list-title"><a href="/publishers/manage">Manage<br>Service</a></td>
         </tr>
 
