@@ -190,10 +190,13 @@
             hr {
               margin: 0 12px 10px;
             }
+            .division-hover-plus {
+              width: 480px;
+            }
             .division-hover {
               display: none;
               border: 1px solid #eee;
-              min-width: 530px;
+              min-width: 200px;
               position: absolute;
               left: 148px;
               top: 39px;
