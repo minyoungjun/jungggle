@@ -34,7 +34,23 @@ function language_select(id){
   $(".language_name_" + id).show();
   $(".detail_div").hide();
   $(".detail_div_" + id).show();
+  $(".company_name").hide();
+  if ($(".company_name_" + id).length != 0){
+    $(".company_name_" + id).show();
+  }else{
+    <% if @product.company.comlangs.count != 0 %>
+        $(".company_name_<%=@product.company.comlangs.order(:language_id).first.language_id%>").show();
+    <%end%>
+  }
+  $(".company_introduction_div").hide();
+  if ($(".company_introduction_" + id).length != 0){
+    $(".company_introduction_" + id).show();
+  }
+  else{
+    $(".company_introduction_<%=@product.company.comlangs.order(:language_id).first.language_id%>").show();
+  }
 
+  
 
 }
 
@@ -232,10 +248,12 @@ function language_select(id){
       <div class="right-bottom">
         <h3>Company Introduction</h3>
         <%@company.comlangs.each do |comlang|%>
-          <%if comlang.comdocuments.count != 0%>
-            <a href="/products/attachment/<%=comlang.comdocuments.first.id%>"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
-          <%end%>
-          <p><%=simple_format(comlang.introduction)%></p>
+          <div class="company_introduction_<%=comlang.language_id%> company_introduction_div">
+            <%if comlang.comdocuments.count != 0%>
+              <a href="/products/attachment/<%=comlang.comdocuments.first.id%>"><h5><span class="glyphicon glyphicon-save"></span> Full Company Introduction</h5></a>
+            <%end%>
+            <p><%=simple_format(comlang.introduction)%></p>
+          </div>
         <%end%>
       </div>
     </div>
