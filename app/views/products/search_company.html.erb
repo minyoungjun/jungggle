@@ -2,13 +2,13 @@
 <div class="search search-company">
   <div class="container">
     <img src="/assets/product_result/sample2.jpg" width="220px;">
-    <h4>Company Name</h4>
+    <h4 class="c-name">Company Name</h4>
 
     <table>
       <tr class="table-header">
         <!--<td class="company-img">Company name</td>-->
-        <td class="service" width="170px;">Service Name</td>
-        <td>Service details</td>
+        <td class="service" style="width: 170px; padding-left: 30px;">Service Name</td>
+        <td style="text-align: left;">Service details</td>
         <td class="country">Country</td>
         <td class="marketing">Marketing type</td>
         <td class="cost">Cost</td>
@@ -29,7 +29,7 @@
               <%end%>
             </a>
           </td>
-          <td><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%></td>
+          <td style="vertical-align: middle;"><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%></td>
           <td class="marketing"><%=product.marketingtype.name%></td>
           <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span>
             <a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a>

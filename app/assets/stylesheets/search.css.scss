@@ -25,10 +25,12 @@
         color: white;
         background-color: #333;
         td {
-          padding: 10px;       
+          padding: 12px 10px;       
         }
         .company-img {
           width: 190px;
+          text-align: left;
+          padding-left: 30px;
         }
         .detail {
           text-align: left;
@@ -49,8 +51,8 @@
         $table-big-font: 14px;
 
         td {
-          border-bottom: 1px solid #ddd;
-          padding: 25px 8px;
+          border-bottom: 1px solid #aaa;
+          padding: 32px 8px;
           font-size: $table-big-font;
           button {
             background-color: #5eb12f;
@@ -59,6 +61,9 @@
             border: 0;
             border-radius: 5px;
             margin-top: 15px;
+          }
+          button:hover {
+            background-color: #4F9F22;
           }
         }
         a {
@@ -71,6 +76,7 @@
         .company-img {
           text-align: center;
           font-weight: 700;
+          vertical-align: middle;
 
           img {
             width: 140px;
@@ -79,9 +85,10 @@
         }
         .detail {
           text-align: left;
+          vertical-align: middle;
           .service-name {
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 500;
             color: #5eb12f;
           }
           a {
@@ -97,12 +104,21 @@
             }
           }
         }
+        .country {
+          vertical-align: middle;
+          color: #666666;
+        }
+        .marketing {
+          vertical-align: middle;
+          color: #333333;
+          font-weight: 500;
+        }
         
         .cost {
-          
           font-size: 22px;
           line-height: 24px;
           font-weight: 700;
+          vertical-align: middle;
           .rating {
             color: #5eb12f;
             font-size: 17px;
@@ -120,7 +136,31 @@
 }
 
 /* search-company */
+.search-company {
+  .c-name {
+    margin: 10px 0 35px;
+    font-size: 18px;
+  }
 
+
+  table {
+    .table-header {
+      .service {
+        text-align: left;
+      }
+    }
+    .table-body {
+      .service-name {
+        vertical-align: middle;
+        font-weight: 500;
+        color: #333;
+      }
+      .country {
+        vertical-align: middle;
+      }
+    }
+  }
+}
 
 
 
