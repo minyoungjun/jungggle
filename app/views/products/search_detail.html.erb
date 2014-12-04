@@ -124,9 +124,11 @@ function language_select(id){
                   <%if detailang.detail != nil%>
                     <%if detailang.detail.proimages.count != 0%>
                       <div class="detail_content">
-                        <h5 class="img-hover"><span style="font-size: 10px; font-weight: 700;">—</span> <%=detailang.content%>
-                        <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
-                        </h5>
+                        <a href="<%if detailang.detail.proimages.first.photo.url(:large) != nil%><%=detailang.detail.proimages.first.photo.url(:large)%><%else%>#<%end%>">
+                          <h5 class="img-hover"><span style="font-size: 10px; font-weight: 700;">—</span> <%=detailang.content%>
+                            <img src="<%=detailang.detail.proimages.first.photo.url(:medium)%>">
+                          </h5>
+                        </a>
                       </div>
                     <%else%>
                       <div class="detail_content">
