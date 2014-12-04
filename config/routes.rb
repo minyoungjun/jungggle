@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'publishers/edit/:id' => 'publishers#edit'
 
   post 'publishers/edit_process'
+  get 'publishers/destroy_service/:id' => "publishers#destroy_service"
   get 'manages/edit_service/:id' => "manages#edit_service"
   post 'manages/edit_process'
 
@@ -80,6 +81,7 @@ Rails.application.routes.draw do
   get '/manages/services'
   get '/manages/create'
   post '/manages/create_process'
+  get '/manages/destroy_service/:id' => "manages#destroy_service"
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection

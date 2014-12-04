@@ -4,9 +4,16 @@ class PublishersController < ApplicationController
   before_filter :is_confirmed
   before_filter :company_confirmed
 
+  def destroy_service
+    product = Product.where(:id => params[:id], :company_id => Member.where(:id => current_user.id, :approved => true).first.company.id).first
+    product.destroy
+    redirect_to :controller => "publishers", :action => "manage"
+
+  end
+
   def edit_process
 
-    product = Product.where(:id => params[:product_id], :company_id => current_user.member.company.id).first
+    product = Product.where(:id => params[:product_id], :company_id => Member.where(:id => current_user.id, :approved => true).first.company.id).first
     
     if ((10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60) ) || params[:marketing_id].to_i == 90
       if params[:platform].to_i != 0

@@ -1,7 +1,13 @@
 class ManagesController < ApplicationController
   before_filter :is_login
   before_filter :is_admin
+    
+  def destroy_service
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to :controller => "manages", :action => "services"
 
+  end
 
   def edit_process
 

@@ -11,6 +11,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+#soft delete
+gem "paranoia", "~> 2.0"
+
 
 gem 'rest_client'
 #active admin
