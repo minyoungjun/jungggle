@@ -20,7 +20,7 @@
 <script>
 
 $(document).ready(function(){
-  $("#language_btn_<%=@product.prolangs.first.language_id%>").trigger("click");
+  $("#language_btn_<%=@product.prolangs.order(:language_id).first.language_id%>").trigger("click");
     });
 
 function language_select(id){
