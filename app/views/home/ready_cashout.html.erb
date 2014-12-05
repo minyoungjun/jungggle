@@ -1,7 +1,7 @@
 <div class="account">
   <div class="container">
     <%= render "/home/left"%>
-    <div class="ready">
+    <div class="ready" id="right">
       <h1>We are developing<br>a new feature of <span>Jungggle.</span></h1>
       <img src="/assets/ready.png">
       <p>Sorry for your inconvenience. We are currently building some of features on this page <br>to help Publishers manage the payment easily.</p>
@@ -10,3 +10,7 @@
     </div>
   </div>
 </div>
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
+</script>

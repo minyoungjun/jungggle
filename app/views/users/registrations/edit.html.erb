@@ -2,7 +2,7 @@
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-profile">
+    <div class="right-profile" id="right">
       <div style="display:none">
         <form accept-charset="UTF-8" <%if current_user.confirmed_at != nil%> action="/users" <%end%> class="edit_user" id="edit_user" method="post" enctype="multipart/form-data">
           <input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" />
@@ -62,3 +62,12 @@
     color: #BD2F2F;
   }
 </style>
+
+
+
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
+</script>
+
+
