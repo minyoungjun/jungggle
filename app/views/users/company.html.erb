@@ -83,7 +83,7 @@ function language_click(id){
 
           <span id="selected_languages"></span>
            <div class="popover-markup">
-            <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer;">
+            <img src="/assets/my_account/circle_plus.png" class="trigger" data-original-title="" title="" aria-describedby="popover603483" style="cursor:pointer; vertical-align: middle;">
             <div class="content hide" style="top: 280px; left: 389px; display: block;">
               <%Language.all.each do |language|%>
                 <p onclick="languagebox(this); return false;" data-nickname="<%=language.nickname%>" data-language="<%=language.id%>" id="p_language_<%=language.id%>" class="p_language_<%=language.id%>"><%=language.name%></p>
@@ -295,7 +295,7 @@ function delete_logo(){
         <%end%>
         <div class="client-logo">
           <p onclick="$('#client-logo-div').slideToggle('1000');" style="cursor:pointer;">
-            <img src="/assets/my_account/circle_plus.png">
+            <img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">
             Upload Client Logo (Publisher only)
           </p>
 
@@ -316,7 +316,7 @@ function delete_logo(){
         </div>
         
           <div class="company-introduction">
-            <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  ><img src="/assets/my_account/circle_plus.png">Upload Company Introduction (Publisher only)</h5>
+            <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  ><img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">Upload Company Introduction (Publisher only)</h5>
 
             <div class="upload-logo-area" id="introduction-div" style="display:none;">
 
