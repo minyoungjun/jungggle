@@ -1,3 +1,5 @@
+<!-- create.css.scss -->
+
 <script>
   var now_lang = 0;
   var del_to_lang = 0;
@@ -67,7 +69,7 @@ function language_click(id){
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-create-service">
+    <div class="right-create-service" id="right">
       <h1>Create Service</h1>
 
       <form action="/publishers/create_process" method="post" enctype="multipart/form-data">
@@ -137,7 +139,7 @@ function language_click(id){
                     <li class="division" >
                     <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
                       <%if marketing1.child_types.count != 0%>
-                        <div class="division-hover" style="min-height:230px;">
+                        <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
                           <ul>
                             <% marketing1.child_types.each do |marketing2|%>
                               <%if marketing2.filter == 2%>
@@ -568,3 +570,9 @@ function textarea_resize(obj, offset) {
    obj.style.height = (obj.scrollHeight + offset) + "px";
 }
 </script>
+
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
+</script>
+

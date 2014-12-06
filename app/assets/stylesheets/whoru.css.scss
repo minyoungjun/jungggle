@@ -1,8 +1,10 @@
 .whoru {
-  padding: 50px 0 100px;
+  padding: 70px 0 150px;
   h1 {
     text-align: center;
-    color: #555;
+    color: #444;
+    font-size: 35px;
+    margin: 25px 0;
   }
   .who-contents {
     margin: 40px auto;
@@ -25,8 +27,10 @@
         background-color: #4ca826;
       }
       p {
-        font-size: 15px;
+        font-size: 16px;
         color: #888;
+        line-height: 22px;
+        font-weight: 400;
       }
       .font-color {
         color: #5eb12f;

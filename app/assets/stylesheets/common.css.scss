@@ -390,7 +390,6 @@ body {
       .btn {
         border-radius: 5px;  
       }
-      
       .marketing-down {
         display: none;
         width: 165px;
@@ -398,6 +397,8 @@ body {
         border-radius: 5px;
         position: absolute;
         top: 32px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         cursor: pointer;
         background-color: white;

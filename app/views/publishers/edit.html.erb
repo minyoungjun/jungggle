@@ -1,3 +1,5 @@
+<!-- create.css.scss -->
+
 <script>
   var now_lang = 0;
   var del_to_lang = 0;
@@ -107,7 +109,7 @@ function language_click(id){
         <h3>Language &nbsp;
           <div class="info-hover-area">
             <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
-            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">다양한 언어로 당신의 서비스를 소개하고 싶을 경우에 Language를 추가하여 번역된 텍스트를 입력하세요.</div>
+            <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">Add language options if you would like to introduce your service in diverse languages. Input translated text by adding another language option.</div>
           </div>
         </h3>
         <span id="selected_languages"></span>
@@ -159,7 +161,7 @@ function language_click(id){
                     <li class="division" >
                     <span  id="marketing_li_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click(<%=marketing1.id%>);"><%=marketing1.name%></span>
                       <%if marketing1.child_types.count != 0%>
-                        <div class="division-hover" style="min-height:230px;">
+                        <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
                           <ul>
                             <% marketing1.child_types.each do |marketing2|%>
                               <%if marketing2.filter == 2%>
@@ -212,7 +214,7 @@ function platform_change(id){
           <div class="info-hover-area">
             <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
             <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
-              서비스에 대한 상세 내용을 입력해주세요.<br><br>1) 광고주가 구매 결정을 내릴 수 있도록 가능한 자세한 정보가 있는 것이 좋습니다. <br><br>2)가독성을 높이기 위해 +버튼을 클릭하여 문장별로 분리하여 작성해주세요.<br><br>3)Attach Image 버튼을 통해 각 문장마다 서비스 소개에 필요한 이미지를 첨부시킬 수 있습니다. 이미지가 첨부된 문장에 마우스 커서를 올리면 해당 이미지가 출력됩니다.
+              Input the information of your service.<br> 1) Please explain as detailed as possible for advertisers to make their decision. <br>2) To increase readability, please write different points in seperate boxes by clicking + button. <br>3) You can insert images to each sentence to introduce your service better by clicking [Attach Image] button. The images will be shown when advertisers put their mouse cursor on the sentence.
             </div>
           </div>
         </h3>
@@ -400,7 +402,7 @@ function has_detail_remove(id){
           <div class="info-hover-area">
             <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
             <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
-              가격에 따라 제공되는 서비스 내용이 다른 경우에는 Multiple Rate을 선택하는 것이 아니라 별도로 새로운 Service를 만들어야 합니다.
+              Flat Rate : When the cost of a service is fixed Multiple Rate : When you can desianate cost scope for a service (ex. CPC Ad cost, RTB)<br> (If a service has diffferent details by the cost, you should make seperately service other than choosing Multiple Rate)
             </div>
           </div>
         </h3>
@@ -481,7 +483,7 @@ function has_delete_country(id){
           <div class="info-hover-area">
             <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
             <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
-              당신의 서비스가 제공되는 국가를 선택하세요. (Please choose the country that your service can cover.)<br>국가별로 금액이나 서비스 내용이 다를 경우에는 본 선택지 상에서 국가를 추가하지 말고 별도로 새로운 Service를 만들어야 합니다.
+              Choose the country that your service can cover.<br> If each service details or the cost of service is different by countries, you should make a seperate service rather than add another country in this page.
             </div>
           </div>
         </h3>
@@ -550,7 +552,17 @@ function has_delete_attach(prodocu_id){
 
       </script>
         <div class="pack optional" >
-          <h3 onclick="attach_document();">[Optional] Attach Document &nbsp;&nbsp;&nbsp;<img src="/assets/my_account/checkbox-01.png" class="check_1"/><img src="/assets/my_account/checkbox-02.png" class="check_1" style="display:none;"/></h3><br>
+          <h3 onclick="attach_document();">[Optional] Attach Document &nbsp;&nbsp;&nbsp;
+
+            <div class="info-hover-area">
+              <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">
+              <div class="info-hover"><img src="/assets/my_account/hover_pointer.svg">
+                Please upload files if you need additional explanation about the service.<br> 1) Upload the files such as Media Kit, Case Study, and others that help dvertisers to understand the service better. <br> 2) [Name of the document] blank is for you to write the title of the document for advertisers to see.<br>3) You can upload maximum of 3 documents.
+              </div>
+            </div>
+
+
+            <img src="/assets/my_account/checkbox-01.png" class="check_1"/><img src="/assets/my_account/checkbox-02.png" class="check_1" style="display:none;"/></h3><br>
           <div id="attach_document" style="display:none;">
             <%Language.all.each do |language|%>
               <div  class="upload_box"  id="upload_box_<%=language.id%>">
@@ -603,11 +615,14 @@ function term_check(id){
     }
       </script>
       <h5 class="ok"><img id="term_check_img" style="cursor:pointer;" src="/assets/my_account/checkbox-01.png" onclick="term_check(0);"> &nbsp;&nbsp;I know you will not read full <span>terms.</span> But you should know at least these!</h5>
+      
+      <!--
       <p>1. 입금확인</p>
       <p>2. 정글이 광고주로부터 수령하는 실수령 금액(송금 수수료를 제외한) 중</p>
       <p>3. 4.95%를 제외한 나머지 금액을 광고 매체에 지급한다.</p>
       <p>4. 대금 지급 일정 : 안전하고 투명한 거래를 위해 정글은 광고주에게는 100% 선금으로 대금을 수령하고, 광고 매체 측에는 캠페인이 100% 정상적으로<br>&nbsp;&nbsp;&nbsp;&nbsp;완료된 후에 대금을 지급힌다.</p>
       <p>5. 캠페인이 정상적으로 완료되었다고 판단이 되면 (Campaign Result)</p>
+    -->
       </form>
 
     </div>
