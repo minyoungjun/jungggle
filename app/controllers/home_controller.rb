@@ -1,7 +1,25 @@
+require 'json'
+
 class HomeController < ApplicationController
   autocomplete :company, :name, :full => true
   before_action :is_login, only: [:account_company_profile, :account_member, :company_update]
-  
+
+  def contact_process
+
+    contact  = Contact.new
+    contact.contact_type = params[:contact_type]
+    contact.name = params[:name]
+    contact.company_name = params[:company]
+    contact.email = params[:email]
+    contact.content = params[:content]
+    contact.save
+
+    contact.send_mail
+
+    render :json => ["success"].to_json
+
+
+  end
   def account_company_profile
 
     @selected = "company"

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'home/faq'
   get 'home/how'
+  post '/home/contact_process.json' => "home#contact_process"
   get 'publishers/create' => "publishers#create2"
   get 'publishers/create2'
   post 'publishers/create_process'
