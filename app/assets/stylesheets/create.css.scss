@@ -137,6 +137,7 @@
       input {
         display: inline-block;
         width: 350px;
+        line-height: 21px;
       }
     }
 
@@ -149,6 +150,7 @@
           border-radius: 5px;
           margin: 0;
           color: #888;
+          font-size: 15px;
           .glyphicon {
             top: 1px;
             left: 38px;
@@ -172,17 +174,20 @@
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
+          -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
           cursor: pointer;
           background-color: white;
           z-index: 100;
+          padding: 9px 0 15px;
           ul {
             list-style: none;
             padding-left: 0;
 
             li {
-              padding: 10px 15px;
-              color: #bbb;
+              padding: 7px 15px;
+              color: #aaa;
               font-size: 13px;
             }
             li:hover {
@@ -192,30 +197,32 @@
               color: #777;
             }
             hr {
-              margin: 3px 15px;
+              margin: 0 12px 10px;
             }
             .division-hover {
               display: none;
               border: 1px solid #eee;
-              width: 535px;
+              width: 200px;
               position: absolute;
               left: 168px;
-              top: 26px;
+              top: 36px;
               color: #333;
-              padding: 5px 10px;
+              padding: 10px;
               background-color: white;
               z-index: 610;
               ul {
                 display: inline-block;
-                padding: 10px 3px;
                 vertical-align: top;
                 li {
-                  padding: 2px 15px;
+                  padding: 7px 15px;
+                  font-weight: 400;
                 }
                 .title {
                   font-size: 16px;
-                  padding-bottom: 10px;
+                  padding-left: 0;
                   color: #777;
+                  border-bottom: 1px solid #ddd;
+                  margin: 0 10px;
                 }
               }
             }
@@ -223,6 +230,9 @@
               .division-hover {
                 display: block;
               }
+            }
+            .division-hover-plus {
+              width: 510px;
             }
           }
         }     
@@ -247,6 +257,9 @@
           margin: 0 20px 0 0;
           display: inline-block;
           cursor: pointer;
+          img {
+            vertical-align: middle;
+          }
           input {
             margin-right: 5px;
           }

@@ -222,8 +222,8 @@
     }
     .selected-languages {
       font-size: 14px;
-      margin: 8px 5px 8px 0;
-      padding: 8px 20px;
+      margin: 8px 8px 8px 0;
+      padding: 8px 15px;
       border-radius: 5px;
       border: 1px solid #eee;
       display: inline-block;
@@ -307,6 +307,7 @@
     display: inline-block;
     input {
       margin: 0 5px;
+      line-height: 20px;
     }
     .company-name-drop {
       display: block;
@@ -327,6 +328,7 @@
         img {
           width: 70px;
           margin-right: 15px;
+          vertical-align: middle;
         }
         h5 {
           display: inline-block;
@@ -440,7 +442,12 @@
 
 
   .client-logo {
-    margin-bottom: 40px;
+    margin: 50px 0 40px;
+    p {
+      img {
+        margin-right: 6px;
+      }
+    }
     h5 {
       margin: 30px auto 15px;
       text-align: left;
@@ -449,7 +456,7 @@
       display: inline-block;
       width: 80px;
       height: 80px;
-      margin: 5px;
+      margin: 7px 5px;
       background-position: center center;
       background-size: cover;
       -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
@@ -486,7 +493,7 @@
     }
   }
   .upload-logo-area {
-    margin: 30px 0;
+    margin: 25px 0;
     .upload-logo {
       margin: 0;
       border: 0;
@@ -536,6 +543,13 @@
     }
   }
 
+
+  .company-introduction {
+    img {
+      margin-right: 10px;
+    }
+  }
+
   .btn {
     width: 450px;
     padding: 15px 40px;
@@ -543,7 +557,7 @@
     color: white;
     border: 0;
     font-size: 16px;
-    margin: 40px 0;
+    margin: 60px 0;
   }
   .no-img {
     visibility: hidden;
@@ -565,7 +579,7 @@
     display: inline-block;
     font-size: 28px;
     font-weight: 500;
-    margin-top: 20px;
+    margin: 20px 0 15px;
   }
   h4 {
     display: inline-block;
@@ -587,12 +601,14 @@
 
       td {
         padding: 10px 25px;
+        vertical-align: middle;
       }
     }
     .table-body {
       border-bottom: 1px solid #ccc;
       td {
         padding: 15px 25px; 
+        vertical-align: middle;
         img {
           margin: 0 50px 0 5px;
         }
@@ -631,9 +647,13 @@
           border: 1px solid #eee;
           border-radius: 5px;
           padding: 10px 20px;
+          -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-          margin-left: -42px;
+          margin-left: -39px;
           margin-top: 10px;
+          font-size: 13px;
+          color: #555;
           .pointer {
             margin: 0;
             position: absolute;
@@ -660,14 +680,18 @@
           border: 1px solid #eee;
           border-radius: 5px;
           padding: 10px 20px;
+          -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+          -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
           box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
           margin-left: -50px;
           margin-top: 10px;
+          font-size: 13px;
+          color: #555;
           .pointer {
             margin: 0;
             position: absolute;
             top: -11px;
-            right: 59px;
+            right: 53px;
           }
         }
         .change:hover {
@@ -1889,12 +1913,13 @@
     margin: 30px 0 50px;
 
     .table-header {
-      font-size: 12px;
+      font-size: 13px;
       border-top: 1px solid #777;
       border-bottom: 1px solid #777;
       td {
         padding: 10px 12px;
         vertical-align: middle;
+        text-align: center;
       }
     }
     .table-body {
@@ -1903,25 +1928,61 @@
       td {
         padding: 14px 12px; 
         vertical-align: middle;
+        text-align: center;
+        line-height: 18px;
         .embed-btn {
-          background-color: #eee;
-          padding: 8px 13px 5px;
+          background-color: white;
+          border: 1px solid #ddd;
+          color: #777;
+          padding: 12px 13px 6px;
           border-radius: 5px;
           text-align: center;
           cursor: pointer;
+          img {
+            width: 30px;
+          }
         }
         .embed-btn:hover {
-          background-color: #e3e3e3;
+          background-color: #f1f1f1;
+          color: #444;
+        }
+        .edit-btn {
+          width: 65px;
+          background-color: white;
+          border: 1px solid #5eb12f;
+          color: #5eb12f;
+          font-size: 13px;
+          margin-bottom: 6px;
+          padding: 3px 0;
+        }
+        .edit-btn:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+        .delete-btn {
+          width: 65px;
+          background-color: white;
+          border: 1px solid #F47474;
+          color: #F47474;
+          font-size: 13px;
+          padding: 3px 0;
+        }
+        .delete-btn:hover {
+          background-color: #F47474;
+          color: white;
         }
       }
       .name {
         color: #5eb12f;
+        width: 160px;
+        word-break: break-all;
+        font-weight: 500;
         span {
           color: #bbb;
         }
       }
       .marketing {
-        width: 260px;
+        width: 210px;
       }
       .font-bold {
         font-size: 15px;
@@ -1946,6 +2007,7 @@
       text-align: center;
       margin: 15px auto;
       font-size: 23px;
+      color: #444;
 
     }
     .selling-info {

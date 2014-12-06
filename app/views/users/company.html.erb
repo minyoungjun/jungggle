@@ -304,7 +304,7 @@ function delete_logo(){
             <p class="file-name"><span>* JPG, GIF or PNG, Max size of 000k</span>
             </p>
           </div>
-          <div id="logo-preview" style="max-width:450px; margin:10px 0;">
+          <div id="logo-preview" style="max-width:480px; margin:20px 0 50px;">
             <%if @has_company %>
               <%@company.comclients.each do |comclient|%>
                 <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:thumb)%>');">
