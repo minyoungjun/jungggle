@@ -1,13 +1,8 @@
 <%if @products.count == 0%><p class="oops">Oops! there is no service from <%=@company.comlangs.first.name%></p><%end%>
 <div class="search search-company">
   <div class="container">
-<<<<<<< HEAD
     <img src="<%=@company.logo.url(:medium)%>" width="220px;">
     <h4><%=@company.comlangs.order(:language_id).first.name%></h4>
-=======
-    <img src="/assets/product_result/sample2.jpg" style="width: 220px;">
-    <h4 class="c-name">Company Name</h4>
->>>>>>> cssreset
 
     <table>
       <tr class="table-header">
