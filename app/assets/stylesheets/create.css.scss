@@ -347,6 +347,7 @@
       .country-drop {
         display: inline-block;
 
+
         .country-btn {
           padding: 10px 55px;
           border: 1px solid #ddd;
@@ -360,6 +361,7 @@
             left: 38px;
             color: #ccc;
             float: right;
+            font-size: 12px;
           }
         }
         .country-btn:hover {
@@ -391,8 +393,8 @@
             list-style: none;
             padding-left: 0;
             li {
-              padding: 3px 15px;
-              color: #bbb;
+              padding: 7px 15px;
+              color: #999;
               font-size: 13px;
             }
             li:hover {
@@ -426,7 +428,7 @@
     .optional {
       margin-bottom: 50px;
       h3 {
-        width: 260px;
+        width: 320px;
         img {
           vertical-align: middle;
         }
