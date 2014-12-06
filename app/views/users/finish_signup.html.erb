@@ -192,7 +192,7 @@ function delete_logo(){
       <input type="file" name="client[0]" id="client_0" onchange="client_upload(0);">
     </div>
     <div class="upload-logo" onclick="$('#company_logo').trigger('click');" id="upload_logo_btn">+Upload Logo</div>
-    <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span class="info">* JPG, GIF or PNG, Max size of 000k</span>
+    <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 1MB</span>
     </p>
   </div>
   <div class="client-logo">
@@ -203,7 +203,7 @@ function delete_logo(){
 
     <div class="upload-logo-area" id="client-logo-div" style="display:none;">
       <div class="upload-logo" onclick="click_client();">+Upload Client</div>
-      <p class="client-logo-info">* JPG, GIF or PNG, Max size of 000k</span>
+      <p class="client-logo-info">Max size of 25MB</span>
       </p>
     </div>
     <div id="logo-preview" style="max-width:450px; margin:20px auto 50px; text-align: left;">
@@ -215,7 +215,7 @@ function delete_logo(){
     Upload Company Introduction (Publisher only)</h5>
     <div class="upload-logo-area"  id="introduction-div" style="display:none;">
       <div class="upload-logo" onclick="$('#company_introduction').trigger('click');" id="intro_btn">+Upload File</div>
-      <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span class="info">* JPG, GIF or PNG, Max size of 000k</span>
+      <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 25MB</span>
       </p>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <div class="signup login">
   <a href="/"><img src="/assets/main/log.png" class="title-logo"></a>
-  <h1>Sign Up to continue!</h1>
+  <h1>Sign Up to Continue!</h1>
   <div class="sns-login-area">
     <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Sign up with Linkedin</div></a>
     <a href="<%=user_omniauth_authorize_path(:facebook)%>"><div class="sns-login facebook"><img src="/assets/main/log_facebook.png">Sign up with Facebook</div></a>
@@ -22,10 +22,10 @@
     <div>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", required: true%></div>
 
-    <div class="sign-btn"><%= f.submit "Sign up" %></div>
+    <div class="sign-btn"><%= f.submit "Sign Up" %></div>
   <% end %>
 
-  <a href="/users/sign_in" class="login-go"><h5>Log in</h5></a>
+  <a href="/users/sign_in" class="login-go"><h5>Already have an account? Login here</h5></a>
 
 </div>
 <style>

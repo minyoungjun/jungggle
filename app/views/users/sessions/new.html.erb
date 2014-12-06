@@ -1,8 +1,8 @@
 <div class="login">
   <a href="/"><img src="/assets/main/log.png" class="title-logo"></a>
   <div class="sns-login-area">
-    <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Login with Linkedin</div></a>
-    <a href="<%=user_omniauth_authorize_path(:facebook)%>"><div class="sns-login facebook"><img src="/assets/main/log_facebook.png">Login with Facebook</div></a>
+    <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Log In with Linkedin</div></a>
+    <a href="<%=user_omniauth_authorize_path(:facebook)%>"><div class="sns-login facebook"><img src="/assets/main/log_facebook.png">Log In with Facebook</div></a>
   </div>
   <h3>or</h3>
 
@@ -18,7 +18,7 @@
       <div class="remember"><%= f.check_box :remember_me, class: "check" %> <%= f.label :remember_me %></div>
     <% end -%>
 
-    <div class="log-btn"><%= f.submit "LOG IN" %></div>
+    <div class="log-btn"><%= f.submit "Log In" %></div>
   <% end %>
 
   <div class="login-foot">

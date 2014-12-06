@@ -274,6 +274,7 @@
     font-size: 15px;
     display: block;
     width: 450px; 
+    line-height: 20px;
   }
   form {
     display: inline-block;
@@ -360,6 +361,8 @@
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       padding-top: 10px;
       cursor: pointer;
@@ -408,8 +411,10 @@
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-      padding-top: 10px;
+      padding: 10px 0;
       cursor: pointer;
       background-color: white;
       margin-top: -16px;
@@ -709,8 +714,6 @@
 
 
 
-
-
 /* account-dashboard */
 .right-dashboard {
   width: 990px;
@@ -729,7 +732,6 @@
       color: #aaa;
     }
   }
-
   table {
     width: 100%;
     margin-bottom: 30px;
@@ -924,7 +926,6 @@
   }
 
 
-
   /* modla : message */
   .modal-dialog-message {
     margin-top: 150px;
@@ -952,9 +953,6 @@
     }
   }
 }
-
-
-
 
 
 
@@ -2145,7 +2143,6 @@
     margin: 0 auto;
   }
 }
-
 
 
 

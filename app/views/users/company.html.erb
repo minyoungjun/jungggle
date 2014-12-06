@@ -187,7 +187,7 @@ function auto_func(id){
   <%end%>
 
   <div class="number">
-    <input type="text" placeholder="Number of Employee" id="employee_text" disabled>
+    <input type="text" placeholder="Number of Employees" id="employee_text" disabled>
     <div class="number-drop">
       <ul>
         <%0.upto(5) do |em_num|%>
@@ -296,12 +296,12 @@ function delete_logo(){
         <div class="client-logo">
           <p onclick="$('#client-logo-div').slideToggle('1000');" style="cursor:pointer;">
             <img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">
-            Upload Client Logo (Publisher only)
+            Upload Clients Logo (Publisher only)
           </p>
 
           <div class="upload-logo-area" id="client-logo-div" style="display:none;">
             <div class="upload-logo" onclick="click_client();">+Upload Client</div>
-            <p class="file-name"><span>* JPG, GIF or PNG, Max size of 000k</span>
+            <p class="file-name"><span>JPG, GIF or PNG, Max size of 000k</span>
             </p>
           </div>
           <div id="logo-preview" style="max-width:480px; margin:20px 0 50px;">
@@ -323,7 +323,7 @@ function delete_logo(){
               <%Language.all.each do |language|%>
                 <div class="introfile_language" id ="introfile_language_<%=language.id%>">
                   <div class="upload-logo" onclick="$('#company_introduction_<%=language.id%>').trigger('click');" id="intro_btn_<%=language.id%>" >+Upload File</div>
-                  <p class="file-name"><span id="introduction_name_<%=language.id%>"><%if @has_company && @company.comlangs.where("language_id" => language.id).count != 0 && @company.comlangs.where("language_id" => language.id).first.comdocuments.count != 0%><%=@company.comlangs.where("language_id" => language.id).first.comdocuments.last.original_name%><%end%></span><a href="#none" onclick="delete_intro(<%=language.id%>);">X &nbsp;&nbsp;Delete</a><br><span>* JPG, GIF or PNG, Max size of 000k</span>
+                  <p class="file-name"><span id="introduction_name_<%=language.id%>"><%if @has_company && @company.comlangs.where("language_id" => language.id).count != 0 && @company.comlangs.where("language_id" => language.id).first.comdocuments.count != 0%><%=@company.comlangs.where("language_id" => language.id).first.comdocuments.last.original_name%><%end%></span><a href="#none" onclick="delete_intro(<%=language.id%>);">X &nbsp;&nbsp;Delete</a><br><span>PDF, PPT, Excel, etc. Max size of 25MB</span>
                   </p>
                 </div>
               <%end%>
