@@ -21,6 +21,9 @@
     <div class="log-btn"><%= f.submit "LOG IN" %></div>
   <% end %>
 
-  <p>Don'ts have an account?</p>
-  <%= render "users/shared/links" %>
+  <div class="login-foot">
+    <p>Don't have an account?</p>
+    <a href="/users/sign_up"><h5>Sign up</h5></a>
+    <a href="/users/password/new"><h5>Forgot your password?</h5></a>
+  </div>
 </div>

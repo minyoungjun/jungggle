@@ -2,7 +2,7 @@
 .login {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   .title-logo {
     margin-bottom: 30px;
   }
@@ -78,16 +78,28 @@
       color: #666;
     } 
   }
-  p {
-    font-size: 16px;
+  .login-foot {
+    p {
+      font-size: 16px;
+      margin: 15px 0 10px;
+      font-weight: 500;
+    }
+    a {
+      text-decoration: none;
+      h5 {
+        color: #5eb12f;
+        margin: 10px 0;
+      }
+    }  
   }
+  
 }
 
 /* 등록하기 */
 .signup {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   a {
     text-decoration: none;
     .title-logo {
@@ -159,20 +171,27 @@
       padding: 13px 0;
     }
   }
+
+  .login-go {
+    color: #5eb12f;
+    h5 {
+      margin-top: 20px;
+    }
+  }
 }
 
 /* 비밀번호 찾기 */
 .log-pw {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   .title-logo {
     margin-bottom: 30px;
   }
   h2 {
     color: #555;
     font-size: 20px;
-    margin: 15px auto 40px;
+    margin: 15px auto 60px;
     border-top: 2px solid #aaa;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -188,6 +207,7 @@
         border-radius: 10px;
         border: 1px solid #d9d9d9;
         color: black;
+        line-height: 20px;
       }
       input:focus {
         border-color: #5eb12f;
@@ -202,6 +222,19 @@
         font-size: 15px;
         padding: 13px;
         width: 190px;
+      }
+    }
+  }
+  .log-pw-foot {
+    a {
+      text-decoration: none;
+      h5 {
+        color: #333;
+        margin: 6px;
+        display: inline-block;
+      }
+      h5:hover {
+        color: #5eb12f;
       }
     }
   }
