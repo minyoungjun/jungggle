@@ -89,7 +89,7 @@ function language_click(id){
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-create-service">
+    <div class="right-create-service" id="right">
       <h1>Create Service</h1>
 
       <form action="/publishers/edit_process" method="post" enctype="multipart/form-data">
@@ -701,4 +701,11 @@ function textarea_resize(obj, offset) {
    obj.style.height = "1px";
    obj.style.height = (obj.scrollHeight + offset) + "px";
 }
+</script>
+
+
+
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
 </script>

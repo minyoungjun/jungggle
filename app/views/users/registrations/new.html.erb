@@ -1,5 +1,9 @@
 <div class="signup login">
+<<<<<<< HEAD
   <a href="/"><img src="/assets/main/log.png" class="title-logo"></a>
+=======
+  <a href="/home/main.html"><img src="/assets/main/log.png" class="title-logo"></a>
+>>>>>>> cssreset
   <h1>Sign Up to continue!</h1>
   <div class="sns-login-area">
     <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Sign up with Linkedin</div></a>
@@ -25,7 +29,8 @@
     <div class="sign-btn"><%= f.submit "Sign up" %></div>
   <% end %>
 
-  <%= render "users/shared/links" %>
+  <a href="/users/sign_in" class="login-go"><h5>Log in</h5></a>
+
 </div>
 <style>
   #error_explanation {

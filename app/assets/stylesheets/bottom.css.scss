@@ -6,10 +6,11 @@ $p-width: 600px;
   padding: 100px 0 150px;
   text-align: center;
   h2 {
-    font-size: 24px;
-    margin: 50px 0;
+    font-size: 22px;
+    margin: 65px 0;
     color:  #333;
     line-height: 40px;
+    font-weight: 500;
     .color {
       color: #5eb12f;
       font-size: 30px;
@@ -18,7 +19,7 @@ $p-width: 600px;
   .for {
     border: 5px solid #eee;
     border-radius: 10px;
-    padding: 30px 50px 50px;
+    padding: 50px;
     width: 1100px;
     margin: 0 auto;
     .contents {
@@ -27,29 +28,30 @@ $p-width: 600px;
       vertical-align: top;
       h3 {
         color: #5eb12f;
+        font-size: 20px;
         img {
           margin-right: 10px;
+          vertical-align: middle;
         }
       }
       h5 {
         font-size: 15px;
         line-height: 23px;
-        font-weight: 700;
         height: 80px;
         color:  #555;
-        margin-top: 20px;
+        margin: 15px 0;
+        font-style: italic;
       }
       p {
         color: #888;
+        font-size: 14px;
+        line-height: 23px;
+        margin-bottom: 15px;
       }
-
     }
-
     .advertiser {
       margin-right: 70px;
-
     }
-
   }
 }
 
@@ -98,7 +100,7 @@ $p-width: 600px;
     padding: 10px 20px;
     font-size: 15px;
     border-radius: 5px;
-    border: 2px solid #d9d9d9;
+    border: 2px solid #eee;
     display: inline-block;
   }
   input:focus {
@@ -107,28 +109,46 @@ $p-width: 600px;
   textarea {
     width: 430px;
     display: block;
-    margin: 30px auto;
+    margin: 30px auto 20px;
     padding: 10px 20px;
     font-size: 15px;
     border-radius: 5px;
-    border: 2px solid #d9d9d9;
+    border: 2px solid #eee;
     display: inline-block;
     line-height: 25px;
   }
   
   .left-form {
     display: inline-block;
+    h1 {
+      font-size: 35px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+    h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #999;
+      line-height: 22px;
+      font-size: 15px;
+    }
 
   }
   .right-form {
-    width: 600px;
+    width: 590px;
     display: inline-block;
     float: right;
     .check {
-      margin: 20px 0 30px 170px;
+      margin: 20px 0 20px 160px;
       p {
         display: inline;
         margin: 0 25px 0 0;
+        font-size: 14px;
+        img {
+          vertical-align: middle;
+        }
       }
       p:hover {
         color: #5eb12f;
@@ -138,6 +158,8 @@ $p-width: 600px;
     .write {
       height: 50px;
       h5 {
+        color: #555;
+        font-size: 15px;
         input {
           float: right;
           position: relative;
@@ -171,19 +193,23 @@ $p-width: 600px;
   padding: 60px 0 150px;
   text-align: center;
   .lowest {
-    padding: 20px;
-    border: 5px solid #777;
+    padding: 23px 23px 33px;
+    border: 3px solid #666;
     border-radius: 8px;
     width: 1000px;
     margin: 0 auto 60px;
     p {
       font-size: 16px;
-      color: #bbb;
+      color: #777;
+      line-height: 28px;
     }
   }
   h1 {
     font-size: 30px;
     margin: 20px 0;
+    img {
+      vertical-align: middle;
+    }
     .color {
       color: #5eb12f;
     }
@@ -200,7 +226,7 @@ $p-width: 600px;
     .table-header {
       color: #555;
       font-size: 20px;
-      padding: 20px 40px;
+      padding: 22px 40px 15px;
     }
     h4 {
       margin: 0 auto;
@@ -209,16 +235,23 @@ $p-width: 600px;
       width: 500px;
       text-align: left;
       color: #999;
+      img {
+        vertical-align: middle;
+      }
       .percent {
         float: right;
         color: #555;
         font-size: 20px;
+        position: relative;
+        bottom: 3px;
       }
     }
   }
 
   p {
     font-size: 16px;
+    line-height: 28px;
+    color: #777;
     .link {
       color: #5eb12f;
       text-decoration: none;

@@ -1,7 +1,7 @@
 <div class="account">
   <div class="container">
     <%=render "left"%>
-    <div class="right-profile">
+    <div class="right-profile right" id="right">
       <h1>Profile</h1>
       <input type="text" name="lastname" placeholder="James" class="short-form">
       <input type="text" name="firstname" placeholder="Lim" class="short-form">
@@ -49,8 +49,20 @@
 
 
 
+
+
+
+
+
+
+
 <script>
   $('#myModal').modal(options)
+
+</script>
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
 </script>
 
 

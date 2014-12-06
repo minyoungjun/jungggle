@@ -46,7 +46,7 @@ function language_click(id){
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-create-service">
+    <div class="right-create-service" id="right">
       <h1>Create Service</h1>
       <form action="create_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -378,4 +378,10 @@ function delete_file(id){
 
   $(function () { $('.popover-hide').popover('hide');});
 
+</script>
+
+
+
+<script>
+  $("#left").css("height", $("#right").css("height"));
 </script>

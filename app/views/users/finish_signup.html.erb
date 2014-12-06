@@ -9,10 +9,7 @@
     <form action="signup_company" method="post" enctype="multipart/form-data">
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
-    <h3>Company profile</h3>
-    <br>
-
-
+    <h3>Company profile</h3><br>
       <div class="company-name">
         <input type="text" placeholder="Company Name" id="auto_name" name="title" autocomplete="false" required>
 
@@ -121,7 +118,7 @@ $('#auto_name').change(function(){
     </div>
   </div>
   <input type="text" placeholder="Website" name="website" required>
-  <textarea rows="6" placeholder="Company introduction" id="introduction_text" name="company_introduction" class="company_introduction" required></textarea>
+  <textarea rows="7" placeholder="Company introduction" id="introduction_text" name="company_introduction" class="company_introduction" required></textarea>
   <script>
 
 

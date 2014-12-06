@@ -1,6 +1,6 @@
 <div class="search-detail">
   <div class="container">
-    <div class="left">
+    <div class="left" id="left">
 
 <style>
 .language_btn .long{
@@ -114,7 +114,7 @@ function language_select(id){
         </tr>
         <tr class="table-body" style="border-bottom:none; height: 20px;">
           <td class="country">
-            <span>Korea</span>
+            <span>South Korea</span>
             
           </td>
           <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="2">
@@ -171,7 +171,7 @@ function language_select(id){
           </td>
         </tr>
       </table>
-      <h5 style="text-align: right; margin-right: 5px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
+      <h5 style="text-align: right; margin: 10px 5px; font-size: 12px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
 
       <div class="clients">
         <h1>Clients</h1>
@@ -217,7 +217,7 @@ function language_select(id){
       </div>
     </div>
 
-    <div class="right">
+    <div class="right" id="right">
       <div class="right-top">
         <% @company.comlangs.each do |comlang| %>
           <h3 class="company_name company_name_<%=comlang.language_id%>"><%=comlang.name%></h3>
@@ -355,6 +355,6 @@ function language_select(id){
 
 
 
-
-
-
+<script>
+  $("#left").css("height", $("#right").css("height"));
+</script>

@@ -2,7 +2,7 @@
 .login {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   .title-logo {
     margin-bottom: 30px;
   }
@@ -12,10 +12,10 @@
 
     .sns-login {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 15px 25px;
       border-radius: 10px;
       font-size: 14px;
-      margin: 20px 5px 0;
+      margin: 20px 3px 0;
       color: white;
       img {
         margin-right: 12px;
@@ -39,18 +39,20 @@
     width: 30px;
     height: 30px;
     line-height: 27px;
+    margin: 15px 0 7px;
   }
 
   form {
     div {
       input {
-        width: 400px;
-        padding: 15px 20px;
+        width: 410px;
+        padding: 13px 20px;
         margin: 8px 0;
         font-size: 14px;
         border-radius: 10px;
         border: 1px solid #d9d9d9;
         color: black;
+        line-height: 20px;
       }
       input:focus {
         border-color: #5eb12f;
@@ -63,8 +65,7 @@
         color: white;
         border: 0;
         font-size: 15px;
-
-        padding: 10px 0;
+        padding: 13px 0;
       }
     }
   }
@@ -77,19 +78,36 @@
       color: #666;
     } 
   }
-  p {
-    font-size: 16px;
+  .login-foot {
+    p {
+      font-size: 16px;
+      margin: 15px 0 10px;
+      font-weight: 500;
+    }
+    a {
+      text-decoration: none;
+      h5 {
+        color: #5eb12f;
+        margin: 10px 0;
+      }
+    }  
   }
+  
 }
 
 /* 등록하기 */
 .signup {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
-  .title-logo {
-    margin-bottom: 30px;
+  padding: 100px 0 150px;
+  a {
+    text-decoration: none;
+    .title-logo {
+      margin-bottom: 30px;
+      border: 0;
+    }
   }
+  
   h1 {
     color: #555;
     font-size: 20px;
@@ -107,6 +125,7 @@
     border-radius: 10px;
     border: 1px solid #d9d9d9;
     color: black;
+    line-height: 19px;
   }
   input:focus {
     border-color: #5eb12f;
@@ -149,8 +168,14 @@
       color: white;
       border: 0;
       font-size: 15px;
+      padding: 13px 0;
+    }
+  }
 
-      padding: 10px 0;
+  .login-go {
+    color: #5eb12f;
+    h5 {
+      margin-top: 20px;
     }
   }
 }
@@ -159,14 +184,14 @@
 .log-pw {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 0;
+  padding: 100px 0 150px;
   .title-logo {
     margin-bottom: 30px;
   }
   h2 {
     color: #555;
     font-size: 20px;
-    margin: 15px auto 40px;
+    margin: 15px auto 60px;
     border-top: 2px solid #aaa;
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
@@ -182,6 +207,7 @@
         border-radius: 10px;
         border: 1px solid #d9d9d9;
         color: black;
+        line-height: 20px;
       }
       input:focus {
         border-color: #5eb12f;
@@ -199,6 +225,19 @@
       }
     }
   }
+  .log-pw-foot {
+    a {
+      text-decoration: none;
+      h5 {
+        color: #333;
+        margin: 6px;
+        display: inline-block;
+      }
+      h5:hover {
+        color: #5eb12f;
+      }
+    }
+  }
 }
 
 
@@ -211,7 +250,7 @@
   .skip {
     background-color: white;
     color: #5eb12f;
-    padding: 10px 180px;
+    padding: 13px 180px;
     display: inline-block;
     border-radius: 5px;
     border: 1px solid #5eb12f;
@@ -221,6 +260,11 @@
   .skip:hover{
     background-color: #5eb12f;
     color: white;
+  }
+  h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 15px;
   }
   .languages {
     width: 400px;
@@ -242,15 +286,19 @@
     margin: 15px auto;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px 10px 10px 20px;
+    padding: 12px 10px 12px 20px;
     width: 400px;
+    line-height: 20px;
+    font-size: 15px;
   }
   textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px 10px 10px 20px;
+    padding: 12px 10px 12px 20px;
     width: 400px;
     margin-bottom: 20px;
+    line-height: 20px;
+    font-size: 15px;
   }
 
   .company-name {
@@ -261,6 +309,8 @@
       border-radius: 5px;
       position: absolute;
       padding: 10px 0;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       z-index: 100;
       background-color: white;
@@ -293,10 +343,6 @@
     }
   }
 
-
-
-
-
   .language-input {
     width: 400px;
     margin: 0 auto;
@@ -306,6 +352,8 @@
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       padding-top: 10px; 
       background-color: white;
@@ -316,8 +364,8 @@
         list-style: none;
         padding-left: 0;
         li {
-          padding: 5px 15px 5px 25px;
-          color: #bbb;
+          padding: 7px 15px 7px 25px;
+          color: #999;
           font-size: 13px;
           text-align: left;
         }
@@ -328,10 +376,11 @@
     }
   }
 
-
   .language-input:hover {
     border-color: #5bb33a;
     z-index: 101;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     input {
       color: #5eb12f;
@@ -340,9 +389,7 @@
       display: block;
     }
   }
-
   
-
   .country{
     width: 400px;
     margin: 0 auto;
@@ -353,6 +400,8 @@
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       padding-top: 10px;
       cursor: pointer;
@@ -365,8 +414,8 @@
         list-style: none;
         padding-left: 0;
         li {
-          padding: 5px 15px 5px 25px;
-          color: #bbb;
+          padding: 7px 15px 7px 25px;
+          color: #999;
           font-size: 13px;
           text-align: left;
         }
@@ -379,6 +428,8 @@
   .country:hover {
     border-color: #5bb33a;
     z-index: 101;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     input {
       color: #5eb12f;
@@ -402,8 +453,10 @@
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-      padding-top: 10px;
+      padding: 12px 0;
       cursor: pointer;
       background-color: white;
       margin-top: -16px;
@@ -412,8 +465,8 @@
         list-style: none;
         padding-left: 0;
         li {
-          padding: 5px 15px 3px 25px;
-          color: #bbb;
+          padding: 7px 15px 7px 25px;
+          color: #999;
           font-size: 13px;
           text-align: left;
         }
@@ -424,6 +477,8 @@
     }
   }
   .number:hover {
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     input {
       color: #5eb12f;
@@ -434,7 +489,7 @@
   }
 
   .client-logo {
-    margin: 50px auto 0;
+    margin: 40px auto 0;
     width: 400px;
     border-top: 1px solid #ccc;
     p {
@@ -442,6 +497,7 @@
       text-align: left;
       img {
         margin-right: 6px;
+        vertical-align: middle;
       }
     }
     .ex-img {
@@ -451,7 +507,9 @@
       margin: 4px;
       background-position: center center;
       background-size: cover;
-    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+      -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+      -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
     }
   }
 
@@ -462,15 +520,17 @@
     border-top: 1px solid #ccc;
     h5 {
       text-align: left;
+      margin: 15px auto;
       img {
         margin-right: 6px;
+        vertical-align: middle;
       }
     }
   }
 
   .upload-logo-area {
     text-align: left;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 400px;
     .upload-logo {
       margin: 0;
@@ -495,6 +555,8 @@
       font-size: 16px;
       display: inline-block;
       margin-left: 20px;
+      position: relative;
+      top: 5px;
       a {
         text-decoration: none;
         padding: 3px 10px; 
@@ -503,6 +565,8 @@
         border-radius: 3px;
         margin-left: 15px;
         font-size: 11px;
+        position: relative;
+        bottom: 3px;
       }
       span {
         font-size: 14px;
@@ -512,6 +576,8 @@
       .info {
         color: #cccccc;
         font-size: 12px;
+        position: relative;
+        top: 2px;
       }
     }
     .plus-upload {
@@ -528,7 +594,7 @@
   .save-btn {
     background-color: #5eb12f;
     color: white;
-    padding: 10px 180px;
+    padding: 13px 180px;
     display: inline-block;
     border-radius: 5px;
     margin-top: 50px;
@@ -562,15 +628,6 @@
     display: inline-block;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 

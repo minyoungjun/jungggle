@@ -16,12 +16,13 @@
     <div class="country drop">
       <h3 id="country_text_search">Country<span class="glyphicon glyphicon-chevron-down"></span></h3>
       <div class="country-down">
+        <div class="title" id="country_0" onclick="country_select_search(0);">All</div>
         <ul class="country-down-content">
-          <li class="title" id="country_0" onclick="country_select_search(0);">All</li><hr>
+          <hr style="margin:0 12px 10px">
           <%@countries.each do |country|%>
             <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
           <%end%>
-          <hr>
+          <hr style="margin: 10px 12px 0;">
         </ul>
         <div class="other">
           Other Countries..
@@ -41,16 +42,22 @@
             <ul>
               <%Marketingtype.where(:filter => 1).each do |marketing1|%>
                 <%if marketing1.name == "All"%>
-                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" style="margin-top: 5px; font-size: 14px;">All</li><hr>
+                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" style="font-size: 14px;">All</li><hr>
                 <%else%>
                   <li class="division">
                   <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
+<<<<<<< HEAD
                   <%if marketing1.child_types.count != 0%>
                     <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:230px;">
+=======
+                    <%if marketing1.child_types.count != 0%>
+                    <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
+>>>>>>> cssreset
                         <ul>
                           <% marketing1.child_types.each do |marketing2|%>
                             <%if marketing2.filter == 2%>
-                              <ul>
+                        
+                                <ul>
                                 <li class="title" onclick="marketing_click_search(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_search_<%=marketing2.id%>" ><%=marketing2.name%></li>
                                 <%if marketing2.child_types.count != 0%>
                                   <%marketing2.child_types.each do |marketing3|%>
@@ -60,13 +67,15 @@
                                   <%end%>
                                 <%end%>
                               </ul>
+              
                             <%else%>
-                              <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%></li>
+                            <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%>
+                            </li>
                           <%end%>
                         <%end%>
                       </ul>
-                  </div>
-                <%end%>
+                    </div>
+                  <%end%>
                 </li>
               <%end%>
             <%end%>
