@@ -46,13 +46,8 @@
                 <%else%>
                   <li class="division">
                   <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
-<<<<<<< HEAD
-                  <%if marketing1.child_types.count != 0%>
-                    <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:230px;">
-=======
                     <%if marketing1.child_types.count != 0%>
                     <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
->>>>>>> cssreset
                         <ul>
                           <% marketing1.child_types.each do |marketing2|%>
                             <%if marketing2.filter == 2%>
