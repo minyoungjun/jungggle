@@ -3,36 +3,40 @@
 <div class="account">
   <div class="container">
     <%=render "/home/left"%>
-    <div class="right-member">
+    <div class="right-member right-company-profile">
       <h1>Member</h1>
     
       <h4><%=@company.comlangs.first.name%></h4>
-      <table>
-        <tr class="table-header">
-          <td>Name</td>
-          <td>Email</td>
-          <td>Owner</td>
-        </tr>
-      
-        <%@company.members.each do |member|%>
-        <tr class="table-body">
-          <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
-          <td class="email"><%=member.user.email%></td>
-          <td class="owner">
-            <div class="delete">
-              <img src="/assets/my_account/person_1_gray.png" class="person1">
-              <div class="delete-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Delete User</div>
-            </div>
+      <%if current_user.member.approved %>
+        <table>
+          <tr class="table-header">
+            <td>Name</td>
+            <td>Email</td>
+            <td>Owner</td>
+          </tr>
+        
+          <%@company.members.each do |member|%>
+          <tr class="table-body">
+            <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
+            <td class="email"><%=member.user.email%></td>
+            <td class="owner">
+              <div class="delete">
+                <img src="/assets/my_account/person_1_gray.png" class="person1">
+                <div class="delete-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Delete User</div>
+              </div>
 
-            <!-- <%=member.owner%> -->
-            <div class="change">
-              <img src="/assets/my_account/person_2_gray.png" class="person2">
-              <div class="change-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Change Owner</div>
-            </div>
-          </td>
-        </tr>
-        <%end%>
-      </table>
+              <!-- <%=member.owner%> -->
+              <div class="change">
+                <img src="/assets/my_account/person_2_gray.png" class="person2">
+                <div class="change-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Change Owner</div>
+              </div>
+            </td>
+          </tr>
+          <%end%>
+        </table>
+      <%else%>
+        <h2>You are waiting for approval</h2>
+      <%end%>
       <h3>Waiting for approval</h3>
       <table>
         <tr class="table-header">

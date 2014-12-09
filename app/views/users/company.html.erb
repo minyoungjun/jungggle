@@ -30,7 +30,7 @@
   }
 
 $(document).ready(function(){
-    <%if @has_company%>
+    <% if @company != nil%>
       <%@company.comlangs.each do |comlang|%>
         $("#p_language_<%=comlang.language.id%>").trigger("click");
       <%end%>
@@ -95,7 +95,7 @@ function language_click(id){
 
       <div class="company-name">
         <%Language.all.each do |language|%>
-          <input type="text" placeholder="Company Name (in <%=language.name%>)" onchange="auto_func(<%=language.id%>);" onkeyup="auto_func(<%=language.id%>);" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>" <%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%> value="<%if @has_company%><%=@company.comlangs.where(:language_id => language.id).first.name%><%end%>"<%end%> autocomplete="off" <%if current_user.confirmed_at == nil %>disabled<%end%>>
+          <input type="text" placeholder="Company Name (in <%=language.name%>)" onchange="auto_func(<%=language.id%>);" onkeyup="auto_func(<%=language.id%>);" class="company_name" id="title_<%=language.id%>" name="title_<%=language.id%>" value="<%if @company != nil && @company.comlangs.where(:language_id => language.id).count != 0%><%=@company.comlangs.where(:language_id => language.id).first.name%><%end%>"autocomplete="off" <%if current_user.confirmed_at == nil %>disabled<%end%>>
         <%end%>
 
         <div class="company-name-drop" style="display:none;">
@@ -170,7 +170,7 @@ function auto_func(id){
         <div class="country-down">
           <ul>
             <% Country.all.order(:name).each do |country|%>
-              <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
+              <li <%if current_user.confirmed_at != nil && @has_company%> onclick="country_select(<%=country.id%>);"<%end%> id="country_li_<%=country.id%>"><%=country.name%></li>
             <%end%>
             
           </ul>
@@ -191,7 +191,7 @@ function auto_func(id){
     <div class="number-drop">
       <ul>
         <%0.upto(5) do |em_num|%>
-          <li id="employee_li_<%=em_num%>"onclick="employee_select(<%=em_num%>);"><%=@em_array[em_num]%></li>
+          <li id="employee_li_<%=em_num%>"  <% if current_user.confirmed_at != nil && @has_company%> onclick="employee_select(<%=em_num%>);" <%end%>><%=@em_array[em_num]%></li>
         <%end%>
       </ul>
     </div>
@@ -200,9 +200,9 @@ function auto_func(id){
 
       
       
-  <input type="text" placeholder="Website" name="website" <%if @has_company%> value="<%=@company.website%>"<%end%><%if current_user.confirmed_at == nil %> disabled<%end%>>
+  <input type="text" placeholder="Website" name="website" <%if @has_company%> value="<%=@company.website%>"<%end%><%if current_user.confirmed_at == nil || !(@has_company) %> disabled<%end%>>
       <%Language.all.each do |language|%>
-        <textarea rows="6" placeholder="Company introduction (in <%=language.name%>)" id="introduction_<%=language.id%>" name="introduction_<%=language.id%>" class="company_introduction"<%if current_user.confirmed_at == nil %> disabled<%end%>><%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%><%=@company.comlangs.where(:language_id => language.id).first.introduction%><%end%></textarea>
+        <textarea rows="6" placeholder="Company introduction (in <%=language.name%>)" id="introduction_<%=language.id%>" name="introduction_<%=language.id%>" class="company_introduction"<%if current_user.confirmed_at == nil || !(@has_company) %> disabled<%end%>><%if @has_company && @company.comlangs.where(:language_id => language.id).count != 0%><%=@company.comlangs.where(:language_id => language.id).first.introduction%><%end%></textarea>
       <%end%>
 
   <script>
@@ -362,6 +362,3 @@ function delete_logo(){
   $(function () { $('.popover-hide').popover('hide');});
 </script>
 
-<script>
-  $("#left").css("height", $("#right").css("height"));
-</script>

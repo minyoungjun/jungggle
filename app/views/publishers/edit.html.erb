@@ -127,7 +127,7 @@ function language_click(id){
         <h3>Service Name</h3>
 
           <%Language.all.each do |language|%>
-            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name" <%if @product.prolangs.where(:language_id => language.id).count != 0%> value="<%=@product.prolangs.where(:language_id => language.id).last.title%>"<%end%>>
+            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name" <%if @product.prolangs.where(:language_id => language.id).count != 0%> value="<%=@product.prolangs.where(:language_id => language.id).last.title%>"<%end%><%if @product.prolangs.first.language.id != language.id%>style="display:none;"<%end%>>
           <%end%>
 
         </div>

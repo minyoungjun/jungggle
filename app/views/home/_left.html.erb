@@ -1,14 +1,13 @@
 <!-- account.css.scss -->
-
-<div class="left-list left" style="height:100%;" id="left">
+<div class="left-list left" id="left">
   <div class="list my-account">
     <h1>My Account</h1>
     <table>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/account_profile.png"<%if @selected =="profile"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title"><a href="/users/edit"<%if @selected =="profile"%> class="select" <%end%>>Profile</a></td>
       </tr>
-      <tr onclick="#none" style="cursor: pointer">            
+      <tr>            
         <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/account_company_profile.png" <%if @selected =="company"%> style="opacity:1;" <%end%> ></td>
         <td class="list-title" ><a href="/users/company"<%if @selected =="company"%> class="select" <%end%>>Company<br>Profile</a></td>
       </tr>
@@ -19,11 +18,11 @@
         </tr>
       <%end%>
 
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/account_member.png" <%if @selected =="member"%> style="opacity:1;" <%end%>  ></td>
         <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Member</a></td>
       </tr>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/My_account_upgrade.png"></td>
         <td class="list-title" ><a href="/home/ready" <%if @selected == "upgrade"%> class="select" <%end%>>Upgrade</a></td>
       </tr>
@@ -32,11 +31,11 @@
   <div class="list advertisers">
     <h1>Advertisers</h1>
     <table>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/advertisers_dashboard.png"></td>
         <td class="list-title"><a href="/home/ready_dashboard">Dashboard</a></td>
       </tr>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/advertisers_billing.png"></td>
         <td class="list-title"><a href="/home/ready_billing" <%if @selected == "billing" %>class="select"<%end%>>Billing</a></td>
       </tr>
@@ -46,25 +45,25 @@
   <div class="list Publishers">
     <h1>Service Provider</h1>
     <table>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr>
         <td class="list-icon"><img src="/assets/my_account/publishers_project.png"></td>
         <td class="list-title"><a href="/home/ready_project">Projects</a></td>
       </tr>
 
       <%if user_signed_in? && current_user.is_admin%>
-        <tr onclick="#none" style="cursor: pointer">
+        <tr>
           <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/publishers_manage_service.png"></td>
           <td class="list-title"><a href="/manages/services">Manage<br>Services <br>(Admin)</a></td>
         </tr>
       <%else%>
 
-        <tr onclick="#none" style="cursor: pointer">
+        <tr>
           <td class="list-icon" style="vertical-align: middle;"><img src="/assets/my_account/publishers_manage_service.png"></td>
           <td class="list-title"><a href="/publishers/manage">Manage<br>Service</a></td>
         </tr>
 
       <%end%>
-      <tr onclick="#none" style="cursor: pointer">
+      <tr >
         <td class="list-icon"><img src="/assets/my_account/Publishers_cashout.png"></td>
         <td class="list-title"><a href="/home/ready_cashout">Cash Out</a></td>
       </tr>

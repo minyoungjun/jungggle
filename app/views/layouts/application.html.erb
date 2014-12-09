@@ -95,7 +95,7 @@ function search_auto_func(){
               <h4 class="title">My Account</h4>
               <h5><a href="/users/edit">Profile</a></h5>
               <h5><a href="/users/company">Company Profile</a></h5>
-              <h5><a href="/users/company_members">Member</a></h5>
+              <h5><a href="/users/members">Member</a></h5>
               <h5><a href="/users/ready_dashboard">Upgrade</a></h5>
             </div>
             <div class="log-info-adv">
@@ -288,15 +288,22 @@ function cost_key(){
 }
 
   </script>
-  <script src="/assets/js/placeholder.js"></script>
+
   <script>
+
+$( document ).ready(function() {
+  $("#left").height((parseInt($(".right-company-profile").outerHeight(), 10) + 62) + "px");
+        });
+</script>
+
+  <script src="/assets/js/placeholder.js"></script>
+<script>
     $(function(){
 
           $('input, textarea').placeholder();
-        
         });
   
-  </script>
+</script>
 
 
 </body>

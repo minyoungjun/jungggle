@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :is_login, except: [:email_confirmation]
-  before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation]
-  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members ]
+  before_filter :is_login, except: [:email_confirmation, :company_parse]
+  before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation, :company_parse]
+  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse ]
 
+  def company_parse
+    comlang = Comlang.find(params[:id])
+    company = comlang.company
+    render :json => ["#{company.country.id}","#{company.num_employee}","#{company.website}", "#{comlang.id}"]
 
+  end
   def members
 
     @selected = "member"
@@ -119,63 +124,77 @@ class UsersController < ApplicationController
 
   def company
     @selected = "company"
-    if current_user.member == nil || !(current_user.member.approved)
+    if current_user.member == nil
 
       @has_company = false
+
     else
-      @has_company = true
       @company = current_user.member.company
+      if current_user.member.approved
+        @has_company = true
+      else
+        @has_company = false
+
+      end
     end
       @em_array = ["1 ~ 10", "10 ~ 50", "50 ~ 100", "100 ~ 500", "500 ~ 1000", "1000+"]
   end
 
   def signup_company
-
-    company = Company.new
-    company.num_employee = params[:employee]
-    company.website = params[:website]
-    company.country_id = params[:country]
-    company.save
-    
-    language = Language.find(params[:language_id])
-
-    comlang = Comlang.new
-    comlang.language_id = language.id
-    comlang.company_id = company.id
-    comlang.name = params[:title]
-    comlang.introduction = params[:company_introduction]
-    comlang.save
-    if params[:company_introduction_file] != nil
-      comdocu = Comdocument.new
-      comdocu.comlang_id = comlang.id
-      comdocu.saved_name = SecureRandom.hex(10) +"." + params["company_introduction_file"].original_filename.split('.').last
-      comdocu.original_name = params["company_introduction_file"].original_filename
-      f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
-      f.write(params[:company_introduction_file].read)
-      f.close
-      comdocu.save
-    end
-
-    member = Member.new
-    member.company_id = company.id
-    member.user_id = current_user.id
-    member.owner = true
-    member.approved = true
-    member.save
-    
-    if params[:company_logo] != nil
-      company.logo = params[:company_logo]
+    if params[:comlang_id] != 0
+      company = Comlang.find(params[:comlang_id]).company
+      member = Member.new
+      member.company_id = company.id
+      member.user_id = current_user.id
+      member.approved = false
+      member.save
+      current_user.user_notify(6)
+    else
+      company = Company.new
+      company.num_employee = params[:employee]
+      company.website = params[:website]
+      company.country_id = params[:country]
       company.save
-    end
-    if params[:client] != nil
-      params[:client].each do |client_file|
-        client = Comclient.new
-        client.company_id = company.id
-        client.logo = client_file.last
-        client.save
+      
+      language = Language.find(params[:language_id])
+
+      comlang = Comlang.new
+      comlang.language_id = language.id
+      comlang.company_id = company.id
+      comlang.name = params[:title]
+      comlang.introduction = params[:company_introduction]
+      comlang.save
+      if params[:company_introduction_file] != nil
+        comdocu = Comdocument.new
+        comdocu.comlang_id = comlang.id
+        comdocu.saved_name = SecureRandom.hex(10) +"." + params["company_introduction_file"].original_filename.split('.').last
+        comdocu.original_name = params["company_introduction_file"].original_filename
+        f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
+        f.write(params[:company_introduction_file].read)
+        f.close
+        comdocu.save
+      end
+
+      member = Member.new
+      member.company_id = company.id
+      member.user_id = current_user.id
+      member.owner = true
+      member.approved = true
+      member.save
+      
+      if params[:company_logo] != nil
+        company.logo = params[:company_logo]
+        company.save
+      end
+      if params[:client] != nil
+        params[:client].each do |client_file|
+          client = Comclient.new
+          client.company_id = company.id
+          client.logo = client_file.last
+          client.save
+        end
       end
     end
-
     redirect_to :root
 
   end
