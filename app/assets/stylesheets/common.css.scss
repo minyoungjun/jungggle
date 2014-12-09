@@ -333,7 +333,8 @@ body {
             font-size: 13px;
           }
           li:hover {
-            color: #5bb33a;
+            color: white;
+            background-color: #5eb12f;
           }
           hr {
             margin: 3px 15px;
@@ -449,6 +450,8 @@ body {
           }
 
           .division:hover {
+            color: white;
+            background-color: #5eb12f;
             .division-hover {
               display: block;
             }
