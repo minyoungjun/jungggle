@@ -273,6 +273,7 @@ body {
         width: 150px;
         text-align: left;
         font-size: 14px;
+        border: 1px solid white;
         .glyphicon {
           font-size: 10px;
           float: right;
@@ -284,12 +285,23 @@ body {
         width: 165px;
         text-align: left;
         font-size: 14px;
+        border: 1px solid white;
         .glyphicon {
           font-size: 10px;
           float: right;
           position: relative;
           top: 6px;
         }
+      }
+    }
+    .btn-group:hover {
+      .country-btn {
+        border-color: #5eb12f;
+        color: #5eb12f;
+      }
+      .marketing-btn {
+        border-color: #5eb12f;
+        color: #5eb12f;
       }
     }
     .nav-btn {
@@ -311,7 +323,7 @@ body {
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
-        top: 32px;
+        top: 34px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         padding-top: 7px;
         cursor: pointer;
@@ -397,7 +409,7 @@ body {
         border: 1px solid #eee;
         border-radius: 5px;
         position: absolute;
-        top: 32px;
+        top: 34px;
         -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
