@@ -74,7 +74,7 @@ function language_click(id){
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
         <div class="pack languages">
-          <h3>Language &nbsp;<img src="/assets/my_account/circle_question_gray.png"></h3>
+          <h3>Language &nbsp;<img src="/assets/my_account/circle_info.png" style="vertical-align: middle; position: relative; bottom: 2px;"></h3>
           <div style="display:none;" id="language_checkbox">
             <%Language.all.each do |lang|%>
               <input type="checkbox" name="lang_<%=lang.id%>" id="check_<%=lang.id%>" data-language="<%=lang.id%>"><%=lang.name%>
@@ -296,7 +296,7 @@ function delete_logo(){
         <div class="client-logo">
           <p onclick="$('#client-logo-div').slideToggle('1000');" style="cursor:pointer;">
             <img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">
-            Upload Clients Logo (Publisher only)
+            Upload Clients Logo (Service Provider Only)
           </p>
 
           <div class="upload-logo-area" id="client-logo-div" style="display:none;">
@@ -316,7 +316,7 @@ function delete_logo(){
         </div>
         
           <div class="company-introduction">
-            <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  ><img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">Upload Company Introduction (Publisher only)</h5>
+            <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  ><img src="/assets/my_account/circle_plus.png" style="vertical-align: middle;">Upload Company Introduction (Service Provider Only)</h5>
 
             <div class="upload-logo-area" id="introduction-div" style="display:none;">
 
