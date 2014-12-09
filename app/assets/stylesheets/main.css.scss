@@ -97,7 +97,8 @@
             font-size: 13px;
           }
           li:hover {
-            color: #5bb33a;
+            color: white;
+            background-color: #5eb12f;
           }
           hr {
             margin: 3px 15px;
@@ -183,6 +184,10 @@
             li:hover {
               color: #5bb33a;
             }
+            .division {
+              //color: white;
+              //background-color: #5eb12f;
+            }
             .title {
               color: #555;
               padding: 8px 15px;
@@ -221,6 +226,8 @@
             }
 
             .division:hover {
+              color: white;
+              background-color: #5eb12f;
               .division-hover {
                 display: block;
               }
@@ -258,7 +265,6 @@
           border-color: #5eb12f;
           color: #5eb12f;
         }
-        
         .platform-down {
           display: none;
           width: 161px;
@@ -279,11 +285,16 @@
               font-size: 13px;
             }
             li:hover {
-              color: #5bb33a;
+              color: white;
+              background-color: #5eb12f;
             }
             .title {
               color: #555;
               font-size: 14px;
+            }
+            .title:hover {
+              background-color: white;
+              color: #555;
             }
             hr {
               margin: 0 15px 10px;
