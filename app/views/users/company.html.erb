@@ -111,7 +111,7 @@ function language_click(id){
           <%Company.all.each do |company|%>
             <%company.comlangs.each do |comlang|%>
               <div class="company-autocomplete auto_div" data-company="<%=comlang.name%>">
-                <img src="<%=company.logo.url(:thumb)%>"><h5><%=comlang.name%></h5>
+                <img src="<%=company.logo.url(:medium)%>"><h5><%=comlang.name%></h5>
               </div>
             <%end%>
           <%end%>
@@ -307,7 +307,7 @@ function delete_logo(){
           <div id="logo-preview" style="max-width:480px; margin:20px 0 50px;">
             <%if @has_company %>
               <%@company.comclients.each do |comclient|%>
-                <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:thumb)%>');">
+                <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:medium)%>');">
                   <p onclick="delete_client(<%=comclient.id%>);">Delete</p>
                 </div>
               <%end%>
@@ -359,6 +359,16 @@ function delete_logo(){
     placement: 'bottom'
   });
 
-  $(function () { $('.popover-hide').popover('hide');});
+$(function () { $('.popover-hide').popover('hide');
+    
+    });
 </script>
+<script>
+
+  $(document).ready(function(e){
+    $("#left").height($(".right-company-profile").outerHeight());
+          
+          });
+</script>
+
 
