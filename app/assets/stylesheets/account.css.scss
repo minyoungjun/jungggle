@@ -4,18 +4,21 @@
   .left-list {
     background-color: #3c3c3c;
     width: 180px;
-    padding: 0 20px 20px;
+    //padding: 0 20px 20px;
     color: white;
     display: inline-block;
     float: left;
 
     .list {
       h1 {
-        font-size: 24px;
+        font-size: 20px;
         color: #e6e6e6;
         text-align: center;
-        margin: 30px 0 12px;
         line-height: 28px;
+        margin-bottom: 15px;
+        padding: 10px 0;
+        background-color: #252525;
+        border-bottom: 1px solid #454545;
       }
 
       table {
@@ -23,8 +26,9 @@
         color: #828282;
         tr {
           display: inline-block;
-          margin: 9px 0;
-          width: 100%;
+          margin: 9px 0 9px 20px;
+          //width: 100%;
+
           td {
             a {
               text-decoration: none;
