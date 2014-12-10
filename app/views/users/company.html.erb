@@ -158,7 +158,18 @@ function auto_func(id){
     function country_select(id){
       $("#country_text").val($("#country_li_" + id ).html());
       $("#country_id").val(id);
+      $(".country-down").hide();
     }
+  $(function(){
+    $(".country")
+      .mouseenter(function() {
+        $('.country-down').show();
+        })
+.mouseleave(function(){
+      $('.country-down').hide();
+      });
+    })
+
   <%end%>
   </script>
   <input type="hidden" name="country" id="country_id" value="1">
@@ -166,11 +177,11 @@ function auto_func(id){
 
 
       <div class="country">
-        <input type="text" disabled id="country_text" placeholder="Country">
+        <input type="text" disabled id="country_text" placeholder="Country" >
         <div class="country-down">
           <ul>
             <% Country.all.order(:name).each do |country|%>
-              <li  <%unless current_user.confirmed_at == nil || ( current_user.member != nil && !(current_user.member.approved)) %> onclick="country_select(<%=country.id%>);"<%end%> id="country_li_<%=country.id%>"><%=country.name%></li>
+              <li <%unless current_user.confirmed_at == nil || ( current_user.member != nil && !(current_user.member.approved)) %> onclick="country_select(<%=country.id%>);"<%end%> id="country_li_<%=country.id%>"><%=country.name%></li>
             <%end%>
             
           </ul>
@@ -182,7 +193,17 @@ function auto_func(id){
     function employee_select(id){
       $("#employee_text").val($("#employee_li_" + id ).html());
       $("#employee_id").val(id);
+      $('.number-drop').hide();
     }
+    $(function(){
+      $(".number")
+        .mouseenter(function() {
+          $('.number-drop').show();
+          })
+  .mouseleave(function(){
+        $('.number-drop').hide();
+        });
+      })
   </script>
   <%end%>
 
