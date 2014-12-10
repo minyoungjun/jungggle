@@ -163,10 +163,10 @@ function auto_func(id){
   $(function(){
     $(".country")
       .mouseenter(function() {
-        $('.country-down').show();
+        $('#country-down').show();
         })
 .mouseleave(function(){
-      $('.country-down').hide();
+      $('#country-down').hide();
       });
     })
 
@@ -178,7 +178,7 @@ function auto_func(id){
 
       <div class="country">
         <input type="text" disabled id="country_text" placeholder="Country" >
-        <div class="country-down">
+        <div class="country-down" id="country-down">
           <ul>
             <% Country.all.order(:name).each do |country|%>
               <li <%unless current_user.confirmed_at == nil || ( current_user.member != nil && !(current_user.member.approved)) %> onclick="country_select(<%=country.id%>);"<%end%> id="country_li_<%=country.id%>"><%=country.name%></li>
