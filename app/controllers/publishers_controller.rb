@@ -152,6 +152,14 @@ class PublishersController < ApplicationController
         end
       end
     end
+    if params[:has_country] != nil
+      params[:has_country].each do |key, value|
+        product.procons.where(:id => key).each do |procon|
+          procon.country_id = value
+          procon.save
+        end
+      end
+    end
     if params[:delete_detail] != nil
       params[:delete_detail].each do |key, value|
         product.details.where(:id => key).each do |detail|
