@@ -68,7 +68,7 @@ function language_click(id){
 <div class="account">
   <div class="container">
     <%= render "/home/left"%>
-    <div class="right-company-profile">
+    <div class="right-company-profile right-height">
       <h1>Company Profile</h1>
       <form <%if current_user.confirmed_at != nil %> action="/users/company_update" <%end%> method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -384,12 +384,3 @@ $(function () { $('.popover-hide').popover('hide');
     
     });
 </script>
-<script>
-
-  $(document).ready(function(e){
-    $("#left").height($(".right-company-profile").outerHeight());
-          
-          });
-</script>
-
-

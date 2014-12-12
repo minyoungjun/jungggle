@@ -41,8 +41,12 @@
   }
 
 $(document).ready(function(){
-    $('#p_language_1').trigger("click");
-    $(".trigger").trigger("click");
+    $(function(){
+      $('#p_language_1').trigger("click");
+      $(".trigger").trigger("click");
+      height_match();
+      
+      });
 
     });
 
@@ -59,7 +63,7 @@ function language_click(id){
   
   $(".upload_box").hide();
   $("#upload_box_" + id).show();
-
+  height_match();
 
   now_lang = id;
 }
@@ -69,7 +73,7 @@ function language_click(id){
   <div class="container">
     <%= render "/home/left"%>
 
-    <div class="right-create-service" id="right">
+    <div class="right-create-service right-height" id="right">
       <h1>Create Service</h1>
 
       <form action="/publishers/create_process" method="post" enctype="multipart/form-data">
@@ -105,7 +109,7 @@ function language_click(id){
         <h3>Service Name</h3>
 
           <%Language.all.each do |language|%>
-            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name" <%if language.id != 0%>style="display:none;"<%end%>>
+            <input type="text" placeholder="Service name in <%=language.name%>" id="title_<%=language.id%>" name="title_<%=language.id%>" class="service_name" <%if language.id != 0%>style="display:none;"<%end%> onclick="height_match();">
           <%end%>
 
         </div>
@@ -245,10 +249,12 @@ function photo_trigger(id){
 
         $("#detail_count").val(detail_num);
         detail_num = detail_num + 1;
+        height_match();
     }
 function detail_remove(id){
   $("#detail_row_" + id).remove();
 
+    height_match();
 }
       
       function onchange_image(num){
@@ -295,10 +301,13 @@ function detail_remove(id){
       }
       function cost_delete(id){
         $("#cost_div_" + id).remove();
+        height_match();
       }
       var cost_count = 2;
       function cost_add(){
         $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><input type="text" placeholder="$" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
+
+        height_match();
         cost_count = cost_count + 1;
       }
       </script>
@@ -352,16 +361,21 @@ function minimum_check(id){
         function country_select(box_id, country_id){
           $("#country_btn_" + box_id).html($("#country_li_" + box_id + "_" + country_id).html());
           $("#country_input_" + box_id).val(country_id);
+
+          height_match();
         }
 
 var country_count = 1;
 function add_country(){
   $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" style="vertical-align: middle; margin-left: 8px;" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
   country_count = country_count + 1;
+
+  height_match();
         
 }
 function delete_country(id){
   $("#country_box_" + id).remove();
+  height_match();
 
 }
       </script>
@@ -405,6 +419,9 @@ function attach_file(language_id, prodocu_id){
 
   $('#upload_file_' + language_id).remove();
   $('#upload-btn-div-' + language_id).prepend('<div class="upload-file" id="upload_file_' + language_id + '" onclick="trigger_prodocu(' + language_id + ',' + String(prodocu_id + 1) + ');">Upload File</div>');
+
+
+  height_match();
 }
 function trigger_prodocu(language_id, prodocu_id){
   $('#prodocu_' + language_id + '_' + prodocu_id).trigger('click');
@@ -413,10 +430,13 @@ function trigger_prodocu(language_id, prodocu_id){
 function delete_attach(language_id, prodocu_id){
   $("#attach_div_" + language_id + "_" + prodocu_id).remove();
   $("#prodocu_" + language_id + "_" + prodocu_id).remove();
+  height_match();
 
 }
 function attach_document(){
-  $("#attach_document").slideToggle();
+  $("#attach_document").slideToggle(300, function(){
+      height_match();
+      });
   $(".check_1").toggle(0);
 }
 
@@ -571,8 +591,4 @@ function textarea_resize(obj, offset) {
 }
 </script>
 
-
-<script>
-  $("#left").css("height", $("#right").css("height"));
-</script>
 

@@ -3,7 +3,7 @@
 <div class="account">
   <div class="container">
     <%=render "/home/left"%>
-    <div class="right-member right-company-profile">
+    <div class="right-member right-height">
       <h1>Member</h1>
     
       <h4><%=@company.comlangs.first.name%></h4>
@@ -58,9 +58,5 @@
 </div>
 
 
-<script>
-  $("#left").height($(".right-company-profile").outerHeight());
-  $("#left").css("height", $("#right").css("height"));
-</script>
 
 

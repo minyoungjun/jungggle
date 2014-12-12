@@ -357,8 +357,16 @@ function language_select(id){
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-
 <script>
-  $("#right").css($("#left").outerHeight());
+  $(document).ready(function(){
+      $(function(){
+        if ($("#left").outerHeight() < $("#right").height()){
+            $("#left").outerHeight($("#right").height());
+          }
+          else{
+            $("#right").height($("#left").outerHeight());
+          }
+        
+      });
+  });
 </script>
