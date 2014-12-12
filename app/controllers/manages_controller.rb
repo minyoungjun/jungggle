@@ -143,6 +143,15 @@ class ManagesController < ApplicationController
         end
       end
     end
+    if params[:has_country] != nil
+      params[:has_country].each do |key, value|
+        product.procons.where(:id => key).each do |procon|
+          procon.country_id = value
+          procon.save
+        end
+      end
+    end
+
     if params[:delete_cost] != nil
       params[:delete_cost].each do |key, value|
         product.costs.where(:id => key).each do |cost|
