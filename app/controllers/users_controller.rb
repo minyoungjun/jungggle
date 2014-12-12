@@ -141,7 +141,7 @@ class UsersController < ApplicationController
   end
 
   def signup_company
-    if params[:comlang_id] != 0
+    if params[:comlang_id].to_i != 0
       company = Comlang.find(params[:comlang_id]).company
       member = Member.new
       member.company_id = company.id
