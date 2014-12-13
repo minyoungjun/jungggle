@@ -1,0 +1,106 @@
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>
+    <div class="right-manage-service">
+      <h1>Manage Service for Admin</h1>
+      <div class="sub-title">
+        <h3>Analytics</h3>
+      </div>
+      <table>
+        <tr class="table-header">
+          <td>Title</td>
+          <td>Number</td>
+        </tr>
+          <tr class="table-body">
+            <td>가입자 수</td>
+            <td><%=User.count%></td>
+          </tr>
+          <tr class="table-body">
+            <td>Company 수</td>
+            <td><%=Company.count%></td>
+          </tr>
+          <tr class="table-body">
+            <td>Service 수</td>
+            <td><%=Product.count%></td>
+          </tr>
+          <tr class="table-body">
+            <td>Company 수(in Service)</td>
+            
+            <td><%has_count = 0%><%Company.all.each do |company|%><%if company.products.count != 0%><%has_count += 1%><%end%><%end%><%=has_count%></td>
+          </tr>
+        </table>
+        <h3>사용자들 정보</h3>
+      <table>
+        <tr class="table-header">
+          <td>이름</td>
+          <td>성</td>
+          <td>email</td>
+          <td>company</td>
+        </tr>
+        <%User.all.each do |user|%>
+          <tr class="table-body">
+            <td><%=user.first_name%></td>
+            <td><%=user.last_name%>
+          </td>
+          <td><%=user.email%></td>
+          <td><%if user.member != nil%><%=user.member.company.comlangs.first.name%><%end%></td>
+        </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- embed Modal -->
+<div class="modal fade" id="Modal-embed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-embed">
+    <div class="modal-content modal-embed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Embeded this service</h1>
+        <h4>Copy the code below and paste it into your website.</h4>
+        <textarea type="text" rows="6">Code<iframe width="560" height="315"src="//www.youtube.com/embed/yhcrbrZyxbU" frameborder="0"   allowfullscreen></iframe></textarea>
+        <p>- You can now easily insert this purchasable service page to your own places : website, blog, etc.</p>
+        <p>- <span class="redcolor">We do not charge 3.8% commission</span> if the Advertiser buy your service through this embeded page.</p>
+        <p class="greencolor">Need a guide to embed the code?</p>
+        <button type="button" class="btn btn-a" data-dismiss="modal">Confirm</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<div class="modal fade" id="modal_destroy_service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-id="">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h2>Are you sure to delete "<span id="destroy_service_name"></span>"?</h2>
+        <p>All of your writings with this service will be deleted</p>
+        <a href="#" id="destroy_yes">
+          <button type="button" class="btn btn-a">Yes</button>
+        </a>
+        <button type="button" class="btn btn-b" data-dismiss="modal">No</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script>
+  $('.popover-markup > .trigger').popover({
+    html : true,
+    content: function() {
+      return $(this).parent().find('.content').html();
+    },
+    container: 'body',
+    placement: 'bottom'
+  });
+
+  $(function () { $('.popover-hide').popover('hide');});
+
+</script>
