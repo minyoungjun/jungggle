@@ -119,11 +119,25 @@ function language_click(id){
             $("#marketing_btn").html($("#marketing_li_" + id).data("marketing"));
             $("#marketing_id").val(id);
             if(id > 10 && id < 60){
-              $(".platform").show();
+              $("#platform").show();
               $("#platform_0").trigger("click");
             }else{
-              $(".platform").hide();
+              $("#platform").hide();
             
+            }
+            if (id == 84){
+              $(".per_word").css('display', 'inline-block');
+              $("#translation").css("display", "inline-block")
+              
+            }else{
+              $(".per_word").css('display', 'none');
+              $("#translation").css("display", "none")
+            }
+            if (id > 81 && id < 90 && id != 83){
+              $("#country_box").hide();
+            }
+            else{
+              $("#country_box").show();
             }
           }
         </script>
@@ -179,12 +193,27 @@ function platform_change(id){
           }
         </script>
 
-        <div class="platform" style="display:none;">
+        <div class="platform" style="display:none;" id="platform">
           <h3>Platform</h3>
           <input type="hidden" value="0" name="platform" id="platform_type">
           <p onclick="platform_change(0);" class="platform_p" ><img src="/assets/my_account/radio-02.png" id="platform_0" class="platform_img"/> All</p>
           <p   onclick="platform_change(1);" class="platform_p" ><img src="/assets/my_account/radio-01.png"id="platform_1"class="platform_img" /> iOS</p>
           <p  onclick="platform_change(2);" class="platform_p"><img src="/assets/my_account/radio-01.png"  id="platform_2" class="platform_img"/> Android</p>
+        </div>
+        <div class="platform" id="translation" style="display:none;">
+          <h3>Translation</h3>
+          <span>From</span>
+          <select name="from_id">
+            <%Translanguage.all.each do |translang|%>
+              <option value="<%=translang.id%>"><%=translang.name%></option>
+            <%end%>
+          </select>
+          <span>To</span>
+          <select name="to_id">
+            <%Translanguage.all.each do |translang|%>
+              <option value="<%=translang.id%>"><%=translang.name%></option>
+            <%end%>
+          </select>
         </div>
       </div>
 
@@ -325,11 +354,17 @@ function detail_remove(id){
         <p onclick="radio_cost(1);" data-toggle="modal" data-target="#Modal-multiple-rate"><img src="/assets/my_account/radio-01.png" id="radio_cost_1">Multiple Rate</p>
         <div class="input-area" id="input-area">
           <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-          <input type="number" step="any" min="0" name="cost[0]" required><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          <input type="text" step="any" min="0" name="cost[0]" required>
+          <h5 style=" display:none; position:relative; margin-left:10px;color:#999;" class="per_word">per 1 word</h5>
+
+          
+          <img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
           <div id="multiple-area" style="display:none;">
             <div id="cost_div_1" class="">
               <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-              <input type="text" name="cost[1]"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+              <input type="text" name="cost[1]">
+              
+              <img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
             </div>
           </div>
         </div>
@@ -381,7 +416,7 @@ function delete_country(id){
       </script>
 
 
-      <div class="pack country">
+      <div class="pack country" id="country_box">
         <h3>Country &nbsp;
           <div class="info-hover-area">
             <img src="/assets/my_account/circle_info.png" class="info-icon" style="position: relative; bottom: 2px;">

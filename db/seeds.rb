@@ -5,7 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#
+
+
+translist = ["English", "Arabic", "Chinese(Simplified)", "Chinese(Traditional)", "French", "German", "Hindi", "Indonesian", "Italian", "Japanese", "Korean", "Malay", "Portuguese", "Russian", "Spanish", "Thai", "Turkish", "Vietnamese"]
+trans_nick = ["EN", "AR", "ZH-CN", "ZH-TW", "FR", "DE", "HI", "ID", "IT", "JA", "KO", "MS", "PT", "RU", "ES", "TH", "TR", "VI"]
+
+0.upto(translist.count - 1) do |x|
+  translanguage = Translanguage.new
+  translanguage.name = translist[x]
+  translanguage.nickname = trans_nick[x]
+  translanguage.save
+end
 
 Notification.create(level: 0, information: "confirm email address", is_important: true)
 

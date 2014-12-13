@@ -26,6 +26,8 @@ class ManagesController < ApplicationController
     product.minimum_budget = params[:minimum_budget]
 
     product.save
+
+
     Language.all.each do |lang|
       if params["lang_#{lang.id}"] != nil
         if product.prolangs.where(:language_id => lang.id).count != 0
@@ -119,14 +121,29 @@ class ManagesController < ApplicationController
       end
     end
 
-    if params[:country] != nil
-      params[:country].each do |key, value|
-        procon = Procon.new
-        procon.product_id = product.id
-        procon.country_id = value
-        procon.save
+
+    if product.marketingtype.global
+      product.procons.each do |procon|
+        if procon.country_id != product.company.country.id
+          procon.delete
+        end
+
+      end
+      procon = Procon.new
+      procon.product_id = product.id
+      procon.country_id = product.company.country.id
+      procon.save
+    else
+      if params[:country] != nil
+        params[:country].each do |key, value|
+          procon = Procon.new
+          procon.product_id = product.id
+          procon.country_id = value
+          procon.save
+        end
       end
     end
+
 
     if params[:prodocu] != nil
       params[:prodocu].each do |key, prodocu_language|
@@ -229,6 +246,18 @@ class ManagesController < ApplicationController
 
     product.save
 
+    if product.marketingtype_id == 84
+      transfrom = Translation.new
+      transfrom.from_id = product.id
+      transfrom.translanguage_id = params[:from_id]
+      transfrom.save
+
+      transto = Translation.new
+      transto.to_id = product.id
+      transto.translanguage_id = params[:to_id]
+      transto.save
+    end
+
     Language.all.each do |lang|
       if params["lang_#{lang.id}"] != nil
         prolang = Prolang.new
@@ -279,14 +308,24 @@ class ManagesController < ApplicationController
         cost.save
       end
     end
-    if params[:country] != nil
-      params[:country].each do |key, value|
-        procon = Procon.new
-        procon.product_id = product.id
-        procon.country_id = value
-        procon.save
+    
+    if product.marketingtype.global
+      procon = Procon.new
+      procon.product_id = product.id
+      procon.country_id = product.company.country.id
+      procon.save
+    else
+      if params[:country] != nil
+        params[:country].each do |key, value|
+          procon = Procon.new
+          procon.product_id = product.id
+          procon.country_id = value
+          procon.save
+        end
       end
     end
+
+
 
     if params[:prodocu] != nil
       params[:prodocu].each do |key, prodocu_language|

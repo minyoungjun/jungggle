@@ -10,4 +10,6 @@ class Product < ActiveRecord::Base
   has_many  :payables
   has_many  :procons
   has_many  :details
+  has_one :trans_from, class_name: "Translation", foreign_key: "from_id"
+  has_one :trans_to, class_name: "Translation", foreign_key: "to_id"
 end

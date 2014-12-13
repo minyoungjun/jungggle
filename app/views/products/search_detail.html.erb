@@ -121,7 +121,7 @@ function language_select(id){
             %>
             
           </td>
-          <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="2">
+          <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="3">
             <%@product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
                 <% prolang.detailangs.each do |detailang| %>
@@ -149,7 +149,7 @@ function language_select(id){
               </div>
             <%end%>
           </td>
-          <td class="cost" rowspan="2" style="border-bottom:1px solid #bbb;">
+          <td class="cost" rowspan="3" style="border-bottom:1px solid #bbb;">
             <div class="cost-dropdown">
               <div class="first" id="cost_<%=@product.id%>" >
                 <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
@@ -173,6 +173,10 @@ function language_select(id){
               </div>
             <%end%>
           </td>
+        </tr>
+        <tr>
+          <td>
+            <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
         </tr>
       </table>
       <h5 style="text-align: right; margin: 10px 5px; font-size: 12px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
