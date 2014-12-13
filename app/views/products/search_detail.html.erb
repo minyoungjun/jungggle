@@ -176,7 +176,9 @@ function language_select(id){
         </tr>
         <tr>
           <td>
-            <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
+            <%if @product.trans_form != nil && @product.trans_to != nil%>
+              <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
+            <%end%>
         </tr>
       </table>
       <h5 style="text-align: right; margin: 10px 5px; font-size: 12px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
