@@ -80,6 +80,13 @@ class ProductsController < ApplicationController
 
 
   end
+  def comdocument
+
+    comdocument = Comdocument.find(params[:id])
+
+  send_data open(Rails.root.join("uploads", comdocument.saved_name)).read, :filename => comdocument.original_name, :type => "multipart/related"
+  end
+
   def attachment
     prodocument = Prodocument.find(params[:id])
 
