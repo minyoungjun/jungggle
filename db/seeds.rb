@@ -16,7 +16,7 @@ trans_nick = ["EN", "AR", "ZH-CN", "ZH-TW", "FR", "DE", "HI", "ID", "IT", "JA", 
   translanguage.nickname = trans_nick[x]
   translanguage.save
 end
-
+=begin
 Notification.create(level: 0, information: "confirm email address", is_important: true)
 
 Notification.create(level: 1, information: "confirm email resent", is_important: false)
@@ -159,3 +159,4 @@ end
 materials_array2.each do |element|
   Marketingtype.create(name: element, filter: 3, parent_id: production.id, global: true)
 end
+=end
