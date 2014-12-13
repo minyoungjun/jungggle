@@ -152,7 +152,7 @@ materials_array = ["Localization"]
 materials_array2 = ["Trailer", "BGM", "AD Banner Design", "Stationery Design", "Goods"]
 
 materials_array.each do |element|
-  Marketingtype.create(name: element, filter: 3, parent_id: production.id)
+  Marketingtype.create(name: element, filter: 3, parent_id: production.id, global: true)
 end
 
 materials_array2.each do |element|
