@@ -85,6 +85,7 @@ Rails.application.routes.draw do
   get '/manages/create'
   post '/manages/create_process'
   get '/manages/destroy_service/:id' => "manages#destroy_service"
+  get '/manages/analytics'
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection

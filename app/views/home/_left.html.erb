@@ -18,10 +18,17 @@
         </tr>
       <%end%>
 
-      <tr>
-        <td class="list-icon"><img src="/assets/my_account/account_member.png" <%if @selected =="member"%> style="opacity:1;" <%end%>  ></td>
-        <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Member</a></td>
-      </tr>
+      <%if user_signed_in? && current_user.is_admin%>
+        <tr>
+          <td class="list-icon"><img src="/assets/my_account/account_member.png"   ></td>
+          <td class="list-title" ><a href="/manages/analytics">Analytics</a></td>
+        </tr>
+      <%else%>
+        <tr>
+          <td class="list-icon"><img src="/assets/my_account/account_member.png" <%if @selected =="member"%> style="opacity:1;" <%end%>  ></td>
+          <td class="list-title" ><a href="/users/members" <%if @selected == "member"%> class="select" <%end%>>Member</a></td>
+        </tr>
+      <%end%>
       <tr>
         <td class="list-icon"><img src="/assets/my_account/My_account_upgrade.png"></td>
         <td class="list-title" ><a href="/home/ready" <%if @selected == "upgrade"%> class="select" <%end%>>Upgrade</a></td>

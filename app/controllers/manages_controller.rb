@@ -1,7 +1,11 @@
 class ManagesController < ApplicationController
   before_filter :is_login
   before_filter :is_admin
-    
+  
+  def analytics
+
+
+  end
   def destroy_service
     product = Product.find(params[:id])
     product.destroy

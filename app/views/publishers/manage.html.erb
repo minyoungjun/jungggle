@@ -25,7 +25,7 @@
           <tr class="table-body">
             <td><%=service.updated_at.to_s[0..9]%></td>
             <td class="name"><%=service.prolangs.first.title%></td>
-            <td><%service.procons.each do |procon|%><%=procon.country.name%><br><%end%></td>
+            <td><%service.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><br><%end%><%end%></td>
             <td class="marketing"><%service.marketingtype.upper_types.each do |marketing|%><%=marketing.name%>/<%end%></td>
             <td class="font-bold"><%if service.costs.count > 1%>$<%=service.costs.order(:money).first.money.to_f%> - $<%=service.costs.order(:money).last.money.to_f%><%else%>$<%=service.costs.first.money%><%end%>
             </td>
