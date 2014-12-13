@@ -42,8 +42,8 @@
             <td><%=user.first_name%></td>
             <td><%=user.last_name%>
           </td>
-          <td><%=user.email%></td>
-          <td><%if user.member != nil%><%=user.member.company.comlangs.first.name%><%end%></td>
+          <td <%if user.confirmed_at == nil%>style="color:red;"<%end%>><%=user.email%></td>
+          <td <%if user.member != nil && !(user.member.approved) %>style="color:red;"<%end%>><%if user.member != nil && user.member.company.comlangs.count != 0%><%=user.member.company.comlangs.first.name%><%end%></td>
         </tr>
         <%end%>
       </table>
