@@ -176,7 +176,7 @@ function language_select(id){
         </tr>
         <tr>
           <td>
-            <%if @product.trans_form != nil && @product.trans_to != nil%>
+            <%if @product.trans_from != nil && @product.trans_to != nil%>
               <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
             <%end%>
         </tr>
