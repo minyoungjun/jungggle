@@ -119,7 +119,6 @@ function language_select(id){
             <%#
               <span>South Korea</span>
             %>
-            
           </td>
           <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="3">
             <%@product.prolangs.each do |prolang|%>
@@ -165,7 +164,7 @@ function language_select(id){
           </td>
        
         </tr>
-        <tr class="table-body">
+        <tr class="table-body" style="border-bottom: 0;">
           <td class="service-name">
             <%@product.prolangs.each do |prolang|%>
               <div class="language_name language_name_<%=prolang.language_id%>">
@@ -174,8 +173,8 @@ function language_select(id){
             <%end%>
           </td>
         </tr>
-        <tr>
-          <td>
+        <tr class="table-body" style="height: 20px;">
+          <td class="localization" style="padding: 10px; font-size: 14px;">
             <%if @product.trans_from != nil && @product.trans_to != nil%>
               <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
             <%end%>
