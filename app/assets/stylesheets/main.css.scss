@@ -156,7 +156,7 @@
       position: relative;
 
       .marketing {
-        width: 230px;
+        width: 220px;
         h3 {
           font-size: 14px;
           margin: 0 0 10px;
@@ -310,6 +310,118 @@
           display: block;
         }
       }
+      .localization {
+        display: inline-block;
+        width: 163px;
+        position: relative;
+        font-size: 14px;
+        right: 5px;
+        margin-right: -5px;
+        h3 {
+          font-size: 14px;
+          margin: 0 0 10px;
+          border: 1px solid #ddd;
+          padding: 20px 0 20px 20px;
+          text-align: left;
+        }
+        h3:hover {
+          border-color: #5eb12f;
+          color: #5eb12f;
+        }
+        .from-down {
+          display: none;
+          width: 161px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          position: absolute;
+          -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          cursor: pointer;
+          top: 63px;
+          left: 1px;
+          padding: 10px 0 15px;
+          background-color: white;
+          height: 250px;
+          overflow-y: scroll;
+          ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+              padding: 7px 15px;
+              color: #999;
+              font-size: 13px;
+            }
+            li:hover {
+              color: white;
+              background-color: #5eb12f;
+            }
+            .title {
+              color: #555;
+              font-size: 14px;
+            }
+            .title:hover {
+              background-color: white;
+              color: #555;
+            }
+            hr {
+              margin: 0 15px 10px;
+            }
+          }
+        }
+        .to-down {
+          display: none;
+          width: 161px;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          position: absolute;
+          -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          cursor: pointer;
+          top: 63px;
+          left: 1px;
+          padding: 10px 0 15px;
+          background-color: white;
+          height: 250px;
+          overflow-y: scroll;
+          ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+              padding: 7px 15px;
+              color: #999;
+              font-size: 13px;
+            }
+            li:hover {
+              color: white;
+              background-color: #5eb12f;
+            }
+            .title {
+              color: #555;
+              font-size: 14px;
+            }
+            .title:hover {
+              background-color: white;
+              color: #555;
+            }
+            hr {
+              margin: 0 15px 10px;
+            }
+          }
+        }  
+      }
+      .localization:hover {
+        border-color: #5bb33a;
+        z-index: 100;
+   
+        .from-down {
+          display: block;
+        }
+        .to-down {
+          display: block;
+        }
+      }
     }
 
 
@@ -319,7 +431,7 @@
       border: 1px solid #ddd;
       position: relative;
       font-size: 14px;
-      right: 4px;
+      right: 5px;
       .cost-input {
         padding: 20px;
         text-align: left;
@@ -369,7 +481,7 @@
       border-radius: 0 10px 10px 0;
       font-size: 17px;
       position: relative;
-      right: 8px;
+      right: 9px;
       bottom: 1px;
       //top: 1px;
       height: 56px;
