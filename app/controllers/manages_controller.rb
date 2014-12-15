@@ -221,17 +221,22 @@ class ManagesController < ApplicationController
     redirect_to :action => "search_detail", :controller => "products", :id => product.id
 
 
-
-
-
   end
+
+
 
   def edit_service
     @product = Product.find(params[:id])
   end
+
+
   def create_process
     product = Product.new
-    product.company_id =  params[:company_id]
+    if current_user.is_admin
+      product.company_id = current_user.member.company.id
+    else
+      product.company_id =  params[:company_id]
+    end
     product.status = 1 #0: off , 1:on, 2:etc
     
     if (10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60)

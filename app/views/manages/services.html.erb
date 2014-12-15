@@ -5,7 +5,7 @@
       <h1>Manage Service for Admin</h1>
       <div class="sub-title">
         <h3>All Services</h3>
-        <button type="button" class="btn btn-default" onclick="location.href= '/manages/create';">Create Service</button>
+        <button type="button" class="btn btn-default" onclick="location.href= '/publishers/create';">Create Service</button>
       </div>
       <table>
         <tr class="table-header">
@@ -31,7 +31,7 @@
               </td>
             <td class="font-bold">$0</td>
             <td><img src="/assets/my_account/on.png"></td>
-            <td><a href="/manages/edit_service/<%=service.id%>"><div class="btn btn-default">Edit</div></a></td>
+            <td><a href="/publishers/edit/<%=service.id%>"><div class="btn btn-default">Edit</div></a></td>
 
             <td><div class="btn btn-default" onclick="$('#destroy_yes').prop('href', '/manages/destroy_service/<%=service.id%>'); $('#destroy_service_name').html('<%=service.prolangs.order(:language_id).first.title%>'); $('#modal_destroy_service').modal(); ">Delete</div></td>
 

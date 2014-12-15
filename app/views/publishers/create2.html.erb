@@ -84,6 +84,16 @@ function language_click(id){
           <%end%>
         </div>
 
+      <%if user_signed_in? && current_user.is_admin%>
+        <div class="pack service-name">
+          <h3>Select Company</h3>
+          <select name="company_id">
+            <%Company.all.each do |company|%>
+              <option value="<%=company.id%>"><%if company.comlangs.count != 0%><%=company.comlangs.first.name%><%end%></option>
+            <%end%>
+          </select>
+        </div>
+      <%end%>
 
       <div class="pack languages">
         <h3>Language &nbsp;
@@ -201,68 +211,41 @@ function platform_change(id){
           <p  onclick="platform_change(2);" class="platform_p"><img src="/assets/my_account/radio-01.png"  id="platform_2" class="platform_img"/> Android</p>
         </div>
         <div class="platform" id="translation" style="display:none;">
-          <!--<h3>Translation</h3>
-          <span>From</span>
-          <select name="from_id">
-            <%Translanguage.all.each do |translang|%>
-              <option value="<%=translang.id%>"><%=translang.name%></option>
-            <%end%>
-          </select>
-          <span>To</span>
-          <select name="to_id">
-            <%Translanguage.all.each do |translang|%>
-              <option value="<%=translang.id%>"><%=translang.name%></option>
-            <%end%>
-          </select> -->
+          <script>
+function transFrom(id){
+  $("#from_id").val(id);
+  $("#from_language").html($("#select_from_" + id).html());
+}
+
+function transTo(id){
+  $("#to_id").val(id);
+  $("#to_language").html($("#select_to_" + id).html());
+}
+
+          </script>
+
+          <input type="hidden" name="from_id" value="1" id="from_id">
+          <input type="hidden" name="to_id" value="1" id="to_id">
+
           <h3>Translation</h3>
           <div class="localization drop">
-            <h3>From <span class="glyphicon glyphicon-chevron-down"></span></h3>
+            <h3><span id="from_language">From</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
             <div class="localization-down">
               <ul>
-                <li>English</li>
-                <li>Arabic</li>
-                <li>Chinese (Simplified)</li>
-                <li>Chinese (Traditional)</li>
-                <li>French</li>
-                <li>German</li>
-                <li>Hindi</li>
-                <li>Indonesian</li>
-                <li>Italian</li>
-                <li>Japanese</li>
-                <li>Korean</li>
-                <li>Malay</li>
-                <li>Portuguese</li>
-                <li>Russian</li>
-                <li>Spanish</li>
-                <li>Thai</li>
-                <li>Turkish</li>
-                <li>Vietnamese</li>
+                <%Translanguage.all.each do |translang|%>
+                  <li onclick="transFrom(<%=translang.id%>);" id="select_from_<%=translang.id%>"><%=translang.name%></li>
+                <%end%>
               </ul>
             </div>
           </div>
           <img src="/assets/my_account/localization.png" style="margin: 0 10px; vertical-align: middle;">
           <div class="localization drop" style="margin-left: 0;">
-            <h3>To <span class="glyphicon glyphicon-chevron-down"></span></h3>
+            <h3><span id="to_language">To</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
             <div class="localization-down">
               <ul>
-                <li>English</li>
-                <li>Arabic</li>
-                <li>Chinese (Simplified)</li>
-                <li>Chinese (Traditional)</li>
-                <li>French</li>
-                <li>German</li>
-                <li>Hindi</li>
-                <li>Indonesian</li>
-                <li>Italian</li>
-                <li>Japanese</li>
-                <li>Korean</li>
-                <li>Malay</li>
-                <li>Portuguese</li>
-                <li>Russian</li>
-                <li>Spanish</li>
-                <li>Thai</li>
-                <li>Turkish</li>
-                <li>Vietnamese</li>
+                <%Translanguage.all.each do |translang|%>
+                  <li onclick="transTo(<%=translang.id%>);" id="select_to_<%=translang.id%>"><%=translang.name%></li>
+                <%end%>
               </ul>
             </div>
           </div>

@@ -12,9 +12,12 @@ class PublishersController < ApplicationController
   end
 
   def edit_process
+    if current_user.is_admin
+      product = Product.find(params[:product_id])
+    else
+      product = Product.where(:id => params[:product_id], :company_id => Member.where(:user_id => current_user.id, :approved => true).first.company.id).first
+    end
 
-    product = Product.where(:id => params[:product_id], :company_id => Member.where(:user_id => current_user.id, :approved => true).first.company.id).first
-    
     if ((10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60) ) || params[:marketing_id].to_i == 90
       if params[:platform].to_i != 0
         product.marketingtype_id = (params[:marketing_id].to_i + params[:platform].to_i + 1).to_i
@@ -28,6 +31,27 @@ class PublishersController < ApplicationController
     product.minimum_budget = params[:minimum_budget]
 
     product.save
+
+    if product.marketingtype_id == 84
+      if product.trans_from == nil
+        transfrom = Translation.new
+      else
+        transfrom = product.trans_from
+      end
+      transfrom.from_id = product.id
+      transfrom.translanguage_id = params[:from_id]
+      transfrom.save
+      if product.trans_to == nil
+        transto = Translation.new
+      else
+        transto = product.trans_to
+      end
+      transto.to_id = product.id
+      transto.translanguage_id = params[:to_id]
+      transto.save
+    end
+
+
     Language.all.each do |lang|
       if params["lang_#{lang.id}"] != nil
         if product.prolangs.where(:language_id => lang.id).count != 0
@@ -220,8 +244,10 @@ class PublishersController < ApplicationController
   end
   def edit
     @product = Product.find(params[:id])
-    unless current_user.member.approved && current_user.member.company.id == @product.company_id
-      redirect_to "/users/company"
+    if !current_user.is_admin
+      if  (!current_user.member.approved || current_user.member.company.id != @product.company_id) 
+        redirect_to "/users/company"
+      end
     end
 
   end
@@ -239,7 +265,13 @@ class PublishersController < ApplicationController
   def create_process
 
     product = Product.new
-    product.company_id = current_user.member.company.id
+
+    if current_user.is_admin
+      product.company_id =  params[:company_id]
+    else
+      product.company_id = current_user.member.company.id
+    end
+
     product.status = 1 #0: off , 1:on, 2:etc
     
     if ((10 < params[:marketing_id].to_i) && (params[:marketing_id].to_i < 60)) || params[:marketing_id].to_i == 90
