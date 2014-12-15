@@ -244,7 +244,7 @@ class PublishersController < ApplicationController
   end
   def edit
     @product = Product.find(params[:id])
-    if !current_user.is_admin
+    unless current_user.is_admin
       if  (!current_user.member.approved || current_user.member.company.id != @product.company_id) 
         redirect_to "/users/company"
       end

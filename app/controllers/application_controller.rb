@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
   end
 
   def company_confirmed
-    if current_user.member == nil
+
+    if current_user.member == nil && !current_user.is_admin
       current_user.user_notify(3)
       redirect_to :controller => "users",
                   :action => "company"
