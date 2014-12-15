@@ -149,16 +149,22 @@ function language_select(id){
             <%end%>
           </td>
           <td class="cost" rowspan="3" style="border-bottom:1px solid #bbb;">
-            <div class="cost-dropdown">
-              <div class="first" id="cost_<%=@product.id%>" >
-                <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
+            <%if @product.costs.count > 1%>
+              <div class="cost-dropdown">
+                <div class="first" id="cost_<%=@product.id%>" >
+                  <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
+                </div>
+                <div class="cost-dropdown-menu">
+                  <%@product.costs.each do |cost|%>
+                    <h5 onclick='$("#cost_<%=@product.id%>").html($("#cost_val_<%=cost.id%>").html());' id='cost_val_<%=cost.id%>'><%=number_to_currency(cost.money, :unit => "$")%></h5>
+                  <%end%>
+                </div>
               </div>
-              <div class="cost-dropdown-menu">
-                <%@product.costs.each do |cost|%>
-                  <h5 onclick='$("#cost_<%=@product.id%>").html($("#cost_val_<%=cost.id%>").html());' id='cost_val_<%=cost.id%>'><%=number_to_currency(cost.money, :unit => "$")%></h5>
-                <%end%>
+            <%else%>
+              <div>
+                <%=number_to_currency(@product.costs.first.money, :unit => "$")%>
               </div>
-            </div>
+            <%end%>
             
             <button type="button" class="btn-buy" data-toggle="modal" data-target="#Modal-ready" style="margin-top: 15px;">Buy</button>
           </td>

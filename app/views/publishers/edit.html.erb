@@ -474,7 +474,12 @@ function has_detail_remove(id){
             <%@product.costs.each do |cost|%>
               <div id="has_cost_<%=cost.id%>">
                 <h5 style="position:relative; left:27px; display: inline-block">$</h5>
-                <input type="text" name="has_cost[<%=cost.id%>]" value="<%=cost.money%>" ><%if d_cost_number == 0%><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" style="display:none;" id="cost_add_img"><%else%><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="has_cost_delete(<%=cost.id%>);"><%end%><%d_cost_number += 1%>
+                <input type="text" name="has_cost[<%=cost.id%>]" value="<%=cost.money%>" >
+                
+          <h5 style=" display:none; position:relative; margin-left:10px;color:#999;" class="per_word">per 1 word</h5>
+                <%if d_cost_number == 0%><img src="/assets/my_account/circle_plus.png" onclick="cost_add();" style="display:none;" id="cost_add_img"><%else%><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="has_cost_delete(<%=cost.id%>);">
+          <h5 style=" display:none; position:relative; margin-left:10px;color:#999;" class="per_word">per 1 word</h5>
+                <%end%><%d_cost_number += 1%>
               </div>
             <%end%>
           </div>
