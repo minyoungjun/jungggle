@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
       redirect_to :controller => "users",
                   :action => "company"
       
-    elsif !(current_user.member.approved)
+    elsif !current_user.is_admin && !(current_user.member.approved)
 
       current_user.user_notify(6)
       redirect_to :root
