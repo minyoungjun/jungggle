@@ -67,9 +67,16 @@ function language_click(id){
 
 <div class="account">
   <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+      <h1 class="right-title"><img src="/assets/my_account/right-company-profile.png">Company Profile</h1>
+    </div>
     <%= render "/home/left"%>
+
     <div class="right-company-profile right-height">
-      <h1>Company Profile</h1>
+      
       <form <%if current_user.confirmed_at != nil %> action="/users/company_update" <%end%> method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 
@@ -145,13 +152,8 @@ function auto_func(id){
           $(".company-name-drop").hide();
           
           }
-
 }
-
-
       </script>
-
-
 
       <script>
   <%if current_user.confirmed_at != nil %>

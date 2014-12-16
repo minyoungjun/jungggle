@@ -89,10 +89,16 @@ function language_click(id){
 
 <div class="create-service account">
   <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+      <h1 class="right-title"><img src="/assets/my_account/right-service.png">Create Service 
+        <span style="font-size: 15px; font-weight: 400; color: white; background-color: #aaa; float: right; position: relative; top: 3px; padding: 6px 15px; border-radius: 10px;">Edit</span></h1>
+    </div>
     <%= render "/home/left"%>
 
     <div class="right-create-service" id="right">
-      <h1>Create Service</h1>
 
       <form action="/publishers/edit_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />

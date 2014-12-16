@@ -2,6 +2,12 @@
 
 <div class="account">
   <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+      <h1 class="right-title"><img src="/assets/my_account/right-profile.png">Profile</h1>
+    </div>
     <%= render "/home/left"%>
 
     <div class="right-profile" id="right">
@@ -10,7 +16,7 @@
           <input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" />
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
       </div>
-      <h1>Profile</h1>
+  
       <%= devise_error_messages! %>
       <input type="text" name="first_name" placeholder="James" class="short-form" value="<%=@user.first_name%>" required <%if current_user.confirmed_at == nil %>disabled<%end%>>
       <input type="text" placeholder="Lim" name="last_name" class="short-form" value= "<%=@user.last_name%>" required <%if current_user.confirmed_at == nil %>disabled<%end%> >
