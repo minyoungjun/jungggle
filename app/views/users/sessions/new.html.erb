@@ -22,6 +22,8 @@
     <% if devise_mapping.rememberable? -%>
       <div class="remember"><%= f.check_box :remember_me, class: "check" %> <%= f.label :remember_me %></div>
     <% end -%>
+    <div class="check"><img src="/assets/my_account/checkbox-01.png" onclick="minimum_check(1);" id="minimum_img" style="margin-right: 6px; vertical-align: middle;">Remember me</div>
+    <!-- <img src="/assets/my_account/checkbox-02.png" onclick="minimum_check(0);" id="minimum_img"> -->
 
     <div class="log-btn"><%= f.submit "Log In" %></div>
   <% end %>
