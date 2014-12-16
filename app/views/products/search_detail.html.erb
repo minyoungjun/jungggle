@@ -112,7 +112,7 @@ function language_select(id){
         <tr class="table-header">
           <td class="service-name">Service Name</td>
           <td>Service Details</td>
-          <td>Cost</td>
+          <td style="text-align: center;">Cost</td>
         </tr>
         <tr class="table-body" style="border-bottom:none; height: 20px;">
           <td class="country">
@@ -161,7 +161,7 @@ function language_select(id){
                 </div>
               </div>
             <%else%>
-              <div>
+              <div class="flat-rate">
                 <%=number_to_currency(@product.costs.first.money, :unit => "$")%>
               </div>
             <%end%>
