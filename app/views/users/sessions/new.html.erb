@@ -1,7 +1,10 @@
 <!-- log.css.scss -->
 
 <div class="login">
-  <a href="/"><img src="/assets/logo-01.png" class="title-logo"></a>
+  <a href="/">
+    <img src="/assets/logo-01.png" class="title-logo">
+    <h5 class="beta">Beta</h5>
+  </a>
   <div class="sns-login-area">
     <a href="<%=user_omniauth_authorize_path(:linkedin)%>"><div class="sns-login linkedin"><img src="/assets/main/log_linkedin.png">Log In with Linkedin</div></a>
     <a href="<%=user_omniauth_authorize_path(:facebook)%>"><div class="sns-login facebook"><img src="/assets/main/log_facebook.png">Log In with Facebook</div></a>
