@@ -281,6 +281,7 @@
           border-radius: 5px;
           color: #888;
           font-size: 15px;
+          margin: 5px 0;
           .glyphicon {
             font-size: 12px;
             color: #ccc;
@@ -290,7 +291,7 @@
         }
         .localization-down {
           display: none;
-          width: 130px;
+          //width: 130px;
           border: 1px solid #eee;
           border-radius: 5px;
           position: absolute;
