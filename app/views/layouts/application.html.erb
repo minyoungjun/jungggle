@@ -43,14 +43,14 @@ woopra.track();
           <input type="search" placeholder="Search Company" autofocus autocomplete="off" id="search_title" onchange="search_auto_func();" onkeyup="search_auto_func();" name="search_title" >
           <div class="search-drop search-company-name-drop" style="display:none;">
             <%Company.all.each do |company|%>
-              <%com_array = company.comlangs%>
-              <%com_uniq = com_array.uniq { |s| s.name }%>
-              <%com_uniq.each do |comlang|%>
-                <a href="/products/search_company/<%=company.id%>">
-                  <div class="search-company search_auto_div" data-company="<%=comlang.name%>">
-                    <img src="<%=company.logo.url(:medium)%>"><h5><%=comlang.name%></h5>
-                  </div>
-                </a>
+              <%company.comlangs.each do |comlang|%>
+                <%if company.comlangs.where("name = ? AND id < ?", comlang.name, comlang.id).count == 0%>
+                  <a href="/products/search_company/<%=company.id%>">
+                    <div class="search-company search_auto_div" data-company="<%=comlang.name%>">
+                      <img src="<%=company.logo.url(:medium)%>"><h5><%=comlang.name%></h5>
+                    </div>
+                  </a>
+                <%end%>
               <%end%>
             <%end%>
           </div>
