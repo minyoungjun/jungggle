@@ -258,12 +258,14 @@
 .finish-signup {
   margin: 0 auto;
   padding: 50px 0 100px;;
-
   text-align: center;
+
+  $width-fixed: 420px;
+
   .skip {
     background-color: white;
     color: #5eb12f;
-    padding: 13px 180px;
+    padding: 13px 190px;
     display: inline-block;
     border-radius: 5px;
     border: 1px solid #5eb12f;
@@ -300,7 +302,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 12px 10px 12px 20px;
-    width: 400px;
+    width: $width-fixed;
     line-height: 20px;
     font-size: 15px;
   }
@@ -308,7 +310,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 12px 10px 12px 20px;
-    width: 400px;
+    width: $width-fixed;
     margin-bottom: 20px;
     line-height: 20px;
     font-size: 15px;
@@ -335,6 +337,7 @@
         img {
           width: 70px;
           margin-right: 15px;
+          vertical-align: middle;
         }
         h5 {
           display: inline-block;
@@ -357,11 +360,11 @@
   }
 
   .language-input {
-    width: 400px;
+    width: $width-fixed;
     margin: 0 auto;
     .language-drop {
       display: none;
-      width: 400px;
+      width: $width-fixed;
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
@@ -404,11 +407,11 @@
   }
   
   .country{
-    width: 400px;
+    width: $width-fixed;
     margin: 0 auto;
     .country-down {
       display: none;
-      width: 400px;
+      width: $width-fixed;
       height: 250px;
       border: 1px solid #eee;
       border-radius: 5px;
@@ -454,7 +457,7 @@
 
 
   .number {
-    width: 400px;
+    width: $width-fixed;
     margin: 0 auto;
     input {
       z-index: 150;
@@ -462,7 +465,7 @@
 
     .number-drop {
       display: none;
-      width: 400px;
+      width: $width-fixed;
       border: 1px solid #eee;
       border-radius: 5px;
       position: absolute;
@@ -503,7 +506,7 @@
 
   .client-logo {
     margin: 40px auto 0;
-    width: 400px;
+    width: $width-fixed;
     border-top: 1px solid #ccc;
     p {
       margin: 30px auto 15px;
@@ -527,7 +530,7 @@
   }
 
   .company-introduction {
-    width: 400px;
+    width: $width-fixed;
     margin: 0 auto;
     padding-top: 20px;
     border-top: 1px solid #ccc;
@@ -544,7 +547,7 @@
   .upload-logo-area {
     text-align: left;
     margin: 20px auto;
-    width: 400px;
+    width: $width-fixed;
     .upload-logo {
       margin: 0;
       border: 0;
@@ -612,6 +615,10 @@
     border-radius: 5px;
     margin-top: 50px;
     cursor: pointer;
+    border: 0;
+  }
+  .save-btn:hover {
+    background-color: #4F9F22;
   }
 }
 
