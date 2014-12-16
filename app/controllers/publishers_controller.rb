@@ -95,9 +95,10 @@ class PublishersController < ApplicationController
       end
 
       detail.detailangs.each do |detailang|
-        detailang.content = params["has_detail_#{detail.id}_#{detailang.prolang.language_id}"]
-        detailang.save
-
+        if detailang.prolang != nil
+          detailang.content = params["has_detail_#{detail.id}_#{detailang.prolang.language_id}"]
+          detailang.save
+        end
       end
 
     end
