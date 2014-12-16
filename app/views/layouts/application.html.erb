@@ -131,7 +131,6 @@ function search_auto_func(){
   <div class="nav" <%if @main %>style="display:none;"<%end%>>
 <%if !(@main) %>
 <form action="/products/search" method="get" id="search_form">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <input type="hidden" name="country" id="country_hidden" value="0">
   <input type="hidden" name="marketing" id="marketing_hidden" value="1">
   <input type="hidden" name="platform" id="platform_hidden" value="1">
