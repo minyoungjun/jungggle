@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "/products/attachment/:id" => "products#attachment"
   get "/products/comdocument/:id" => "products#comdocument"
 
+  get "products/search"
   post "products/search"
   get '/products/search_company/:id' => "products#search_company"
 
