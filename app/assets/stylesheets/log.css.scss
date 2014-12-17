@@ -66,6 +66,7 @@
         border: 1px solid #d9d9d9;
         color: black;
         line-height: 20px;
+        outline: 0;
       }
       input:focus {
         border-color: #5eb12f;
@@ -79,6 +80,7 @@
         border: 0;
         font-size: 15px;
         padding: 13px 0;
+        outline: 0;
       }
     }
   }
@@ -139,6 +141,7 @@
     border: 1px solid #d9d9d9;
     color: black;
     line-height: 19px;
+    outline: 0;
   }
   input:focus {
     border-color: #5eb12f;
@@ -157,6 +160,7 @@
         border-radius: 10px;
         border: 1px solid #d9d9d9;
         color: black;
+        outline: 0;
       }
       input:focus {
         border-color: #5eb12f;
@@ -171,6 +175,7 @@
         font-size: 15px;
         width: 150px;
         padding: 20px 0;
+        outline: 0;
       }
     }
   }
@@ -182,6 +187,7 @@
       border: 0;
       font-size: 15px;
       padding: 13px 0;
+      outline: 0;
     }
   }
 
@@ -221,6 +227,7 @@
         border: 1px solid #d9d9d9;
         color: black;
         line-height: 20px;
+        outline: 0;
       }
       input:focus {
         border-color: #5eb12f;
@@ -235,6 +242,7 @@
         font-size: 15px;
         padding: 13px;
         width: 190px;
+        outline: 0;
       }
     }
   }
@@ -305,6 +313,7 @@
     width: $width-fixed;
     line-height: 20px;
     font-size: 15px;
+    outline: 0;
   }
   textarea {
     border: 1px solid #ddd;
@@ -461,6 +470,7 @@
     margin: 0 auto;
     input {
       z-index: 150;
+      outline: 0;
     }
 
     .number-drop {
