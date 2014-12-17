@@ -542,7 +542,7 @@ function minimum_check(id){
         }
 var country_count = 1;
 function add_country(){
-  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
+  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/delete.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
   country_count = country_count + 1;
         
 }
@@ -581,20 +581,19 @@ function has_delete_country(id){
                   </ul>
                 </div>
               </div>
+              
               <%if con_count == 0%> 
-                <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px;" onclick="add_country();">
+                
               <%else%>
-                <img src="/assets/my_account/circle_minus.png" style="margin: 0 13px 0 5px;" onclick="has_delete_country(<%=procon.id%>);">
+                <img src="/assets/my_account/delete.png" style="margin: 0 13px 0 5px;" onclick="has_delete_country(<%=procon.id%>);">
             <%end%>
             <% con_count += 1%>
             </div>
           <%end%>
-
-
-
         </div>
+        <br>
+        <img src="/assets/my_account/circle_plus.png" style="margin-left: 333px;" onclick="add_country();">
       </div>
-
 
       <script>
 

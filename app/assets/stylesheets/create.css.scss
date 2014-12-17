@@ -522,8 +522,11 @@
 
 
       .circle-icon {
-        margin: 0 10px 0 5px;
+        margin: 0 0 0 15px;
         opacity: 0.4;
+        vertical-align: middle;
+        position: relative;
+        bottom: 2px;
       }
       .circle-icon:hover {
         opacity: 1;
