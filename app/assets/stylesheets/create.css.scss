@@ -343,26 +343,45 @@
     .service-detail {
       position: relative;
       bottom: 6px;
-      textarea {
-        display: inline-block;
-        width: 550px;
-        padding: 10px 15px;
-        border: 1px solid #eee;
-        border-radius: 5px;
-        font-size: 15px;
-        line-height: 20px;
-        margin: 5px 0;
+      .textarea-pack {
+        border: 1px solid #ddd; 
+        border-radius: 5px; 
+        display: inline-block; 
+        padding: 2px 10px 2px 13px;
+        margin: 10px 0;
+
+        .bar {
+          vertical-align: top; 
+          position: relative; 
+          top: 13px; 
+          margin-right: 3px; 
+          font-size: 10px; 
+          font-weight: 700; 
+          color: #666;
+        }
+        textarea {
+          display: inline-block;
+          width: 510px;
+          //padding: 10px 15px;
+          //border: 1px solid #eee;
+          border-radius: 5px;
+          font-size: 15px;
+          line-height: 21px;
+          margin: 5px 0;
+          border: 0;
+        }
       }
       .attach-img-btn {
         display: inline-block;
-        padding: 12px 18px;
+        padding: 13px 18px;
         background-color: #aaa;
         color: white;
         cursor: pointer;
         border-radius: 5px;
         margin: 0 13px;
         position: relative;
-        top: 3px;
+        top: 1px;
+        font-size: 14px;
       }
       .attach-img-btn:hover {
         background-color: #5eb12f;

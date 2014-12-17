@@ -785,6 +785,13 @@ function term_check(id){
 
   $(function () { $('.popover-hide').popover('hide');});
 
+
+$(document).ready(function(){
+   $(".textarea").on("keyup", function(){
+      textarea_resize(this, 10);
+   });
+});
+
 function textarea_resize(obj, offset) {
    obj.style.height = "1px";
    obj.style.height = (obj.scrollHeight + offset) + "px";

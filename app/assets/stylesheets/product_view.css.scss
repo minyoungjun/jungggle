@@ -70,7 +70,7 @@
 
 
   .test-upload-img {
-    $img-width-height: 80px;
+    $img-width-height: 118px;
     cursor:pointer;
     width: $img-width-height;
     height: $img-width-height;
@@ -85,10 +85,12 @@
       color: white !important;
       width: $img-width-height;
       height: $img-width-height;
-      padding-top:30px;
-      padding-bottom:30px;
+      
       text-align: center;
       vertical-align:middle;
+      //padding-top:30px;
+      //padding-bottom:30px;
+      padding: 48px 0;
     }
   }
   .test-upload-img:hover {
@@ -100,13 +102,16 @@
 
 
 .imagepreview {
-    vertical-align:middle;
-     background-position: center center;
-    background-size: cover;
-    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
-  display:none; width:80px !important; height:80px !important;   
+  vertical-align: middle;
+   background-position: center center;
+  background-size: cover;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  display: none; 
+  width: 118px !important; 
+  height: 118px !important;   
   margin-left: 15px;
   //margin-top: -18px;
+  margin-right: 13px;
 
 }
 .img_name {

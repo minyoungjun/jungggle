@@ -272,9 +272,12 @@ function transTo(id){
 
         <div class="service-detail" id="detail_box" style="display:inline-block; width: 760px; margin: 0;">
           <div id="detail_row_0">
-            <%Language.all.each do |language|%>
-              <textarea  placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)"  onkeyup="textarea_resize(this, 10);"  style="font-size: 14px; display:none; vertical-align:middle;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea>
-            <%end%>
+            <div class="textarea-pack">
+              <span class="bar">ㅡ</span>
+              <%Language.all.each do |language|%>
+                <textarea  placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)"  onkeyup="textarea_resize(this, 10);"  style="font-size: 14px; display:none; vertical-align:middle;" id = "service_detail_0_<%=language.id%>" name="service_detail_0_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea>
+              <%end%>
+            </div>
             <div class="imagepreview test-upload-img" id="imagepreview_0" onclick="delete_img(0);">
               <p>delete</p>
             </div>
@@ -283,7 +286,7 @@ function transTo(id){
             </div>
           </div>
         </div>
-        <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer; margin: 12px auto; display: inherit;">
+        <img src="/assets/my_account/circle_plus.png" class="attach-plus" onclick="add_detail();" style="cursor:pointer; margin: 0 auto; display: inherit;">
         <div style="display:none;"id="detail_file_box">
           <input type="file" name="detail_photo_0" style="display:none;" id="detail_photo_0" onchange="onchange_image(0);">
         </div>
@@ -311,7 +314,7 @@ function photo_trigger(id){
         $('#detail_photo_' + num).trigger('click');
       }
     function add_detail(){
-      $("#detail_box").append('<div id="detail_row_' + detail_num + '"><%Language.all.each do |language|%><textarea placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" onkeyup="textarea_resize(this, 10);" style="font-size: 14px; vertical-align:middle; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea><%end%> <div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');"> <img src="/assets/my_account/delete.png" class="attach-plus" onclick="detail_remove(' + detail_num + ');" style="cursor:pointer;">');
+      $("#detail_box").append('<div id="detail_row_' + detail_num + '"><div class="textarea-pack"><span class="bar">ㅡ</span> <%Language.all.each do |language|%><textarea placeholder="(in <%=language.name%>)Please explain your service as detail as you can.(Advertisers want to know the Est.results!)" onkeyup="textarea_resize(this, 10);" style="font-size: 14px; vertical-align:middle; display:none;" id = "service_detail_' + detail_num + '_<%=language.id%>" name="service_detail_' + detail_num + '_<%=language.id%>" class="textarea language_detail_all language_detail_<%=language.id%>"></textarea><%end%></div> <div class="imagepreview test-upload-img" id="imagepreview_' + detail_num + '" onclick="delete_img(' + detail_num + ');"><p>delete</p></div><div class="attach-img-btn" onclick="photo_trigger(' + detail_num + ');" id="add_image_' + detail_num + '">Attach Image</div><input type="file" name="detail_photo_' + detail_num + '" style="display:none;" id="detail_photo_' + detail_num + '" onchange="onchange_image(' + detail_num + ');"> <img src="/assets/my_account/delete.png" class="attach-plus" onclick="detail_remove(' + detail_num + ');" style="cursor:pointer;">');
 
         $('#service_detail_' + detail_num + '_' + now_lang).css("display", "inline-block");
 
