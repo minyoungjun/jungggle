@@ -85,6 +85,9 @@
           font-size: 15px;
           padding: 7px 15px;
         }
+        .title:hover {
+          color: #5eb12f;
+        }
 
         ul {
           list-style: none;
@@ -221,6 +224,9 @@
                   padding-left: 0;
                   border-bottom: 1px solid #ddd;
                   margin: 0 10px;
+                }
+                .title:hover {
+                  color: #5eb12f;
                 }
               }
             }
