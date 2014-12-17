@@ -102,7 +102,7 @@ $p-width: 600px;
     border-radius: 5px;
     border: 2px solid #eee;
     display: inline-block;
-    outline: 0;
+  
   }
   input:focus {
     border: 2px solid #5eb12f;
@@ -117,7 +117,7 @@ $p-width: 600px;
     border: 2px solid #eee;
     display: inline-block;
     line-height: 25px;
-    outline: 0;
+   
   }
   textarea:focus {
     border: 2px solid #5eb12f;
@@ -169,14 +169,12 @@ $p-width: 600px;
           float: right;
           position: relative;
           bottom: 10px;
-          outline: 0;
         }
         textarea {
           float: right;
           position: relative;
           bottom: 10px;
           margin-top: 0;
-          outline: 0;
         }
       }  
     }
