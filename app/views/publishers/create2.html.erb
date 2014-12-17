@@ -376,7 +376,7 @@ function detail_remove(id){
       }
       var cost_count = 2;
       function cost_add(){
-        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><input type="text" placeholder="$" name="cost[' + cost_count + ']"><img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
+        $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><h5 style="position:relative; left:27px; display: inline-block">$</h5> <input type="text" name="cost[' + cost_count + ']"> <img src="/assets/my_account/delete.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
 
         height_match();
         cost_count = cost_count + 1;
@@ -400,16 +400,17 @@ function detail_remove(id){
           <h5 style=" display:none; position:relative; margin-left:10px;color:#999;" class="per_word">per 1 word</h5>
 
           
-          <img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display:none;">
+          
+
           <div id="multiple-area" style="display:none;">
             <div id="cost_div_1" class="">
               <h5 style="position:relative; left:27px; display: inline-block">$</h5>
               <input type="text" name="cost[1]">
-              
-              <img src="/assets/my_account/circle_minus.png" class="circle-icon" onclick="cost_delete(1);">
+              <img src="/assets/my_account/delete.png" class="circle-icon" onclick="cost_delete(1);">
             </div>
           </div>
         </div>
+        <img src="/assets/my_account/circle_plus.png" onclick="cost_add();" id="cost_add_img" style="display: none; margin-left: 333px; cursor: pointer;">
       </div>
 
       <script>
@@ -444,7 +445,7 @@ function minimum_check(id){
 
 var country_count = 1;
 function add_country(){
-  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/circle_minus.png" style="vertical-align: middle; margin-left: 8px;" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
+  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/delete.png" style="vertical-align: middle; margin-left: 15px;" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
   country_count = country_count + 1;
 
   height_match();
@@ -480,9 +481,11 @@ function delete_country(id){
                 </ul>
               </div>
             </div>
-            <img src="/assets/my_account/circle_plus.png" style="margin: 0 13px 0 5px; vertical-align: middle;" onclick="add_country();">
+            
           </div>
         </div>
+        <br>
+        <img src="/assets/my_account/circle_plus.png" style="margin-top: 5px; margin-left: 333px; display: inherit; cursor: pointer;" onclick="add_country();">
       </div>
 
 
