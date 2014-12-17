@@ -573,6 +573,11 @@
 
           font-size: 14px;
           position: relative;
+          img {
+            vertical-align: middle;
+            position: relative;
+            bottom: 2px;
+          }
           input {
             margin: 0 20px;
           }  
@@ -654,8 +659,8 @@
       width: 450px;
       font-size: 15px;
       margin: 8px 0;
-      padding: 15px 0;
-      border-radius: 10px;
+      padding: 11px 0;
+      border-radius: 5px;
     }
     .btn-a {
       background-color: #5eb12f;
@@ -663,7 +668,7 @@
       border: 1px solid #5eb12f;
       width: 200px;
       display: inline-block;
-      margin-right: 20px;
+      margin-right: 10px;
     }
     .btn-a:hover {
       background-color: #4F9F22;
@@ -671,8 +676,8 @@
     }
     .btn-b {
       background-color: white;
-      border: 1px solid red;
-      color: red;
+      border: 1px solid #e57667;
+      color: #e57667;
       width: 200px;
     }
 
