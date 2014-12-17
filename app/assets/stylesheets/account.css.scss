@@ -29,7 +29,7 @@
   }
 
   .left-list {
-    background-color: #3c3c3c;
+    background-color: #3b3b3b;
     width: 180px;
     //padding: 0 20px 20px;
     color: white;
@@ -39,22 +39,23 @@
 
     .list {
       h1 {
-        font-size: 20px;
+        font-size: 19px;
         color: #e6e6e6;
         text-align: center;
         line-height: 28px;
         margin-bottom: 15px;
         padding: 10px 0;
         background-color: #252525;
-        border-bottom: 1px solid #454545;
+        border-bottom: 2px solid #232323;
+        border-top: 2px solid #232323;
       }
 
       table {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         color: #828282;
         tr {
           display: inline-block;
-          margin: 9px 0 9px 20px;
+          margin: 11px 0 11px 20px;
           //width: 100%;
 
           td {
