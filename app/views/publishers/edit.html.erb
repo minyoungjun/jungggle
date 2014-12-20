@@ -800,7 +800,12 @@ function term_check(id){
 $(document).ready(function(){
    $(".textarea").on("keyup", function(){
       textarea_resize(this, 10);
-   });
+      });
+   $(function(){
+     $(".textarea").each(function(){
+        textarea_resize(this, 10);
+       });
+     });
 });
 
 function textarea_resize(obj, offset) {
