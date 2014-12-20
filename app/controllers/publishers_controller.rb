@@ -150,13 +150,13 @@ class PublishersController < ApplicationController
         if procon.country_id != product.company.country.id
           procon.delete
         end
-
       end
       procon = Procon.new
       procon.product_id = product.id
       procon.country_id = product.company.country.id
       procon.save
     else
+
       if params[:country] != nil
         params[:country].each do |key, value|
           procon = Procon.new
@@ -164,6 +164,11 @@ class PublishersController < ApplicationController
           procon.country_id = value
           procon.save
         end
+      elsif product.procons.count == 0
+        procon = Procon.new
+        procon.product_id = product.id
+        procon.country_id = product.company.country.id
+        procon.save
       end
     end
 
@@ -355,19 +360,17 @@ class PublishersController < ApplicationController
       end
     end
 
-    if product.marketingtype.global
+    if product.marketingtype.global || params[:country] == nil
       procon = Procon.new
       procon.product_id = product.id
       procon.country_id = product.company.country.id
       procon.save
     else
-      if params[:country] != nil
-        params[:country].each do |key, value|
-          procon = Procon.new
-          procon.product_id = product.id
-          procon.country_id = value
-          procon.save
-        end
+      params[:country].each do |key, value|
+        procon = Procon.new
+        procon.product_id = product.id
+        procon.country_id = value
+        procon.save
       end
     end
 

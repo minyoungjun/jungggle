@@ -548,7 +548,7 @@ function minimum_check(id){
         }
 var country_count = 1;
 function add_country(){
-  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.all.each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/delete.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
+  $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.order(:name).each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/delete.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
   country_count = country_count + 1;
         
 }
@@ -581,7 +581,7 @@ function has_delete_country(id){
                 <div class="country-btn" id="has_country_btn_<%=procon.id%>"><%if procon.country!= nil%><%=procon.country.name%><%else%>Select<%end%> <span class="glyphicon glyphicon-chevron-down"></span></div>
                 <div class="country-down">
                   <ul>
-                    <%Country.all.each do |country|%>
+                    <%Country.order(:name).each do |country|%>
                       <li onclick="has_country_select(<%=procon.id%> , <%=country.id%>);" id="has_country_li_<%=procon.id%>_<%=country.id%>"><%=country.name%></li>
                     <%end%>
                   </ul>

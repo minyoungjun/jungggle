@@ -36,6 +36,12 @@
           <td>성</td>
           <td>email</td>
           <td>company</td>
+          <td>
+            company approve
+          </td>
+          <td>
+            company owner
+          </td>
         </tr>
         <%User.all.each do |user|%>
           <tr class="table-body">
@@ -44,6 +50,24 @@
           </td>
           <td <%if user.confirmed_at == nil%>style="color:red;"<%end%>><%=user.email%></td>
           <td <%if user.member != nil && !(user.member.approved) %>style="color:red;"<%end%>><%if user.member != nil && user.member.company.comlangs.count != 0%><%=user.member.company.comlangs.first.name%><%end%></td>
+          <td>
+            <%if user.member != nil%>
+              <%if user.member.approved%>
+                <a href="/manages/approve/<%=user.member.id%>?type=1">disapprove</a>
+              <%else%>
+                <a href="/manages/approve/<%=user.member.id%>?type=0">approve</a>
+              <%end%>
+            <%end%>
+          </td>
+          <td>
+            <%if user.member != nil%>
+              <%if user.member.owner%>
+                (Owner)
+              <%else%>
+                  <a href="/manages/privilege/<%=user.member.id%>">owner</a>
+              <%end%>
+            <%end%>
+          </td>
         </tr>
         <%end%>
       </table>

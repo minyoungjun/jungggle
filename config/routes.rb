@@ -40,7 +40,10 @@ Rails.application.routes.draw do
   match '/users/signup_process' => 'users#signup_process', via: [:get]
   post '/users/confirm' => 'users#confirm'
   get '/users/company_parse/:id' => 'users#company_parse'
-
+  get '/users/discard_member'
+  get '/users/approve/:id' => "users#approve"
+  get '/users/delete_member/:id' => "users#delete_member"
+  get '/users/privilege/:id' => "users#privilege"
   #get '/publishers/preview/:id' => "publishers#preview"
   root 'home#main'
   get 'advertisers/project_results'
@@ -87,6 +90,8 @@ Rails.application.routes.draw do
   post '/manages/create_process'
   get '/manages/destroy_service/:id' => "manages#destroy_service"
   get '/manages/analytics'
+  get '/manages/approve/:id' => "manages#approve"
+  get '/manages/privilege/:id' => "manages#privilege"
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection

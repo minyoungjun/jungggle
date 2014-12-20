@@ -39,10 +39,17 @@ function select_company(id){
       type: "GET",
       url: url,
       success: function(data, textStatus, jqXHR){
-          alert("wow");
+          
+        $("#user_change").hide();
+        $("#parsed_div").show();
+        $("#parsed_language").val(data[0]);
+        $("#parsed_country").val(data[1]);
+        $("#parsed_employee").val(data[2]);
+        $("#parsed_website").val(data[3]);
+        $("#parsed_introduction").val(data[4]);
         },
         error: function(jqXHR, textStatus, errorThrown){
-          alert("error");
+          alert("error!");
         }
       });
 
@@ -52,6 +59,8 @@ function select_company(id){
 function new_company(){
   $(".company-name-drop").hide();
   $("#comlang_id").val(0);
+  $("#parsed_div").hide();
+  $("#user_change").show();
 };
 
 function auto_func(){
@@ -89,157 +98,169 @@ $('#auto_name').change(function(){
         $("#language_input").val($("#language_li_" + id).html());
         $("#language_id").val(id);
       }
+      </script>
+
+
+
+    <div id="user_change">
+      <input type="hidden" value="1" name="language_id" id="language_id">
+    <div class="language-input">
+      <input type="text" placeholder="Language" id="language_input" disabled>
+      <div class="language-drop">
+        <ul>
+          <%Language.all.each do |language|%>
+            <li id="language_li_<%=language.id%>" onclick="language_select(<%=language.id%>);"><%=language.name%></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+
+
+    <script>
+      function country_select(id){
+        $("#country_text").val($("#country_li_" + id ).html());
+        $("#country_id").val(id);
+      }
     </script>
-    <input type="hidden" value="1" name="language_id" id="language_id">
-  <div class="language-input">
-    <input type="text" placeholder="Language" id="language_input" disabled>
-    <div class="language-drop">
-      <ul>
-        <%Language.all.each do |language|%>
-          <li id="language_li_<%=language.id%>" onclick="language_select(<%=language.id%>);"><%=language.name%></li>
-        <%end%>
-      </ul>
+    <input type="hidden" name="country" id="country_id" value="0">
+    <input type="hidden" name="employee" id="employee_id" value="0">
+    <div class="country">
+      <input type="text" disabled id="country_text" placeholder="Country">
+      <div class="country-down">
+        <ul>
+          <% Country.all.order(:name).each do |country|%>
+            <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
+          <%end%>
+          
+        </ul>
+      </div>
     </div>
-  </div>
-
-
-  <script>
-    function country_select(id){
-      $("#country_text").val($("#country_li_" + id ).html());
-      $("#country_id").val(id);
-    }
-  </script>
-  <input type="hidden" name="country" id="country_id" value="0">
-  <input type="hidden" name="employee" id="employee_id" value="0">
-  <div class="country">
-    <input type="text" disabled id="country_text" placeholder="Country">
-    <div class="country-down">
-      <ul>
-        <% Country.all.order(:name).each do |country|%>
-          <li onclick="country_select(<%=country.id%>);" id="country_li_<%=country.id%>"><%=country.name%></li>
-        <%end%>
-        
-      </ul>
-    </div>
-  </div>
-  <script>
-    function employee_select(id){
-      $("#employee_text").val($("#employee_li_" + id ).html());
-      $("#employee_id").val(id);
-    }
-  </script>
-    
-  <div class="number">
-    <input type="text" placeholder="Number of Employee" id="employee_text" disabled>
-    <div class="number-drop">
-      <ul>
-        <%0.upto(5) do |em_num|%>
-          <li id="employee_li_<%=em_num%>"onclick="employee_select(<%=em_num%>);"><%=@em_array[em_num]%></li>
-        <%end%>
-      </ul>
-    </div>
-  </div>
-  <input type="text" placeholder="Website" name="website">
-  <textarea rows="7" placeholder="Company introduction" id="introduction_text" name="company_introduction" class="company_introduction"></textarea>
-  <script>
-
-
-function logo_upload(){ 
-        $('#logo_name').html($('#company_logo').val().replace(/^.*[\\\/]/, ''));
-        $('#upload_logo_btn').html('Change Logo');
-        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
-        if (regex.test($('#company_logo').val().toLowerCase())) {
-            
-        } else {
-          alert("Please upload a valid image file.");
-          delete_logo();
-        }
-}
-
-
-      function intro_upload(){
-        $('#introduction_name').html($('#company_introduction').val().replace(/^.*[\\\/]/, ''));
-        $("#intro_btn").html('Change File');
-      
+    <script>
+      function employee_select(id){
+        $("#employee_text").val($("#employee_li_" + id ).html());
+        $("#employee_id").val(id);
       }
-
-function delete_intro(){
-  $('#introduction_name').html("");
-  $("#company_introduction").remove();
-  $("#logo_file_box").append('<input type="file" name="company_introduction" id="company_introduction" onchange="intro_upload();">');
-    $("#intro_btn").html('+Upload File');
+    </script>
       
-  
-  }
+    <div class="number">
+      <input type="text" placeholder="Number of Employee" id="employee_text" disabled>
+      <div class="number-drop">
+        <ul>
+          <%0.upto(5) do |em_num|%>
+            <li id="employee_li_<%=em_num%>"onclick="employee_select(<%=em_num%>);"><%=@em_array[em_num]%></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <input type="text" placeholder="Website" name="website">
+    <textarea rows="7" placeholder="Company introduction" id="introduction_text" name="company_introduction" class="company_introduction"></textarea>
+    <script>
 
 
-      var client_count = 0;
-      function client_upload(){
-        var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
-
-        if (regex.test($('#client_' + client_count).val().toLowerCase())) {
-                if (typeof (FileReader) != "undefined") {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-      $("#logo-preview").append("<div class='ex-img' style='background-image:url(" + e.target.result + ");'></div>");
-                    }
-                    reader.readAsDataURL($('#client_' + client_count)[0].files[0]);
-                    client_count = client_count + 1
-                    $("#logo_file_box").append('<input type="file" name="client[' + client_count + ']" id="client_' + client_count + '" onchange="client_upload(' + client_count + ');">');
-                } else {
-                    alert("This browser does not support FileReader.");
-                }
-        } else {
+  function logo_upload(){ 
+          $('#logo_name').html($('#company_logo').val().replace(/^.*[\\\/]/, ''));
+          $('#upload_logo_btn').html('Change Logo');
+          var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
+          if (regex.test($('#company_logo').val().toLowerCase())) {
+              
+          } else {
             alert("Please upload a valid image file.");
+            delete_logo();
+          }
+  }
+
+
+        function intro_upload(){
+          $('#introduction_name').html($('#company_introduction').val().replace(/^.*[\\\/]/, ''));
+          $("#intro_btn").html('Change File');
+        
         }
 
-      }
+  function delete_intro(){
+    $('#introduction_name').html("");
+    $("#company_introduction").remove();
+    $("#logo_file_box").append('<input type="file" name="company_introduction" id="company_introduction" onchange="intro_upload();">');
+      $("#intro_btn").html('+Upload File');
+        
+    
+    }
 
-function click_client(){
-  $("#client_" + client_count).trigger("click");
-}
 
-function delete_logo(){
-  $('#logo_name').html("");
-  $("#company_logo").remove();
-  $("#logo_file_box").append('<input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">');
-    $('#upload_logo_btn').html('+Upload File');
-  
+        var client_count = 0;
+        function client_upload(){
+          var regex = /\.(bmp|jpg|jpeg|gif|png)$/; 
+
+          if (regex.test($('#client_' + client_count).val().toLowerCase())) {
+                  if (typeof (FileReader) != "undefined") {
+                      var reader = new FileReader();
+                      reader.onload = function (e) {
+        $("#logo-preview").append("<div class='ex-img' style='background-image:url(" + e.target.result + ");'></div>");
+                      }
+                      reader.readAsDataURL($('#client_' + client_count)[0].files[0]);
+                      client_count = client_count + 1
+                      $("#logo_file_box").append('<input type="file" name="client[' + client_count + ']" id="client_' + client_count + '" onchange="client_upload(' + client_count + ');">');
+                  } else {
+                      alert("This browser does not support FileReader.");
+                  }
+          } else {
+              alert("Please upload a valid image file.");
+          }
+
+        }
+
+  function click_client(){
+    $("#client_" + client_count).trigger("click");
   }
-  </script>
-  <div class="upload-logo-area">
-    <div id="logo_file_box" style="display:none;">
-      <input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">
-      <input type="file" name="company_introduction_file" id="company_introduction" onchange="intro_upload();">
-      <input type="file" name="client[0]" id="client_0" onchange="client_upload(0);">
-    </div>
-    <div class="upload-logo" onclick="$('#company_logo').trigger('click');" id="upload_logo_btn">+Upload Logo</div>
-    <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 1MB</span>
-    </p>
-  </div>
-  <div class="client-logo">
-    <p onclick="$('#client-logo-div').slideToggle('1000');" style="cursor:pointer;">
-      <img src="/assets/my_account/circle_plus.png" class="upload">
-        Upload Client Logo (Service Provider only)
-    </p>
 
-    <div class="upload-logo-area" id="client-logo-div" style="display:none;">
-      <div class="upload-logo" onclick="click_client();">+Upload Client</div>
-      <p class="client-logo-info">Max size of 25MB</span>
+  function delete_logo(){
+    $('#logo_name').html("");
+    $("#company_logo").remove();
+    $("#logo_file_box").append('<input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">');
+      $('#upload_logo_btn').html('+Upload File');
+    
+    }
+    </script>
+    <div class="upload-logo-area">
+      <div id="logo_file_box" style="display:none;">
+        <input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">
+        <input type="file" name="company_introduction_file" id="company_introduction" onchange="intro_upload();">
+        <input type="file" name="client[0]" id="client_0" onchange="client_upload(0);">
+      </div>
+      <div class="upload-logo" onclick="$('#company_logo').trigger('click');" id="upload_logo_btn">+Upload Logo</div>
+      <p class="file-name"><span id="logo_name"></span><a href="#none" onclick="delete_logo();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 1MB</span>
       </p>
     </div>
-    <div id="logo-preview" style="max-width:450px; margin:20px auto 50px; text-align: left;">
+    <div class="client-logo">
+      <p onclick="$('#client-logo-div').slideToggle('1000');" style="cursor:pointer;">
+        <img src="/assets/my_account/circle_plus.png" class="upload">
+          Upload Client Logo (Service Provider only)
+      </p>
+
+      <div class="upload-logo-area" id="client-logo-div" style="display:none;">
+        <div class="upload-logo" onclick="click_client();">+Upload Client</div>
+        <p class="client-logo-info">Max size of 25MB</span>
+        </p>
+      </div>
+      <div id="logo-preview" style="max-width:450px; margin:20px auto 50px; text-align: left;">
+      </div>
+    </div>
+    <div class="company-introduction">
+      <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  >
+        <img src="/assets/my_account/circle_plus.png" class="upload">
+      Upload Company Introduction (Service Provider only)</h5>
+      <div class="upload-logo-area"  id="introduction-div" style="display:none;">
+        <div class="upload-logo" onclick="$('#company_introduction').trigger('click');" id="intro_btn">+Upload File</div>
+        <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 25MB</span>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="company-introduction">
-    <h5 style="cursor:pointer;" onclick="$('#introduction-div').slideToggle('1000');"  >
-      <img src="/assets/my_account/circle_plus.png" class="upload">
-    Upload Company Introduction (Service Provider only)</h5>
-    <div class="upload-logo-area"  id="introduction-div" style="display:none;">
-      <div class="upload-logo" onclick="$('#company_introduction').trigger('click');" id="intro_btn">+Upload File</div>
-      <p class="file-name"><span id="introduction_name"></span><a href="#none" onclick="delete_intro();">X &nbsp;&nbsp;Delete</a><br><span class="info">Max size of 25MB</span>
-      </p>
-    </div>
+  <div id="parsed_div" style="display:none;">
+      <input type="text" id="parsed_language" disabled>
+      <input type="text" id="parsed_country" disabled>
+      <input type="text" id="parsed_employee" disabled>
+      <input type="text" id="parsed_website" disabled>
+      <textarea rows="7" id="parsed_introduction" readonly></textarea>
   </div>
   <input type="submit" value="SAVE" class="save-btn">
   </form>

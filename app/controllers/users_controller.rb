@@ -2,12 +2,50 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :is_login, except: [:email_confirmation, :company_parse]
   before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation, :company_parse]
-  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse ]
+  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse, :discard_member ]
+  
+  def privilege
+    member = Member.find(params[:id])
+    if member.company.members.where(:owner => true).first.user_id == current_user.id
+      member.owner = true
+      member.save
+
+    end
+    redirect_to :action => "members"
+  end
+  def delete_member
+    member = Member.find(params[:id])
+    if member.company.members.where(:owner => true).first.user_id == current_user.id
+      member.delete
+    end
+    redirect_to :action => "members"
+  end
+
+  def approve
+    member = Member.find(params[:id])
+    if member.company.members.where(:user_id => current_user, :approved => true).count > 0
+      if params[:approve].to_i == 1
+        member.approved = true
+        member.save
+      else
+        member.delete
+      end
+    end
+    redirect_to :action => "members"
+  end
+
+  def discard_member
+    unless  current_user.member.approved
+      member_user = current_user.member
+      member_user.delete
+    end
+    redirect_to :action => "company"
+  end
 
   def company_parse
     comlang = Comlang.find(params[:id])
     company = comlang.company
-    render :json => ["#{company.country.id}","#{company.num_employee}","#{company.website}", "#{comlang.id}"]
+    render :json => ["#{comlang.language.name}","#{company.country.name}","#{company.num_employee}","#{company.website}","#{comlang.introduction}"]
 
   end
   def members
@@ -15,8 +53,7 @@ class UsersController < ApplicationController
     @selected = "member"
     if current_user.member == nil || !(current_user.member.approved)
       current_user.user_notify(3)
-      redirect_to :controller => "users",
-                  :action => "company"
+      @company = current_user.member.company
     else
       @company = current_user.member.company
     end
@@ -45,78 +82,90 @@ class UsersController < ApplicationController
   end
 
   def company_update
-    if current_user.member != nil && current_user.member.approved
-      company = current_user.member.company
-    else
-      company = Company.new
-      current_user.usernotis.where(:notification_id => 3).each do |usernoti|
-        usernoti.is_deleted = true
-        usernoti.save
-      end
-    end
-    company.num_employee = params[:employee]
-    company.website = params[:website]
-    company.country_id = params[:country]
-    company.save
 
-
-    if params[:company_logo] != nil
-      company.logo = params[:company_logo]
-      company.save
-    end
-    if params[:client] != nil
-      params[:client].each do |client_file|
-        client = Comclient.new
-        client.company_id = company.id
-        client.logo = client_file.last
-        client.save
-      end
-    end
-    
-    Language.all.each do |lang|
-      if params["lang_#{lang.id}"] != nil
-        if company.comlangs.where(:language_id => lang.id).count != 0
-          comlang = company.comlangs.where(:language_id => lang.id).first
-        else
-          comlang = Comlang.new
-        end
-        comlang.language_id = lang.id
-        comlang.company_id = company.id
-        comlang.name = params["title_#{lang.id}"]
-        comlang.introduction = params["introduction_#{lang.id}"]
-        comlang.save
-        if params[:company_introduction] != nil
-          comdocu_params = params[:company_introduction]["#{lang.id}"]
-          if comdocu_params != nil
-            comdocu = Comdocument.new
-            comdocu.comlang_id = comlang.id
-            comdocu.saved_name = SecureRandom.hex(10) + "." + comdocu_params.original_filename.split('.').last
-            comdocu.original_name = comdocu_params.original_filename
-            f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
-            f.write(comdocu_params.read)
-            f.close
-            comdocu.save
-          end
-        end
-      end
-
-
-    end
-    
-    unless current_user.is_admin 
-
-      if current_user.member == nil
-        member = Member.new
-      else
-        member = current_user.member
-      end
+    if params[:comlang_id].to_i != 0 && !(current_user.is_admin)
+      company = Comlang.find(params[:comlang_id]).company
+      member = Member.new
       member.company_id = company.id
       member.user_id = current_user.id
-      member.owner = true
-      member.approved = true
+      member.approved = false
       member.save
-    end
+      current_user.user_notify(6)
 
+    else
+
+      if current_user.member != nil && current_user.member.approved
+        company = current_user.member.company
+      else
+        company = Company.new
+        current_user.usernotis.where(:notification_id => 3).each do |usernoti|
+          usernoti.is_deleted = true
+          usernoti.save
+        end
+      end
+      company.num_employee = params[:employee]
+      company.website = params[:website]
+      company.country_id = params[:country]
+      company.save
+
+
+      if params[:company_logo] != nil
+        company.logo = params[:company_logo]
+        company.save
+      end
+      if params[:client] != nil
+        params[:client].each do |client_file|
+          client = Comclient.new
+          client.company_id = company.id
+          client.logo = client_file.last
+          client.save
+        end
+      end
+      
+      Language.all.each do |lang|
+        if params["lang_#{lang.id}"] != nil
+          if company.comlangs.where(:language_id => lang.id).count != 0
+            comlang = company.comlangs.where(:language_id => lang.id).first
+          else
+            comlang = Comlang.new
+          end
+          comlang.language_id = lang.id
+          comlang.company_id = company.id
+          comlang.name = params["title_#{lang.id}"]
+          comlang.introduction = params["introduction_#{lang.id}"]
+          comlang.save
+          if params[:company_introduction] != nil
+            comdocu_params = params[:company_introduction]["#{lang.id}"]
+            if comdocu_params != nil
+              comdocu = Comdocument.new
+              comdocu.comlang_id = comlang.id
+              comdocu.saved_name = SecureRandom.hex(10) + "." + comdocu_params.original_filename.split('.').last
+              comdocu.original_name = comdocu_params.original_filename
+              f =  File.open(Rails.root.join("uploads", comdocu.saved_name), "wb")
+              f.write(comdocu_params.read)
+              f.close
+              comdocu.save
+            end
+          end
+        end
+
+      end
+      
+      unless current_user.is_admin 
+
+        if current_user.member == nil
+          member = Member.new
+        else
+          member = current_user.member
+        end
+        member.company_id = company.id
+        member.user_id = current_user.id
+        member.owner = true
+        member.approved = true
+        member.save
+      end
+
+    end
 
     redirect_to :controller => "users",
                 :action => "company"
@@ -134,6 +183,7 @@ class UsersController < ApplicationController
         @has_company = true
       else
         @has_company = false
+        redirect_to :action => "members"
 
       end
     end

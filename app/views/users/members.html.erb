@@ -22,27 +22,32 @@
             <td>Owner</td>
           </tr>
         
-          <%@company.members.each do |member|%>
+          <%@company.members.where(:approved => true).each do |member|%>
           <tr class="table-body">
             <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
             <td class="email"><%=member.user.email%></td>
             <td class="owner">
-              <div class="delete">
-                <img src="/assets/my_account/person_1_gray.png" class="person1">
-                <div class="delete-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Delete User</div>
-              </div>
-
-              <!-- <%=member.owner%> -->
-              <div class="change">
+              <%if current_user.member.owner%>
+                <a href="/users/delete_member/<%=member.id%>">
+                  <div class="delete">
+                  
+                    <img src="/assets/my_account/person_1_gray.png" class="person1">
+                    <div class="delete-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Delete User</div>
+                  </div>
+                </a>
+                <a href="/users/privilege/<%=member.id%>">
+                  <div class="change">
+                    <img src="/assets/my_account/person_2_gray.png" class="person2">
+                    <div class="change-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Give privilege</div>
+                  </div>
+                </a>
+              <%elsif member.owner%>
                 <img src="/assets/my_account/person_2_gray.png" class="person2">
-                <div class="change-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Change Owner</div>
-              </div>
+              <%end%>
             </td>
           </tr>
           <%end%>
         </table>
-      <%else%>
-        <h2>You are waiting for approval</h2>
       <%end%>
       <h3>Waiting for approval</h3>
       <table>
@@ -51,14 +56,24 @@
           <td>Email</td>
           <td>Access</td>
         </tr>
-        <tr class="table-body">
-          <td class="name">peter carpenter</td>
-          <td class="email">bill_willian@gmail.com</td>
-          <td>
-            <button type="button" class="btn btn-left">approve</button>
-            <button type="button" class="btn btn-right">disapprove</button>
-          </td>
-        </tr>
+        <%@company.members.where(:approved => false).each do |member|%>
+          <tr class="table-body">
+            <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
+            <td class="email"><%=member.user.email%></td>
+            <td>
+              <%if member.user != current_user%>
+                <a href="/users/approve/<%=member.id%>?approve=1"><div class="btn btn-left">approve</div></a>
+                <a href="/users/approve/<%=member.id%>?approve=0">
+                  <div class="btn btn-right">disapprove</div>
+                </a>
+            <%else%>
+              <a href="/users/discard_member">
+                <div type="button" class="btn btn-right" >cancel</div>
+              </a>
+            <%end%>
+            </td>
+          </tr>
+        <%end%>
       </table>
     </div>
   </div>

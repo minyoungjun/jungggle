@@ -1,7 +1,25 @@
 class ManagesController < ApplicationController
   before_filter :is_login
   before_filter :is_admin
-  
+
+  def approve
+    member = Member.find(params[:id])
+    if params[:type].to_i == 0
+      member.approved = true 
+    else
+      member.approved = false 
+    end
+    member.save
+    redirect_to :action => "analytics"
+  end
+
+  def privilege
+    member = Member.find(params[:id])
+    member.approved = true 
+    member.owner = true
+    member.save
+    redirect_to :action => "analytics"
+  end
   def analytics
 
 
