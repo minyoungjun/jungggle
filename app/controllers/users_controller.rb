@@ -27,8 +27,13 @@ class UsersController < ApplicationController
       if params[:approve].to_i == 1
         member.approved = true
         member.save
+
+        member.user.usernotis.where(:notification_id => 6).each do |usernoti|
+          usernoti.delete
+        end
       else
         member.delete
+        member.user.user_notify(3)
       end
     end
     redirect_to :action => "members"
@@ -90,6 +95,9 @@ class UsersController < ApplicationController
       member.user_id = current_user.id
       member.approved = false
       member.save
+      current_user.usernotis.where(:notification_id => 3).each do |usernoti|
+        usernoti.delete
+      end
       current_user.user_notify(6)
 
     else

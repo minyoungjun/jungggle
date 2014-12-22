@@ -6,10 +6,20 @@ class ManagesController < ApplicationController
     member = Member.find(params[:id])
     if params[:type].to_i == 0
       member.approved = true 
+
+      member.user.usernotis.where(:notification_id => 3).each do |usernoti|
+        usernoti.delete
+      end
+      member.user.usernotis.where(:notification_id => 6).each do |usernoti|
+        usernoti.delete
+      end
     else
       member.approved = false 
+      member.user.user_notify(3)
     end
     member.save
+
+
     redirect_to :action => "analytics"
   end
 
@@ -18,6 +28,12 @@ class ManagesController < ApplicationController
     member.approved = true 
     member.owner = true
     member.save
+    member.user.usernotis.where(:notification_id => 3).each do |usernoti|
+      usernoti.delete
+    end
+    member.user.usernotis.where(:notification_id => 6).each do |usernoti|
+      usernoti.delete
+    end
     redirect_to :action => "analytics"
   end
   def analytics
