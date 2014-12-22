@@ -22,7 +22,7 @@
             <td>Owner</td>
           </tr>
         
-          <%@company.members.where(:approved => true).each do |member|%>
+          <%@company.members.where(:approved => true).order(:owner).each do |member|%>
           <tr class="table-body">
             <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
             <td class="email"><%=member.user.email%></td>
