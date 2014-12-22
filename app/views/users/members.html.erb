@@ -22,7 +22,7 @@
             <td>Owner</td>
           </tr>
         
-          <%@company.members.where(:approved => true).order(:owner).each do |member|%>
+          <%@company.members.where(:approved => true).order("owner DESC").each do |member|%>
           <tr class="table-body">
             <td class="name"><%=member.user.first_name%> <%=member.user.last_name%></td>
             <td class="email"><%=member.user.email%></td>
@@ -35,12 +35,11 @@
                     <div class="delete-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Delete User</div>
                   </div>
                 </a>
-                <a href="/users/privilege/<%=member.id%>">
-                  <div class="change">
-                    <img src="/assets/my_account/person_2_gray.png" class="person2">
-                    <div class="change-hover"><img src="/assets/my_account/hover_pointer.svg" class="pointer">Give privilege</div>
-                  </div>
-                </a>
+                <%unless member.owner%>
+                  <a href="/users/privilege/<%=member.id%>">
+                    Give privilege
+                  </a>
+                <%end%>
               <%elsif member.owner%>
                 <img src="/assets/my_account/person_2_gray.png" class="person2">
               <%end%>
