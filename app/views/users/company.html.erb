@@ -110,7 +110,7 @@ function language_click(id){
           <%Company.all.each do |company|%>
             <%company.comlangs.each do |comlang|%>
 
-              <div class="company-autocomplete auto_div" data-company="<%=comlang.name%>" id="company_<%=comlang.id%>" style="cursor:pointer;" onclick="select_company(<%=comlang.id%>);">
+              <div class="company-autocomplete auto_div" data-company="<%=comlang.name%>" id="company_<%=comlang.id%>" style="cursor:pointer;" onclick="select_company(<%=comlang.id%>, <%=comlang.language_id%>);">
                 <img src="<%=company.logo.url(:medium)%>"><h5><%=comlang.name%></h5>
               </div>
 
@@ -124,8 +124,9 @@ function language_click(id){
 
       <script>
 
-function select_company(id){
-  $("#title_" + id).val($("#company_" + id).data("company"));
+function select_company(id, language_id){
+  $("#title_" + language_id).val($("#company_" + id).data("company"));
+  $(".languages").hide();
   $(".company-name-drop").hide();
   $("#comlang_id").val(id);
   var url = "/users/company_parse/" + id;
@@ -155,6 +156,7 @@ function new_company(){
   $("#comlang_id").val(0);
   $("#parsed_div").hide();
   $("#user_change").show();
+  $(".languages").show();
 };
 
 
