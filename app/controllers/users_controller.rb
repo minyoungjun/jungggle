@@ -56,9 +56,12 @@ class UsersController < ApplicationController
   def members
 
     @selected = "member"
-    if current_user.member == nil || !(current_user.member.approved)
+    if current_user.member == nil
       current_user.user_notify(3)
+      redirect_to :action => "company"
+    elsif !(current_user.member.approved)
       @company = current_user.member.company
+      current_user.user_notify(6)
     else
       @company = current_user.member.company
     end
