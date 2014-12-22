@@ -125,7 +125,7 @@ function language_click(id){
       <script>
 
 function select_company(id){
-  $("#auto_name").val($("#company_" + id).data("company"));
+  $("#title_" + id).val($("#company_" + id).data("company"));
   $(".company-name-drop").hide();
   $("#comlang_id").val(id);
   var url = "/users/company_parse/" + id;
