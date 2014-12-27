@@ -50,7 +50,7 @@
                     <%if marketing1.child_types.count != 0%>
                     <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
                         <ul>
-                          <% marketing1.child_types.each do |marketing2|%>
+                          <% marketing1.child_types.order(:index_number).each do |marketing2|%>
                             <%if marketing2.filter == 2%>
                         
                                 <ul>
