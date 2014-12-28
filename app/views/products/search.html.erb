@@ -2,10 +2,9 @@
 <style>
   .truncate_div {
     display:inline-block;
-    height:120px;
     width:600px;
     white-space: nowrap;
-    overflow: scroll;
+    overflow: hidden;
     text-overflow: ellipsis;
   }
 </style>
@@ -30,10 +29,16 @@
             <div class="truncate_div">
               <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
               <a href="/products/search_detail/<%=product.id%>" class="truncate">
+                <%detailang_count = 0%>
                 <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
-                  <%if detailang.detail != nil%>
-                    <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5", style: '')%>
+                  <%if detailang_count < 6%>
+                    <%if detailang.detail != nil%>
+                      <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5", style: '')%>
+                    <%end%>
+                  <%elsif detailang_count == 6%>
+                    <h5>...</h5>
                   <%end%>
+                  <%detailang_count += 1%>
                 <%end%>
               </a>
             </div>
@@ -65,3 +70,16 @@
   %>
   </div>
 </div>
+
+<script>
+$(document).ready(function(){
+    $(".truncate_div h5").truncate({
+          width: '600px',
+          token: '&hellip;',
+          side: 'right',
+          multiline: true
+    });
+
+    });
+</script>
+
