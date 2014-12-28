@@ -98,7 +98,7 @@ function language_click(id){
     </div>
     <%= render "/home/left"%>
 
-    <div class="right-create-service" id="right">
+    <div class="right-create-service right-height" id="right">
 
       <form action="/publishers/edit_process" method="post" enctype="multipart/form-data">
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -369,9 +369,11 @@ function photo_trigger(id){
 
         $("#detail_count").val(detail_num);
         detail_num = detail_num + 1;
+        height_match();
     }
 function detail_remove(id){
   $("#detail_row_" + id).remove();
+  height_match();
 
 }
 
@@ -468,6 +470,7 @@ function has_detail_remove(id){
       function cost_add(){
         $("#multiple-area").append('<div id="cost_div_' + cost_count + '"><h5 style="position:relative; left:27px; display: inline-block">$</h5><input type="text" name="cost[' + cost_count + ']"><img src="/assets/my_account/delete.png" class="circle-icon" onclick="cost_delete(' + cost_count + ');"></div>');
         cost_count = cost_count + 1;
+        height_match();
       }
       </script>
       <div class="pack cost">
@@ -551,14 +554,17 @@ function add_country(){
   $("#country-drop-area").append('<div id="country_box_' + country_count + '" ><input type="hidden" id="country_input_' + country_count + '" name="country[' + country_count + ']"><div class="country-drop"><div class="country-btn"id="country_btn_' + country_count + '">Select <span class="glyphicon glyphicon-chevron-down"></span></div><div class="country-down"><ul><%Country.order(:name).each do |country|%><li onclick="country_select(' + country_count + ', <%=country.id%>);" id="country_li_' + country_count + '_<%=country.id%>"><%=country.name%></li><%end%></ul></div></div><img src="/assets/my_account/delete.png" class="circle-icon"onclick="delete_country(' + country_count + ');"></div>');
   country_count = country_count + 1;
         
+  height_match();
 }
 function delete_country(id){
   $("#country_box_" + id).remove();
 
+  height_match();
 }
 function has_delete_country(id){
   $("#has_country_box_" + id).remove();
   $("#has_delete_box").append("<input type='hidden' name='country_delete[" + id + "]' value='1'>")
+  height_match();
 }
       </script>
 
