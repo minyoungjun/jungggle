@@ -1,10 +1,4 @@
 <!-- search.css.scss-->
-<style>
-  .truncate_div {
-    display:inline-block;
-    width:600px;
-  }
-</style>
 <%if @products.count == 0%><p class="oops">Oops! there is no matched result currently with "$0.1 to $0.5" on the Cost Filter.</p><%end%>
 <div class="search">
   <div class="container">
@@ -23,19 +17,17 @@
           <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%>
           </td>
           <td class="detail">
-            <div class="truncate_div">
-              <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
-              <a href="/products/search_detail/<%=product.id%>" class="truncate">
-                <%product.prolangs.order(:language_id).first.detailangs[0..4].each do |detailang|%>
-                  <%if detailang.detail != nil%>
-                    <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
-                  <%end%>
+            <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
+            <a href="/products/search_detail/<%=product.id%>" class="truncate">
+              <%product.prolangs.order(:language_id).first.detailangs[0..4].each do |detailang|%>
+                <%if detailang.detail != nil%>
+                  <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
                 <%end%>
-                <%if product.prolangs.order(:language_id).first.detailangs.count > 5%>
-                  <h5>...</h5>
-                <%end%>
-              </a>
-            </div>
+              <%end%>
+              <%if product.prolangs.order(:language_id).first.detailangs.count > 5%>
+                <h5>...</h5>
+              <%end%>
+            </a>
           </td>
           <td class="country"><%product.procons[0..4].each do |procon|%><%if procon.country != nil%><%=procon.country.name%><br><%end%><%end%><%if product.procons.count > 5%>...<%end%></td>
           <td class="marketing"><%=product.marketingtype.name%></td>

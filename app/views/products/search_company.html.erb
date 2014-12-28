@@ -22,16 +22,24 @@
           <!--
           <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%></td>-->
           <td class="service-name"><a href="/products/search_detail/<%=product.id%>"><%=product.prolangs.order(:language_id).first.title%></a></td>
+
+
+
+
           <td class="detail">
             <a href="/products/search_detail/<%=product.id%>">
-              <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
+              <%product.prolangs.order(:language_id).first.detailangs[0..4].each do |detailang|%>
                 <%if detailang.detail != nil%>
-                  <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5")%>
+
+                  <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
                 <%end%>
+              <%end%>
+              <%if product.prolangs.order(:language_id).first.detailangs.count > 5%>
+                <h5>...</h5>
               <%end%>
             </a>
           </td>
-          <td style="vertical-align: middle;"><%if @country != nil%><%=@country.name%><%else%><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%></td>
+          <td style="vertical-align: middle;"><%if @country != nil%><%=@country.name%><%else%><%product.procons[0..4].each do |procon|%><%if procon.country != nil%><%=procon.country.name%><%end%><br><%end%><%end%><%if product.procons.count > 5%>...<%end%></td>
           <td class="marketing"><%=product.marketingtype.name%></td>
           <td class="cost"><%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%><br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span>
             <a href="/products/search_detail/<%=product.id%>"><button type="button" class="btn btn-default  ">Detail</button></a>
