@@ -30,7 +30,7 @@
                 <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
                   <%if detailang_count < 6%>
                     <%if detailang.detail != nil%>
-                      <h5><span>-</span><%=truncate(detailang.content, length: 70)%></h5>
+                      <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
                     <%end%>
                   <%elsif detailang_count == 6%>
                     <h5>...</h5>
@@ -40,7 +40,7 @@
               </a>
             </div>
           </td>
-          <td class="country"><%product.procons.each do |procon|%><%if procon.country != nil%><%=procon.country.name%><br><%end%><%end%></td>
+          <td class="country"><%product.procons[0..4].each do |procon|%><%if procon.country != nil%><%=procon.country.name%><br><%end%><%end%><%if product.procons.count > 5%>...<%end%></td>
           <td class="marketing"><%=product.marketingtype.name%></td>
           <td class="cost">
             <%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%>
