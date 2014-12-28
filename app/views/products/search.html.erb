@@ -3,9 +3,6 @@
   .truncate_div {
     display:inline-block;
     width:600px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 </style>
 <%if @products.count == 0%><p class="oops">Oops! there is no matched result currently with "$0.1 to $0.5" on the Cost Filter.</p><%end%>
@@ -73,7 +70,7 @@
 
 <script>
 $(document).ready(function(){
-    $(".truncate_div h5").truncate({
+    $(".truncate h5").truncate({
           width: '600px',
           token: '&hellip;',
           side: 'right',
