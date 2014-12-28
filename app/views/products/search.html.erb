@@ -26,16 +26,13 @@
             <div class="truncate_div">
               <h5 style="margin:0 0 12px 0"><a href="/products/search_detail/<%=product.id%>" class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
               <a href="/products/search_detail/<%=product.id%>" class="truncate">
-                <%detailang_count = 0%>
-                <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
-                  <%if detailang_count < 6%>
-                    <%if detailang.detail != nil%>
-                      <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
-                    <%end%>
-                  <%elsif detailang_count == 6%>
-                    <h5>...</h5>
+                <%product.prolangs.order(:language_id).first.detailangs[0..4].each do |detailang|%>
+                  <%if detailang.detail != nil%>
+                    <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
                   <%end%>
-                  <%detailang_count += 1%>
+                <%end%>
+                <%if product.prolangs.order(:language_id).first.detailangs.count > 5%>
+                  <h5>...</h5>
                 <%end%>
               </a>
             </div>
