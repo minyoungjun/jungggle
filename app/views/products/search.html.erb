@@ -30,7 +30,7 @@
                 <%product.prolangs.order(:language_id).first.detailangs.each do |detailang|%>
                   <%if detailang_count < 6%>
                     <%if detailang.detail != nil%>
-                      <%=simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5", style: '')%>
+                      <%=truncate(simple_format("<span>-</span>#{detailang.content}", {}, wrapper_tag: "h5", style: ''), length: 40)%>
                     <%end%>
                   <%elsif detailang_count == 6%>
                     <h5>...</h5>
@@ -68,15 +68,4 @@
   </div>
 </div>
 
-<script>
-$(document).ready(function(){
-    $(".truncate h5").truncate({
-          width: '600px',
-          token: '&hellip;',
-          side: 'right',
-          multiline: false
-    });
-
-    });
-</script>
 
