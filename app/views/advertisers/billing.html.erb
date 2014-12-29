@@ -10,9 +10,8 @@
     </div>
     <%=render "/home/left"%>
 
-    
+
     <div class="right-billing right-height">
-      <h1>Billing</h1>
       <form action="/advertisers/add_credit" method="post">
       <div class="sub-title">
         <h3>Current Jugggle Credit : <span><%=number_to_currency(@user.credit, precision: 0)%></span></h3>
@@ -53,6 +52,38 @@
         <%end%>
       </table>
         <%= paginate @billings %>
+
+        <br><br><br><br><br><hr><br><br><br><p>민영씨~ 여기부터 작업할께요! 위에 코드가 있어서요~</p><br><br><br><hr>
+
+
+        <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
+        <div class="checkout-filter">
+          <div class="add-credit">
+            <h3>Add Credit</h3>
+            <div class="input-area">
+              <h5 class="dollar">$</h5>
+              <input type="text">
+            </div>
+          </div>
+          <div class="billing-country">
+            <h3>Billing Country</h3>
+            <div class="country-area">
+              <div class="country-btn">
+                Select <span class="glyphicon glyphicon-chevron-down"></span>
+              </div>
+              <div class="country-drop">
+              </div>
+            </div>
+          </div>
+          <a href="#none"><div class="checkout-btn">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
+        </div>
+
+        <p class="history">Billing History</p>
+
+
+
+
+
     </div>
   </div>
 </div>
