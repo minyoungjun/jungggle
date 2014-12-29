@@ -67,6 +67,8 @@ Rails.application.routes.draw do
   get 'home/whoru'
   get 'home/account_billing_invoice'
   get 'home/account_billing_receipt'
+  get 'home/account_billing_invoice_korea'
+  get 'home/account_billing_receipt_korea'
   get 'users/finish_signup'
   post 'users/signup_company'
   get 'confirmation/:id' => "users#email_confirmation"

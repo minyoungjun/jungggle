@@ -1670,7 +1670,6 @@
       .invoice-table {
         margin: 50px auto 100px;
         table {
-          //border-bottom: 3px solid #666; 
           width: 100%; 
           tr {
             td {
@@ -1700,7 +1699,6 @@
             border-top: 1px solid $border-color;
             border-bottom: 1px solid $border-color;
             td {
-              font-weight: bold;
               color: #666;
             }
           }
