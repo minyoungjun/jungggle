@@ -1,3 +1,5 @@
+<!-- account.css.scss -->
+
 <div class="account">
   <div class="container">
     <div class="dashbaord">
@@ -8,7 +10,8 @@
     </div>
     <%= render "/home/left"%>
 
-    <div class="right-dashboard">
+
+    <div class="right-dashboard right-height">
       <h3>Ongoing Projects</h3>
       <table>
         <tr class="table-header">
@@ -17,7 +20,7 @@
           <td>User Name</td>
           <td>Marketing Type</td>
           <td>Qty.</td>
-          <td>Coast</td>
+          <td>Cost</td>
           <td>Total</td>
           <td></td>
           <td></td>
@@ -31,9 +34,8 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/mark.png"></td>
-          <td><button type="button" class="disapprove" data-toggle="modal" data-target="#Modal-disapprove">Disapprove</button></td>
-          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
+          <td><button type="button" class="disapprove" data-toggle="modal" data-target="#Modal-disapprove">Refund</button></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -43,9 +45,8 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/mark.png"></td>
-          <td class="ongoing">Ongoing</td>
-          <td><div class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></div></td>
+          <td class="ongoing">Ongoing<br>Cancel</td>
+          <td><div class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -55,12 +56,14 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/mark.png"></td>
+          
           <td class="rejected" data-toggle="modal" data-target="#Modal-rejected">Rejected</td>
-          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
         </tr>
       </table>
-      <h3>Complete Pfojects<span>(You need to fill out the Project Result)</span></h3>
+
+
+      <h3>Complete Pfojects<span>* You need to fill out the  Result in order to receive the fee</span></h3>
       <table>
         <tr class="table-header">
           <td class="date">Payment Date</td>
@@ -68,7 +71,7 @@
           <td>User Name</td>
           <td>Marketing Type</td>
           <td>Qty.</td>
-          <td>Coast</td>
+          <td>Cost</td>
           <td>Total</td>
           <td></td>
           <td></td>
@@ -82,9 +85,8 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
-          <td class="incomplete">Incomplete</td>
-          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
+          <td class="incomplete">Project<br>Result</td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -94,9 +96,8 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
-          <td class="completed" data-toggle="modal" data-target="#Modal-completed">Completed</td>
-          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
+          <td class="completed" data-toggle="modal" data-target="#Modal-completed">Project<br>Result</td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
         </tr>
         <tr class="table-body">
           <td class="date">2014.07.10</td>
@@ -106,9 +107,19 @@
           <td>1,000</td>
           <td class="font-big">$0.5</td>
           <td class="font-big">$1,000</td>
-          <td><img src="/assets/my_account/visa.png"></td>
           <td class="disagreed">Disagreed</td>
-          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/mail.png"></td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014.07.10</td>
+          <td class="cp-name">Gameberry Inc.</td>
+          <td>James Lim</td>
+          <td>CPI(iOS)</td>
+          <td>1,000</td>
+          <td class="font-big">$0.5</td>
+          <td class="font-big">$1,000</td>
+          <td class="disagreed">Suggestion</td>
+          <td class="message" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></td>
         </tr>
       </table>
     </div>

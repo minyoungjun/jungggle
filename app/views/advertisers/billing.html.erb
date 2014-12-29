@@ -1,7 +1,17 @@
+<!-- account.css.scss -->
+
 <div class="account">
   <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+      <h1 class="right-title"><img src="/assets/my_account/right-billing.png">Billing</h1>
+    </div>
     <%=render "/home/left"%>
-    <div class="right-billing">
+
+    
+    <div class="right-billing right-height">
       <h1>Billing</h1>
       <form action="/advertisers/add_credit" method="post">
       <div class="sub-title">
