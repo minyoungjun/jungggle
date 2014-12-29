@@ -69,6 +69,10 @@ Rails.application.routes.draw do
   get 'home/account_billing_receipt'
   get 'home/account_billing_invoice_korea'
   get 'home/account_billing_receipt_korea'
+  get 'home/account_billing_invoice_refund'
+  get 'home/account_billing_receipt_refund'
+  get 'home/account_billing_invoice_korea_refund'
+  get 'home/account_billing_receipt_korea_refund'
   get 'users/finish_signup'
   post 'users/signup_company'
   get 'confirmation/:id' => "users#email_confirmation"

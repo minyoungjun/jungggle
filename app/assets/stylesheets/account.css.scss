@@ -1668,7 +1668,7 @@
         float: right;
       }
       .invoice-table {
-        margin: 50px auto 100px;
+        margin: 50px auto;
         table {
           width: 100%; 
           tr {
@@ -1726,6 +1726,7 @@
     .bank-info {
       border-top: 1px solid #ddd;
       padding: 30px 50px;
+      margin-top: 50px;
       h3 {
         font-size: 18px;
         font-weight: 500;
