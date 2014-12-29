@@ -1049,16 +1049,16 @@
     .table-header {
       background-color: #eee;
       td {
-        padding: 10px 20px;
+        //padding: 10px 20px;
       }
     }
     .table-body {
       border-bottom: 2px dotted #ddd;
       td {
-        padding: 18px 20px; 
+        //padding: 18px 20px; 
       }
       .invoice {
-        color: #5eb12f;
+        //color: #5eb12f;
       }
       .font-big {
         font-size: 20px;
@@ -1082,7 +1082,7 @@
   .checkout-filter {
     border: 1px solid #5eb12f;
     padding: 13px 17px;
-    margin: 30px 0 50px;
+    margin: 30px 0 65px;
     
     .add-credit {
       display: inline-block;
@@ -1151,6 +1151,73 @@
     }
     .checkout-btn:hover {
       background-color: #4F9F22;
+    }
+  }
+  .history {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .history-table {
+    width: 100%;
+    margin-bottom: 80px;
+    .table-header {
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
+      background-color: white;
+
+      td {
+        padding: 10px 15px;
+        font-size: 15px;
+      }
+      .date {
+        width: 120px;
+        padding-left: 18px;
+      }
+      .view {
+        text-align: center;
+      }
+    }
+    .table-body {
+      border-bottom: 1px solid #ddd;
+ 
+      td {
+        padding: 12px;
+        font-size: 15px;
+        color: #444;
+        .view {
+          text-align: center;
+          cursor: pointer;
+          padding: 7px 0;
+        }
+        .view:hover {
+          color: #5eb12f;
+        }
+        .cashout {
+          color: #5eb12f;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+        }
+        .cashout:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+      .date {
+        width: 120px;
+        padding-left: 18px;
+      }
+      .amount {
+        img {
+          vertical-align: middle;
+          position: relative;
+          bottom: 2px;
+          margin-left: 5px;
+        }
+      }
+      .minus {
+        color: #f47474;
+      }
+      
     }
   }
 

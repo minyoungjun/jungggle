@@ -53,7 +53,7 @@
       </table>
         <%= paginate @billings %>
 
-        <br><br><br><br><br><hr><br><br><br><p>민영씨~ 여기부터 작업할께요! 위에 코드가 있어서요~</p><br><br><br><hr>
+        <br><br><br><br><br><hr><br><br><br><p>민영씨~ 여기부터 작업할께요! 위에 코드가 있어서요~</p><br><br><br><hr><br><br><br><br>
 
 
         <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
@@ -79,7 +79,71 @@
         </div>
 
         <p class="history">Billing History</p>
-
+        <table class="history-table">
+          <tr class="table-header">
+            <td class="date">Date</td>
+            <td>Details</td>
+            <td>Payment Method</td>
+            <td class="amount">Amount</td>
+            <td><p class="view">View</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Add)</td>
+            <td>Wire Transfer</td>
+            <td class="amount">Pending</td>
+            <td><p class="view invoice">Invoice</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Jungggle Credit</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view receipt">Receipt</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Wire Transfer</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view cashout">Cash Out</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Cash Out)</td>
+            <td>Wire Transfer</td>
+            <td class="amount minus">-10,000 USD</td>
+            <td><p class="view receipt">Receipt</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc. (Refund)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view invoice">Invoice</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Wire Transfer</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view cashout">Cash Out</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Add)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount">10,000 USD</td>
+            <td><p class="view invoice">Invoice</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc. (Rejected)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view receipt">Receipt</p></td>
+          </tr>
+        </table>
 
 
 
