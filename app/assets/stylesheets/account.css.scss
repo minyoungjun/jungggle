@@ -1236,66 +1236,84 @@
 /* Billing-Checkout_Now-modal */
 .modal {
   /* modla : Checkout-now[Cash_out] */
+
   .modal-dialog-Checkout-Now {
     margin-top: 100px;
 
     .modal-Checkout-Now {
-      width: 600px;
-      padding: 30px;
+      width: 700px;
+      padding: 0px;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 28px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
         .sub-title {
-          font-size: 15px;
-          color: #aaa;
-          margin-bottom: 40px;
+          font-size: 17px;
+          color: #5eb12f;
+          margin: 30px;
         }
         p {
-          width: 460px;
           text-align: left;
           font-size: 15px;
-          color: #555;
+          color: #353535;
           margin: 10px auto;
-          padding: 15px 0;
+          padding: 18px;
 
           input {
             float: right;
             position: relative;
-            bottom: 10px;
+            bottom: 12px;
             padding: 10px;
-            width: 300px;
+            width: 400px;
             height: 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            color: #ccc;
+            color: #444;
+            line-height: 20px;
+          }
+          input:focus {
+            border-color: #5eb12f;
           }
         }
-        h5 {
-          font-size: 13px;
-          line-height: 20px;
-          margin-top: 30px;
-        }
-        .btn {
-          margin: 20px 0;
-          border: 1px solid #5eb12f;
-          color: #5eb12f;
-          background-color: white;
-          padding: 10px 100px;
-        }
-        .btn:hover {
-          background-color: #5eb12f;
-          color: white;
+        .btn-area {
+          margin: 45px 0 30px; 
+          padding: 0 20px;
+          h5 {
+            font-size: 15px;
+            line-height: 20px;
+            text-align: left;
+            display: inline-block;
+            float: left;
+            margin-right: 50px;
+            position: relative;
+            top: 4px;
+          }
+          .btn {
+            border: 1px solid #5eb12f;
+            color: #5eb12f;
+            background-color: white;
+            padding: 8px 80px;
+            font-size: 20px;
+          }
+          .btn:hover {
+            background-color: #5eb12f;
+            color: white;
+          }
         }
       }
       .modal-footer {
-        text-align: left;
-        padding-bottom: 0;
+        text-align: center;
+        background-color: #353535;
+        color: white;
         h5 {
           margin: 10px 0;
+          font-size: 15px;
           span {
-            color: #5eb12f;
+            color: #f9d20d;
           }
         }
       }
@@ -1411,64 +1429,80 @@
     margin-top: 100px;
 
     .modal-Checkout-Now-kr {
-      width: 600px;
-      padding: 30px;
+      width: 700px;
+      padding: 0px;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 28px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
-        h3 {
-          font-size: 13px;
-          line-height: 23px;
-          color: #777;
-          margin-bottom: 30px;
+        .sub-title {
+          font-size: 15px;
+          color: #5eb12f;
+          margin: 30px;
         }
-
         p {
-          width: 460px;
           text-align: left;
           font-size: 15px;
-          color: #555;
+          color: #353535;
           margin: 10px auto;
-          padding: 15px 0;
+          padding: 18px;
 
           input {
             float: right;
             position: relative;
-            bottom: 10px;
+            bottom: 12px;
             padding: 10px;
-            width: 300px;
+            width: 400px;
             height: 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            color: #ccc;
+            color: #444;
+            line-height: 20px;
+          }
+          input:focus {
+            border-color: #5eb12f;
           }
         }
-        h5 {
-          margin-top: 30px;
-        }
-
-        .btn {
-          margin: 20px 0;
-          border: 1px solid #5eb12f;
-          color: #5eb12f;
-          background-color: white;
-          padding: 10px 100px;
-        }
-        .btn:hover {
-          background-color: #5eb12f;
-          color: white;
+        .btn-area {
+          margin: 60px 0 30px; 
+          padding: 0 20px;
+          h5 {
+            font-size: 15px;
+            line-height: 20px;
+            text-align: left;
+            display: inline-block;
+            float: left;
+            margin-right: 50px;
+            position: relative;
+            top: 4px;
+          }
+          .btn {
+            border: 1px solid #5eb12f;
+            color: #5eb12f;
+            background-color: white;
+            padding: 8px 80px;
+            font-size: 20px;
+          }
+          .btn:hover {
+            background-color: #5eb12f;
+            color: white;
+          }
         }
       }
       .modal-footer {
         text-align: left;
-        padding-bottom: 0;
-        h5 {
+        background-color: #444;
+        padding: 15px 50px;
+        p {
           margin: 10px 0;
-          font-size: 12px;
+          font-size: 14px;
+          color: white;
           span {
-            color: #5eb12f;
+            color: #f9d20d;
           }
         }
       }

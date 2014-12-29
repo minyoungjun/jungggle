@@ -20,7 +20,7 @@
 
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
             <input type="text" class="add" placeholder="$" name="amount">
-            <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now">Checkout Now</div>
+            <div class="checkout-btn" >Checkout Now</div>
             <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now-kr">Checkout (kr)</div>
         </div>
       </div>
@@ -75,7 +75,7 @@
               </div>
             </div>
           </div>
-          <a href="#none"><div class="checkout-btn">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
+          <a href="#none"><div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
         </div>
 
         <p class="history">Billing History</p>
@@ -155,8 +155,6 @@
 
 
 
-
-
 <!-- Checkout-Now Modal -->
 <div class="modal fade" id="Checkout-Now" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-Checkout-Now">
@@ -165,30 +163,34 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h1>Cash Out Information</h1>
         <h3 class="sub-title">Please insert the accurate bank information.</h3>
-        <p>Account Number
-          <input type="text" placeholder="40907653304010">
-        </p>
-        <p>SWIFT Code
-          <input type="text" placeholder="IBKOKRSEXXX">
-        </p>
-        <p>Beneficiary Name
-          <input type="text" placeholder="Jungggle Inc.">        
-        </p>
-        <p>Baneficiary Address
-          <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu, Korea">
-        </p>
-        <p>Bank Name
-          <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
-        </p>
-        <p>Bank Address
-          <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
-        </p>
-        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
-        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+        <div class="insert-area" style="padding: 0 25px;">
+          <p>Account Number
+            <input type="text" placeholder="40907653304010">
+          </p>
+          <p>SWIFT Code
+            <input type="text" placeholder="IBKOKRSEXXX">
+          </p>
+          <p>Beneficiary Name
+            <input type="text" placeholder="Jungggle Inc.">        
+          </p>
+          <p>Baneficiary Address
+            <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu Seoul, Korea">
+          </p>
+          <p>Bank Name
+            <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
+          </p>
+          <p>Bank Address
+            <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
+          </p>
+          <div class="btn-area">
+            <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+            <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <h5>1. We cash out via wire transfer every <span>Friday.</span></h5>
-        <h5>2. All wire transfers are in US Dollars.</h5>
+        <h5>2. All wire transfers are in <span>US Dollars.</span></h5>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

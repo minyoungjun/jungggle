@@ -1,4 +1,3 @@
-
 <!-- account.css.scss -->
 
 <div class="account">
@@ -13,201 +12,101 @@
 
 
     <div class="right-billing right-height">
-
-
-        <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
-        <div class="checkout-filter">
-          <div class="add-credit">
-            <h3>Add Credit</h3>
-            <div class="input-area">
-              <h5 class="dollar">$</h5>
-              <input type="text">
-            </div>
+      <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
+      <div class="checkout-filter">
+        <div class="add-credit">
+          <h3>Add Credit</h3>
+          <div class="input-area">
+            <h5 class="dollar">$</h5>
+            <input type="text">
           </div>
-          <div class="billing-country">
-            <h3>Billing Country</h3>
-            <div class="country-area">
-              <div class="country-btn">
-                South Korea <span class="glyphicon glyphicon-chevron-down"></span>
-              </div>
-              <div class="country-drop">
-              </div>
-            </div>
-          </div>
-          <a href="#none"><div class="checkout-btn">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
         </div>
+        <div class="billing-country">
+          <h3>Billing Country</h3>
+          <div class="country-area">
+            <div class="country-btn">
+              South Korea <span class="glyphicon glyphicon-chevron-down"></span>
+            </div>
+            <div class="country-drop">
+            </div>
+          </div>
+        </div>
+        <a href="#none"><div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now-kr">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
+      </div>
 
-        <p>Billing Country가 <span>South Korea</span> 일 경우, 아래와 같은 절차로 Add Credit 이 완료됩니다.</p>
-
-
-        <p class="history">Billing History</p>
-        <table class="history-table">
-          <tr class="table-header">
-            <td class="date">Date</td>
-            <td>Details</td>
-            <td>Payment Method</td>
-            <td class="amount">Amount</td>
-            <td><p class="view">View</p></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Jungggle Credit (Add)</td>
-            <td>Wire Transfer</td>
-            <td class="amount">Pending</td>
-            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Gameberry Inc.</td>
-            <td>Jungggle Credit</td>
-            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
-            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Gameberry Inc.</td>
-            <td>Wire Transfer</td>
-            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
-            <td><p class="view cashout">Cash Out</p></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Jungggle Credit (Cash Out)</td>
-            <td>Wire Transfer</td>
-            <td class="amount minus">-10,000 USD</td>
-            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Gameberry Inc. (Refund)</td>
-            <td>Jungggle Credit</td>
-            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
-            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Gameberry Inc.</td>
-            <td>Wire Transfer</td>
-            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
-            <td><p class="view cashout">Cash Out</p></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Jungggle Credit (Add)</td>
-            <td>Jungggle Credit</td>
-            <td class="amount">10,000 USD</td>
-            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
-          </tr>
-          <tr class="table-body">
-            <td class="date">2014. 7. 17</td>
-            <td>Gameberry Inc. (Rejected)</td>
-            <td>Jungggle Credit</td>
-            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
-            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
-          </tr>
-        </table>
+      <p>Billing Country가 <span>South Korea</span> 일 경우, 아래와 같은 절차로 Add Credit 이 완료됩니다.</p>
 
 
-
+      <p class="history">Billing History</p>
+      <table class="history-table">
+        <tr class="table-header">
+          <td class="date">Date</td>
+          <td>Details</td>
+          <td>Payment Method</td>
+          <td class="amount">Amount</td>
+          <td><p class="view">View</p></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Jungggle Credit (Add)</td>
+          <td>Wire Transfer</td>
+          <td class="amount">Pending</td>
+          <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Gameberry Inc.</td>
+          <td>Jungggle Credit</td>
+          <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+          <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Gameberry Inc.</td>
+          <td>Wire Transfer</td>
+          <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+          <td><p class="view cashout">Cash Out</p></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Jungggle Credit (Cash Out)</td>
+          <td>Wire Transfer</td>
+          <td class="amount minus">-10,000 USD</td>
+          <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Gameberry Inc. (Refund)</td>
+          <td>Jungggle Credit</td>
+          <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+          <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Gameberry Inc.</td>
+          <td>Wire Transfer</td>
+          <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+          <td><p class="view cashout">Cash Out</p></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Jungggle Credit (Add)</td>
+          <td>Jungggle Credit</td>
+          <td class="amount">10,000 USD</td>
+          <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+        </tr>
+        <tr class="table-body">
+          <td class="date">2014. 7. 17</td>
+          <td>Gameberry Inc. (Rejected)</td>
+          <td>Jungggle Credit</td>
+          <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+          <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+        </tr>
+      </table>
 
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- Checkout-Now Modal -->
-<div class="modal fade" id="Checkout-Now" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-Checkout-Now">
-    <div class="modal-content modal-Checkout-Now">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Cash Out Information</h1>
-        <h3 class="sub-title">Please insert the accurate bank information.</h3>
-        <p>Account Number
-          <input type="text" placeholder="40907653304010">
-        </p>
-        <p>SWIFT Code
-          <input type="text" placeholder="IBKOKRSEXXX">
-        </p>
-        <p>Beneficiary Name
-          <input type="text" placeholder="Jungggle Inc.">        
-        </p>
-        <p>Baneficiary Address
-          <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu, Korea">
-        </p>
-        <p>Bank Name
-          <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
-        </p>
-        <p>Bank Address
-          <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
-        </p>
-        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
-        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
-      </div>
-      <div class="modal-footer">
-        <h5>1. We cash out via wire transfer every <span>Friday.</span></h5>
-        <h5>2. All wire transfers are in US Dollars.</h5>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-<!-- add-credit-Modal -->
-<div class="modal fade" id="Modal-add-credit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit">
-    <div class="modal-content modal-add-credit">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Add Credit</h1>
-        <h3>CheckOut Amout : <span>10,000USD</span></h3>
-        <p>
-          Add credit allows only Wire Transfer.<br>You can find the invoice on Billing History after the CHECKOUT.
-          <br><br>If the name of sender is different from the name on "Company Profile", <br>please let us know support@jungggle.com 
-        </p>
-        <input type="checkbox" class="checkbox"><h5>I have read and agree with the <span>terms</span> and the <span>privacy policy</span></h5>
-        <P>1. Remittance charge (Bank transfer fee : about $18) must be paid from the Sender, not from the Beneficiary.</P>
-        <p>2. Dfsdfsdfsdfs</p>
-        <p>3. asdfasdfasdf</p>        
-      </div>
-      <button type="button" class="btn btn-b" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete">CHECKOUT NOW</button>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-<!-- add-credit-complete-Modal -->
-<div class="modal fade" id="Modal-add-credit-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit-complete">
-    <div class="modal-content modal-add-credit-complete">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Thanks for using Jungggle!</h1>
-        <p class="info">
-          Your order for buying Jungggle Credit has successfully received and the invoice for your order has issued.<br> 
-          It usually takes 1 business day to receving the fee after you transfer the fee through your local bank.
-        </p>
-        <h3>CheckOut Amout : <span>10,000USD</span></h3>
-        <p class="know"><span>You Must Know!</span><br>
-          You must make sure that you send the fee with charging the commision to "Sender"  when you proceed the wire transfer in your local bank.
-        </p>
-
-        <p>You can print the <span>invoice here</span> or in your Billing History</p>  
-        <button type="button" class="btn" data-dismiss="modal">Close</button>     
-      </div>
-      
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
 
 
 
@@ -221,92 +120,31 @@
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h1>Cash Out Information</h1>
-        <h3 class="sub-title">환불 받으실 계좌 정보를 입력하신 후 <br> CASH OUT 버튼을 눌러 환불 절차를 완료해주세요.</h3>
-        <p>예금주명
-          <input type="text">
-        </p>
-        <p>은행명
-          <input type="text">
-        </p>
-        <p>계좌번호
-          <input type="text">        
-        </p>
-        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
-        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-kr">Cash Out</button>
+        <h3 class="sub-title">환불 받으실 계좌 정보를 입력하신 후 CASH OUT 버튼을 눌러 환불 절차를 완료해주세요.</h3>
+        <div class="insert-area" style="padding: 0 25px;">
+          <p>예금주명
+            <input type="text">
+          </p>
+          <p>은행명
+            <input type="text">
+          </p>
+          <p>계좌번호
+            <input type="text">        
+          </p>
+          <div class="btn-area">
+            <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+            <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <h5>1. 모든 비용은 <span>$</span>로 송급됩니다.</h5>
-        <h5>2. 취소 세금계산서는 CASH OUT 버튼 클릭 후 <span>1주일</span> 이내로 발생됩니다.</h5>
-        <h5>3. 취소 세금계산서 발행 후 평균 <span>영업일 1일</span> 이내로 계좌 송금이 완료됩니다.</h5>
+        <p>1. 모든 비용은 <span>$</span> 로 송금됩니다.</p>
+        <p>2. 취소 세금계산서는 CASH OUT 버튼 클릭 후 <span>1주일</span> 이내로 발행됩니다.</p>
+        <p>3. 취소 세금계산서 발행 후 평균 <span>영업일 1일</span> 이내로 계좌 송금이 완료됩니다.</p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-<!-- add-credit-kr-Modal -->
-<div class="modal fade" id="Modal-add-credit-kr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit-kr">
-    <div class="modal-content modal-add-credit-kr">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Add Credit</h1>
-        <div class="credit-amount">
-          <p class="amount">CehckOut Amount <span>$1,000</span></p>
-          <p class="vat">부가세(VAT) <span>$100</span></p>
-          <p class="total">합계금액 <span>$1,100</span></p>
-        </div>
-        
-        <h5 class="sub-title">세금 계산서 발행을 위한 사업자등록증 상의 정보를 입력해주세요.</h5>
-        <p>사업자등록 번호 <input type="text"></p>
-        <p>회사명 <input type="text"></p>
-        <p>대표자명 <input type="text"></p>
-        <p>회사주소 <input type="text"></p>
-        <p>업체 <input type="text"></p>
-        <p>종목 <input type="text"></p>
-        <p>이메일 <input type="text"></p>
-        <div class="info">
-          <p>1. 전체 Check Out 금액에 부가세 (VAT) 10%가 추가된 금액인 합계금액으로 입금되어야 합니다.</p>
-          <p>2. 송금은 전액 미화 ($) 로 이체해주셔야 합니다. 한화 (\)로 입금될 경우 반환되오니 유의 부탁드립니다.</p>
-          <p>3. 세금계산서는 결제 완료 후에 (영수)로 발행됩니다.</p>
-          <p>4. 환율은 계좌 이체가 완료된 당일 최초고시환율로 적용됩니다. </p>
-          <p>5. 부가세 10%는 한국 세무법에 따라 전액 환급됩니다.</p>
-          <p>6. 계좌 정보는 CHECKOUT NOW 버튼을 누르신 후 Billing History Invoice 상에서 확인하시기 바랍니다.</p>
-        </div>
-        <input type="checkbox" class="checkbox">
-        <h5><span>이용약관</span> 및 <span>개인정보보호정책</span>에 동의합니다.</h5>       
-      </div>
-      <button type="button" class="btn btn-b" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete-kr"  >CHECKOUT NOW</button>        
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-<!-- add-credit-complete-kr-Modal -->
-<div class="modal fade" id="Modal-add-credit-complete-kr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit-complete-kr">
-    <div class="modal-content modal-add-credit-complete-kr">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>정글을 이용해주셔서 감사합니다!</h1>
-        <h5 class="sub-title">Jungggle Credit을 구매하기 위한 주문이 접수되었습니다.<br>아래의 계좌 정보로 합계금액을 이체해주시면 Jungggle Credit 충전이 즉시 완료됩니다.</h5>
-        <p>예금주명 <span>(주)게임베리</span></p>
-        <p>은행명 <span>기업은행</span></p>
-        <p>계좌번호 <span>409-076533-010</span></p>
-        <div class="credit-amount">
-          <p class="amount">CehckOut Amount <span>$1,000</span></p>
-          <p class="vat">부가세(VAT) <span>$100</span></p>
-          <p class="total">합계금액 <span>$1,100</span></p>
-        </div>
-        <h5>Billing History에서도 입금 계좌정보를 확인 할 수 있습니다.</h5>
-        <button type="button" class="btn btn-complete" data-dismiss="modal">Close</button>     
-      </div>
-              
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
 
 
 
