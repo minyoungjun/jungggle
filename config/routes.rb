@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'products/cart'
   post 'products/add_cart'
   get 'advertisers/billing'
+  get 'advertisers/billing_korea'
   post 'advertisers/add_credit'
   get 'advertisers/new_bidding'
   post 'advertisers/new_process'
