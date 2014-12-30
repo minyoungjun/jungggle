@@ -18,7 +18,7 @@
 
       <%@products.each do |product|%>
         <%company = product.company%>
-        <%product.procons.each do |procon|%>
+        <%product.procons.where.not(:country_id => nil).each do |procon|%>
           <tr class="table-body">
             <!--
             <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%></td>-->
