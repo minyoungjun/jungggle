@@ -98,11 +98,20 @@ class ProductsController < ApplicationController
 
     @product = Product.find(params[:id])
     @company = @product.company
+
+    @country = Country.where("lower(name) = ?", params[:country].downcase.gsub('_', ' ')).first
+    if @country.procons.where(:product_id => @product.id).count == 0
+      @country = @product.procons.first.country
+    end
+
     @products = Array.new
     @products << @product
-    same_products = @company.products.where(:marketingtype => @product.marketingtype_id, :country_id => @product.country_id)
-    if same_products.count != 0
-      @products = @products + same_products
+    same_marketing = @company.products.where(:marketingtype => @product.marketingtype_id)
+
+    same_marketing.each do |product|
+      if product.procons.where(:country_id => @country_id).count != 0
+        @products << product
+      end
     end
 
     @prolangs = Array.new
@@ -113,10 +122,6 @@ class ProductsController < ApplicationController
     end
     @prolangs.uniq!
 
-    @country = Country.where("lower(name) = ?", params[:country].downcase.gsub('_', ' ')).first
-    if @country.procons.where(:product_id => @product.id).count == 0
-      @country = @product.procons.first.country
-    end
 
     @countries = Array.new
     @company.products.each do |product|
