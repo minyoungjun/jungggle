@@ -108,7 +108,7 @@ class ProductsController < ApplicationController
     @products << @product
     same_marketing = @company.products.where(:marketingtype => @product.marketingtype_id)
     same_marketing.each do |product|
-      if product.procons.where(:country_id => @country_id).count != 0
+      if product.procons.where(:country_id => @country.id).count != 0
         @products << product
       end
     end
