@@ -100,10 +100,9 @@ class ProductsController < ApplicationController
     @company = @product.company
     @products = Array.new
     @products << @product
-
-    if @company.products.where(:marketingtype => @product.marketingtype_id) != nil
-
-      @products = @products + @company.products.where(:marketingtype => @product.marketingtype_id)
+    same_products = @company.products.where(:marketingtype => @product.marketingtype_id, :country_id => @product.country_id)
+    if same_products.count != 0
+      @products = @products + same_products
     end
 
     @prolangs = Array.new
