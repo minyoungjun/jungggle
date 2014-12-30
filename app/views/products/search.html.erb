@@ -19,8 +19,8 @@
             <td class="company-img"><img src="<%=company.logo.url(:medium)%>"><br><%=company.comlangs.first.name%>
             </td>
             <td class="detail">
-              <h5 style="margin:0 0 12px 0"><a  href="/products/details/<%=procon.country.name.downcase.gsub(' ','_')%>/<%=product.id%>"  class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
-              <a href="/products/details/<%=procon.country.name.downcase.gsub(' ','_')%>/<%=product.id%>" class="truncate">
+              <h5 style="margin:0 0 12px 0"><a  href="/products/details/<%=@country.name.downcase.gsub(' ','_')%>/<%=product.id%>"  class="service-name"><%=product.prolangs.order(:language_id).first.title%></a></h5>
+              <a href="/products/details/<%=@country.name.downcase.gsub(' ','_')%>/<%=product.id%>" class="truncate">
                 <%product.prolangs.order(:language_id).first.detailangs[0..4].each do |detailang|%>
                   <%if detailang.detail != nil%>
                     <h5><span>-</span><%=truncate(detailang.content, length: 75)%></h5>
@@ -36,7 +36,7 @@
             <td class="cost">
               <%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%>
               <br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span>
-              <a href="/products/details/<%=procon.country.name.downcase.gsub(' ','_')%>/<%=product.id%>" ><button type="button" class="btn btn-default">Detail</button>
+              <a href="/products/details/<%=@country.name.downcase.gsub(' ','_')%>/<%=product.id%>" ><button type="button" class="btn btn-default">Detail</button>
               </a>
             </td>
           </tr>
