@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post 'manages/edit_process'
 
   get 'products/search_detail/:id' => "products#search_detail"
+  get 'products/details/:country/:id' => "products#search_detail"
+
   get 'products/search_result/:id' => "products#search_result"
   get 'products/cart'
   post 'products/add_cart'

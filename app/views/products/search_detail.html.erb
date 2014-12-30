@@ -99,9 +99,9 @@ function language_select(id){
         </div>
 
         <div class="btn-toolbar">
-          <%@product.prolangs.each do |prolang|%>
+          <%@prolangs.each do |language|%>
             <div class="btn-group">
-              <button type="button" class="btn language_btn" onclick="language_select(<%=prolang.language_id%>);" id ="language_btn_<%=prolang.language_id%>"><span class="long"><%=prolang.language.name%></span><span class="short"><%=prolang.language.nickname%></span></button>
+              <button type="button" class="btn language_btn" onclick="language_select(<%=language.id%>);" id ="language_btn_<%=language.id%>"><span class="long"><%=language.name%></span><span class="short"><%=language.nickname%></span></button>
             </div>
           <%end%>
         </div>
@@ -114,14 +114,15 @@ function language_select(id){
           <td>Service Details</td>
           <td style="text-align: center;">Cost</td>
         </tr>
+        <%@products.each do |product|%>
         <tr class="table-body" style="border-bottom:none; height: 20px;">
           <td class="country">
-            <%#
-              <span>South Korea</span>
-            %>
+            <%unless @country_miss%>
+              <span><%=@country.name%></span>
+            <%end%>
           </td>
           <td class="service-details" style="width: 430px; padding-right: 15px;border-bottom:1px solid #bbb; " rowspan="3">
-            <%@product.prolangs.each do |prolang|%>
+            <%product.prolangs.each do |prolang|%>
               <div class="detail_div  detail_div_<%=prolang.language_id%>" >
                 <% prolang.detailangs.each do |detailang| %>
                   <%if detailang.detail != nil%>
@@ -149,20 +150,20 @@ function language_select(id){
             <%end%>
           </td>
           <td class="cost" rowspan="3" style="border-bottom:1px solid #bbb;">
-            <%if @product.costs.count > 1%>
+            <%if product.costs.count > 1%>
               <div class="cost-dropdown">
-                <div class="first" id="cost_<%=@product.id%>" >
-                  <%=number_to_currency(@product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
+                <div class="first" id="cost_<%=product.id%>" >
+                  <%=number_to_currency(product.costs.first.money, :unit => "$")%><span class="glyphicon glyphicon-chevron-down"></span>
                 </div>
                 <div class="cost-dropdown-menu">
-                  <%@product.costs.each do |cost|%>
-                    <h5 onclick='$("#cost_<%=@product.id%>").html($("#cost_val_<%=cost.id%>").html());' id='cost_val_<%=cost.id%>'><%=number_to_currency(cost.money, :unit => "$")%></h5>
+                  <%product.costs.each do |cost|%>
+                    <h5 onclick='$("#cost_<%=product.id%>").html($("#cost_val_<%=cost.id%>").html());' id='cost_val_<%=cost.id%>'><%=number_to_currency(cost.money, :unit => "$")%></h5>
                   <%end%>
                 </div>
               </div>
             <%else%>
               <div class="flat-rate">
-                <%=number_to_currency(@product.costs.first.money, :unit => "$")%>
+                <%=number_to_currency(product.costs.first.money, :unit => "$")%>
               </div>
             <%end%>
             
@@ -172,7 +173,7 @@ function language_select(id){
         </tr>
         <tr class="table-body" style="border-bottom: 0;">
           <td class="service-name">
-            <%@product.prolangs.each do |prolang|%>
+            <%product.prolangs.each do |prolang|%>
               <div class="language_name language_name_<%=prolang.language_id%>">
                 <%=prolang.title%>
               </div>
@@ -181,10 +182,11 @@ function language_select(id){
         </tr>
         <tr class="table-body" style="height: 20px;">
           <td class="localization" style="padding: 10px; font-size: 14px;">
-            <%if @product.trans_from != nil && @product.trans_to != nil%>
-              <%=@product.trans_from.translanguage.name%> -> <%=@product.trans_to.translanguage.name%> </td>
+            <%if product.trans_from != nil && product.trans_to != nil%>
+              <%=product.trans_from.translanguage.name%> -> <%=product.trans_to.translanguage.name%> </td>
             <%end%>
-        </tr>
+          </tr>
+        <%end%>
       </table>
       <h5 style="text-align: right; margin: 10px 5px; font-size: 12px;">Last update on <%=@product.updated_at.to_s[0..9]%></h5>
 

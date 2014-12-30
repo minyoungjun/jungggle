@@ -95,8 +95,30 @@ class ProductsController < ApplicationController
   end
   def search_detail
 
+
     @product = Product.find(params[:id])
     @company = @product.company
+    @products = Array.new
+    @products << @product
+
+    if @company.products.where(:marketingtype => @product.marketingtype_id) != nil
+
+      @products = @products + @company.products.where(:marketingtype => @product.marketingtype_id)
+    end
+
+    @prolangs = Array.new
+    @products.each do |product|
+      product.prolangs.each do |prolang|
+        @prolangs << prolang.language
+      end
+    end
+    @prolangs.uniq!
+
+    @country = Country.where("lower(name) = ?", params[:country].downcase.gsub('_', ' ')).first
+    if @country.procons.where(:product_id => @product.id).count == 0
+      @country = @product.procons.first.country
+    end
+
     @countries = Array.new
     @company.products.each do |product|
       product.procons.each do |procon|
@@ -104,7 +126,7 @@ class ProductsController < ApplicationController
       end
     end
     @countries.uniq! { |s| s.last } 
-
+    
   end
 
   def search_result
