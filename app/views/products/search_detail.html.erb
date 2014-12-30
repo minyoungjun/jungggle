@@ -66,7 +66,7 @@ function language_select(id){
           <div class="top-country-drop-menu">
             <%@countries.each do |country_hash|%>
               <%if country_hash[1] != nil%>
-                <a href="/products/search_detail/<%=country_hash[0].id%>"><h5><%=country_hash[1].name%></h5></a>  
+                <a href="/products/details/<%=country_hash[1].name.downcase.gsub(' ','_')%>/<%=country_hash[0].id%>"><h5><%=country_hash[1].name%></h5></a>  
               <%end%>
             <%end%>
           </div>
@@ -78,9 +78,10 @@ function language_select(id){
           </div>
           <div class="top-marketing-drop-menu">
 
-          <%@company.products.each do |product|%>
+            <%@marketingtypes.each do |product_hash|%>
+              <%product = product_hash[0]%>
             
-            <a href="/products/search_detail/<%=product.id%>">
+            <a href="/products/details/<%=@country.name.downcase.gsub(' ','_')%>/<%=product.id%>">
               <h5>
                 <%if product.marketingtype.parent_type != nil%>
                   <%if product.marketingtype.parent_type.parent_type != nil%>

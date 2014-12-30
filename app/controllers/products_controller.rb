@@ -121,15 +121,20 @@ class ProductsController < ApplicationController
       end
     end
     @prolangs.uniq!
-
-
     @countries = Array.new
+    @marketingtypes = Array.new
     @company.products.each do |product|
       product.procons.each do |procon|
         @countries << [ product , procon.country ]
+        if product.procons.where(:country_id => @country.id).count != 0
+          @marketingtypes << [product, product.marketingtype]
+        end
       end
     end
     @countries.uniq! { |s| s.last } 
+    @marketingtypes.uniq! { |s| s.last } 
+
+
     
   end
 
