@@ -1,8 +1,17 @@
+<!-- account.css.scss -->
+
 <div class="account">
   <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+      <h1 class="right-title"><img src="/assets/my_account/right-billing.png">Billing</h1>
+    </div>
     <%=render "/home/left"%>
-    <div class="right-billing">
-      <h1>Billing</h1>
+
+
+    <div class="right-billing right-height">
       <form action="/advertisers/add_credit" method="post">
       <div class="sub-title">
         <h3>Current Jugggle Credit : <span><%=number_to_currency(@user.credit, precision: 0)%></span></h3>
@@ -11,7 +20,7 @@
 
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
             <input type="text" class="add" placeholder="$" name="amount">
-            <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now">Checkout Now</div>
+            <div class="checkout-btn" >Checkout Now</div>
             <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now-kr">Checkout (kr)</div>
         </div>
       </div>
@@ -43,11 +52,102 @@
         <%end%>
       </table>
         <%= paginate @billings %>
+
+        <br><br><br><br><br><hr><br><br><br><p>민영씨~ 여기부터 작업할께요! 위에 코드가 있어서요~</p><br><br><br><hr><br><br><br><br>
+
+
+        <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
+        <div class="checkout-filter">
+          <div class="add-credit">
+            <h3>Add Credit</h3>
+            <div class="input-area">
+              <h5 class="dollar">$</h5>
+              <input type="text">
+            </div>
+          </div>
+          <div class="billing-country">
+            <h3>Billing Country</h3>
+            <div class="country-area">
+              <div class="country-btn">
+                Select <span class="glyphicon glyphicon-chevron-down"></span>
+              </div>
+              <div class="country-drop">
+              </div>
+            </div>
+          </div>
+          <a href="#none"><div class="checkout-btn">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
+        </div>
+
+        <p class="history">Billing History</p>
+        <table class="history-table">
+          <tr class="table-header">
+            <td class="date">Date</td>
+            <td>Details</td>
+            <td>Payment Method</td>
+            <td class="amount">Amount</td>
+            <td><p class="view">View</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Add)</td>
+            <td>Wire Transfer</td>
+            <td class="amount">Pending</td>
+            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Jungggle Credit</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Wire Transfer</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view cashout" data-toggle="modal" data-target="#Checkout-Now">Cash Out</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Cash Out)</td>
+            <td>Wire Transfer</td>
+            <td class="amount minus">-10,000 USD</td>
+            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc. (Refund)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc.</td>
+            <td>Wire Transfer</td>
+            <td class="amount">10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><p class="view cashout" data-toggle="modal" data-target="#Checkout-Now">Cash Out</p></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Jungggle Credit (Add)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount">10,000 USD</td>
+            <td><a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a></td>
+          </tr>
+          <tr class="table-body">
+            <td class="date">2014. 7. 17</td>
+            <td>Gameberry Inc. (Rejected)</td>
+            <td>Jungggle Credit</td>
+            <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
+            <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
+          </tr>
+        </table>
+
     </div>
   </div>
 </div>
-
-
 
 
 
@@ -60,30 +160,34 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h1>Cash Out Information</h1>
         <h3 class="sub-title">Please insert the accurate bank information.</h3>
-        <p>Account Number
-          <input type="text" placeholder="40907653304010">
-        </p>
-        <p>SWIFT Code
-          <input type="text" placeholder="IBKOKRSEXXX">
-        </p>
-        <p>Beneficiary Name
-          <input type="text" placeholder="Jungggle Inc.">        
-        </p>
-        <p>Baneficiary Address
-          <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu, Korea">
-        </p>
-        <p>Bank Name
-          <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
-        </p>
-        <p>Bank Address
-          <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
-        </p>
-        <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
-        <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+        <div class="insert-area" style="padding: 0 25px;">
+          <p>Account Number
+            <input type="text" placeholder="40907653304010">
+          </p>
+          <p>SWIFT Code
+            <input type="text" placeholder="IBKOKRSEXXX">
+          </p>
+          <p>Beneficiary Name
+            <input type="text" placeholder="Jungggle Inc.">        
+          </p>
+          <p>Baneficiary Address
+            <input type="text" placeholder="401 Seodo-building 1712-8 Seocho-dong Seocho-gu Seoul, Korea">
+          </p>
+          <p>Bank Name
+            <input type="text" placeholder="INDUSTRIAL BANK OF KOREA">
+          </p>
+          <p>Bank Address
+            <input type="text" placeholder="50 ULCHIRO 2-GA, CHUNG-GU Seoul, Korea">
+          </p>
+          <div class="btn-area">
+            <h5>Your Cash Out fee is : $0<br>for more terms, please check it in <a href="#none">here.</a></h5>
+            <button type="button" class="btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit">Cash Out</button>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <h5>1. We cash out via wire transfer every <span>Friday.</span></h5>
-        <h5>2. All wire transfers are in US Dollars.</h5>
+        <h5>2. All wire transfers are in <span>US Dollars.</span></h5>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

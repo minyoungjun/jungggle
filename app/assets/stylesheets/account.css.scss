@@ -1001,7 +1001,7 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 25px 100px;
 
   .sub-title {
     position: relative;
@@ -1049,16 +1049,16 @@
     .table-header {
       background-color: #eee;
       td {
-        padding: 10px 20px;
+        //padding: 10px 20px;
       }
     }
     .table-body {
       border-bottom: 2px dotted #ddd;
       td {
-        padding: 18px 20px; 
+        //padding: 18px 20px; 
       }
       .invoice {
-        color: #5eb12f;
+        //color: #5eb12f;
       }
       .font-big {
         font-size: 20px;
@@ -1070,71 +1070,251 @@
       }
     }
   }
+
+
+/*새로 짠 코드*/
+  .title {
+    font-size: 25px; 
+    margin: 30px 0;
+    .credit {
+      color: #5eb12f;
+    }
+  }
+  .checkout-filter {
+    border: 1px solid #5eb12f;
+    padding: 13px 17px;
+    margin: 30px 0;
+    
+    .add-credit {
+      display: inline-block;
+      margin-right: 10px;
+      h3 {
+        display: inline-block;
+        font-size: 15px;
+      }
+      .input-area {
+        display: inline-block;
+        .dollar {
+          position: relative;
+          display: inline-block;
+          left: 27px;
+          font-size: 15px;
+        }
+        input {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 15px;
+          padding: 8px 15px 8px 30px;
+          max-width: 190px;
+        }
+      }
+    }
+    .billing-country {
+      display: inline-block;
+      margin-right: 94px;
+      margin-left: 10px;
+      h3 {
+        display: inline-block;
+        font-size: 15px;
+      }
+      .country-area {
+        display: inline-block;
+        width: 200px;
+        margin-left: 8px;
+        .country-btn {
+          border: 1px solid #ddd;
+          padding: 10px 20px;
+          border-radius: 5px;
+          text-align: center;
+          font-size: 15px;
+          .glyphicon {
+            float: right;
+            font-size: 12px;
+            color: #ccc;
+            top: 3px;
+          }
+        }
+      }
+    }
+
+    .checkout-btn {
+      background-color: #5eb12f;
+      border-radius: 5px;
+      padding: 8px 25px;
+      display: inline-block;
+      color: white;
+      font-size: 18px;
+      line-height: 22px;
+      img {
+        vertical-align: middle;
+        margin-left: 7px;
+      }
+    }
+    .checkout-btn:hover {
+      background-color: #4F9F22;
+    }
+  }
+  .history {
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 16px;
+  }
+  .history-table {
+    width: 100%;
+    margin-bottom: 80px;
+    .table-header {
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
+      background-color: white;
+
+      td {
+        padding: 10px 15px;
+        font-size: 15px;
+      }
+      .date {
+        width: 120px;
+        padding-left: 18px;
+      }
+      .view {
+        text-align: center;
+      }
+    }
+    .table-body {
+      border-bottom: 1px solid #ddd;
+ 
+      td {
+        padding: 12px;
+        font-size: 15px;
+        color: #444;
+        a {
+          text-decoration: none;
+          color: #444;
+        }
+        .view {
+          text-align: center;
+          cursor: pointer;
+          padding: 7px 0;
+        }
+        .view:hover {
+          color: #5eb12f;
+        }
+        .cashout {
+          color: #5eb12f;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+        }
+        .cashout:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+      .date {
+        width: 120px;
+        padding-left: 18px;
+      }
+      .amount {
+        img {
+          vertical-align: middle;
+          position: relative;
+          bottom: 2px;
+          margin-left: 5px;
+        }
+      }
+      .minus {
+        color: #f47474;
+      }
+      
+    }
+  }
+
+
+
+
+
 }
 
 /* Billing-Checkout_Now-modal */
 .modal {
   /* modla : Checkout-now[Cash_out] */
+
   .modal-dialog-Checkout-Now {
     margin-top: 100px;
+    margin-bottom: 150px;
 
     .modal-Checkout-Now {
-      width: 600px;
-      padding: 30px;
+      width: 700px;
+      padding: 0px;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 28px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
         .sub-title {
-          font-size: 15px;
-          color: #aaa;
-          margin-bottom: 40px;
+          font-size: 17px;
+          color: #5eb12f;
+          margin: 30px;
         }
         p {
-          width: 460px;
           text-align: left;
           font-size: 15px;
-          color: #555;
+          color: #353535;
           margin: 10px auto;
-          padding: 15px 0;
+          padding: 18px;
 
           input {
             float: right;
             position: relative;
-            bottom: 10px;
+            bottom: 12px;
             padding: 10px;
-            width: 300px;
+            width: 400px;
             height: 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            color: #ccc;
+            color: #444;
+            line-height: 20px;
+          }
+          input:focus {
+            border-color: #5eb12f;
           }
         }
-        h5 {
-          font-size: 13px;
-          line-height: 20px;
-          margin-top: 30px;
-        }
-        .btn {
-          margin: 20px 0;
-          border: 1px solid #5eb12f;
-          color: #5eb12f;
-          background-color: white;
-          padding: 10px 100px;
-        }
-        .btn:hover {
-          background-color: #5eb12f;
-          color: white;
+        .btn-area {
+          margin: 45px 0 30px; 
+          padding: 0 20px;
+          h5 {
+            font-size: 15px;
+            line-height: 20px;
+            text-align: left;
+            display: inline-block;
+            float: left;
+            margin-right: 50px;
+            position: relative;
+            top: 4px;
+          }
+          .btn {
+            border: 1px solid #5eb12f;
+            color: #5eb12f;
+            background-color: white;
+            padding: 8px 80px;
+            font-size: 20px;
+          }
+          .btn:hover {
+            background-color: #5eb12f;
+            color: white;
+          }
         }
       }
       .modal-footer {
-        text-align: left;
-        padding-bottom: 0;
+        text-align: center;
+        background-color: #353535;
+        color: white;
         h5 {
           margin: 10px 0;
+          font-size: 15px;
           span {
-            color: #5eb12f;
+            color: #f9d20d;
           }
         }
       }
@@ -1248,66 +1428,83 @@
   /* modla : Checkout-now-kr[Cash_out] */
   .modal-dialog-Checkout-Now-kr {
     margin-top: 100px;
+    margin-bottom: 150px;
 
     .modal-Checkout-Now-kr {
-      width: 600px;
-      padding: 30px;
+      width: 700px;
+      padding: 0px;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 28px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
-        h3 {
-          font-size: 13px;
-          line-height: 23px;
-          color: #777;
-          margin-bottom: 30px;
+        .sub-title {
+          font-size: 15px;
+          color: #5eb12f;
+          margin: 30px;
         }
-
         p {
-          width: 460px;
           text-align: left;
           font-size: 15px;
-          color: #555;
+          color: #353535;
           margin: 10px auto;
-          padding: 15px 0;
+          padding: 18px;
 
           input {
             float: right;
             position: relative;
-            bottom: 10px;
+            bottom: 12px;
             padding: 10px;
-            width: 300px;
+            width: 400px;
             height: 40px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
-            color: #ccc;
+            color: #444;
+            line-height: 20px;
+          }
+          input:focus {
+            border-color: #5eb12f;
           }
         }
-        h5 {
-          margin-top: 30px;
-        }
-
-        .btn {
-          margin: 20px 0;
-          border: 1px solid #5eb12f;
-          color: #5eb12f;
-          background-color: white;
-          padding: 10px 100px;
-        }
-        .btn:hover {
-          background-color: #5eb12f;
-          color: white;
+        .btn-area {
+          margin: 60px 0 30px; 
+          padding: 0 20px;
+          h5 {
+            font-size: 15px;
+            line-height: 20px;
+            text-align: left;
+            display: inline-block;
+            float: left;
+            margin-right: 50px;
+            position: relative;
+            top: 4px;
+          }
+          .btn {
+            border: 1px solid #5eb12f;
+            color: #5eb12f;
+            background-color: white;
+            padding: 8px 80px;
+            font-size: 20px;
+          }
+          .btn:hover {
+            background-color: #5eb12f;
+            color: white;
+          }
         }
       }
       .modal-footer {
         text-align: left;
-        padding-bottom: 0;
-        h5 {
+        background-color: #444;
+        padding: 15px 50px;
+        p {
           margin: 10px 0;
-          font-size: 12px;
+          font-size: 14px;
+          color: white;
           span {
-            color: #5eb12f;
+            color: #f9d20d;
           }
         }
       }
@@ -1454,113 +1651,151 @@
 
 
 /*account-billing-invoice*/
-.billing-invoice {
-  padding: 60px 0 100px;
+.right-billing-invoice {
+  padding: 20px 30px 100px;
   margin: 0 auto;
-  width: 760px;
-  .invoice-header {
-
-    margin-bottom: 25px;
-    h2 {
-      display: inline-block;
-      text-align: right;
-      color: #666;
-      font-size: 20px;
-      margin: 7px 0 0;
-      float: right;
-      span {
-        color: #999;
-        font-size: 15px;
+  width: 990px;
+  background-color: white;
+  display: inline-block;
+  float: right;
+  .pack {
+    width: 880px;
+    border: 1px solid #ddd;
+    margin: 30px auto;
+    .billing-header {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+      padding: 40px 30px;
+      img {
+        vertical-align: middle;
       }
-    }  
-  }
-  
-  .receipt {
-    display: inline-block;
-    h3 {
-      color: #5eb12f;
-      font-size: 18px;
-      line-height: 25px;
-      span {
-        color: #555;
-      }
+      h2 {
+        display: inline-block;
+        text-align: right;
+        color: #353535;
+        font-size: 22px;
+        font-weight: 500;
+        margin: 7px 0 0;
+        float: right;
+        line-height: 25px;
+        span {
+          color: #888;
+          font-size: 16px;
+        }
+      }  
     }
-    p {
-      color: #999;
-      font-size: 16px;
-      margin-bottom: 0;
-    }
-  }
-  .seller {
-    text-align: right;
-    margin-left: 400px;
-    float: right;
-  }
-  .invoice-table {
-    margin: 50px 0 100px;
-    width: 760px;
-    table {
-      border-bottom: 3px solid #666;  
+    .billing-body {
+      padding: 50px;
 
-      tr {
-        td {
-          color: #aaa;
-          padding: 10px 13px;
-          font-size: 15px;
+      .receipt {
+        display: inline-block;
+        h3 {
+          color: #5eb12f;
+          font-size: 20px;
+          line-height: 25px;
+          font-weight: 500;
+          margin-bottom: 17px;
+          span {
+            color: #555;
+          }
         }
-        .name {
-          width: 400px;
+        p {
+          color: #454545;
+          font-size: 16px;
+          margin-bottom: 10px;
         }
-        .cost {
-          width: 120px;
-          text-align: center;
+      }
+      .seller {
+        text-align: right;
+        margin-left: 400px;
+        float: right;
+      }
+      .invoice-table {
+        margin: 50px auto;
+        table {
+          width: 100%; 
+          tr {
+            td {
+              color: #aaa;
+              padding: 10px 13px;
+              font-size: 15px;
+            }
+            .name {
+              width: 400px;
+            }
+            .cost {
+              width: 120px;
+              text-align: center;
+            }
+            .qty {
+              width: 120px;
+              text-align: center;
+            }
+            .total {
+              width: 120px;
+              text-align: right;
+            }
+          }
+          .table-head {
+            $border-color: #777;
+
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            td {
+              color: #666;
+            }
+          }
+          .table-body {
+            border-bottom: 1px solid #ddd;
+            td {
+              padding: 27px 13px;
+              color: #454545;
+              font-size: 16px;
+            }
+          }
         }
-        .qty {
-          width: 120px;
-          text-align: center;
-        }
-        .total {
-          width: 120px;
+        h3 {
           text-align: right;
-        }
-      }
-      .table-head {
-        border-bottom: 1px solid #666;
-        td {
-          font-weight: bold;
-          color: #666;
+          font-size: 18px;
+          padding-right: 15px;
+          padding: 10px 15px;
+          border-bottom: 1px solid #777;
+          span {
+            color: #5eb12f;
+          }
         }
       }
     }
-    h3 {
+    .bank-info {
+      border-top: 1px solid #ddd;
+      padding: 30px 50px;
+      margin-top: 50px;
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 13px;
+      }
+      .title {
+        width: 200px;
+      }
+      p {
+        margin-bottom: 0;
+        display: inline-block;
+        color: #555;
+        margin: 3px 0;
+        vertical-align: top;
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
+    .billing-footer {
       text-align: right;
-      font-size: 18px;
-      padding-right: 15px;
-      margin: 20px 0;
-      span {
-        color: #5eb12f;
-      }
+      padding: 12px 20px;
+      background-color: #3b3b3b;
+      color: #eee;
+      line-height: 23px;
+      font-size: 15px;
     }
-  }
-  .bank-info {
-    h3 {
-      font-size: 18px;
-    }
-    .title {
-      width: 200px;
-    }
-    p {
-      margin-bottom: 0;
-      display: inline-block;
-      color: #999;
-    }
-  }
-  .invoice-footer {
-    border-top: 1px solid #555;
-    width: 760px;
-    text-align: right;
-    margin-top: 80px;
-    padding-top: 10px;
   }
 }
 
