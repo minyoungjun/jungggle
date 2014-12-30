@@ -107,12 +107,12 @@ class ProductsController < ApplicationController
     @products = Array.new
     @products << @product
     same_marketing = @company.products.where(:marketingtype => @product.marketingtype_id)
-
     same_marketing.each do |product|
       if product.procons.where(:country_id => @country_id).count != 0
         @products << product
       end
     end
+    @products.uniq!
 
     @prolangs = Array.new
     @products.each do |product|
