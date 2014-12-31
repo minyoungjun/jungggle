@@ -1422,6 +1422,179 @@
 
 
 
+/* Billing-Add-Credit-kr-modal */
+.modal {
+  .modal-dialog-add-credit-kr {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-add-credit-kr {
+      width: 700px;
+      padding: 0px;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        .credit-amount {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 25px 0;
+          p {
+            padding: 0 12px;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 12px auto;
+            width: 590px;
+            span {
+              float: right;
+            }
+          }
+          .total {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            font-weight: 700;
+            .total-credit {
+              color: #5eb12f;
+            }
+          } 
+
+        }
+        .sub-title {
+          display: block;
+          text-align: left;
+          color: #555;
+          font-size: 13px;
+          margin: 35px 20px 20px 39px;
+        }
+        p {
+          width: 570px;
+          text-align: left;
+          font-size: 15px;
+          color: #444;
+          margin: 10px auto;
+          padding: 15px 0;
+          font-weight: 700;
+
+          input {
+            float: right;
+            position: relative;
+            bottom: 10px;
+            padding: 10px;
+            width: 400px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #444;
+            font-weight: 400;
+          }
+          input:focus {
+            border-color: #5eb12f;
+          }
+        }
+        .info {
+          margin: 30px 0;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          padding: 15px 0;
+          p {
+            font-size: 13px;
+            padding: 0;
+            color: #888;
+            font-weight: 400;
+            line-height: 15px;
+          }
+        }
+        .checkbox {
+          display: inline-block;
+          margin-right: 10px;
+        }
+        h5 {
+          display: inline-block;
+          span {
+            color: #5eb12f;
+          }
+        }
+      }
+      .checkout-btn {
+        padding: 10px 130px;
+        background-color: #5eb12f;
+        color: white;
+        border: 0;
+        margin-bottom: 50px;
+        font-size: 18px;
+        border-radius: 5px;
+        img {
+          position: relative;
+          vertical-align: bottom;
+          margin-right: 10px;
+          top: 1px;
+
+        }
+      }
+    }
+  }
+}
+/* Billing-Add-Credit-complete-kr-modal */
+.modal {
+  .modal-dialog-add-credit-complete-kr {
+    margin-top: 100px;
+    .modal-add-credit-complete-kr {
+      width: 700px;
+      .modal-body {
+        h1 {
+          font-size: 25px;
+          color: #5eb12f;
+        }
+        .sub-title {
+          font-size: 13px;
+          line-height: 23px;
+          color: #aaa;
+          margin: 20px 0 50px;
+        }
+        p {
+          font-size: 14px;
+          text-align: left;
+          margin: 10px 40px;
+          color: #555;
+          span {
+            float: right;
+          }
+        }
+        .credit-amount {
+          border: 1px solid #eee;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 25px 0;
+          p {
+            padding: 0;
+            text-align: left;
+            font-size: 14px;
+            margin: 10px 30px;
+            span {
+              float: right;
+              color: #555;
+            }
+          }
+          .total {
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+          } 
+        }
+        .btn-complete {
+          margin: 20px 0;
+          color: white;
+          background-color: #5eb12f;
+          padding: 10px 100px;
+        }
+      }
+    }
+  }
+}
+
 /* Billing-Cash-out-kr-modal */
 .modal {
   /* modla : Cash-out-kr[Cash_out] */
@@ -1505,141 +1678,6 @@
           span {
             color: #f9d20d;
           }
-        }
-      }
-    }
-  }
-}
-
-
-
-/* Billing-Add-Credit-kr-modal */
-.modal {
-  .modal-dialog-add-credit-kr {
-    margin-top: 100px;
-    .modal-add-credit-kr {
-      width: 600px;
-      .modal-body {
-        h1 {
-          font-size: 28px;
-        }
-        .credit-amount {
-          border: 1px solid #eee;
-          border-radius: 5px;
-          padding: 10px;
-          margin: 25px 0;
-          p {
-            padding: 0;
-            span {
-              float: right;
-            }
-          }
-          .total {
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-          } 
-        }
-        .sub-title {
-          display: block;
-          text-align: left;
-          color: #aaa;
-          font-size: 12px;
-          margin: 20px
-        }
-        p {
-          width: 460px;
-          text-align: left;
-          font-size: 15px;
-          color: #555;
-          margin: 10px auto;
-          padding: 15px 0;
-
-          input {
-            float: right;
-            position: relative;
-            bottom: 10px;
-            padding: 10px;
-            width: 300px;
-            height: 40px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            color: #ccc;
-          }
-        }
-        .info {
-          margin: 30px 0;
-          p {
-            font-size: 13px;
-            padding: 0;
-            color: #777;
-          }
-        }
-        .checkbox {
-          display: inline-block;
-          margin-right: 10px;
-        }
-        h5 {
-          display: inline-block;
-          span {
-            color: #5eb12f;
-          }
-        }
-      }
-    }
-  }
-}
-/* Billing-Add-Credit-complete-kr-modal */
-.modal {
-  .modal-dialog-add-credit-complete-kr {
-    margin-top: 100px;
-    .modal-add-credit-complete-kr {
-      width: 700px;
-      .modal-body {
-        h1 {
-          font-size: 25px;
-          color: #5eb12f;
-        }
-        .sub-title {
-          font-size: 13px;
-          line-height: 23px;
-          color: #aaa;
-          margin: 20px 0 50px;
-        }
-        p {
-          font-size: 14px;
-          text-align: left;
-          margin: 10px 40px;
-          color: #555;
-          span {
-            float: right;
-          }
-        }
-        .credit-amount {
-          border: 1px solid #eee;
-          border-radius: 5px;
-          padding: 10px;
-          margin: 25px 0;
-          p {
-            padding: 0;
-            text-align: left;
-            font-size: 14px;
-            margin: 10px 30px;
-            span {
-              float: right;
-              color: #555;
-            }
-          }
-          .total {
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-          } 
-        }
-        .btn-complete {
-          margin: 20px 0;
-          color: white;
-          background-color: #5eb12f;
-          padding: 10px 100px;
         }
       }
     }
