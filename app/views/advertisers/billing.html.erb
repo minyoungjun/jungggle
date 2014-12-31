@@ -75,7 +75,7 @@
               </div>
             </div>
           </div>
-          <a href="#none"><div class="checkout-btn">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
+          <a href="#none"><div class="checkout-btn" data-toggle="modal" data-target="#add-credit">Checkout Now<img src="/assets/my_account/checkout.png"></div></a>
         </div>
 
         <p class="history">Billing History</p>
@@ -152,6 +152,58 @@
 
 
 
+<!-- add-credit-Modal -->
+<div class="modal fade" id="add-credit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit">
+    <div class="modal-content modal-add-credit">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Add Credit</h1>
+        <div class="modal-contents">
+          <h3 class="check-amount">CheckOut Amount : <span>10,000USD</span></h3>
+          <p>
+            Add credit allows only Wire Transfer.<br>You can find the invoice on Billing History after the CHECKOUT.
+            <br><br>If the name of sender is different from the name on "Company Profile", <br>please let us know support@jungggle.com 
+          </p>
+          <img src="/assets/my_account/checkbox-01.png" style="vertical-align: middle;">
+          <img src="/assets/my_account/checkbox-02.png" style="vertical-align: middle;">
+          <h5>I have read and agree with the <span>terms</span> and the <span>privacy policy</span></h5>
+
+          <P class="info">1. Remittance charge (Bank transfer fee : about $18) must be paid from the Sender, not from the Beneficiary.</p>
+          <p class="info">2. Dfsdfsdfsdfs</p>
+          <p class="info">3. asdfasdfasdf</p>
+        </div>      
+      </div>
+      <button type="button" class="checkout-btn" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete"><img src="/assets/my_account/checkout.png">CHECKOUT NOW</button>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- add-credit-complete-Modal -->
+<div class="modal fade" id="Modal-add-credit-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-add-credit-complete">
+    <div class="modal-content modal-add-credit-complete">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Thanks for using Jungggle!</h1>
+        <p class="info">
+          Your order for buying Jungggle Credit has successfully received and the invoice for your order has issued.<br> 
+          It usually takes 1 business day to receving the fee after you transfer the fee through your local bank.
+        </p>
+        <h3 class="check-amount">CheckOut Amount : <span>10,000USD</span></h3>
+        <div class="know">
+          <h3><img src="/assets/my_account/warning_icon.png">You Must Know!</h3>
+          You must make sure that you send the fee with charging the commision to <span style="font-size: 16px; font-weight: 500;">"Sender"</span>  when you proceed the wire transfer in your local bank.
+        </div>
+        <button type="button" class="btn-complete" data-dismiss="modal">Close</button>     
+      </div>
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 <!-- Cash-out Modal -->
 <div class="modal fade" id="Cash-out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-Cash-out">
@@ -180,56 +232,4 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-
-<!-- add-credit-Modal -->
-<div class="modal fade" id="Modal-add-credit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit">
-    <div class="modal-content modal-add-credit">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Add Credit</h1>
-        <h3>CheckOut Amout : <span>10,000USD</span></h3>
-        <p>
-          Add credit allows only Wire Transfer.<br>You can find the invoice on Billing History after the CHECKOUT.
-          <br><br>If the name of sender is different from the name on "Company Profile", <br>please let us know support@jungggle.com 
-        </p>
-        <input type="checkbox" class="checkbox"><h5>I have read and agree with the <span>terms</span> and the <span>privacy policy</span></h5>
-        <P>1. Remittance charge (Bank transfer fee : about $18) must be paid from the Sender, not from the Beneficiary.</P>
-        <p>2. Dfsdfsdfsdfs</p>
-        <p>3. asdfasdfasdf</p>        
-      </div>
-      <button type="button" class="btn btn-b" data-toggle="modal" data-dismiss="modal" data-target="#Modal-add-credit-complete">CHECKOUT NOW</button>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-<!-- add-credit-complete-Modal -->
-<div class="modal fade" id="Modal-add-credit-complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-add-credit-complete">
-    <div class="modal-content modal-add-credit-complete">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Thanks for using Jungggle!</h1>
-        <p class="info">
-          Your order for buying Jungggle Credit has successfully received and the invoice for your order has issued.<br> 
-          It usually takes 1 business day to receving the fee after you transfer the fee through your local bank.
-        </p>
-        <h3>CheckOut Amout : <span>10,000USD</span></h3>
-        <p class="know"><span>You Must Know!</span><br>
-          You must make sure that you send the fee with charging the commision to "Sender"  when you proceed the wire transfer in your local bank.
-        </p>
-
-        <p>You can print the <span>invoice here</span> or in your Billing History</p>  
-        <button type="button" class="btn" data-dismiss="modal">Close</button>     
-      </div>
-      
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
 
