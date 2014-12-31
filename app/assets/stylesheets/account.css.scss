@@ -758,76 +758,157 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 30px 120px;
   h3 {
     margin: 40px 0 30px;
     display: inline-block;
-    font-size: 18px;
-    color: 757575;
+    font-size: 22px;
+    color: #333;
     span {
       font-size: 14px;
       padding-left: 10px;
-      color: #aaa;
+      color: #888;
     }
   }
   table {
     width: 100%;
     margin-bottom: 30px;
 
+    $FontSize: 14px;
+    $ModalBtn-BorderRadius: 7px;
+    $ModalBtn-Padding: 8px 12px;
+
     .table-header {
-      background-color: #eee;
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
       td {
         padding: 10px 7px;
+        text-align: center;
+        font-size: $FontSize
       }
-      .date {
-        padding-left: 22px;
+      .cp-name {
+        text-align: left;
+      }
+      .user {
+        text-align: left;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
       td {
-        padding: 25px 7px; 
+        padding: 17px 7px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: $FontSize;
+        color: #444;
+        .refund {
+          border-radius: $ModalBtn-BorderRadius;
+          background-color: #5eb12f;
+          color: white;
+          padding: $ModalBtn-Padding;
+        }
+        .refund:hover {
+          background-color: #4F9F22;
+        }
+        .ongoing {
+          color: #5eb12f;
+          font-weight: 500;
+          .cancel {
+            color: white;
+            background-color: #ccc;
+            padding: 5px 12px;
+            border-radius: $ModalBtn-BorderRadius;
+            margin-top: 10px;
+            font-size: 12px;
+            display: inherit;
+          }
+          .cancel:hover {
+            background-color: #ee7374;
+          }
+        }
+        .rejected {
+          color: #ee7374;
+          border: 1px solid #ee7374;
+          border-radius: $ModalBtn-BorderRadius;
+          padding: $ModalBtn-Padding;
+        }
+        .rejected:hover {
+          color: white;
+          background-color: #ee7374;
+        }
+
+        $ModalBtn-height: 45px;
+
+        .confirm {
+          color: white;
+          background-color: #ee7374;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 9px;
+        }
+        .confirm:hover {
+          background-color: #e8565e;
+        }
+        .complete {
+          color: #bbb;
+          border: 1px solid #bbb;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 9px; 
+        }
+        .complete:hover {
+          border-color: #e8565e;
+          color: #e8565e;
+        }
+        .disagreed {
+          color: #f3bc1d;
+          border: 1px solid #f3bc1d;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 15px 10px;          
+        }
+        .disagreed:hover {
+          background-color: #f3bc1d;
+          color: white;
+        }
+        .suggestion {
+          color: white;
+          background-color: #5eb12f;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 15px 10px;
+        }
+        .suggestion:hover {
+          background-color: #4F9F22;
+        }
+        .message {
+          img {
+            width: 24px;
+          }
+        }
+        .cursor {
+          cursor: pointer;
+        }
       }
       .date {
-        padding-left: 20px;
+        width: 120px;
       }
       .cp-name {
         color: #5eb12f;
+        width: 180px;
+        text-align: left;
+        line-height: 20px;
       }
-      .font-big {
-        font-size: 15px;
-        font-weight: bold;
-      }
-      .disapprove {
-        border: 1px solid #eee;
-        border-radius: 10px;
-        background-color: white;
-        padding: 6px 15px;
-        color: #aaa;
-      }
-      .disapprove:hover {
-        border-color: #aaa;
-        color: #888;
-      }
-      .ongoing {
-        color: #5eb12f;
-      }
-      .rejected {
-        color: red;
-        cursor: pointer;
-      }
-      .incomplete {
-        color: #aaa;
-      }
-      .completed {
-        color: #5eb12f;
-        cursor: pointer;
-      }
-      .disagreed {
-        color: red;
-      }
-      .message {
-        cursor: pointer;
+      .user {
+        width: 180px;
+        line-height: 20px;
+        text-align: left;
+        a {
+          color: #444;
+        }
+        a:hover {
+          color: #5eb12f;
+        }
       }
     }
   }
