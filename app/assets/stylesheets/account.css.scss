@@ -1542,53 +1542,77 @@
 .modal {
   .modal-dialog-add-credit-complete-kr {
     margin-top: 100px;
+    margin-bottom: 150px;
     .modal-add-credit-complete-kr {
       width: 700px;
+      padding: 0;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 25px;
           color: #5eb12f;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+          letter-spacing: -1px;
         }
         .sub-title {
-          font-size: 13px;
-          line-height: 23px;
-          color: #aaa;
-          margin: 20px 0 50px;
+          font-size: 15px;
+          line-height: 28px;
+          color: #333;
+          margin: 30px 0 40px;
+          font-weight: 500;
         }
         p {
           font-size: 14px;
           text-align: left;
           margin: 10px 40px;
           color: #555;
+          font-weight: 500;
           span {
             float: right;
           }
         }
         .credit-amount {
-          border: 1px solid #eee;
+          border: 1px solid #ddd;
           border-radius: 5px;
-          padding: 10px;
-          margin: 25px 0;
+          padding: 15px;
+          margin: 25px auto 50px;
+          width: 580px;
           p {
             padding: 0;
             text-align: left;
-            font-size: 14px;
-            margin: 10px 30px;
+            font-size: 15px;
+            margin: 12px auto;
+            color: #444;
+            width: 510px;
             span {
               float: right;
               color: #555;
             }
           }
+          hr {
+            border-color: #ddd;
+          }
           .total {
-            border-top: 1px solid #eee;
-            padding-top: 10px;
+            font-weight: 700;
+            font-size: 17px;
+            .total-credit {
+              color: #5eb12f;
+            }
           } 
         }
         .btn-complete {
-          margin: 20px 0;
-          color: white;
+          margin: 30px 0;
+          color: #5eb12f;
+          background-color: white;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          padding: 10px 180px;
+          font-size: 18px;
+        }
+        .btn-complete:hover {
           background-color: #5eb12f;
-          padding: 10px 100px;
+          color: white;
         }
       }
     }
