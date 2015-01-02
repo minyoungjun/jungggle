@@ -758,76 +758,157 @@
   display: inline-block;
   background-color: white;
   float: right;
-  padding: 20px 30px 100px;
+  padding: 20px 30px 120px;
   h3 {
     margin: 40px 0 30px;
     display: inline-block;
-    font-size: 18px;
-    color: 757575;
+    font-size: 22px;
+    color: #333;
     span {
       font-size: 14px;
       padding-left: 10px;
-      color: #aaa;
+      color: #888;
     }
   }
   table {
     width: 100%;
     margin-bottom: 30px;
 
+    $FontSize: 14px;
+    $ModalBtn-BorderRadius: 7px;
+    $ModalBtn-Padding: 8px 12px;
+
     .table-header {
-      background-color: #eee;
+      border-top: 1px solid #777;
+      border-bottom: 1px solid #777;
       td {
         padding: 10px 7px;
+        text-align: center;
+        font-size: $FontSize
       }
-      .date {
-        padding-left: 22px;
+      .cp-name {
+        text-align: left;
+      }
+      .user {
+        text-align: left;
       }
     }
     .table-body {
-      border-bottom: 2px dotted #ddd;
+      border-bottom: 1px solid #ddd;
       td {
-        padding: 25px 7px; 
+        padding: 17px 7px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: $FontSize;
+        color: #444;
+        .refund {
+          border-radius: $ModalBtn-BorderRadius;
+          background-color: #5eb12f;
+          color: white;
+          padding: $ModalBtn-Padding;
+        }
+        .refund:hover {
+          background-color: #4F9F22;
+        }
+        .ongoing {
+          color: #5eb12f;
+          font-weight: 500;
+          .cancel {
+            color: white;
+            background-color: #ccc;
+            padding: 5px 12px;
+            border-radius: $ModalBtn-BorderRadius;
+            margin-top: 10px;
+            font-size: 12px;
+            display: inherit;
+          }
+          .cancel:hover {
+            background-color: #ee7374;
+          }
+        }
+        .rejected {
+          color: #ee7374;
+          border: 1px solid #ee7374;
+          border-radius: $ModalBtn-BorderRadius;
+          padding: $ModalBtn-Padding;
+        }
+        .rejected:hover {
+          color: white;
+          background-color: #ee7374;
+        }
+
+        $ModalBtn-height: 45px;
+
+        .confirm {
+          color: white;
+          background-color: #ee7374;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 9px;
+        }
+        .confirm:hover {
+          background-color: #e8565e;
+        }
+        .complete {
+          color: #bbb;
+          border: 1px solid #bbb;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 9px; 
+        }
+        .complete:hover {
+          border-color: #e8565e;
+          color: #e8565e;
+        }
+        .disagreed {
+          color: #f3bc1d;
+          border: 1px solid #f3bc1d;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 15px 10px;          
+        }
+        .disagreed:hover {
+          background-color: #f3bc1d;
+          color: white;
+        }
+        .suggestion {
+          color: white;
+          background-color: #5eb12f;
+          border-radius: $ModalBtn-BorderRadius;
+          height: $ModalBtn-height;
+          padding: 15px 10px;
+        }
+        .suggestion:hover {
+          background-color: #4F9F22;
+        }
+        .message {
+          img {
+            width: 24px;
+          }
+        }
+        .cursor {
+          cursor: pointer;
+        }
       }
       .date {
-        padding-left: 20px;
+        width: 120px;
       }
       .cp-name {
         color: #5eb12f;
+        width: 180px;
+        text-align: left;
+        line-height: 20px;
       }
-      .font-big {
-        font-size: 15px;
-        font-weight: bold;
-      }
-      .disapprove {
-        border: 1px solid #eee;
-        border-radius: 10px;
-        background-color: white;
-        padding: 6px 15px;
-        color: #aaa;
-      }
-      .disapprove:hover {
-        border-color: #aaa;
-        color: #888;
-      }
-      .ongoing {
-        color: #5eb12f;
-      }
-      .rejected {
-        color: red;
-        cursor: pointer;
-      }
-      .incomplete {
-        color: #aaa;
-      }
-      .completed {
-        color: #5eb12f;
-        cursor: pointer;
-      }
-      .disagreed {
-        color: red;
-      }
-      .message {
-        cursor: pointer;
+      .user {
+        width: 180px;
+        line-height: 20px;
+        text-align: left;
+        a {
+          color: #444;
+        }
+        a:hover {
+          color: #5eb12f;
+        }
       }
     }
   }
@@ -1223,25 +1304,177 @@
       .minus {
         color: #f47474;
       }
-      
     }
   }
-
-
-
-
-
 }
 
-/* Billing-Checkout_Now-modal */
-.modal {
-  /* modla : Checkout-now[Cash_out] */
 
-  .modal-dialog-Checkout-Now {
+/* Billing-Add-Credit-modal */
+.modal {
+  .modal-dialog-add-credit {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-add-credit {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 45px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        .modal-contents {
+          padding: 0 30px 30px;
+          border-bottom: 1px solid #ddd;
+          text-align: left;
+          .check-amount {
+            font-size: 18px;
+            text-align: left;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 17px 20px;
+            margin-bottom: 30px;
+            span {
+              float: right;
+              color: #5eb12f;
+              font-weight: 500;
+            }
+          }
+          p {
+            text-align: left;
+            font-size: 15px;
+            margin: 15px;
+            color: #444;
+            line-height: 22px;
+          }
+          .info {
+            text-indent: -16px; 
+            padding-left: 16px; 
+            margin: 10px 15px;
+          }
+          h5 {
+            display: inline-block;
+            margin: 35px 0;
+            span {
+              color: #5eb12f;
+            }
+          }
+        }
+      }
+      .checkout-btn {
+        padding: 10px 130px;
+        background-color: #5eb12f;
+        color: white;
+        border: 0;
+        margin-top: 10px;
+        margin-bottom: 55px;
+        font-size: 18px;
+        border-radius: 5px;
+        img {
+          position: relative;
+          vertical-align: bottom;
+          margin-right: 10px;
+          top: 1px;
+
+        }
+      }
+    }
+  }
+}
+/* Billing-Checkout_Now-complete-modal */
+.modal {
+  .modal-dialog-add-credit-complete {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-add-credit-complete {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          color: #5eb12f;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        .info {
+          text-align: left;
+          font-size: 15px;
+          color: #444;
+          line-height: 22px;
+          padding: 0 15px;
+        }
+        .check-amount {
+          font-size: 18px;
+          text-align: left;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          padding: 17px 20px;
+          width: 600px;
+          margin: 35px auto 50px;
+          span {
+            float: right;
+            color: #5eb12f;
+            font-weight: 500;
+          }
+        }
+        .know {
+          border-radius: 5px;
+          font-size: 16px;
+          text-align: left;
+          color: #444;
+          padding: 25px 30px;
+          background-color: #fcf2f1;
+          line-height: 24px;
+          width: 600px;
+          margin: 30px auto;
+          h3 {
+            font-size: 19px;
+            color: #d84459;
+            line-height: 36px;
+            font-weight: 500;
+            margin: 0;
+            img {
+              position: relative;
+              vertical-align: middle;
+              bottom: 2px;
+              margin-right: 6px;
+            }
+          }
+        }
+        p {
+          color: #777;
+          font-size: 15px;
+        }
+        .btn-complete {
+          margin: 30px 0;
+          color: #5eb12f;
+          background-color: white;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          padding: 10px 180px;
+          font-size: 18px;
+        }
+        .btn-complete:hover {
+          background-color: #5eb12f;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+/* Billing-Cash-out-modal */
+.modal {
+  /* modla : Cash-out */
+
+  .modal-dialog-Cash-out {
     margin-top: 100px;
     margin-bottom: 150px;
 
-    .modal-Checkout-Now {
+    .modal-Cash-out {
       width: 700px;
       padding: 0px;
       .modal-body {
@@ -1321,36 +1554,94 @@
     }
   }
 }
-/* Billing-Add-Credit-modal */
+
+
+
+/* Billing-Add-Credit-kr-modal */
 .modal {
-  .modal-dialog-add-credit {
+  .modal-dialog-add-credit-kr {
     margin-top: 100px;
-    .modal-add-credit {
-      width: 600px;
+    margin-bottom: 150px;
+    .modal-add-credit-kr {
+      width: 700px;
+      padding: 0px;
       .modal-body {
+        padding: 25px;
         h1 {
           font-size: 28px;
-          margin-bottom: 45px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
-        h3 {
-          font-size: 15px;
-          margin: 20px;
-          text-align: left;
-          span {
-            margin-left: 100px;
-            border: 1px solid#5eb12f;
-            border-radius: 5px;
-            padding: 5px 40px;
-            float: right;
-            position: relative;
-            bottom: 5px;
-            color: #5eb12f;
+        .credit-amount {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 25px 0;
+          p {
+            padding: 0 12px;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 12px auto;
+            width: 590px;
+            span {
+              float: right;
+            }
           }
+          .total {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            font-weight: 700;
+            .total-credit {
+              color: #5eb12f;
+            }
+          } 
+
+        }
+        .sub-title {
+          display: block;
+          text-align: left;
+          color: #555;
+          font-size: 13px;
+          margin: 35px 20px 20px 39px;
         }
         p {
+          width: 570px;
           text-align: left;
           font-size: 15px;
-          margin: 15px;
+          color: #444;
+          margin: 10px auto;
+          padding: 15px 0;
+          font-weight: 700;
+
+          input {
+            float: right;
+            position: relative;
+            bottom: 10px;
+            padding: 10px;
+            width: 400px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #444;
+            font-weight: 400;
+          }
+          input:focus {
+            border-color: #5eb12f;
+          }
+        }
+        .info {
+          margin: 30px 0;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          padding: 15px 0;
+          p {
+            font-size: 13px;
+            padding: 0;
+            color: #888;
+            font-weight: 400;
+            line-height: 15px;
+          }
         }
         .checkbox {
           display: inline-block;
@@ -1363,74 +1654,114 @@
           }
         }
       }
+      .checkout-btn {
+        padding: 10px 130px;
+        background-color: #5eb12f;
+        color: white;
+        border: 0;
+        margin-bottom: 50px;
+        font-size: 18px;
+        border-radius: 5px;
+        img {
+          position: relative;
+          vertical-align: bottom;
+          margin-right: 10px;
+          top: 1px;
+
+        }
+      }
     }
   }
 }
-
-/* Billing-Checkout_Now-complete-modal */
+/* Billing-Add-Credit-complete-kr-modal */
 .modal {
-  .modal-dialog-add-credit-complete {
+  .modal-dialog-add-credit-complete-kr {
     margin-top: 100px;
-    .modal-add-credit-complete {
-      width: 600px;
-      padding: 30px;
+    margin-bottom: 150px;
+    .modal-add-credit-complete-kr {
+      width: 700px;
+      padding: 0;
       .modal-body {
+        padding: 25px;
         h1 {
-          font-size: 28px;
+          font-size: 25px;
           color: #5eb12f;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+          letter-spacing: -1px;
         }
-        .info {
-          text-align: left;
-          font-size: 14px;
-        }
-        h3 {
-          font-size: 18px;
-          text-align: left;
-          margin: 20px 30px;
-          span {
-            float: right;
-            color: #5eb12f;
-          }
-        }
-        .know {
-          border: 1px solid #eee;
-          border-radius: 5px;
-          font-size: 14px;
-          text-align: left;
-          color: #777;
-          padding: 15px 20px;
-          margin: 30px 20px;
-          span {
-            font-size: 17px;
-            color: #5eb12f;
-          }
+        .sub-title {
+          font-size: 15px;
+          line-height: 28px;
+          color: #333;
+          margin: 30px 0 40px;
+          font-weight: 500;
         }
         p {
-          color: #777;
-          font-size: 15px;
+          font-size: 14px;
+          text-align: left;
+          margin: 10px 40px;
+          color: #555;
+          font-weight: 500;
+          span {
+            float: right;
+          }
         }
-        .btn {
-          margin: 20px 0;
-          color: white;
+        .credit-amount {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          margin: 25px auto 50px;
+          width: 580px;
+          p {
+            padding: 0;
+            text-align: left;
+            font-size: 15px;
+            margin: 12px auto;
+            color: #444;
+            width: 510px;
+            span {
+              float: right;
+              color: #555;
+            }
+          }
+          hr {
+            border-color: #ddd;
+          }
+          .total {
+            font-weight: 700;
+            font-size: 17px;
+            .total-credit {
+              color: #5eb12f;
+            }
+          } 
+        }
+        .btn-complete {
+          margin: 30px 0;
+          color: #5eb12f;
+          background-color: white;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          padding: 10px 180px;
+          font-size: 18px;
+        }
+        .btn-complete:hover {
           background-color: #5eb12f;
-          padding: 10px 100px;
+          color: white;
         }
       }
     }
   }
 }
 
-
-
-
-/* Billing-Checkout_Now-kr-modal */
+/* Billing-Cash-out-kr-modal */
 .modal {
-  /* modla : Checkout-now-kr[Cash_out] */
-  .modal-dialog-Checkout-Now-kr {
+  /* modla : Cash-out-kr[Cash_out] */
+  .modal-dialog-Cash-out-kr {
     margin-top: 100px;
     margin-bottom: 150px;
 
-    .modal-Checkout-Now-kr {
+    .modal-Cash-out-kr {
       width: 700px;
       padding: 0px;
       .modal-body {
@@ -1506,141 +1837,6 @@
           span {
             color: #f9d20d;
           }
-        }
-      }
-    }
-  }
-}
-
-
-
-/* Billing-Add-Credit-kr-modal */
-.modal {
-  .modal-dialog-add-credit-kr {
-    margin-top: 100px;
-    .modal-add-credit-kr {
-      width: 600px;
-      .modal-body {
-        h1 {
-          font-size: 28px;
-        }
-        .credit-amount {
-          border: 1px solid #eee;
-          border-radius: 5px;
-          padding: 10px;
-          margin: 25px 0;
-          p {
-            padding: 0;
-            span {
-              float: right;
-            }
-          }
-          .total {
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-          } 
-        }
-        .sub-title {
-          display: block;
-          text-align: left;
-          color: #aaa;
-          font-size: 12px;
-          margin: 20px
-        }
-        p {
-          width: 460px;
-          text-align: left;
-          font-size: 15px;
-          color: #555;
-          margin: 10px auto;
-          padding: 15px 0;
-
-          input {
-            float: right;
-            position: relative;
-            bottom: 10px;
-            padding: 10px;
-            width: 300px;
-            height: 40px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            color: #ccc;
-          }
-        }
-        .info {
-          margin: 30px 0;
-          p {
-            font-size: 13px;
-            padding: 0;
-            color: #777;
-          }
-        }
-        .checkbox {
-          display: inline-block;
-          margin-right: 10px;
-        }
-        h5 {
-          display: inline-block;
-          span {
-            color: #5eb12f;
-          }
-        }
-      }
-    }
-  }
-}
-/* Billing-Add-Credit-complete-kr-modal */
-.modal {
-  .modal-dialog-add-credit-complete-kr {
-    margin-top: 100px;
-    .modal-add-credit-complete-kr {
-      width: 700px;
-      .modal-body {
-        h1 {
-          font-size: 25px;
-          color: #5eb12f;
-        }
-        .sub-title {
-          font-size: 13px;
-          line-height: 23px;
-          color: #aaa;
-          margin: 20px 0 50px;
-        }
-        p {
-          font-size: 14px;
-          text-align: left;
-          margin: 10px 40px;
-          color: #555;
-          span {
-            float: right;
-          }
-        }
-        .credit-amount {
-          border: 1px solid #eee;
-          border-radius: 5px;
-          padding: 10px;
-          margin: 25px 0;
-          p {
-            padding: 0;
-            text-align: left;
-            font-size: 14px;
-            margin: 10px 30px;
-            span {
-              float: right;
-              color: #555;
-            }
-          }
-          .total {
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-          } 
-        }
-        .btn-complete {
-          margin: 20px 0;
-          color: white;
-          background-color: #5eb12f;
-          padding: 10px 100px;
         }
       }
     }
