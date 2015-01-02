@@ -82,7 +82,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="confirm cursor" data-toggle="modal" data-target="#Modal-message">Project<br>Result</p></td>
+          <td><p class="confirm cursor" data-toggle="modal" data-target="#Modal-project-confirm">Project<br>Result</p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
@@ -93,7 +93,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="complete cursor" data-toggle="modal" data-target="#Modal-completed">Project<br>Result</p></td>
+          <td><p class="complete cursor" data-toggle="modal" data-target="#Modal-project-result">Project<br>Result</p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
@@ -189,36 +189,107 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- completed Modal -->
-<div class="modal fade" id="Modal-completed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-completed">
-    <div class="modal-content modal-completed">
+<!-- project-confirm Modal -->
+<div class="modal fade" id="Modal-project-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-confirm">
+    <div class="modal-content modal-project-confirm">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Project Completed</h1>
-        <p>Publisher insisted that the project has completed 2014.7.21</p>
-        <h1 class="question">Do you Agreed?</h1>
-        <p><span class="agreed">If you agreed, </span>we will tranfer the fee to the publisher, and you can't request the refund anymore.<br><span class="disagreed">If you disagreed, </span>we will investigate whether it is true or not.</p>
-        <button type="button" class="btn btn-a" data-toggle="modal" data-dismiss="modal" data-target="#Modal-i-disagreed">No, I disagreed!</button>
-        <button type="button" class="btn btn-b" data-dismiss="modal">Yes, I agreed!</button>
+        <h1>Project Completed!</h1>
+        <p>Publisher insisted that the project has completed 2014.7.21.</p>
+        <h2>Do you Agree?</h2>
+        <p class="if">If you agree, we will transfer the fee to the publisher, and you can't request the refund anymore.<br>If you disagree, we will investigate whether it is true or not.</p>
+        <button type="button" class="confirm-btn btn-a" data-dismiss="modal" data-toggle="modal" data-target="#Modal-project-result">Yes</button>
+        <button type="button" class="confirm-btn btn-b" data-dismiss="modal" data-toggle="modal" data-target="#Modal-project-complain">No</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- i-disagreed Modal -->
-<div class="modal fade" id="Modal-i-disagreed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-i-disagreed">
-    <div class="modal-content modal-i-disagreed">
+<!-- project-complain Modal -->
+<div class="modal fade" id="Modal-project-complain" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-complain">
+    <div class="modal-content modal-project-complain">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Tell us why you disagreed</h1>
-        <textarea rows="6" placeholder="Please explain based on the fact. What are the things that the publisher didn't performed compared with the initial order." ></textarea>
-        <button type="button" class="btn" data-dismiss="modal">Submit</button>
+        <h1>Tell us why you disagreed.</h1>
+        <textarea rows="8" placeholder="Please explain based on the fact.What are the things that the publisher didn't performed compared with the initial order."></textarea>
+        <button type="button" class="complain-btn" data-dismiss="modal">Submit</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- project-result Modal -->
+<div class="modal fade" id="Modal-project-result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-result">
+    <div class="modal-content modal-project-result">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Tell us the impression of this project!</h1>
+        <p>Please let us know and share to other advertisers about the performance of the publisher.<br>We do not open your score to the publisher. So please be as frank as possible.<br>Your frank feedback will be very helpful to other advertisers.</p>
+        <h2>How will you rate the publisher's service? (result, attitude, etc)</h2>
+        <div class="star-area">
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">1
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">2
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">3
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">4
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">5
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-01.png">6
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-02.png">7
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-02.png">8
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-02.png">9
+          </div>
+          <div class="star">
+            <img src="/assets/my_account/star-02.png">10
+          </div>
+        </div>
+        <h2>How was the result?</h2>
+        <textarea rows="4" placeholder="We are very interested to hear the specific data such as.. Impressions / CTR / CVR / Clicks / Conversions / Ranks etc"></textarea>
+        <h2>Satisfied with...</h2>
+        <textarea rows="2"></textarea>
+        <h2>Unsatisfied with...</h2>
+        <textarea rows="2"></textarea>
+        <button type="button" class="result-btn" data-dismiss="modal" data-toggle="modal" data-target="#Modal-project-thanks">Save</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- project-thanks Modal -->
+<div class="modal fade" id="Modal-project-thanks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-project-thanks">
+    <div class="modal-content modal-project-thanks">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Thanks for sharing us the great result!</h1>
+        <p>You can edit the Project Result any time in your Dashboard.<br>Take a look how did the Publisher had though about this Project.</p>
+        <p>And also we love to hear your opinion about Jungggle.<Br>Your precious feedback can be very helpful to improve our platform.</p>
+        <p>feedback@jungggle.com</p>
+        <button type="button" class="thanks-btn" data-dismiss="modal">Go to Project Result</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 <!-- disagreed Modal -->
 <div class="modal fade" id="Modal-disagreed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -243,9 +314,17 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h1>Suggestion from the Service Provider</h1>
         <p>Below is the suggestion for resolving the dispute from the Service Provider.</p>
-        <p>I agree to pay the above Revised Amount to the Service Provider<br>and will not make an any objection.</p>
-        <button type="button" class="btn" data-dismiss="modal">Agreed</button>
-        <button type="button" class="btn" data-dismiss="modal">Disagreed</button>
+        <h3 class="revised-amount">Revised Amount<span>$7,000</span></h3>
+        <h3 class="revised-amount ex-amount">Initial Amount<span>$10,000</span></h3>
+        <h3 class="revised-amount ex-amount">Revised Amount<span class="red">$7,000</span></h3>
+        <h3 class="revised-amount ex-amount">Refund Amount<span class="green">$3,000</span></h3>
+        <hr>
+        <div class="agree-area">
+          <img src="/assets/my_account/checkbox-02.png">
+          <p>I agree to pay the above Revised Amount to the Service Provider and will not make an any objection.</p>
+        </div>
+        <button type="button" class="suggestion-btn btn-a" data-dismiss="modal">Agreed</button>
+        <button type="button" class="suggestion-btn btn-b" data-dismiss="modal">Disagreed</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

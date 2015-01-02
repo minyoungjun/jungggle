@@ -1009,7 +1009,6 @@
   }
 }
 
-
 /* dashboard cancel modal */
 .modal {
   .modal-dialog-cancel {
@@ -1116,6 +1115,188 @@
   }
 }
 
+/* dashboard project-confirm modal */
+.modal {
+  .modal-dialog-project-confirm {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-project-confirm {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 35px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 18px;
+          color: #555;
+        }
+        h2 {
+          font-size: 33px;
+          color: #5eb12f;
+          margin: 50px 0 40px;
+        }
+        .if {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 25px;
+          margin: 0 0 20px;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+
+        .confirm-btn {
+          font-size: 18px;
+          padding: 10px 100px;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          margin: 35px 10px 30px;
+          outline: 0;
+        }
+        .btn-a{
+          background-color: #5eb12f;
+          color: white;
+        }
+        .btn-b {
+          background-color: white;
+          color: #5eb12f;
+        }
+      }
+    }
+  }
+}
+
+/* dashboard project-complain modal */
+.modal {
+  .modal-dialog-project-complain {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-project-complain {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 35px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        .complain-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 40px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+
+/* dashboard project-result modal */
+.modal {
+  .modal-dialog-project-result {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-project-result {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 35px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          color: #555;
+          line-height: 25px;
+          text-align: left;
+        }
+        .star-area {
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 17px 30px 40px;
+          padding: 22px 0;
+          .star {
+            display: inline-block;
+            font-size: 13px;
+            margin: 0 4px;
+            color: #999;
+            img {
+              display: block;
+              margin-bottom: 8px;
+            }
+          }
+          .star:hover {
+            color: #333;
+          }
+        }
+        h2 {
+          text-align: left;
+          margin: 20px 40px 10px;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto 30px;
+          display: block;
+          width: 580px;
+
+        }
+        .result-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 40px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
 /* dashboard disagreed modal */
 .modal {
   .modal-dialog-disagreed {
@@ -1175,9 +1356,78 @@
         padding: 25px;
         h1 {
           font-size: 28px;
-          margin-bottom: 45px;
+          margin-bottom: 30px;
           border-bottom: 1px solid #ddd;
           padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 16px;
+          color: #555;
+        }
+        .revised-amount {
+          font-size: 18px;
+          text-align: left;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          padding: 17px 20px;
+          width: 600px;
+          margin: 0 auto 10px;
+          color: #444;
+          span {
+            float: right;
+            font-weight: 500;
+          }
+        }
+        .ex-amount {
+          border: 0;
+          width: 350px;
+          margin: 0 0 0 273px;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: #555;
+          .red {
+            color: #ee7374; 
+          }
+          .green {
+            color: #5eb12f;
+          }
+        }
+        hr {
+          margin-top: 30px;
+          border-color: #ddd;
+        }
+        .agree-area {
+          text-align: left;
+          font-size: 14px;
+          width: 450px;
+          margin: 0 auto;
+          text-indent: -46px;
+          padding-left: 46px;
+          img {
+            vertical-align: middle;
+            margin-right: 7px;
+          }
+          p {
+            display: inline;
+            margin: 0;
+          }
+        }
+        .suggestion-btn {
+          font-size: 18px;
+          padding: 10px 100px;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          margin: 35px 10px 30px;
+          outline: 0;
+        }
+        .btn-a {
+          background-color: #5eb12f;
+          color: white;
+        }
+        .btn-b {
+          background-color: white;
+          color: #5eb12f;
         }
       }
     }
