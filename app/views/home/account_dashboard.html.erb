@@ -33,7 +33,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="refund cursor" data-toggle="modal" data-target="#Modal-disapprove">Refund</p></td>
+          <td><p class="refund cursor" data-toggle="modal" data-target="#refund">Refund</p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
@@ -44,7 +44,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="ongoing">Ongoing<span class="cancel cursor" data-toggle="modal" data-target="#Modal-message">Cancel</span></p></td>
+          <td><p class="ongoing">Ongoing<span class="cancel cursor" data-toggle="modal" data-target="#cancel">Cancel</span></p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
@@ -104,7 +104,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="disagreed cursor" data-toggle="modal" data-target="#Modal-message">Disagreed</p></td>
+          <td><p class="disagreed cursor" data-toggle="modal" data-target="#Modal-disagreed">Disagreed</p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
         <tr class="table-body">
@@ -115,7 +115,7 @@
           <td>1,000</td>
           <td>$0.5</td>
           <td>$1,000</td>
-          <td><p class="suggestion cursor" data-toggle="modal" data-target="#Modal-message">Suggestion</p></td>
+          <td><p class="suggestion cursor" data-toggle="modal" data-target="#Modal-suggestion">Suggestion</p></td>
           <td><div class="message cursor" data-toggle="modal" data-target="#Modal-message"><img src="/assets/my_account/project-mail.png"></div></td>
         </tr>
       </table>
@@ -126,21 +126,52 @@
 
 
 
-<!-- disapprove Modal -->
-<div class="modal fade" id="Modal-disapprove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-disapprove">
-    <div class="modal-content modal-disapprove">
+<!-- refund Modal -->
+<div class="modal fade" id="refund" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-refund">
+    <div class="modal-content modal-refund">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>Do you really want to request a refund?</h2>
+        <h1>Do you really want to request a refund?</h1>
         <p>Your payment will be fully refunded</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
-        <button type="button" class="btn btn-b">Yes, I want</button>
+        <textarea rows="8" placeholder="Can you let us know the reason for the refund? We will try hard to increase the convenience of using Jungggle through your feedback."></textarea>
+        <button type="button" class="refund-btn btn-a" data-dismiss="modal" data-toggle="modal" data-target="#Refund-Completed">Yes</button>
+        <button type="button" class="refund-btn btn-b">No</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- Refund-Completed Modal -->
+<div class="modal fade" id="Refund-Completed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-Refund-Completed">
+    <div class="modal-content modal-Refund-Completed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Refund Completed</h1>
+        <p>The project has canceled and you received the 100% refund through<br>the Jungggle Credit. You can check it on your <span>Billing page.</span></p>
+        <button type="button" class="refund-completed-btn" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- cancel Modal -->
+<div class="modal fade" id="cancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-cancel">
+    <div class="modal-content modal-cancel">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Do you really want to cancel this project?</h1>
+        <p>You can only cancel the project when there is apparent fault
+        <br>on Service Provider's service.</p>
+        <textarea rows="8" placeholder="Can you let us know the reason for the cancel?"></textarea>
+        <button type="button" class="cancel-btn btn-a" data-dismiss="modal">Yes</button>
+        <button type="button" class="cancel-btn btn-b" data-dismiss="modal">No</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- rejected Modal -->
 <div class="modal fade" id="Modal-rejected" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -148,11 +179,11 @@
     <div class="modal-content modal-rejected">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h1>Your project<br>has rejected by the publisher</h1>
-        <p>With the following reason.<br><span>
-        Your payment will be fully refunded.</span></p>
+        <h1>Your project has rejected by the publisher</h1>
+        <p>with the following reason.</p>
         <textarea name="comments" rows="5"></textarea>
-        <button type="button" class="btn" data-dismiss="modal">Confirm</button>
+        <h3>Your payment will be fully refunded.</h3>
+        <button type="button" class="rejected-btn" data-dismiss="modal">Confirm</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -175,8 +206,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
-
 <!-- i-disagreed Modal -->
 <div class="modal fade" id="Modal-i-disagreed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-i-disagreed">
@@ -191,6 +220,36 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<!-- disagreed Modal -->
+<div class="modal fade" id="Modal-disagreed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-disagreed">
+    <div class="modal-content modal-disagreed">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Complain Submitted</h1>
+        <p>Current status : Waiting for suggestion from the Service Provider.</p>
+        <textarea rows="6"></textarea>
+        <button type="button" class="disagreed-btn" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- suggestion Modal -->
+<div class="modal fade" id="Modal-suggestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-suggestion">
+    <div class="modal-content modal-suggestion">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Suggestion from the Service Provider</h1>
+        <p>Below is the suggestion for resolving the dispute from the Service Provider.</p>
+        <p>I agree to pay the above Revised Amount to the Service Provider<br>and will not make an any objection.</p>
+        <button type="button" class="btn" data-dismiss="modal">Agreed</button>
+        <button type="button" class="btn" data-dismiss="modal">Disagreed</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- message Modal -->
 <div class="modal fade" id="Modal-message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -198,10 +257,9 @@
     <div class="modal-content modal-message">
       <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h2>message</h2>
-        <p>내용삽입</p>
-        <button type="button" class="btn btn-a" data-dismiss="modal">I don't want</button>
-        <button type="button" class="btn btn-b">Yes, I want</button>
+        <h1>Send a message to the publisher.</h1>
+        <textarea rows="8"></textarea>
+        <button type="button" class="send-btn" data-dismiss="modal">Send</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

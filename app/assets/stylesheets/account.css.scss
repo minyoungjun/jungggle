@@ -915,159 +915,312 @@
 }
 
 /* dashboard : modal */
+/* dashboard refund modal */
 .modal {
-
-  /* modla : disapprove */
-  .modal-dialog-disapprove {
-    margin-top: 150px;
-    .modal-disapprove {
+  .modal-dialog-refund {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-refund {
       width: 700px;
-      p {
-        color: #999;
-        font-size: 14px;
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 20px 40px;
-        margin: 0 10px;
-        font-size: 16px;
-      }
-      .btn-a {
-        background-color: white;
-        color: #888;
-        border: 1px solid #888;
-      }
-      .btn-a:hover {
-        border-color: #5eb12f;
-        color: #5eb12f;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 16px;
+          color: #555;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        .refund-btn {
+          font-size: 18px;
+          padding: 10px 100px;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          margin: 35px 10px 30px;
+          outline: 0;
+        }
+        .btn-a {
+          background-color: #5eb12f;
+          color: white;
+        }
+        .btn-b {
+          background-color: white;
+          color: #5eb12f;
+        }
       }
     }
   }
+}
 
-  /* modla : rejected */
+/* dashboard Refund-Completed modal */
+.modal {
+  .modal-dialog-Refund-Completed {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-Refund-Completed {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 70px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 18px;
+          color: #444;
+          line-height: 30px;
+          span {
+            color: #5eb12f;
+            text-decoration: underline;
+          }
+        }
+        .refund-completed-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 30px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+
+
+/* dashboard cancel modal */
+.modal {
+  .modal-dialog-cancel {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-cancel {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 16px;
+          color: #ee7374;
+          line-height: 25px;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        .cancel-btn {
+          font-size: 18px;
+          padding: 10px 100px;
+          border: 1px solid #5eb12f;
+          border-radius: 5px;
+          margin: 35px 10px 30px;
+          outline: 0;
+        }
+        .btn-a {
+          background-color: #5eb12f;
+          color: white;
+        }
+        .btn-b {
+          background-color: white;
+          color: #5eb12f;
+        }
+      }
+    }
+  }
+}
+
+/* dashboard rejected modal */
+.modal {
   .modal-dialog-rejected {
     margin-top: 100px;
+    margin-bottom: 150px;
     .modal-rejected {
-      width: 550px;
-      p {
-        color: #999;
-        font-size: 14px;
-        span {
+      width: 700px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 35px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        p {
+          font-weight: 500;
+          font-size: 16px;
           color: #5eb12f;
         }
-      }
-      textarea {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        width: 460px;
-        padding: 15px;  
-        margin-bottom: 20px;
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 20px 40px;
-        margin: 0 10px;
-        font-size: 16px;
-      }
-      .btn-a {
-        background-color: white;
-        color: #888;
-        border: 1px solid #888;
-      }
-      .btn-a:hover {
-        border-color: #5eb12f;
-        color: #5eb12f;
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        h3 {
+          font-size: 17px;
+          color: #444;
+          margin: 35px 0 0;
+        }
+        .rejected-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 30px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
       }
     }
   }
+}
 
-  /* modla : completed */
-  .modal-dialog-completed {
+/* dashboard disagreed modal */
+.modal {
+  .modal-dialog-disagreed {
     margin-top: 100px;
-    .modal-completed {
+    margin-bottom: 150px;
+    .modal-disagreed {
       width: 700px;
-      .question {
-        color: #5eb12f;
-        margin-top: 40px;
-      }
-      p {
-        color: #999;
-        font-size: 14px;
-        margin: 30px 0;
-        line-height: 25px;
-        .agreed {
-          color: #5eb12f;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 35px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
         }
-        .disagreed {
-          color: red;
+        p {
+          font-weight: 500;
+          font-size: 14px;
+          color: #555;
         }
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 20px 40px;
-        margin: 0 10px;
-        font-size: 16px;
-      }
-      .btn-a {
-        background-color: white;
-        color: #888;
-        border: 1px solid #888;
-      }
-      .btn-a:hover {
-        border-color: #5eb12f;
-        color: #5eb12f;
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        .disagreed-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 40px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
       }
     }
   }
+}
 
-
-  /* modla : i-disagreed */
-  .modal-dialog-i-disagreed {
-    margin: 100px auto 0;
-
-    .modal-i-disagreed {
+/* dashboard suggestion modal */
+.modal {
+  .modal-dialog-suggestion {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    .modal-suggestion {
       width: 700px;
-      textarea {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        width: 450px;
-        padding: 15px;
-        display: block;
-        margin: 50px auto; 
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 20px 40px;
-        margin: 0 10px;
-        font-size: 16px;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 45px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
       }
     }
   }
+}
 
-
-  /* modla : message */
+/* dashboard message modal */
+.modal {
   .modal-dialog-message {
-    margin-top: 150px;
+    margin-top: 100px;
+    margin-bottom: 150px;
     .modal-message {
       width: 700px;
-      p {
-        color: #999;
-        font-size: 14px;
-      }
-      .btn {
-        border-radius: 10px;
-        padding: 20px 40px;
-        margin: 0 10px;
-        font-size: 16px;
-      }
-      .btn-a {
-        background-color: white;
-        color: #888;
-        border: 1px solid #888;
-      }
-      .btn-a:hover {
-        border-color: #5eb12f;
-        color: #5eb12f;
+      padding: 0;
+      .modal-body {
+        padding: 25px;
+        h1 {
+          font-size: 28px;
+          margin-bottom: 45px;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 0;
+        }
+        textarea {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          font-size: 14px;
+          color: #444;
+          line-height: 22px;
+          margin: 0 auto;
+          display: block;
+          width: 580px;
+        }
+        .send-btn {
+          background-color: #5eb12f;
+          border-radius: 5px;
+          color: white;
+          padding: 10px 130px;
+          margin: 40px auto 30px;
+          border: 0;
+          font-size: 18px;
+          outline: 0;
+        }
       }
     }
   }
