@@ -2,6 +2,13 @@ require 'open-uri'
 
 class ProductsController < ApplicationController
 
+  def search_redirect
+    product = Product.find(params[:id])
+    country = product.procons.first.country
+
+    redirect_to "/products/details/#{country.name.downcase.gsub(' ','_')}/#{product.id}"
+
+  end
 
   def search_company
 
