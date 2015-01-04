@@ -1591,6 +1591,9 @@
           padding: 8px 15px 8px 30px;
           max-width: 190px;
         }
+        input:focus {
+          border-color: #5eb12f;
+        }
       }
     }
     .billing-country {
@@ -1605,12 +1608,14 @@
         display: inline-block;
         width: 200px;
         margin-left: 8px;
+        cursor: pointer;
         .country-btn {
           border: 1px solid #ddd;
           padding: 10px 20px;
           border-radius: 5px;
           text-align: center;
           font-size: 15px;
+          z-index: 101;
           .glyphicon {
             float: right;
             font-size: 12px;
@@ -1618,7 +1623,51 @@
             top: 3px;
           }
         }
+        .country-drop {
+          display: none;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: white;
+          position: absolute;
+          -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          cursor: pointer;
+          width: 200px;
+          //margin-top: -1px;
+          z-index: 100;
+          padding: 15px 0;
+
+          ul {
+            list-style: none;
+            padding-left: 0;
+            max-height: 250px;
+            overflow-y: scroll;
+            li {
+              padding: 7px 15px;
+              color: #aaa;
+              font-size: 13px;
+            }
+            li:hover {
+              background-color: #5eb12f;
+              color: white;
+            }
+          }
+        }
       }
+      .country-area:hover {
+        .country-btn {
+          border-color: #5eb12f;
+          color: #5eb12f;
+          .glyphicon {
+            color: #666;
+          }
+        }
+        .country-drop {
+          display: block;
+        }
+      }
+
     }
 
     .checkout-btn {
