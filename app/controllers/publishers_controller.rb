@@ -4,6 +4,13 @@ class PublishersController < ApplicationController
   before_filter :is_confirmed
   before_filter :company_confirmed
 
+  def search_redirect
+    product = Product.find(params[:id])
+    country = product.procons.first.country
+
+    redirect_to "/products/details/#{country.name.downcase.gsub(' ','_')}/#{product.id}"
+
+  end
   def destroy_service
     product = Product.where(:id => params[:id], :company_id => Member.where(:user_id => current_user.id, :approved => true).first.company.id).first
     product.destroy

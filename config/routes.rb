@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'manages/edit_service/:id' => "manages#edit_service"
   post 'manages/edit_process'
 
-  get 'products/search_detail/:id' => "products#search_detail"
+  get 'products/search_detail/:id' => "products#search_redirect"
   get 'products/details/:country/:id' => "products#search_detail"
 
   get 'products/search_result/:id' => "products#search_result"
