@@ -12,7 +12,11 @@
   <h3>or</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%if flash[:alert] != nil%>
+      <div id="error_explanation" style="color:#BD2F2F;">
+        <%= flash[:alert]%>
+      </div>
+    <%end%>
     <div>
     <%= f.email_field :email, autofocus: true, placeholder: "Email", required: true %></div>
 
