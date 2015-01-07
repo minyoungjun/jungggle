@@ -147,9 +147,7 @@ class PublishersController < ApplicationController
     end
     if product.marketingtype.global
       product.procons.each do |procon|
-        if procon.country_id != product.company.country.id
-          procon.delete
-        end
+        procon.delete
       end
       procon = Procon.new
       procon.product_id = product.id
@@ -243,8 +241,6 @@ class PublishersController < ApplicationController
     end
 
     redirect_to :action => "search_redirect", :controller => "products", :id => product.id
-
-
 
 
   end
