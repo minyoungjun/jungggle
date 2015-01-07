@@ -242,7 +242,7 @@ class PublishersController < ApplicationController
 
     end
 
-    redirect_to :action => "search_detail", :controller => "products", :id => product.id
+    redirect_to :action => "search_redirect", :controller => "products", :id => product.id
 
 
 
@@ -391,7 +391,7 @@ class PublishersController < ApplicationController
     end
 
 
-    redirect_to :action => "search_detail", :controller => "products", :id => product.id
+    redirect_to :action => "search_redirect", :controller => "products", :id => product.id
 
 
   end
