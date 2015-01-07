@@ -186,6 +186,15 @@ class PublishersController < ApplicationController
         end
       end
     end
+    if params[:has_cost] != nil
+      params[:has_cost].each do |key, value|
+        product.costs.where(:id => key).each do |cost|
+          cost.money = value
+          cost.save
+        end
+      end
+    end
+
     if params[:delete_cost] != nil
       params[:delete_cost].each do |key, value|
         product.costs.where(:id => key).each do |cost|
