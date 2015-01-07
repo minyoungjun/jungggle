@@ -64,6 +64,16 @@ woopra.track();
       </div>
 
       <script>
+$(document).mouseup(function (e)
+{
+    var container = $(".header-search");
+
+    if (!container.is(e.target)) // ... nor a descendant of the container
+    {
+        $(".search-company-name-drop").hide();
+    }
+});
+
 function search_auto_func(){
   if ($('#search_title').val() != ""){
           $(".search-company-name-drop").show();
