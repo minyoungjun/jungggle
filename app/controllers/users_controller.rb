@@ -266,7 +266,12 @@ class UsersController < ApplicationController
       if this_user.update(user_params)
         this_user.email_confirmed = true
         this_user.save
+        this_user.usernotis.where(:notification_id => 5).each do |usernoti|
+          usernoti.is_deleted = true
+          usernoti.save
+        end
         this_user.user_notify(1)
+
         User.send_confirmation_email(this_user.id)
         sign_in(this_user, :bypass => true)
       end
