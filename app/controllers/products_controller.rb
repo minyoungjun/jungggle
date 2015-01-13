@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def search_redirect
     product = Product.find(params[:id])
-    country = product.procons.first.country
+    country = product.procons.where.not(country_id: nil).first.country
 
     redirect_to "/products/details/#{country.name.downcase.gsub(' ','_')}/#{product.id}"
 
