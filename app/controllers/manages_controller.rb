@@ -38,7 +38,7 @@ class ManagesController < ApplicationController
   end
   def analytics
 
-  @countries = Country.includes(:procon).sort do |a,b| 
+  @countries = Country.includes(:procons).sort do |a,b| 
       a.procons.size <=> b.procons.size
   end
 
