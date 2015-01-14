@@ -41,7 +41,44 @@
   }
 }
 
+.create-share {
+  .save-bar {
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    padding: 11px 0;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    .preview-btn {
+      border: 1px solid #555;
+      color: #555;
+      border-radius: 20px;
+      display: inline-block;
+      padding: 10px 40px;
+    }
+    .right {
+      float: right;
+      h3 {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      .save-btn {
+        width: 170px;
+        display: inline-block;
+        text-align: center;
+        background-color: #5eb12f;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 17px;
+        color: white;
+      }
+    }
+  }
+}
+
 .new-create-introduction {
+  
   .tab-introduction {
     width: 990px;
     display: inline-block;
@@ -76,23 +113,87 @@
     .pack1 {
       .area {
         .select-form {
-          display: inline-block;
-          background-color: white;
-          border-radius: 5px;
-          border: 1px solid #ddd;
-          padding: 10px 110px;
-          cursor: pointer;
-          h3 {
+          display: inline;
+          .marketing-form {
             text-align: center;
             color: #666;
+            display: inline-block;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px 0;
+            cursor: pointer;
+            width: 280px;
             span {
               position: relative;
               float: right;
               font-size: 11px;
               color: #999;
-              right: -85px;
+              left: -14px;
               top: 3px;
             }
+          }
+          .marketing-dropdown {
+            display: none;
+            background-color: white;
+            width: 280px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            position: absolute;
+            margin-left: 154px;
+            z-index: 100;
+            ul {
+              li {
+                padding: 7px 0;
+                font-size: 14px;
+                cursor: pointer;
+              }
+            }
+          }
+          .country-form {
+            text-align: center;
+            color: #666;
+            display: inline-block;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px 0;
+            cursor: pointer;
+            width: 280px;
+            span {
+              position: relative;
+              float: right;
+              font-size: 11px;
+              color: #999;
+              left: -14px;
+              top: 3px;
+            }
+          }
+          .country-dropdown {
+            display: none;
+            background-color: white;
+            width: 280px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            position: absolute;
+            margin-left: 154px;
+            ul {
+              li {
+                padding: 7px 0;
+                font-size: 14px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .select-form:hover {
+          .marketing-dropdown {
+            display: block;
+          }
+          .country-dropdown {
+            display: block;
           }
         }
       }
