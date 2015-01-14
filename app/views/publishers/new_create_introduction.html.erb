@@ -32,8 +32,10 @@
       </div>
     </div> 
     <%= render "/home/left"%>
+
     <div class="tab-introduction right-height" id="right">
       <div class="share-pack pack1">
+
         <div class="area marketing-area">
           <h2>Marketing Type</h2>
           <div class="select-form">
@@ -50,6 +52,21 @@
             </div>
           </div>
         </div>
+
+        <div class="area platform-area">
+          <h2>Platform</h2>
+          <div class="platform-select">
+            <img src="/assets/my_account/radio-02.png">All
+          </div>
+          <div class="platform-select">
+            <img src="/assets/my_account/radio-01.png">iOS
+          </div>
+          <div class="platform-select">
+            <img src="/assets/my_account/radio-02.png">Android
+          </div>
+          <p style="margin-top: 12px;">If a service has diffferent Details depending on the platform, you should make a separate service instead of choosing All.</p>
+        </div>
+
         <div class="area country-area">
           <h2>Country</h2>
           <div class="select-form">
@@ -63,8 +80,36 @@
               </ul>
             </div>
           </div>
+          <p style="margin-top: 12px;">This is the country where your service will be provided, NOT the country where you're located in.</p>
         </div>
-        <p>This is the country where your service will be provided, NOT the country where you're located in.</p>
+        
+        <div class="area translation-area">
+          <h2>Translation</h2>
+          <div class="localization drop">
+            <h3><span id="from_language">Source Language</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
+            <div class="localization-down">
+              <ul>
+                <li>korea</li>
+                <li>korea</li>
+                <li>korea</li>
+                <li>korea</li>
+              </ul>
+            </div>
+          </div>
+          <img src="/assets/my_account/localization.png" style="margin: 0 10px; vertical-align: middle;">
+          <div class="localization drop" style="margin-left: 0;">
+            <h3><span id="to_language">Target Language</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
+            <div class="localization-down">
+              <ul>
+                <li>korea</li>
+                <li>korea</li>
+                <li>korea</li>
+                <li>korea</li>
+              </ul>
+            </div>
+          </div>
+          <p style="margin-top: 12px;">Indicate the language to translate and into which language you can translate it.</p>
+        </div>
       </div>
       <div class="share-pack pack2">
         <div class="area">
