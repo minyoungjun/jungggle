@@ -15,29 +15,30 @@
       vertical-align: middle;
       margin-right: 12px;
     }
-    .tab {
-      display: inline-block;
-      font-size: 18px;
-      width: 196px;
-      text-align: center;
-      margin: 0 20px;
-      a {
+    a {
         text-decoration: none;
         color: #999;
+      .tab {
+        display: inline-block;
+        font-size: 18px;
+        width: 196px;
+        text-align: center;
+        margin: 0 20px;
+      }
+      .tab-select {
+        color: #444; 
+        border-bottom: 4px solid #555; 
       }
     }
-    .tab:hover {
-      border-bottom: 4px solid #555;
-      a {
-        color: #444;  
-      } 
-    }
-    .tab-select {
-      border-bottom: 4px solid #555;
-      a {
-        color: #444;  
+    a:hover {
+      color: #444;
+      .tab {
+        border-bottom: 4px solid #555;
       }
     }
+  
+
+    
   }
 }
 
