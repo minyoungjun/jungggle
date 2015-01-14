@@ -1,0 +1,69 @@
+/* create_service : introduction tab */
+
+.account {
+  .right-title-tab {
+    padding: 0;
+    line-height: 63px;
+    background-color: white; 
+    border-bottom: 1px solid #ddd; 
+    float: right; 
+    width: 990px;
+    height: 71px;
+    font-weight: 500;
+    font-size: 26px;
+    img {
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+    .tab {
+      display: inline-block;
+      font-size: 18px;
+      width: 196px;
+      text-align: center;
+      margin: 0 20px;
+      a {
+        text-decoration: none;
+        color: #999;
+      }
+    }
+    .tab:hover {
+      border-bottom: 4px solid #555;
+      a {
+        color: #444;  
+      } 
+    }
+    .tab-select {
+      border-bottom: 4px solid #555;
+      a {
+        color: #444;  
+      }
+    }
+  }
+}
+
+.new-create-introduction {
+  
+}
+
+
+/* create_service : cost tab */
+
+.new-create-cost {
+  
+}
+
+
+
+/* create_service : details tab */
+
+.new-create-details {
+  
+}
+
+
+
+/* create_service : company tab */
+
+.new-create-company {
+  
+}
