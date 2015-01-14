@@ -62,6 +62,22 @@ class ProductsController < ApplicationController
       if (10 < params[:marketing].to_i) && (params[:marketing].to_i < 60)
         if params[:platform].to_i != 0
           @marketing = Marketingtype.find(params[:marketing].to_i + params[:platform].to_i + 1)
+          if params[:marketing].to_i == 11
+            if params[:platform].to_i == 1
+              Marketingtype.where(:name => "Android").each do |marketing|
+                marketing.products.each do |product|
+                  @products_array[order_number] <<  product
+                end
+              end
+            elsif params[:platform].to_i == 2
+              Marketingtype.where(:name => "iOS").each do |marketing|
+                marketing.products.each do |product|
+                  @products_array[order_number] <<  product
+                end
+              end
+            end
+          end
+
         else
           @marketing = Marketingtype.find(params[:marketing])
         end
