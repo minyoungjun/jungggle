@@ -56,12 +56,14 @@
       border-radius: 20px;
       display: inline-block;
       padding: 10px 40px;
+      cursor: pointer;
     }
     .right {
       float: right;
       h3 {
         display: inline-block;
         margin-right: 20px;
+        cursor: pointer;
       }
       .save-btn {
         width: 170px;
@@ -72,6 +74,7 @@
         padding: 10px 20px;
         font-size: 17px;
         color: white;
+        cursor: pointer;
       }
     }
   }
@@ -312,9 +315,9 @@
           background-color: white;
           border-radius: 5px;
           border: 1px solid #ccc;
-          padding: 8px 15px;
-          width: 550px;
-          font-size: 16px;
+          padding: 8px 55px 8px 30px;
+          width: 400px;
+          font-size: 15px;
           color: #555;
         }
         table {
@@ -339,6 +342,28 @@
                 h3:hover {
                   color: #555;
                 }
+              }
+              .dollar {
+                display: inline;
+                position: relative;
+                left: 20px;
+              }
+              .usd {
+                display: inline;
+                position: relative;
+                right: 45px;
+              }
+              .delete {
+                position: relative;
+                top: 6px;
+                left: -15px;
+                cursor: pointer;
+              }
+              .plus {
+                padding-left: 200px;
+                margin: 10px 0;
+                cursor: pointer;
+
               }
               p {
                 line-height: 20px;
