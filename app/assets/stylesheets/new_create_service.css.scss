@@ -185,7 +185,89 @@
 /* create_service : cost tab */
 
 .new-create-cost {
-  
+  .tab-cost {
+    width: 990px;
+    display: inline-block;
+    background-color: white;
+    float: right;
+    padding: 30px 30px 100px;
+    .share-pack {
+      background-color: #f9f8f8;
+      border-radius: 5px;
+      padding: 12px 25px;
+      margin-bottom: 20px;
+      .area {
+        margin: 15px 0; 
+        h2 {
+          display: inline-block;
+          font-size: 16px;
+          width: 150px;
+        }
+        .input-area {
+          background-color: white;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          padding: 8px 15px;
+          width: 550px;
+          font-size: 16px;
+          color: #555;
+        }
+        table {
+          tr {
+            td {
+              .check {
+                margin-bottom: 15px;
+                h3 {
+                  font-size: 15px;
+                  display: inline-block;
+                  width: 140px;
+                  color: #999;
+                  cursor: pointer;
+                  img {
+                    vertical-align: middle;
+                    margin-right: 8px;
+                  }
+                }
+                .select {
+                  color: #555;  
+                }
+                h3:hover {
+                  color: #555;
+                }
+              }
+              p {
+                line-height: 20px;
+                font-size: 15px;
+                margin: 15px 0 8px;
+                span {
+                  color: #e76766;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .delete-service-btn {
+      float: right;
+      font-size: 18px;
+      font-weight: 500;
+      color: #aaa;
+      margin-right: 10px;
+      cursor: pointer;
+      img {
+        vertical-align: middle;
+        margin-right: 7px;
+      }
+    }
+    .delete-service-btn:hover {
+      color: #dd3b72;
+      img {
+        content: url(/assets/my_account/new_create/delete-hover-btn.png);
+      }
+    }
+  }
+
 }
 
 
