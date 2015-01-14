@@ -1,8 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   margin: 0;
+  margin-bottom: 68px;
   border-top: 5px solid #e3e3e3;
   font-family: "Roboto", "Nanum Gothic", "Helvetica Neue", Helvetic  a, Arial, sans-serif;
   background-color: white;
@@ -567,11 +571,14 @@ body {
 
 
   .footer {
-    position: absolute;
-    //bottom: 0;
-    right: 0;
-    left: 0;
-    padding: 20px 0;
+  display:block;
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  padding: 20px 0;
+  vertical-align:middle;
+
     background-color: #f2f2f2;
     border-bottom: 5px solid #5bb33a;
 

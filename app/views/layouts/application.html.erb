@@ -147,8 +147,8 @@ function search_auto_func(){
 
 
 
-  <div class="nav" <%if @main %>style="display:none;"<%end%>>
-<%if !(@main) %>
+  <div class="nav" <%if @main || @is_product_controller != 1%>style="display:none;"<%end%>>
+<%if !(@main)  %>
 <form action="/products/search" method="get" id="search_form">
   <input type="hidden" name="country" id="country_hidden" value="0">
   <input type="hidden" name="marketing" id="marketing_hidden" value="1">
@@ -245,7 +245,9 @@ function search_auto_func(){
   <%#
     <h5 class="account-update">Your account has been updated.</h5>
   %>
-  <%= yield %>
+<%= yield %>
+
+
   <div class="footer">
     <div class="container">
       <p> Copyrights 2014 "Jungggle LTD". All rights reserved. </p>

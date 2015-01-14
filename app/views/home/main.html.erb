@@ -1,164 +1,164 @@
 <!-- <img src="/assets/main/main_bg.jpg" class="main-bg"> -->
 <!-- main.css.scss -->
-<div class="main">
-  <img src="/assets/logo-01.png" style="height: 120px;">
-  <h5 class="beta">Beta</h5>
-  <p class="subheadline"><img src="/assets/info.png"></p>
-  
+  <div class="main">
+    <img src="/assets/logo-01.png" style="height: 120px;">
+    <h5 class="beta">Beta</h5>
+    <p class="subheadline"><img src="/assets/info.png"></p>
+    
 
 
-<form action="/products/search" method="get">
-  <input type="hidden" name="country" id="country_hidden" value="0">
-  <input type="hidden" name="marketing" id="marketing_hidden" value="1">
-  <input type="hidden" name="platform" id="platform_hidden" value="0">
+  <form action="/products/search" method="get">
+    <input type="hidden" name="country" id="country_hidden" value="0">
+    <input type="hidden" name="marketing" id="marketing_hidden" value="1">
+    <input type="hidden" name="platform" id="platform_hidden" value="0">
 
-  <div class="select">
-    <div class="country drop">
-      <h3 id="country_text_search">Country<span class="glyphicon glyphicon-chevron-down"></span></h3>
-      <div class="country-down">
-        <div class="title" id="country_0" onclick="country_select_search(0);">All</div>
-        <ul class="country-down-content">
-          <hr style="margin:0 12px 10px">
-          <%@countries.each do |country|%>
-            <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
-          <%end%>
-          <hr style="margin: 10px 12px 0;">
-        </ul>
-        <div class="other">
-          Other Countries..
-          <div class="other-tooltip">
-            <img src="/assets/my_account/hover_pointer.svg">
-            Countries are still adding whenever Publisher create service on particular country.
+    <div class="select">
+      <div class="country drop">
+        <h3 id="country_text_search">Country<span class="glyphicon glyphicon-chevron-down"></span></h3>
+        <div class="country-down">
+          <div class="title" id="country_0" onclick="country_select_search(0);">All</div>
+          <ul class="country-down-content">
+            <hr style="margin:0 12px 10px">
+            <%@countries.each do |country|%>
+              <li id="country_<%=country.id%>" onclick="country_select_search(<%=country.id%>);"><%=country.name%></li>
+            <%end%>
+            <hr style="margin: 10px 12px 0;">
+          </ul>
+          <div class="other">
+            Other Countries..
+            <div class="other-tooltip">
+              <img src="/assets/my_account/hover_pointer.svg">
+              Countries are still adding whenever Publisher create service on particular country.
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
 
-    <div class="marketing-mobile">
-      <div class="marketing drop">
-        <h3 id="marketing_text">Marketing Type<span class="glyphicon glyphicon-chevron-down"></span></h3>
-        <div class="marketing-down">
-            <ul>
-              <%Marketingtype.where(:filter => 1).each do |marketing1|%>
-                <%if marketing1.name == "All"%>
-                  <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" style="font-size: 14px;">All</li><hr>
-                <%else%>
-                  <li class="division">
-                  <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
-                    <%if marketing1.child_types.count != 0%>
-                    <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
-                        <ul>
-                          <% marketing1.child_types.order(:index_number).each do |marketing2|%>
-                            <%if marketing2.filter == 2%>
-                        
-                                <ul>
-                                <li class="title" onclick="marketing_click_search(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_search_<%=marketing2.id%>" ><%=marketing2.name%></li>
-                                <%if marketing2.child_types.count != 0%>
-                                  <%marketing2.child_types.order(:index_number).each do |marketing3|%>
-                                    <%if marketing3.filter != 4%>
-                                      <li onclick="marketing_click_search(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+      <div class="marketing-mobile">
+        <div class="marketing drop">
+          <h3 id="marketing_text">Marketing Type<span class="glyphicon glyphicon-chevron-down"></span></h3>
+          <div class="marketing-down">
+              <ul>
+                <%Marketingtype.where(:filter => 1).each do |marketing1|%>
+                  <%if marketing1.name == "All"%>
+                    <li class="title" onclick="marketing_click_search(<%=marketing1.id%>);" id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" style="font-size: 14px;">All</li><hr>
+                  <%else%>
+                    <li class="division">
+                    <span  id="marketing_li_search_<%=marketing1.id%>" data-marketing ="<%=marketing1.name%>" onclick="marketing_click_search(<%=marketing1.id%>);"><%=marketing1.name%></span>
+                      <%if marketing1.child_types.count != 0%>
+                      <div class="division-hover <%if marketing1.name == "AD"%>division-hover-plus<%end%> " style="min-height:162px;">
+                          <ul>
+                            <% marketing1.child_types.order(:index_number).each do |marketing2|%>
+                              <%if marketing2.filter == 2%>
+                          
+                                  <ul>
+                                  <li class="title" onclick="marketing_click_search(<%=marketing2.id%>);" data-marketing ="<%=marketing2.name%>" id="marketing_li_search_<%=marketing2.id%>" ><%=marketing2.name%></li>
+                                  <%if marketing2.child_types.count != 0%>
+                                    <%marketing2.child_types.order(:index_number).each do |marketing3|%>
+                                      <%if marketing3.filter != 4%>
+                                        <li onclick="marketing_click_search(<%=marketing3.id%>);"id="marketing_li_search_<%=marketing3.id%>"data-marketing ="<%=marketing3.name%>" ><%=marketing3.name%></li>
+                                      <%end%>
                                     <%end%>
                                   <%end%>
-                                <%end%>
-                              </ul>
-              
-                            <%else%>
-                            <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%>
-                            </li>
+                                </ul>
+                
+                              <%else%>
+                              <li onclick="marketing_click_search(<%=marketing2.id%>);"id="marketing_li_search_<%=marketing2.id%>" data-marketing ="<%=marketing2.name%>"><%=marketing2.name%>
+                              </li>
+                            <%end%>
                           <%end%>
-                        <%end%>
-                      </ul>
-                    </div>
-                  <%end%>
-                </li>
+                        </ul>
+                      </div>
+                    <%end%>
+                  </li>
+                <%end%>
               <%end%>
-            <%end%>
-          </ul>
+            </ul>
 
+          </div>
         </div>
-      </div>
-      <div class="platform drop" style="display:none;">
-        <h3 id="platform_text">Platform<span class="glyphicon glyphicon-chevron-down"></span></h3>
-        <div class="platform-down">
-          <ul>
-            <li class="title" id="platform_0" onclick="platform_click_search(0);">All</li><hr>
-            <li id="platform_1" onclick="platform_click_search(1);" >iOS</li>
-            <li id = "platform_2" onclick="platform_click_search(2);" >Andriod</li>
-          </ul>
+        <div class="platform drop" style="display:none;">
+          <h3 id="platform_text">Platform<span class="glyphicon glyphicon-chevron-down"></span></h3>
+          <div class="platform-down">
+            <ul>
+              <li class="title" id="platform_0" onclick="platform_click_search(0);">All</li><hr>
+              <li id="platform_1" onclick="platform_click_search(1);" >iOS</li>
+              <li id = "platform_2" onclick="platform_click_search(2);" >Andriod</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <%#>
-      <div class="localization drop">
-        <h3>From<span class="glyphicon glyphicon-chevron-down"></span></h3>
-        <div class="localization-down">
-          <ul>
-            <li>English</li>
-            <li>Arabic</li>
-            <li>Chinese (Simplified)</li>
-            <li>Chinese (Traditional)</li>
-            <li>French</li>
-            <li>German</li>
-            <li>Hindi</li>
-            <li>Indonesian</li>
-            <li>Italian</li>
-            <li>Japanese</li>
-            <li>Korean</li>
-            <li>Malay</li>
-            <li>Portuguese</li>
-            <li>Russian</li>
-            <li>Spanish</li>
-            <li>Thai</li>
-            <li>Turkish</li>
-            <li>Vietnamese</li>
-          </ul>
+        <%#>
+        <div class="localization drop">
+          <h3>From<span class="glyphicon glyphicon-chevron-down"></span></h3>
+          <div class="localization-down">
+            <ul>
+              <li>English</li>
+              <li>Arabic</li>
+              <li>Chinese (Simplified)</li>
+              <li>Chinese (Traditional)</li>
+              <li>French</li>
+              <li>German</li>
+              <li>Hindi</li>
+              <li>Indonesian</li>
+              <li>Italian</li>
+              <li>Japanese</li>
+              <li>Korean</li>
+              <li>Malay</li>
+              <li>Portuguese</li>
+              <li>Russian</li>
+              <li>Spanish</li>
+              <li>Thai</li>
+              <li>Turkish</li>
+              <li>Vietnamese</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="localization drop">
-        <h3>To<span class="glyphicon glyphicon-chevron-down"></span></h3>
-        <div class="localization-down">
-          <ul>
-            <li>English</li>
-            <li>Arabic</li>
-            <li>Chinese (Simplified)</li>
-            <li>Chinese (Traditional)</li>
-            <li>French</li>
-            <li>German</li>
-            <li>Hindi</li>
-            <li>Indonesian</li>
-            <li>Italian</li>
-            <li>Japanese</li>
-            <li>Korean</li>
-            <li>Malay</li>
-            <li>Portuguese</li>
-            <li>Russian</li>
-            <li>Spanish</li>
-            <li>Thai</li>
-            <li>Turkish</li>
-            <li>Vietnamese</li>
-          </ul>
+        <div class="localization drop">
+          <h3>To<span class="glyphicon glyphicon-chevron-down"></span></h3>
+          <div class="localization-down">
+            <ul>
+              <li>English</li>
+              <li>Arabic</li>
+              <li>Chinese (Simplified)</li>
+              <li>Chinese (Traditional)</li>
+              <li>French</li>
+              <li>German</li>
+              <li>Hindi</li>
+              <li>Indonesian</li>
+              <li>Italian</li>
+              <li>Japanese</li>
+              <li>Korean</li>
+              <li>Malay</li>
+              <li>Portuguese</li>
+              <li>Russian</li>
+              <li>Spanish</li>
+              <li>Thai</li>
+              <li>Turkish</li>
+              <li>Vietnamese</li>
+            </ul>
+          </div>
         </div>
+        %>
       </div>
-      %>
-    </div>
 
-    <div class="cost">
-      <div class="cost-input">Cost</div>
-      <div class="cost-hover">
-        $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
-        $ | <input type="text" name="cost_to" onkeyup="cost_key();">
+      <div class="cost">
+        <div class="cost-input">Cost</div>
+        <div class="cost-hover">
+          $ | <input type="text" name="cost_from" onkeyup="cost_key();">to&nbsp;
+          $ | <input type="text" name="cost_to" onkeyup="cost_key();">
+        </div>
+        <h5 id="empty">Empty for All</h5>
       </div>
-      <h5 id="empty">Empty for All</h5>
+      
+      <button>Jungggling<img src="/assets/main/search_logo.png"></button>
     </div>
-    
-    <button>Jungggling<img src="/assets/main/search_logo.png"></button>
-  </div>
-  <div class="country-down">
-  </div>
+    <div class="country-down">
+    </div>
+<div style="height:400px;">
 </div>
+  </div>
 </form>
-
-
 <script>
   $('#other').tooltip('show');
 </script>

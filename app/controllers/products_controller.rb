@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class ProductsController < ApplicationController
-
+  before_filter :is_product_controller
   def search_redirect
     product = Product.find(params[:id])
     country = product.procons.where.not(country_id: nil).first.country
