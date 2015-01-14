@@ -73,7 +73,7 @@
       </table>
       <h3>국가별 서비스 현황</h3>
       <table>
-        <tr>
+        <tr class="table-header">
           <th>
             국가명
           </th>
@@ -85,7 +85,7 @@
           </th>
         </tr>
         <%@countries.each do |country|%>
-          <tr>
+          <tr class="table-body">
             <td>
               <%=country.name%>
             </td>
