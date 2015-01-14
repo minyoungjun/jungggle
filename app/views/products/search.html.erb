@@ -61,7 +61,7 @@
               </a>
             </td>
             <td class="country"><%if @country != nil%><%=@country.name%><%else%><%=procon.country.name%><%end%></td>
-            <td class="marketing"><%=product.marketingtype.name%></td>
+            <td class="marketing"><%if product.marketingtype.parent_id == 3%>Online/<%end%><%=product.marketingtype.name%><%if product.marketingtype.is_mobile%><%if product.marketingtype.filter > 2%>(iOS, Android)<%else%>(<%=product.marketingtype.name%>)<%end%><%end%></td>
             <td class="cost">
               <%if product.costs.count > 1%>$<%=product.costs.order(:money).first.money.to_f%> - $<%=product.costs.order(:money).last.money.to_f%><%else%>$<%=product.costs.first.money%><%end%>
               <br><span class="rating">0.0 /</span>&nbsp;<span class="review">0 reviews</span>
