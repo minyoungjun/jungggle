@@ -71,6 +71,33 @@
         </tr>
         <%end%>
       </table>
+      <h3>국가별 서비스 현황</h3>
+      <table>
+        <tr>
+          <th>
+            국가명
+          </th>
+          <th>
+            등록된 회사 수
+          </th>
+          <th>
+            등록된 서비스 수
+          </th>
+        </tr>
+        <%@countries.all.each do |country|%>
+          <tr>
+            <td>
+              <%=country.name%>
+            </td>
+            <td>
+              <%=country.companies.count%>
+            </td>
+            <td>
+              <%=country.procons.count%>
+            </td>
+          </tr>
+        <%end%>
+      </table>
     </div>
   </div>
 </div>

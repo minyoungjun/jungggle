@@ -38,6 +38,9 @@ class ManagesController < ApplicationController
   end
   def analytics
 
+  @countries = Country.include(:procon).sort do |a,b| 
+      a.procons.size <=> b.procons.size
+  end
 
   end
   def destroy_service
