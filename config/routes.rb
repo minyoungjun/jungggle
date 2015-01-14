@@ -101,10 +101,10 @@ Rails.application.routes.draw do
   get '/manages/analytics'
   get '/manages/approve/:id' => "manages#approve"
   get '/manages/privilege/:id' => "manages#privilege"
-  get '/publishers/new_create_introduction'
-  get '/publishers/new_create_cost'
-  get '/publishers/new_create_details'
-  get '/publishers/new_create_company'
+  get 'publishers/new_create_introduction'
+  get 'publishers/new_create_cost'
+  get 'publishers/new_create_details'
+  get 'publishers/new_create_company'
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection

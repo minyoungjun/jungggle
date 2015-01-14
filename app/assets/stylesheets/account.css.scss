@@ -2,28 +2,29 @@
   background-color: #f1f1f1;
 
   .dashbaord {
-    height: 90px;
+    height: 70px;
     .img {
       background-color: #5eb12f;
-      height: 90px;
-      padding: 35px 0;
+      height: 70px;
+      padding: 25px 0;
       display: inline-block;
       width: 180px;
       text-align: center;
       float: left;
     }
     .right-title {
-      font-size: 26px; 
+      font-size: 23px; 
       font-weight: 500; 
-      padding: 31px 30px; 
+      padding: 21px 30px; 
       background-color: white; 
       border-bottom: 1px solid #ddd; 
       float: right; 
       width: 990px;
-      height: 91px;
+      height: 71px;
       img {
         vertical-align: middle;
         margin-right: 12px;
+        //width: 30px;
       }
     }
   }
