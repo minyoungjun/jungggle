@@ -270,6 +270,7 @@
             padding: 15px;
             position: absolute;
             margin-left: 154px;
+            z-index: 100;
             ul {
               li {
                 padding: 7px 0;
@@ -600,6 +601,7 @@
         .traffic-form {
           display: inline-block;
           background-color: white;
+          color: #555;
           border-radius: 5px;
           border: 1px solid #ddd;
           padding: 10px 12px;
@@ -615,6 +617,46 @@
               color: #999;
               top: 3px;
             }
+          }
+          .traffic-dropdown {
+            display: none;
+            background-color: white;
+            width: 140px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 0;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            position: absolute;
+            margin: 11px 0 0 -13px;
+            z-index: 100;
+            ul {
+              li {
+                font-size: 14px;
+                cursor: pointer;
+                padding: 7px 15px;
+              }
+              li:hover {
+                background-color: #5eb12f;
+                color: white;
+              }
+            }
+          }
+          .impressions-dropdown {
+            width: 150px;
+          }
+        }
+        .traffic-form:hover {
+          border-color: #5eb12f;
+          h3 {
+            color: #444;
+            span {
+              color: #555;
+            }
+          }
+          .traffic-dropdown {
+            display: block;
           }
         }
         .traffic-form-area {
