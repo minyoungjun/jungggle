@@ -679,8 +679,6 @@
       }
 
       .share-area {
-        
-        
 
         .share-form {
           display: inline-block;
@@ -691,9 +689,7 @@
           padding: 10px 12px;
           cursor: pointer;
           font-size: 15px;
-          
           text-align: center;
-
 
           input {
             padding: 9px 20px 10px;
@@ -716,7 +712,6 @@
           .share-dropdown {
             display: none;
             background-color: white;
-            
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px 0;
@@ -806,7 +801,6 @@
             margin: 0 0 0 15px;
             img {
               vertical-align: middle;
-
             }
           }
         }
