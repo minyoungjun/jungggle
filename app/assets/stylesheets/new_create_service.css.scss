@@ -677,6 +677,159 @@
           }
         }
       }
+
+      .share-area {
+        
+        
+
+        .share-form {
+          display: inline-block;
+          background-color: white;
+          color: #555;
+          border-radius: 5px;
+          border: 1px solid #ddd;
+          padding: 10px 12px;
+          cursor: pointer;
+          font-size: 15px;
+          
+          text-align: center;
+
+
+          input {
+            padding: 9px 20px 10px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            line-height: 20px;
+          }
+          
+          h3 {
+            color: #666;
+            span {
+              position: relative;
+              float: right;
+              font-size: 11px;
+              color: #999;
+              top: 3px;
+            }
+          }
+          .share-dropdown {
+            display: none;
+            background-color: white;
+            
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 0;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            position: absolute;
+            margin: 11px 0 0 -13px;
+            z-index: 100;
+            text-align: left;
+            ul {
+              li {
+                font-size: 14px;
+                cursor: pointer;
+                padding: 7px 15px;
+              }
+              li:hover {
+                background-color: #5eb12f;
+                color: white;
+              }
+            }
+          }
+        }
+        .share-form:hover {
+          border-color: #5eb12f;
+          h3 {
+            color: #444;
+            span {
+              color: #555;
+            }
+          }
+          .share-dropdown {
+            display: block;
+          }
+        }
+      }
+
+      .company-type-area {
+        $share-form-width: 300px;
+
+        .company-type-form {
+          width: $share-form-width;
+
+          .company-type-dropdown {
+            width: $share-form-width;
+          }
+        }
+      }
+
+      .ad-area {
+        $share-form-width: 150px;
+
+        .ad-form {
+          width: $share-form-width;
+          
+          .ad-dropdown {
+            width: $share-form-width;
+          }
+        }
+      }
+
+      .est-area {
+        $share-form-width: 150px;
+
+        .est-form {
+          width: $share-form-width;
+          
+          .est-dropdown {
+            width: $share-form-width;
+          }
+        }
+      }
+
+      .post-area {
+        .post-right {
+          display: inline-block;
+          input {
+            padding: 7px 20px 8px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            line-height: 20px;
+            margin-right: 10px;
+          }
+          .select {
+            display: inline-block;
+            margin: 0 0 0 15px;
+            img {
+              vertical-align: middle;
+
+            }
+          }
+        }
+      }
+      .writing-area {
+        h2 {
+          line-height: 20px;
+        }
+        .writing-right {
+          vertical-align: top;
+          .select {
+            display: inline-block;
+            width: 120px;
+            img {
+              vertical-align: middle;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+
+
       .est-area {
         .est-form {
           display: inline-block;
@@ -755,6 +908,7 @@
         }
       }
     }
+
     .delete-service-btn {
       float: right;
       font-size: 18px;
