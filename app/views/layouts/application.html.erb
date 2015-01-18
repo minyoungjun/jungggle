@@ -366,12 +366,13 @@ function height_match(){
   $("#left").css("height", "");
   $(".right-height").css("height", "");
   if ($("#left").outerHeight() < $(".right-height").outerHeight()){
-            $("#left").outerHeight($(".right-height").outerHeight());
-      }
-        else{
-            $(".right-height").outerHeight($("#left").outerHeight());
-      }
+        $("#left").outerHeight($(".right-height").outerHeight());
+    }
+    else{
+      $(".right-height").outerHeight($("#left").outerHeight());
+    }
 }
+
 </script>
 
 
