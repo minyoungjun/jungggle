@@ -1,1 +1,272 @@
-introduction
+<!-- new_create-service.css.scss -->
+<div class="new-create-introduction">
+  <div class="share-pack pack1">
+
+    <div class="area marketing-area">
+      <h2>Marketing Type</h2>
+      <div class="select-form">
+        <h3 class="marketing-form">Select<span class="glyphicon glyphicon-chevron-down"></span></h3>
+        <div class="marketing-dropdown">
+          <ul>
+            <li>All</li>
+            <li>AD</li>
+            <li>Promotion</li>
+            <li>Management</li>
+            <li>Test</li>
+            <li>Production</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="area platform-area">
+      <h2>Platform</h2>
+      <div class="platform-select">
+        <img src="/assets/my_account/radio-02.png">All
+      </div>
+      <div class="platform-select">
+        <img src="/assets/my_account/radio-01.png">iOS
+      </div>
+      <div class="platform-select">
+        <img src="/assets/my_account/radio-02.png">Android
+      </div>
+      <p style="margin-top: 12px;">If a service has diffferent Details depending on the platform, you should make a separate service instead of choosing All.</p>
+    </div>
+
+    <div class="area country-area">
+      <h2>Country</h2>
+      <div class="select-form">
+        <h3 class="country-form">Select<span class="glyphicon glyphicon-chevron-down"></span></h3>
+        <div class="country-dropdown">
+          <ul>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 12px;">This is the country where your service will be provided, NOT the country where you're located in.</p>
+    </div>
+    
+    <div class="area translation-area">
+      <h2>Translation</h2>
+      <div class="localization drop">
+        <h3><span id="from_language">Source Language</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
+        <div class="localization-down">
+          <ul>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+          </ul>
+        </div>
+      </div>
+      <img src="/assets/my_account/localization.png" style="margin: 0 10px; vertical-align: middle;">
+      <div class="localization drop" style="margin-left: 0;">
+        <h3><span id="to_language">Target Language</span> <span class="glyphicon glyphicon-chevron-down"></span></h3>
+        <div class="localization-down">
+          <ul>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+            <li>korea</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top: 12px;">Indicate the language to translate and into which language you can translate it.</p>
+    </div>
+  </div>
+  <div class="share-pack pack2">
+    <div class="area">
+      <h2>Service Name</h2>
+      <input type="text" class="input-area">
+    </div>
+    <div class="area">
+      <h2 style="vertical-align: top; position: relative; top: 12px;">Service Summary</h2>
+      <textarea rows="5" class="text-area"></textarea>
+    </div>
+  </div>
+  <div class="share-pack pack3">
+    <div class="area">
+      <h2 style="line-height: 22px;">Attach Service Introduction (Optional)</h2>
+      <div class="upload-btn">
+        <img src="/assets/my_account/new_create/attach_upload.png">
+        Choose a document from your computer
+      </div>
+      <p>Attach Service Introduction, Media Kit or other documents that can explain more details about your service.<br>* 25MB file size limit</p>
+    </div>
+  </div>
+  <div class="share-pack pack4">
+    <div class="area">
+      <table>
+        <tr>
+          <td><h2>Service Contents</h2></td>
+          <td class="input-box">
+            <input type="text" class="input-area"><img src="/assets/my_account/delete.png" class="delete">
+            <input type="text" class="input-area"><img src="/assets/my_account/delete.png" class="delete">
+            <input type="text" class="input-area"><img src="/assets/my_account/delete.png" class="delete">
+            <br>
+            <img src="/assets/my_account/circle_plus.png" class="plus">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="info">
+            <p style="margin-top: 10px;">Please explain everything that you will offer through your service. <br>This information will be important for Advertisers to decide about the purchase.</p>
+            <p>Note : You must completely provide the offers mentioned above in order to receive full payment <br>after finishing the project.</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="delete-service-btn">
+    <h3><img src="/assets/my_account/new_create/delete-btn.png">Delete Service</h3>
+  </div>
+  <br>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup1" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup1</h1></div>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup2" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup2</h1></div>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup3" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup3</h1></div>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup4" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup4</h1></div>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup5" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup5</h1></div>
+  <div class="test" data-toggle="modal" data-target="#Modal-popup6" style="display: inline-block;"><h1 style="display: inline-block; margin: 0 10px;">popup6</h1></div>
+</div>
+
+
+<!-- popup1-Modal -->
+<div class="modal fade" id="Modal-popup1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup1">
+    <div class="modal-content modal-popup1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>You have unsaved changes</h1>
+        <div class="credit-amount">
+          <p class="amount">Please save or discard your changes to continue.</p>
+        </div>
+        <button type="button" class="btn-complete" data-dismiss="modal">Save</button>
+        <button type="button" class="btn-complete" data-dismiss="modal">Discard Changes</button>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup2-Modal -->
+<div class="modal fade" id="Modal-popup2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup2">
+    <div class="modal-content modal-popup2">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Delete your service</h1>
+        <div class="credit-amount">
+          <p class="amount">Are you sure you want to delete your service? This action cannot<br>be undone and will immediately delete this service from the system.</p>
+        </div>
+        <p>Enter your password for verification:</p>
+        <input type="password"><p>Wrong password!</p>
+        <button type="button" class="btn-complete" data-dismiss="modal">Delete Service</button>
+        <p>No, never mind</p>
+        <div class="footer">
+          <p>Tell us if there is anything need to be improved or need additional slots on format of creating service.</p>
+          <a href="#none">->Go and give some feedbacks</a>
+        </div>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup3-Modal -->
+<div class="modal fade" id="Modal-popup3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup3">
+    <div class="modal-content modal-popup3">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Oops..</h1>
+        <div class="credit-amount">
+          <p class="amount">Addingg Additional information can be allowed for maximum 3 slots.</p>
+        </div>
+        <button type="button" class="btn-complete" data-dismiss="modal">I got it</button>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup4-Modal -->
+<div class="modal fade" id="Modal-popup4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup4">
+    <div class="modal-content modal-popup4">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Oops..</h1>
+        <div class="credit-amount">
+          <p class="amount">You forgot to fill in the information on Details page.</p>
+        </div>
+        <p>- Est. Result for cost $4,000</p>
+        <p>- Integration Support for cost $1,000</p>
+        <button type="button" class="btn-complete" data-dismiss="modal">I got it</button>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup5-Modal -->
+<div class="modal fade" id="Modal-popup5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup5">
+    <div class="modal-content modal-popup5">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Oops..</h1>
+        <div class="credit-amount">
+          <p class="amount">You have to select Marketing Type first in Introduction page<br>in order to view Details page. </p>
+        </div>
+        <button type="button" class="btn-complete" data-dismiss="modal">I got it</button>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup6-Modal -->
+<div class="modal fade" id="Modal-popup6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup6">
+    <div class="modal-content modal-popup6">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Ready to launch service?</h1>
+        <h3>Before launching your service, take a moment to review our rules.</h3>
+        <div class="credit-amount">
+          <p>Service Cost must be same with regular price.</p>
+          <p>Jungggle charges 3.8% - 5.4% fee when the purchase occurred from Advertisers.</p>
+          <p>If cost or detail information changes, update the information ASAP in Jungggle.</p>
+          <p>Not prepared.</p>
+          <p>Not prepared.</p>
+        </div>
+        <h3>This is part of our terms and you can check more in below. This is not just general terms, but it's very important rules for you to sell your services in Jungggle</h3>
+        <a href="#none">More about our rules</a>
+        <button type="button" class="btn-complete" data-dismiss="modal" data-toggle="modal" data-target="#Modal-popup6-1">Agree &amp; Complete</button>
+        <button type="button" class="btn-complete" data-dismiss="modal">Go back to revise</button>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- popup6-1-Modal -->
+<div class="modal fade" id="Modal-popup6-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popup6-1">
+    <div class="modal-content modal-popup6-1">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h1>Service Launched!</h1>
+        <h3>Thanks for being our partner!</h3>
+        <div class="credit-amount">
+          <p>We will make our best effort in various way to increase sales opportuniy for Service Providers.</p>
+          <p>We will notice you through email when Advertisers<br>purchase your service or have any questions with your service.</p>
+          <p>Please update your service details and cost regularly if there is any change.</p>
+        </div>
+        <a href="#none">
+          <button type="button" class="btn-complete" data-dismiss="modal">Confirm</button>
+        </a>
+      </div>  
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
