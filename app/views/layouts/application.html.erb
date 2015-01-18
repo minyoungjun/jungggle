@@ -145,7 +145,25 @@ function search_auto_func(){
 
 
 
-
+  <script>
+$(function(){
+    
+    $(document).ready(function(){
+      if(parseInt($("#marketing_hidden").val()) != 1){
+        marketing_click_search($("#marketing_hidden").val());
+      
+        }
+        if(parseInt($("#country_hidden").val()) != 0){
+        country_select_search($("#country_hidden").val());
+      
+      }
+      if(parseInt($("#platform_hidden").val()) != 0){
+        platform_click_search($("#country_hidden").val() );
+        }
+      });
+    
+    });
+  </script>
 
   <div class="nav" <%if @main || @is_product_controller != 1%>style="display:none;"<%end%>>
 <%if !(@main)  %>
@@ -282,6 +300,7 @@ function country_select_search(id){
   $("#country_text_search").html($("#country_" + id).html());
   $("#country_hidden").val(id);
 }
+
 function marketing_click_search(id){
   $("#marketing_text").html($("#marketing_li_search_" + id).html());
   $("#marketing_hidden").val(id);
@@ -290,7 +309,6 @@ function marketing_click_search(id){
       $(".platform").show();
     }else{
       $(".platform").hide();
-    
     }
 
 }
