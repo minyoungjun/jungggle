@@ -13,12 +13,15 @@
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active">Introduction</li>
-          <li data-target="#myCarousel" data-slide-to="1">Cost</li>
-          <li data-target="#myCarousel" data-slide-to="2">Details</li>
-          <li data-target="#myCarousel" data-slide-to="3">Company profile</li>
+          <li data-target="#myCarousel" data-slide-to="0" class="active"><img src="/assets/my_account/new_create/tab_complete.png">Introduction</li>
+          <img src="/assets/my_account/new_create/tab_bar.png" style="margin: 0">
+          <li data-target="#myCarousel" data-slide-to="1"><img src="/assets/my_account/new_create/tab_incomplete.png">Cost</li>
+          <img src="/assets/my_account/new_create/tab_bar.png" style="margin: 0">
+          <li data-target="#myCarousel" data-slide-to="2"><img src="/assets/my_account/new_create/tab_complete.png">Details</li>
+          <img src="/assets/my_account/new_create/tab_bar.png" style="margin: 0">
+          <li data-target="#myCarousel" data-slide-to="3"><img src="/assets/my_account/new_create/tab_complete.png">Company profile</li>
         </ol>
-        <br><br>
+        
         <!-- Carousel items -->
         <div class="carousel-inner" style="background-color: #eeeeee;">
           <div class="item active">
@@ -63,7 +66,7 @@
 
 <script>
   $('.carousel').carousel({
-    wrap: true;
-  })
+  interval: false
+})
 </script>
 

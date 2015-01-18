@@ -5820,6 +5820,7 @@ button.close {
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding: 30px 30px 100px;
 }
 .carousel-inner > .item {
   display: none;
@@ -5827,6 +5828,7 @@ button.close {
   -webkit-transition: 0.6s ease-in-out left;
   -o-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
+
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -5860,6 +5862,7 @@ button.close {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
     left: 0;
+
   }
 }
 .carousel-inner > .active,
@@ -5875,6 +5878,7 @@ button.close {
   position: absolute;
   top: 0;
   width: 100%;
+  padding: 30px 30px 100px;
 }
 .carousel-inner > .next {
   left: 100%;
@@ -5964,7 +5968,7 @@ button.close {
   content: '\203a';
 }
 .carousel-indicators {
-  position: absolute;
+  //position: absolute;
   //bottom: 10px;
   //left: 100%;
   //z-index: 15;
@@ -5991,6 +5995,7 @@ button.close {
   //width: 12px;
   //height: 12px;
   background-color: #ffffff;
+
 }
 .carousel-caption {
   position: absolute;
@@ -6031,7 +6036,7 @@ button.close {
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: 20px;
+    //bottom: 20px;
   }
 }
 .clearfix:before,
