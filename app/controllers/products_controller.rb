@@ -106,7 +106,15 @@ class ProductsController < ApplicationController
     end
 
     @products = (@products_array[0] & @products_array[1] & @products_array[2] ).sort_by(&:updated_at).reverse
+    @products_count = @products.count
 
+    if @products.count == 0
+      @products = @products_array[1]
+    end
+
+    if @products.count == 0
+      @products = @products_array[1]
+    end
 
   end
   def comdocument
