@@ -1,0 +1,60 @@
+<!-- new_new_create.css.scss -->
+
+<div class="new-create-cost account create-share">
+  <div class="container">
+    <div class="dashbaord">
+      <div class="img">
+        <img src="/assets/my_account/dashboard.png">
+      </div>
+    </div>
+    <%= render "/home/left"%>
+
+    <div class="tab-cost right-height" id="right">
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"><img src="/assets/my_account/new_create/tab_complete.png">Introduction<img src="/assets/my_account/new_create/tab_bar.png" class="tab-bar" style="left: 55px;"></li>
+          <li data-target="#myCarousel" data-slide-to="1"><img src="/assets/my_account/new_create/tab_incomplete.png">Cost<img src="/assets/my_account/new_create/tab_bar.png" class="tab-bar" style="left: 86px;"></li>
+          <li data-target="#myCarousel" data-slide-to="2"><img src="/assets/my_account/new_create/tab_complete.png">Details<img src="/assets/my_account/new_create/tab_bar.png" class="tab-bar" style="left: 76px;"></li>
+          <li data-target="#myCarousel" data-slide-to="3"><img src="/assets/my_account/new_create/tab_complete.png">Company profile</li>
+        </ol>
+        
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="item active right-height" id="right">
+             <%=render "createintroduction"%>
+          </div>
+          <div class="item right-height" id="right">
+             <%=render "createcost"%>
+          </div>
+          <div class="item right-height" id="right">
+             <%=render "createdetails"%>
+          </div>
+          <div class="item">
+             <h1>test4</h1>
+             <p>Flat Rate :  When the cost of a service is fixed.</p>
+                <p>Multiple Rate : When you can designate the cost range or multiple costs for a service.<br>(If a service has diffferent Details depending on the cost, <span>you should make a separate service</span><br>instead of choosing Multiple Rate.)</p>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  <div class="save-bar">
+    <div class="container">
+      <div class="left preview-btn">Preview</div>
+      <div class="right">
+        <h3>Discard changes</h3>
+        <div class="save-btn">Save</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('.carousel').carousel({
+  interval: false
+})
+</script>
+

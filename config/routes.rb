@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   get 'publishers/new_create_cost'
   get 'publishers/new_create_details'
   get 'publishers/new_create_company'
+  get 'publishers/new_new_create'
 
   resources "home" do
     get :autocomplete_company_name, :on => :collection
