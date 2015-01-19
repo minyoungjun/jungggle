@@ -27,10 +27,14 @@
           width: 196px;
           text-align: center;
           margin: 0 20px;
-          color: #777;
+          //color: #777;
           font-weight: 500;
           img {
             margin-right: 10px;
+          }
+          .tab-bar {
+            margin: 0;
+            position: relative;
           }
         }
         li:hover {

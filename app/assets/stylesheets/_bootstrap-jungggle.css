@@ -5862,7 +5862,6 @@ button.close {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
     left: 0;
-
   }
 }
 .carousel-inner > .active,
@@ -5989,13 +5988,16 @@ button.close {
   cursor: pointer;
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
+  color: #999;
+  line-height: 63px;
 }
 .carousel-indicators .active {
   margin: 0;
   //width: 12px;
   //height: 12px;
-  background-color: #ffffff;
-
+  //background-color: #eeeeee;
+  color: #444;
+  border-bottom: 4px solid #444;
 }
 .carousel-caption {
   position: absolute;
