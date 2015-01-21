@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :is_login, except: [:email_confirmation, :company_parse]
   before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation, :company_parse]
-  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse, :discard_member ]
+  before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse, :discard_member, :reconfirm ]
 
 
   def privilege
