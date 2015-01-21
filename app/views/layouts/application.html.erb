@@ -160,9 +160,20 @@ $(function(){
       if(parseInt($("#platform_hidden").val()) != 0){
         platform_click_search($("#platform_hidden_hidden").val() );
         }
-      });
+        });
     
     });
+
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
   </script>
 
   <div class="nav" <%if @main || @is_product_controller != 1%>style="display:none;"<%end%>>
