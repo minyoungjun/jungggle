@@ -253,8 +253,8 @@ function validate(evt) {
         <div class="cost">
           <input type="text" value="Cost" id="fake_cost">
           <div class="cost-hover">
-            $ | <input type="text" name="cost_from" onkeyup="cost_key();" style="padding-left: 0;">to&nbsp;
-            $ | <input type="text" name="cost_to" onkeyup="cost_key();" style="padding-left: 0;">
+            $ | <input type="text" name="cost_from" onkeyup="cost_key();" onkeypress='validate(event)' style="padding-left: 0;">to&nbsp;
+            $ | <input type="text" name="cost_to" onkeyup="cost_key();" onkeypress='validate(event)' style="padding-left: 0;">
           </div>
         </div>         
       </div>
