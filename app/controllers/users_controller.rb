@@ -262,6 +262,7 @@ class UsersController < ApplicationController
   end
 
   def reconfirm
+    @user = current_user
     if current_user.confirmed_at == nil
       @already = false
       User.send_confirmation_email(current_user.id)
