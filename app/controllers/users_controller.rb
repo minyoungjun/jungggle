@@ -76,17 +76,20 @@ class UsersController < ApplicationController
   def email_confirmation
       @user = User.find(params[:id])
     if @user.confirmed_at != nil
-      render :text => "Your Email is confirmed already!"
+      redirect_to :action => "reconfirm"
     elsif @user.confirmation_token == params[:token]
+      @renewed = false
       @user.confirmed_at = Time.now
       @user.save
       @user.usernotis.where(:notification_id => 1).each do |usernoti|
         usernoti.is_deleted = true
         usernoti.save
       end
+
       @user.send_welcome_email
+
     else
-      render :text => "fail"
+      @renewed = true
     end
   end
 

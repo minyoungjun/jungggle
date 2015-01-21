@@ -4,7 +4,7 @@
   <%if @already%>
     <h2> "Your email has been confirmed already."
   <%else%>
-    <h2> "Confirmation Mail was resent. (<%=@user.email%>)!"</h2>
+    <h2> "Confirmation Mail was resent. (<%=@user.email%>) Please confirm in 30 minutes."</h2>
     <a href="/users/reconfirm" class="let-btn">Resend</a>
   <%end%>
 </div>

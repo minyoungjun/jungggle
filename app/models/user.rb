@@ -85,15 +85,22 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.send_confirmation_email(id)
     user = User.find(id)
-    user.confirmation_token = SecureRandom.hex(15)
-    RestClient.post "https://api:key-d9dd9c0e53befa87a8e213df42ba5da0"\
-      "@api.mailgun.net/v2/jungggle.com/messages",
-      :from => "Jungggle <admin@jungggle.com>",
-      :to => user.email,
-      :subject => "[Jungggle] Please confirm your e-mail address",
-      :html => "<h1>Welcome to Jungggle!</h1><p style='line-height: 23px; font-size: 15px; font-weight: 400;'>Thanks again for joining us, the best way to buy & sell marketing service. <br><br>Your account is ready to go.<br>Email: #{user.email}<br><br>Please confirm your e-mail address to protect our relationship with you.</p><a href='http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}'>http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}</a><br><br><br><h4 style='font-size: 16px; line-height: 23px;'>Thanks for your support!<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
-    user.confirmation_sent_at = Time.now
-    user.save
+    if (Time.now - user.confirmataion_sent_at) > 30.second
+
+      if (Time.now - user.confirmation_sent_at) > 5.minute
+        user.confirmation_token = SecureRandom.hex(15)
+        user.confirmation_sent_at = Time.now
+        user.save
+      end
+
+      RestClient.post "https://api:key-d9dd9c0e53befa87a8e213df42ba5da0"\
+        "@api.mailgun.net/v2/jungggle.com/messages",
+        :from => "Jungggle <admin@jungggle.com>",
+        :to => user.email,
+        :subject => "[Jungggle] Please confirm your e-mail address",
+        :html => "<h1>Welcome to Jungggle!</h1><p style='line-height: 23px; font-size: 15px; font-weight: 400;'>Thanks again for joining us, the best way to buy & sell marketing service. <br><br>Your account is ready to go.<br>Email: #{user.email}<br><br>Please confirm your e-mail address to protect our relationship with you.</p><a href='http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}'>http://jungggle.com/confirmation/#{user.id}?token=#{user.confirmation_token}</a><br><br><br><h4 style='font-size: 16px; line-height: 23px;'>Thanks for your support!<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
+
+    end
   end
 
   def send_welcome_email
@@ -103,7 +110,7 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
       :from => "Jungggle <admin@jungggle.com>",
       :to => user.email,
       :subject => "Welcome to Jungggle!",
-      :html => "<h1>Thank you for joining Jungggle!<h1><p style='line-height: 23px; font-size: 14px; font-weight: 400; margin-top: 12px;'>We are excited to welcome you to Jungggle and are looking forward to a successful partnership. <br> Jungggle allows you to find the right solutions for your business to buy and sell marketing services. For advertisers, Jungggle collects and organizes data from marketing companies around the globe. Through Jungggle's filtering mechanism, you can easily find local marketing companies that suit your needs. For service providers, you can now conduct direct sales not only to your local client but also to global clients. You no longer have to exchange countless emails to provide detailed information.</p><br><h4 style='line-height: 23px;'>Discover <span style='text-decoration: underline;'>Jungggle</span><Br>Continue to explore the website and get started right away!<br>Questions? Contact <a href='http://jungggle.com'>Jungggle</a></h4><br><br><h4 style='line-height:23px; font-size: 15px;'>Best,<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
+      :html => "<h1>Thank you for joining Jungggle!<h1><p style='line-height: 23px; font-size: 14px; font-weight: 400; margin-top: 12px;'>We are excited to welcome you to Jungggle and are looking forward to a successful partnership. <br> Jungggle allows you to find the right solutions for your business to buy and sell marketing services.<br>For advertisers, Jungggle collects and organizes data from marketing companies around the globe.<br>Through Jungggle's filtering mechanism, you can easily find local marketing companies that suit your needs.<br>For service providers, you can now conduct direct sales not only to your local client but also to global clients.<br>You no longer have to exchange countless emails to provide detailed information.</p><br><h4 style='line-height: 23px;'>Discover <span style='text-decoration: underline;'>Jungggle</span><Br>Continue to explore the website and get started right away!<br>Questions? Contact <a href='http://jungggle.com'>Jungggle</a></h4><br><br><h4 style='line-height:23px; font-size: 15px;'>Best,<br>Team Jungggle</h4><img src='http://jungggle.com/assets/main/header-logo.png'/>"
   end
 
   def user_notify(id)

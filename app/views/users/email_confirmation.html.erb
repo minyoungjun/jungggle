@@ -1,6 +1,10 @@
 <!-- log.css.scss -->
 
 <div class="email-confirm container">
-  <h2> "Your email (<%=@user.email%>) is confirmed!"</h2>
-  <a href="/" class="let-btn">Let's Jungggle!</a>
-</div>
+  <%if @renewed %>
+    <h3>You have to confirm your email in 30 minutes.</h3>
+    <a href="/users/reconfirm" class="let-btn">Resend</a>
+  <%else%>
+    <h2> "Your email (<%=@user.email%>) is confirmed!"</h2>
+    <a href="/" class="let-btn">Let's Jungggle!</a>
+  <%end%> </div>
