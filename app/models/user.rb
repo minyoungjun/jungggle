@@ -115,7 +115,7 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
       case id
       when 1
-        usernoti.content = "Please confirm you email address, a confirm mail was sent to #{self.email} <a href='#'><span class='underline'>resend confirmation</span></a>"
+        usernoti.content = "Please confirm your email address, a confirm mail was sent to #{self.email} <a href='/users/reconfirm'><span class='underline'>resend confirmation</span></a>"
       when 2
         usernoti.content = "The confirm message is resent to #{self.email}"
       when 3

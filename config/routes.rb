@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   match '/users/signup_process' => 'users#signup_process', via: [:get]
   post '/users/confirm' => 'users#confirm'
+  get '/users/reconfirm' => 'users#reconfirm'
+
   get '/users/company_parse/:id' => 'users#company_parse'
   get '/users/discard_member'
   get '/users/approve/:id' => "users#approve"

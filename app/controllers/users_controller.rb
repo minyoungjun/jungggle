@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_filter :is_login, except: [:email_confirmation, :company_parse]
   before_filter :sns_confirmed, except: [:confirm, :signup_process, :email_confirmation, :company_parse]
   before_filter :is_confirmed, except: [:confirm, :signup_process, :email_confirmation, :finish_signup, :signup_company, :company, :members, :company_parse, :discard_member ]
-  
+
+
   def privilege
     member = Member.find(params[:id])
     if member.company.members.where(:owner => true).first.user_id == current_user.id
@@ -258,6 +259,15 @@ class UsersController < ApplicationController
     end
     redirect_to :root
 
+  end
+
+  def reconfirm
+    if current_user.confirmed_at == nil
+      @already = false
+      User.send_confirmation_email(current_user.id)
+    else
+      @already = true
+    end
   end
 
   def confirm

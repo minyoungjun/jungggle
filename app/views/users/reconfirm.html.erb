@@ -1,0 +1,10 @@
+<!-- log.css.scss -->
+
+<div class="email-confirm container">
+  <%if @already%>
+    <h2> "Your email has been confirmed already."
+  <%else%>
+    <h2> "Confirmation Mail was resent. (<%=@user.email%>)!"</h2>
+    <a href="/users/reconfirm" class="let-btn">Resend</a>
+  <%end%>
+</div>
