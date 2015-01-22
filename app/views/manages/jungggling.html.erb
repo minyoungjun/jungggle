@@ -25,7 +25,7 @@
           </tr>
           <%@country_marketing.each do |cm|%>
             <%country = cm[0]%>
-            <tr rowspan="<%=cm[1].count%>" class="table-body">
+            <tr colspan="<%=cm[1].count%>" class="table-body">
                 <td>
                   <%=country.name%>
                 </td>
