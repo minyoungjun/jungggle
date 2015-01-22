@@ -87,9 +87,9 @@ validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.send_confirmation_email(id)
     user = User.find(id)
-    if (Time.now - user.confirmation_sent_at) > 30.second
+    if (Time.now - Time.parse(user.confirmation_sent_at)) > 30.second
 
-      if (Time.now - user.confirmation_sent_at) > 5.minute
+      if (Time.now - Time.parse(user.confirmation_sent_at)) > 5.minute
         user.confirmation_token = SecureRandom.hex(15)
         user.confirmation_sent_at = Time.now
         user.save
