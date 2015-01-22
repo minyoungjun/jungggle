@@ -82,7 +82,11 @@
                 <%=marketing.name%>
               </td>
               <td>
-                <%=marketing.searchings_count%>
+                <%if @date_nil%>
+                  <%=marketing.searchings_count%>
+                <%else%>
+                  <%=marketing.searchings.where("created_at >= ? AND created_at <= ?", DateTime.parse(@from_date), DateTime.parse(@to_date) + 1.day).count%>
+                <%end%>
               </td>
             </tr>
           <%end%>

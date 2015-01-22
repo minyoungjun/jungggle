@@ -50,14 +50,17 @@ class ManagesController < ApplicationController
     marketing_array = Array.new
     if params[:from_date] == nil || params[:to_date] == nil
       searching = Searching
+      @date_nil = true
 
     else
       searching = Searching.where("created_at >= ? AND created_at <= ?", DateTime.parse(params[:from_date]), DateTime.parse(params[:to_date]) + 1.day)
+      @date_nil = false
+      @from_date = params[:from_date]
+      @to_date = params[:to_date]
     end
 
 
     @country_marketing << [{"name" => "국가 ALL로 선택", "searchings_count" => Searching.where(:country_id => 0).count}, marketing_array]
-
 
       Marketingtype.where.not(:searchings_count => 0).each do |marketing|
 
