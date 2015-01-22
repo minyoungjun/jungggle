@@ -288,7 +288,6 @@ class ManagesController < ApplicationController
   end
 
 
-
   def edit_service
     @product = Product.find(params[:id])
   end

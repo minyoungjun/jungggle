@@ -22,7 +22,13 @@
           <td>
             Count
           </td>
-          </tr>
+        </tr>
+        <tr class="table-body">
+          <td>국가 All로 검색</td>
+          <td>
+            <%=Searching.where(:marketingtype_id => nil).count%>
+          </td>
+        </tr>
           <%@country_marketing.each do |cm|%>
             <%country = cm[0]%>
             <%cm_count = 0%>
@@ -46,7 +52,21 @@
               </tr>
             <%end%>
           <%end%>
-      </table>
+        </table>
+
+        <h3>마케팅타입별 검색순위</h3>
+        <table>
+          <tr class="table-header">
+            <%=marketingtype%>
+          </tr>
+          <%Marketingtype.where.not(:searchings_count => 0).each do |marketing|%>
+            <tr class="table-body">
+              <td>
+                <%=marketing.searchings_count%>
+              </td>
+            </tr>
+          <%end%>
+        </table>
     </div>
   </div>
 </div>
