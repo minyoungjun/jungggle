@@ -42,6 +42,9 @@
           <td>
             company owner
           </td>
+          <td>
+            삭제하기
+          </td>
         </tr>
         <%User.all.each do |user|%>
           <tr class="table-body">
@@ -67,6 +70,9 @@
                   <a href="/manages/privilege/<%=user.member.id%>">owner</a>
               <%end%>
             <%end%>
+          </td>
+          <td>
+            <a href="/manages/delete_user/<%=user.id%>">delete</a>
           </td>
         </tr>
         <%end%>

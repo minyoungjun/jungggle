@@ -2,6 +2,12 @@ class ManagesController < ApplicationController
   before_filter :is_login
   before_filter :is_admin
 
+
+  def delete_user
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to :action => "analytics"
+  end
   def approve
     member = Member.find(params[:id])
     if params[:type].to_i == 0

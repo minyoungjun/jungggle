@@ -1,6 +1,7 @@
 require "open-uri"
 require 'rest_client'
 class User < ActiveRecord::Base
+  acts_as_paranoid
   devise :database_authenticatable, :registerable, 
         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
    TEMP_EMAIL_PREFIX = 'change@me'
