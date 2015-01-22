@@ -135,8 +135,8 @@ class ProductsController < ApplicationController
     if @products.count == 0
       @products = @products_array[1]
     end
-    if searching.marketingtype == nil
-      searching.marketingtype = 1
+    if @marketing == nil
+      searching.marketingtype_id = 1
     end
 
     searching.save
