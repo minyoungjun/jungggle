@@ -24,11 +24,6 @@
           </td>
         </tr>
         <tr class="table-body">
-          <td>국가 All로 검색</td>
-          <td>
-            <%=Searching.where(:marketingtype_id => nil).count%>
-          </td>
-        </tr>
           <%@country_marketing.each do |cm|%>
             <%country = cm[0]%>
             <%cm_count = 0%>
