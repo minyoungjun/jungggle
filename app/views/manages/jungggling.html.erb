@@ -24,6 +24,7 @@
           </td>
         </tr>
         <tr class="table-body">
+          <%all_count = 0 %>
           <%@country_marketing.each do |cm|%>
             <%country = cm[0]%>
             <%cm_count = 0%>
@@ -33,10 +34,18 @@
               <tr class="table-body">
                 <%if cm_count == 0%>
                   <td rowspan="<%=cm[1].count%>">
-                    <%=country.name%>
+                    <%if all_count == 0%>
+                      <%=country["name"]%>
+                    <%else%>
+                      <%=country.name%>
+                    <%end%>
                   </td>
                   <td rowspan="<%=cm[1].count%>">
-                    <%=country.searchings_count%>
+                    <%if all_count == 0%>
+                      <%=country["searchings_count"]%>
+                    <%else%>
+                      <%=country.searchings_count%>
+                    <%end%>
                   </td>
                   <%cm_count = 1%>
                 <%end%>
