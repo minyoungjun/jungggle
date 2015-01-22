@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many  :biddings
   has_many  :identities
   has_many  :usernotis
+  has_many  :searchings
 
 
 validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update

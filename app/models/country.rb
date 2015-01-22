@@ -1,6 +1,7 @@
 class Country < ActiveRecord::Base
   has_many :procons
   has_many  :companies
+  has_many  :searchings
 
   def self.able_list
 

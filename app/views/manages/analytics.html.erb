@@ -29,6 +29,7 @@
             <td><%has_count = 0%><%Company.all.each do |company|%><%if company.products.count != 0%><%has_count += 1%><%end%><%end%><%=has_count%></td>
           </tr>
         </table>
+
         <h3>사용자들 정보</h3>
       <table>
         <tr class="table-header">

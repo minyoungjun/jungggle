@@ -21,6 +21,13 @@ class ProductsController < ApplicationController
 
   def search
 
+    searching = Searching.new
+    if user_signed_in?
+      searching.user_id = current_user.id
+    end
+    searching.country_id = params[:country]
+    searching.cost_from = params[:cost_from]
+    searching.cost_to = params[:cost_to]
     @products_array = Array.new
     
     0.upto(2) do |x|
@@ -63,7 +70,7 @@ class ProductsController < ApplicationController
       if (10 < params[:marketing].to_i) && (params[:marketing].to_i < 60)
         if params[:platform].to_i != 0
           @marketing = Marketingtype.find(params[:marketing].to_i + params[:platform].to_i + 1)
-
+          searching.platform = params[:platform]
 
           if params[:marketing].to_i == 11
             if params[:platform].to_i == 1
@@ -93,6 +100,9 @@ class ProductsController < ApplicationController
       else
         @marketing = Marketingtype.find(params[:marketing])
       end
+
+      searching.marketingtype_id = @marketing.id
+
       @marketing.subtypes.each do |subtype|
         
         subtype.products.each do |product|
@@ -124,6 +134,8 @@ class ProductsController < ApplicationController
     if @products.count == 0
       @products = @products_array[1]
     end
+
+    searching.save
 
   end
   def comdocument

@@ -14,6 +14,8 @@ gem 'omniauth-linkedin'
 #soft delete
 gem "paranoia", "~> 2.0"
 
+#counter ceche
+gem 'counter_culture', '~> 0.1.23'
 
 gem 'rest_client'
 #active admin

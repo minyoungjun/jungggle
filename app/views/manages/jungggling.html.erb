@@ -1,0 +1,44 @@
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>
+    <div class="right-manage-service right-height">
+      <h1>Jungggling 분석 for Admin</h1>
+      
+      <div class="sub-title">
+        <h3>국가-마케팅타입 필터 검색 순위</h3>
+      </div>
+
+      <table>
+        <tr class="table-header">
+          <td>
+            Country
+          </td>
+          <td>
+            Total
+          </td>
+          <td>
+            Marketing type
+          </td>
+          <td>
+            Count
+          </td>
+          </tr>
+          <%@country_marketing.each do |cm|%>
+            <%country =  cm[0]%>
+            <%marketing = cm[1][0]%>
+            <%count = cm[1][1]%>
+          <tr class="table-body">
+            <td >
+              <%=country.name%>
+            </td>
+            <td><%=marketing.name%>
+            <td>
+              <%=count%>
+            </td>
+          </tr>
+        <%end%>
+
+      </table>
+    </div>
+  </div>
+</div>

@@ -42,6 +42,24 @@ class ManagesController < ApplicationController
     end
     redirect_to :action => "analytics"
   end
+
+  def jungggling
+
+    @country_marketing = Array.new
+    @countries = Country.where.not(:searchings_count => 0)
+
+    @countries.each do |country|
+      marketing_array = Array.new
+      @country_marketing << [country, marketing_array]
+      Marketingtype.all.each do |marketing|
+        marketing_array << [marketing, country.searchings.where(:marketingtype_id => marketing.id).count]
+      end
+    end
+
+  end
+
+
+
   def analytics
 
   @countries = Country.includes(:procons).sort do |a,b| 

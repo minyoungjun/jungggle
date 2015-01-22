@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   get '/manages/approve/:id' => "manages#approve"
   get '/manages/privilege/:id' => "manages#privilege"
   get '/manages/delete_user/:id' => "manages#delete_user"
+  get '/manages/jungggling' => "manages#jungggling"
   get 'publishers/new_create_introduction'
   get 'publishers/new_create_cost'
   get 'publishers/new_create_details'
