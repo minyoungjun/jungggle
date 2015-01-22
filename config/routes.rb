@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   post '/users/confirm' => 'users#confirm'
   get '/users/reconfirm' => 'users#reconfirm'
 
+
   get '/users/company_parse/:id' => 'users#company_parse'
   get '/users/discard_member'
   get '/users/approve/:id' => "users#approve"
@@ -103,6 +104,7 @@ Rails.application.routes.draw do
   get '/manages/analytics'
   get '/manages/approve/:id' => "manages#approve"
   get '/manages/privilege/:id' => "manages#privilege"
+  get '/manages/delete_user/:id' => "manages#delete_user"
   get 'publishers/new_create_introduction'
   get 'publishers/new_create_cost'
   get 'publishers/new_create_details'
