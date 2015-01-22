@@ -102,6 +102,7 @@ class ProductsController < ApplicationController
       end
 
       searching.marketingtype_id = @marketing.id
+      
 
       @marketing.subtypes.each do |subtype|
         
@@ -133,6 +134,9 @@ class ProductsController < ApplicationController
 
     if @products.count == 0
       @products = @products_array[1]
+    end
+    if searching.marketingtype == nil
+      searching.marketingtype = 1
     end
 
     searching.save
