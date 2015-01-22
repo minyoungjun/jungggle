@@ -57,10 +57,19 @@
         <h3>마케팅타입별 검색순위</h3>
         <table>
           <tr class="table-header">
-            <%=marketingtype%>
+            <td>
+              Marketing Type
+            </td>
+            <td>
+              Count
+            </td>
           </tr>
+
           <%Marketingtype.where.not(:searchings_count => 0).each do |marketing|%>
             <tr class="table-body">
+              <td>
+                <%=marketing.name%>
+              </td>
               <td>
                 <%=marketing.searchings_count%>
               </td>
