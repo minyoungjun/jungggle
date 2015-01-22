@@ -53,7 +53,7 @@ class ManagesController < ApplicationController
 
       Marketingtype.where.not(:searchings_count => 0).each do |marketing|
 
-        count = Searchings.where(:marketingtype_id => marketing.id, :country_id => 0)
+        count = Searching.where(:marketingtype_id => marketing.id, :country_id => 0)
         if count != 0
           marketing_array << [marketing, count]
         end
