@@ -7,10 +7,9 @@ class UsersController < ApplicationController
 
   def privilege
     member = Member.find(params[:id])
-    if member.company.members.where(:owner => true).first.user_id == current_user.id
+    if member.company.members.where(:owner => true, :user_id => current_user.id).count != 0
       member.owner = true
       member.save
-
     end
     redirect_to :action => "members"
   end
