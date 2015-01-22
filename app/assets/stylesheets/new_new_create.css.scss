@@ -44,7 +44,22 @@
       /* Carousel items */
       .carousel-inner {
         padding: 30px 30px 100px;
+        .bottom-bar {
+          //border-top : 4px solid #444;
+          //border-top-width: 196px;
+        }
         .item {
+          .bottom-bar {
+            border-bottom: 4px solid #444;
+            width: 196px;
+            position: relative;
+            bottom: 30px;
+            left: 7px;
+          }
+          .bottom-bar-2 {
+            left: 30px;
+          }
+
 
           /* new-create-introduction-tab */
           .new-create-introduction {
