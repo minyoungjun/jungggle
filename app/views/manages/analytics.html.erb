@@ -29,9 +29,6 @@
             <td><%has_count = 0%><%Company.all.each do |company|%><%if company.products.count != 0%><%has_count += 1%><%end%><%end%><%=has_count%></td>
           </tr>
         </table>
-        <br>
-        <a href="/manages/jungggling"><div class="btn">Jungggling 검색 분석 보러가기</div></a>
-        <br>
 
         <h3>사용자들 정보</h3>
       <table>
