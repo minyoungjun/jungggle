@@ -3,7 +3,13 @@
     <%= render "/home/left"%>
     <div class="right-manage-service right-height">
       <h1>Jungggling 분석 for Admin</h1>
-      
+      <br>
+      <form action="/manages/jungggling" method="get" >
+
+        기간<input type="date" name= "from_date">부터 
+        <input type="date" name="to_date">까지
+        <input type="submit" value="기간 검색">
+      </form>
       <div class="sub-title">
         <h3>국가-마케팅타입 필터 검색 순위</h3>
       </div>
