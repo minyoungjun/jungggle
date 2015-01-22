@@ -25,18 +25,20 @@
           </tr>
           <%@country_marketing.each do |cm|%>
             <%country = cm[0]%>
-            <tr class="table-body">
-                <td rowspan="<%=cm[1].count%>">
-                  <%=country.name%>
-                </td>
-            </tr>
+            <%cm_count = 0%>
             <%cm[1].each do |marketing_array|%>
               <%marketing = marketing_array[0]%>
               <%count = marketing_array[1] %>
               <tr class="table-body">
-                <td>
-                  <%=country.searchings_count%>
-                </td>
+                <%if cm_count = 0%>
+                  <td rowspan="<%=cm[1].count%>">
+                    <%=country.name%>
+                  </td>
+                  <td rowspan="<%=cm[1].count%>">
+                    <%=country.searchings_count%>
+                  </td>
+                  <%cm_count = 1%>
+                <%end%>
                 <td><%=marketing.name%>
                 <td>
                   <%=count%>
