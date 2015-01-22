@@ -48,7 +48,7 @@ class ManagesController < ApplicationController
     @country_marketing = Array.new
     @countries = Country.where.not(:searchings_count => 0)
     marketing_array = Array.new
-    @country_marketing << [["name" => "국가 ALL로 선택", "searchings_count" => Searching.where(:country_id => 0).count], marketing_array]
+    @country_marketing << [{"name" => "국가 ALL로 선택", "searchings_count" => Searching.where(:country_id => 0).count}, marketing_array]
 
 
       Marketingtype.where.not(:searchings_count => 0).each do |marketing|
