@@ -9,6 +9,7 @@ class Company < ActiveRecord::Base
     medium: '300x300>'
   }
   belongs_to :country
+  counter_culture :country
   has_many :members
   has_many :products
   has_many :comlangs

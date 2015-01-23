@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   belongs_to  :marketingtype
+  counter_culture :marketingtype
   belongs_to :company
   has_many  :prolangs
   has_many  :costs

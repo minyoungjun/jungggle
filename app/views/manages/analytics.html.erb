@@ -101,11 +101,34 @@
               <%=country.companies.count%>
             </td>
             <td>
-              <%=country.procons.count%>
+              <%=country.procons_count%>
             </td>
           </tr>
         <%end%>
       </table>
+      <h3>마케팅타입별 올라온 수</h3>
+      <table class="table-header">
+        <tr>
+          <td>
+            Marketing Type
+          </td>
+          <td>
+            Count
+          </td>
+        </tr>
+        <%@marketingtypes.each do |marketing|%>
+          <tr>
+            <td>
+              <%=marketing.name%>
+            </td>
+            <td>
+              <%=marketing.products_count%>
+            </td>
+          </tr>
+        <%end%>
+      </table>
+
+
     </div>
   </div>
 </div>

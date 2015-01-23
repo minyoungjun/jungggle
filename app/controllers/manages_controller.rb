@@ -89,9 +89,9 @@ class ManagesController < ApplicationController
 
   def analytics
 
-  @countries = Country.includes(:procons).sort do |a,b| 
-      b.procons.size <=> a.procons.size
-  end
+    @countries = Country.order(:procons_count)
+    @marketingtypes = Marketingtype.order(:products_count)
+
 
   end
   def destroy_service
