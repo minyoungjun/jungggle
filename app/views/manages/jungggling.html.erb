@@ -87,7 +87,7 @@
             </td>
           </tr>
 
-          <%Marketingtype.where.not(:searchings_count => 0).each do |marketing|%>
+          <%Marketingtype.where.not(:searchings_count => 0).order(:searchings_count).reverse.each do |marketing|%>
             <tr class="table-body">
               <td>
 
