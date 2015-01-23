@@ -46,7 +46,7 @@ class ManagesController < ApplicationController
   def jungggling
 
     @country_marketing = Array.new
-    @countries = Country.where.not(:searchings_count => 0)
+    @countries = Country.where.not(:searchings_count => 0).order(:searchings_count).reverse
     marketing_array = Array.new
     if params[:from_date] == nil || params[:to_date] == nil
       searching = Searching
