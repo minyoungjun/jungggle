@@ -89,8 +89,8 @@ class ManagesController < ApplicationController
 
   def analytics
 
-    @countries = Country.order(:procons_count)
-    @marketingtypes = Marketingtype.where.not(:products_count => 0).order(:products_count)
+    @countries = Country.order(:procons_count).reverse
+    @marketingtypes = Marketingtype.where.not(:products_count => 0).order(:products_count).reverse
 
 
   end
