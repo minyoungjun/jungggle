@@ -98,18 +98,10 @@
               <%=country.name%>
             </td>
             <td>
-              <%if country.companies_count != 0%>
-                <%=country.companies_count%>
-              <%else%>
-                <%=country.companies.count%>
-              <%end%>
+              <%=country.companies_count%>
             </td>
             <td>
-              <%if country.procons_count != 0%>
-                <%=country.procons_count%>
-              <%else%>
-                <%=country.procons.count%>
-              <%end%>
+              <%=country.procons_count%>
             </td>
           </tr>
         <%end%>
@@ -130,11 +122,7 @@
               <%=marketing.name%>
             </td>
             <td>
-              <%if marketing.products_count != 0%>
-                <%=marketing.products_count%>
-              <%else%>
-                <%marketing.products.count%>
-              <%end%>
+              <%=marketing.products_count%>
             </td>
           </tr>
         <%end%>
