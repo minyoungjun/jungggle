@@ -98,17 +98,25 @@
               <%=country.name%>
             </td>
             <td>
-              <%=country.companies.count%>
+              <%if country.companies_count != 0%>
+                <%=country.companies_count%>
+              <%else%>
+                <%=country.companies.count%>
+              <%end%>
             </td>
             <td>
-              <%=country.procons_count%>
+              <%if country.procons_count != 0%>
+                <%=country.procons_count%>
+              <%else%>
+                <%=country.procons.count%>
+              <%end%>
             </td>
           </tr>
         <%end%>
       </table>
       <h3>마케팅타입별 올라온 수</h3>
-      <table class="table-header">
-        <tr>
+      <table >
+        <tr  class="table-header">
           <td>
             Marketing Type
           </td>
@@ -117,12 +125,16 @@
           </td>
         </tr>
         <%@marketingtypes.each do |marketing|%>
-          <tr>
+          <tr  class="table-body">
             <td>
               <%=marketing.name%>
             </td>
             <td>
-              <%=marketing.products_count%>
+              <%if marketing.products_count != 0%>
+                <%=marketing.products_count%>
+              <%else%>
+                <%marketing.products.count%>
+              <%end%>
             </td>
           </tr>
         <%end%>
