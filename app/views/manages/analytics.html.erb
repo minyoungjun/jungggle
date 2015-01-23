@@ -119,7 +119,17 @@
         <%@marketingtypes.each do |marketing|%>
           <tr  class="table-body">
             <td>
-              <%=marketing.name%>
+                <%if marketing.parent_type != nil%>
+                  <%if marketing.parent_type.parent_type != nil%>
+                    <%if marketing.parent_type.parent_type.parent_type != nil%>
+                      <%=marketing.parent_type.parent_type.parent_type.name%> /
+                    <%end%>
+                    <%=marketing.parent_type.parent_type.name%> /
+                  <%end%>
+                    <%=marketing.parent_type.name%> /
+                  <%end%>
+                  <%=marketing.name%>
+                
             </td>
             <td>
               <%=marketing.products_count%>

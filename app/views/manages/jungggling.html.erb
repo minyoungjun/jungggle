@@ -56,7 +56,18 @@
                   <%all_count = 1%>
                   <%cm_count = 1%>
                 <%end%>
-                <td><%=marketing.name%>
+                <td>
+                <%if marketing.parent_type != nil%>
+                  <%if marketing.parent_type.parent_type != nil%>
+                    <%if marketing.parent_type.parent_type.parent_type != nil%>
+                      <%=marketing.parent_type.parent_type.parent_type.name%> /
+                    <%end%>
+                    <%=marketing.parent_type.parent_type.name%> /
+                  <%end%>
+                    <%=marketing.parent_type.name%> /
+                  <%end%>
+                  <%=marketing.name%>
+                  
                 <td>
                   <%=count%>
                 </td>
@@ -79,7 +90,18 @@
           <%Marketingtype.where.not(:searchings_count => 0).each do |marketing|%>
             <tr class="table-body">
               <td>
-                <%=marketing.name%>
+
+                <%if marketing.parent_type != nil%>
+                  <%if marketing.parent_type.parent_type != nil%>
+                    <%if marketing.parent_type.parent_type.parent_type != nil%>
+                      <%=marketing.parent_type.parent_type.parent_type.name%> /
+                    <%end%>
+                    <%=marketing.parent_type.parent_type.name%> /
+                  <%end%>
+                    <%=marketing.parent_type.name%> /
+                  <%end%>
+                  <%=marketing.name%>
+
               </td>
               <td>
                 <%if @date_nil%>
