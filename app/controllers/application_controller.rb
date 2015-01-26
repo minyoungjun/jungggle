@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def cost_params
-    params[:cost_from] = params[:cost_from].gsub(',','').to_f
-    params[:cost_to] = params[:cost_to].gsub(',','').to_f
+    if params[:cost_from] != nil
+      params[:cost_from] = params[:cost_from].gsub(',','').to_f
+    end
+    if params[:cost_to] != nil
+      params[:cost_to] = params[:cost_to].gsub(',','').to_f
+    end
   end
 
   def is_product_controller
