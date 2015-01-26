@@ -2,7 +2,7 @@ require 'open-uri'
 
 class ProductsController < ApplicationController
   before_filter :is_product_controller
-  before_filter :cost_params, :only [:search]
+  before_filter :cost_params
 
   def search_redirect
     product = Product.find(params[:id])
