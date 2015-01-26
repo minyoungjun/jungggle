@@ -1,5 +1,4 @@
 <!-- account.css.scss -->
-
 <div class="account">
   <div class="container">
     <div class="dashbaord">
@@ -9,60 +8,14 @@
       <h1 class="right-title"><img src="/assets/my_account/right-billing.png">Billing</h1>
     </div>
     <%=render "/home/left"%>
-
-
     <div class="right-billing right-height">
-      <form action="/advertisers/add_credit" method="post">
-      <div class="sub-title">
-        <h3>Current Jugggle Credit : <span><%=number_to_currency(@user.credit, precision: 0)%></span></h3>
-        <div class="sub-title-left">
-          <p>Add Credit</p>
-
-            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-            <input type="text" class="add" placeholder="$" name="amount">
-            <div class="checkout-btn" >Checkout Now</div>
-            <div class="checkout-btn" data-toggle="modal" data-target="#Checkout-Now-kr">Checkout (kr)</div>
-        </div>
-      </div>
-      </form>
-      <table>
-        <tr class="table-header">
-          <td>Date Invice</td>
-          <td>Details</td>
-          <td>Payment Method</td>
-          <td>Amount</td>
-          <td>Invoice</td>
-        </tr>
-        <%@billings.each do |billing|%>
-        <tr class="table-body">
-            <td><%=billing.date.to_s[0..3]%>.<%=billing.date.to_s[5..6]%>.<%=billing.date.to_s[8..9]%></td>
-            <td><%=billing.detail%></td>
-            <td><%=billing.payment_method%></td>
-
-            <td class="<%if billing.status == 0%><%elsif billing.amount < 0%>font-big<%else%>font-sm<%end%>">
-              <%if billing.status != 0%>
-                <%=number_to_currency(billing.amount, precision: 0)%>
-              <%else%>
-                Pending...
-              <%end%>
-              
-            </td>
-            <td class="invoice">View</td>
-          </tr>
-        <%end%>
-      </table>
-        <%= paginate @billings %>
-
-        <br><br><br><br><br><hr><br><br><br><p>민영씨~ 여기부터 작업할께요! 위에 코드가 있어서요~</p><br><br><br><hr><br><br><br><br>
-
-
-        <h3 class="title">Current Jungggle Credit : <span class="credit">$2,500</span></h3>
+      <h3 class="title">Current Jungggle Credit : <span class="credit"><%=number_to_currency(current_user.credit, :unit => "$")%></span></h3>
         <div class="checkout-filter">
           <div class="add-credit">
             <h3>Add Credit</h3>
             <div class="input-area">
               <h5 class="dollar">$</h5>
-              <input type="text">
+              <input type="text" class="autonumeric">
             </div>
           </div>
           <div class="billing-country">
@@ -73,21 +26,9 @@
               </div>
               <div class="country-drop">
                 <ul>
-                  <li>Albania</li>
-                  <li>Algeria</li>
-                  <li>Angola</li>
-                  <li>Antigua &amp; Barbuda</li>
-                  <li>Armenia</li>
-                  <li>Australia</li>
-                  <li>Austria</li>
-                  <li>Azerbaijan</li>
-                  <li>Bahamas</li>
-                  <li>Bahrain</li>
-                  <li>Bangladesh</li>
-                  <li>Belarus</li>
-                  <li>Belgium</li>
-                  <li>Belize</li>
-                  <li>Brazil</li>
+                  <%Country.all.each do |country|%>
+                    <li><%=country.name%></li>
+                  <%end%>
                 </ul>
               </div>
             </div>
@@ -213,7 +154,7 @@
           <h3><img src="/assets/my_account/warning_icon.png">You Must Know!</h3>
           You must make sure that you send the fee with charging the commision to <span style="font-size: 16px; font-weight: 500;">"Sender"</span>  when you proceed the wire transfer in your local bank.
         </div>
-        <button type="button" class="btn-complete" data-dismiss="modal">Close</button>     
+        <a href="/advertisers/invoice" target="_blank"><div class="btn-complete">Invoice</div></a>
       </div>
       
     </div><!-- /.modal-content -->

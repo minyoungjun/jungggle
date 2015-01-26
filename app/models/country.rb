@@ -3,6 +3,8 @@ class Country < ActiveRecord::Base
   has_many  :companies
   has_many  :searchings
 
+  default_scope  { order(:name => :asc) }
+
   def self.able_list
 
     countries = Array.new

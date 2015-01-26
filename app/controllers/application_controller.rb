@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def cost_params
+    params[:cost_from] = params[:cost_from].gsub(',','').to_f
+    params[:cost_to] = params[:cost_to].gsub(',','').to_f
+  end
+
   def is_product_controller
     @is_product_controller = 1
   end

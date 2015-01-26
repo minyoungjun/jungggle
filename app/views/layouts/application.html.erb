@@ -163,17 +163,6 @@ $(function(){
         });
     
     });
-
-function validate(evt) {
-  var theEvent = evt || window.event;
-  var key = theEvent.keyCode || theEvent.which;
-  key = String.fromCharCode( key );
-  var regex = /[0-9]|\./;
-  if( !regex.test(key) ) {
-    theEvent.returnValue = false;
-    if(theEvent.preventDefault) theEvent.preventDefault();
-  }
-}
   </script>
 
   <div class="nav" <%if @main || @is_product_controller != 1%>style="display:none;"<%end%>>
@@ -253,8 +242,8 @@ function validate(evt) {
         <div class="cost">
           <input type="text" value="Cost" id="fake_cost">
           <div class="cost-hover">
-            $ | <input type="text" name="cost_from" onkeyup="cost_key();" onkeypress='validate(event)' style="padding-left: 0;">to&nbsp;
-            $ | <input type="text" name="cost_to" onkeyup="cost_key();" onkeypress='validate(event)' style="padding-left: 0;">
+            $ | <input type="text" name="cost_from" onkeyup="cost_key();" class="autonumeric" style="padding-left: 0;">to&nbsp;
+            $ | <input type="text" name="cost_to" onkeyup="cost_key();"  style="padding-left: 0;"  class="autonumeric">
           </div>
         </div>         
       </div>
@@ -271,9 +260,7 @@ function validate(evt) {
 <%end%>
 
 
-  <%#
-    <h5 class="account-update">Your account has been updated.</h5>
-  %>
+
 <%= yield %>
 
 
@@ -384,6 +371,12 @@ function height_match(){
     }
 }
 
+</script>
+<script>
+
+jQuery(function($) {
+        $('.autonumeric').autoNumeric('init');
+        });
 </script>
 
 

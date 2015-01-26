@@ -44,6 +44,17 @@
       $("#contact_type").val(id);
       $(".select_radio").attr("src", "/assets/my_account/radio-01.png");
       $("#select_" + id).attr("src", "/assets/my_account/radio-02.png");
+      switch (id)
+      {
+        case  0: $("#content").attr("placeholder", "Need any Help? Reach out to us. Your Happiness is our no.1 priority.");
+                          break;
+        case  1: $("#content").attr("placeholder", "We highly appreciate your feedback. Please share your opinion with us.");
+                          break;
+        case  2: $("#content").attr("placeholder", "We are ready to answer press inquiries or media related questions.");
+                          break;
+      
+      }
+
     }
 
 function ajax_function(){

@@ -2,6 +2,7 @@ require 'open-uri'
 
 class ProductsController < ApplicationController
   before_filter :is_product_controller
+  before_filter :cost_params
 
   def search_redirect
     product = Product.find(params[:id])
@@ -40,10 +41,10 @@ class ProductsController < ApplicationController
       Cost.where("money >= ? AND money <= ?", params[:cost_from].to_f, params[:cost_to].to_f).each do |cost|
         @products_array[order_number] << cost.product
 
-        @cost_alert = "$#{params[:cost_from]} to $#{params[:cost_to]}"
       end
+    @cost_alert = "$#{params[:cost_from]} to $#{params[:cost_to]}"
         
-    elsif params[:cost_from] != nil #최소만 설정돼있음 얼마이상
+    elsif params[:cost_from] != "" #최소만 설정돼있음 얼마이상
 
       Cost.where("money >= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
@@ -51,7 +52,7 @@ class ProductsController < ApplicationController
 
       @cost_alert = "from $#{params[:cost_from]}"
 
-    elsif params[:cost_to] != nil #최대금액만있음
+    elsif params[:cost_to] != "" #최대금액만있음
 
       Cost.where("money <= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
