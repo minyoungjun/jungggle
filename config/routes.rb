@@ -82,7 +82,7 @@ Rails.application.routes.draw do
   get 'users/finish_signup'
   post 'users/signup_company'
   get 'confirmation/:id' => "users#email_confirmation"
-
+  
   get 'users/finish_signup2'
   get 'users/email_confirm'
   get 'home/ready'
