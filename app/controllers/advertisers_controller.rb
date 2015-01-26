@@ -1,4 +1,25 @@
 class AdvertisersController < ApplicationController
+  before_filter :is_login
+  before_filter :sns_confirmed
+  before_filter :is_confirmed
+  before_filter :credit_params
+
+  def check_out
+    billing = Billing.new
+    billing.user_id = current_user.id
+    billing.amount = params[:amount]
+    billing.status = 0
+    billing.date = Time.now
+    billing.detail = "Jungggle Credit(Add)"
+    billing.payment_method = 0
+    if billing.save
+      render :json => ["success"]
+    else
+      render :json => ["fail"]
+    end
+
+  end
+
   def biddings
 
     @selected = "biddings"

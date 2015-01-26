@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   post 'advertisers/add_credit'
   get 'advertisers/new_bidding'
   post 'advertisers/new_process'
+
+  post 'advertisers/check_out'
+
+
   get "/products/attachment/:id" => "products#attachment"
   get "/products/comdocument/:id" => "products#comdocument"
 

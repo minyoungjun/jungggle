@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def credit_params
+    if params[:amount] != nil
+      params[:amount] = params[:amount].gsub(',','').to_f
+    end
+
+  end
   def cost_params
     if params[:cost_from] != nil
       params[:cost_from] = params[:cost_from].gsub(',','').to_f

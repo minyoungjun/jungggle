@@ -5,7 +5,7 @@ class CreateBillings < ActiveRecord::Migration
       t.integer :status, :default => 0  #0: pending, 1: charge, 2: spent
       t.datetime :date
       t.string  :detail
-      t.string  :payment_method
+      t.integer  :payment_method #0: Wire Transfer, 1: Jungggle Credit
       t.integer :amount
 
       t.timestamps
