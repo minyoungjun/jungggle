@@ -389,25 +389,25 @@
 
     .cost {
       display: inline-block;
-      width: 200px;
+      min-width: 200px;
       border: 1px solid #ddd;
       position: relative;
       font-size: 14px;
       right: 5px;
       .cost-input {
+        display: inline-block;
         padding: 20px;
         text-align: left;
       }
 
       .cost-hover {
         display: none;
-        position: absolute;
         bottom: 0;
         padding: 11px 5px;
         background-color: white;
-        width: 197px;
+        min-width: 197px;
         input {
-          width: 58px;
+          min-width: 58px;
           display: inline-block;
           margin: 0 7px 0 0;
           padding: 6px 4px;
@@ -424,8 +424,11 @@
     }
     .cost:hover {
       border-color: #5bb33a;
+      .cost-input {
+        display:none;
+      }
       .cost-hover {
-        display: block;
+        display: inline-block;
         color: #5bb33a;
       }
       h5 {

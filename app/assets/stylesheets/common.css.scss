@@ -505,7 +505,7 @@ body {
     }
     .cost {
       display: inline-block;
-      width: 180px;
+      min-width: 180px;
       border: 1px solid #eee;
       position: relative;
       font-size: 13px;
@@ -520,20 +520,22 @@ body {
       }
       .cost-hover {
         display: none;
-        position: absolute;
         bottom: 0;
         padding-left: 10px;
         background-color: white;
         border: 0;
         border-radius: 5px;
         input {
-          width: 50px;
+          min-width: 50px;
           display: inline-block;
           margin: 0 3px;
         }
       }
     }
     .cost:hover {
+      .cost-input {
+        display:none;
+      }
       .cost-hover {
         display: block;
         color: #5bb33a;

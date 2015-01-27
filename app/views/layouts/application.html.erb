@@ -240,7 +240,7 @@ $(function(){
 
       <div class="btn-group" style="margin-left: 2px;">
         <div class="cost">
-          <input type="text" value="Cost" id="fake_cost">
+          <input type="text" value="Cost" disabled class="cost-input">
           <div class="cost-hover">
             $ | <input type="text" name="cost_from" onkeyup="cost_key();" class="autonumeric" style="padding-left: 0;">to&nbsp;
             $ | <input type="text" name="cost_to" onkeyup="cost_key();"  style="padding-left: 0;"  class="autonumeric">
@@ -316,8 +316,9 @@ function platform_click_search(id){
 }
 function cost_key(){
   $(".cost").css("border-color", "#5bb33a");
-  $(".cost-hover").css("display", "block");
+  $(".cost-hover").css("display", "inline-block");
   $(".cost-hover").css("color", "#5bb33a");
+  $(".cost-input").css("display", "none")
   $("#empty").css("display", "block");
 
 }
@@ -377,6 +378,21 @@ function height_match(){
 jQuery(function($) {
         $('.autonumeric').autoNumeric('init');
         });
+
+
+function resizeInput() {
+  $(this).attr('size', $(this).val().length);
+
+}
+function firstInput() {
+
+  $(this).attr('size', '1');
+}
+$('.cost-hover input[type="text"]')
+    // event handler
+  .keyup(resizeInput)
+  .each(firstInput)
+
 </script>
 
 
