@@ -68,13 +68,46 @@ function select_country(id){
 
         <p class="history">Billing History</p>
         <table class="history-table">
-          <tr class="table-header">
+          <tr class="table-header" id="table-header">
             <td class="date">Date</td>
             <td>Details</td>
             <td>Payment Method</td>
             <td class="amount">Amount</td>
             <td><p class="view">View</p></td>
           </tr>
+          <%@billings.each do |billing|%>
+            <tr class="table-body">
+              <td class="date">
+                <%=billing.date_view%>
+              </td>
+              <td>
+                <%=billing.detail%>
+              </td>
+              <td>
+                <%case billing.payment_method%>
+                <%when 0%>
+                  Wire Transfer
+                <%when 1%>
+                  Jungggle Credit
+                <%end%>
+              </td>
+              <td class="amount">
+                <%if billing.status != 0%>
+                  <%=billing.amount%>
+                <%else%>
+                  Pending
+                <%end%>
+              </td>
+              <td>
+                <%case billing.status%>
+                <%when 0%>
+            <a href="/home/account_billing_invoice"><p class="view invoice">Invoice</p></a>
+                <%end%>
+              </td>
+            </tr>
+          <%end%>
+
+
           <tr class="table-body">
             <td class="date">2014. 7. 17</td>
             <td>Jungggle Credit (Add)</td>
@@ -180,7 +213,7 @@ function select_country(id){
           Your order for buying Jungggle Credit has successfully received and the invoice for your order has issued.<br> 
           It usually takes 1 business day to receving the fee after you transfer the fee through your local bank.
         </p>
-        <h3 class="check-amount">CheckOut Amount : <span>USD</span><span>10,000</span></h3>
+        <h3 class="check-amount">CheckOut Amount : <span>USD</span><span id="checkout_amount"></span></h3>
         <div class="know">
           <h3><img src="/assets/my_account/warning_icon.png">You Must Know!</h3>
           You must make sure that you send the fee with charging the commision to <span style="font-size: 16px; font-weight: 500;">"Sender"</span>  when you proceed the wire transfer in your local bank.
@@ -372,6 +405,10 @@ success: function(data){
 if (data[0] == "success"){
   $("#add-credit").modal('hide');
   $("#Modal-add-credit-complete").modal();
+  $('#table-header').after('<tr class="table-body"><td class="date">' + data[1] + '</td><td>Jungggle Credit (Add)</td><td>Wire Transfer</td><td class="amount">Pending</td><td><a href="/advertisers/invoice/' + data[2] + '"><p class="view invoice">Invoice</p></a></td></tr>');
+  $("#checkout_amount").html(data[3]);
+  $("#checkout_amount").autoNumeric('init');
+
   }else{
 
     alert("Sorry! Internal Error, Try again...");
@@ -381,11 +418,7 @@ if (data[0] == "success"){
 error: function(){
   alert("Sorry! Internal Error, Try again...");
 }
-      
-      
       })
-
-
 }
 </script>
 

@@ -10,10 +10,10 @@ class AdvertisersController < ApplicationController
     billing.amount = params[:amount]
     billing.status = 0
     billing.date = Time.now
-    billing.detail = "Jungggle Credit(Add)"
+    billing.detail = "Jungggle Credit (Add)"
     billing.payment_method = 0
     if billing.save
-      render :json => ["success"]
+      render :json => ["success", billing.date_view, billing.id, billing.amount]
     else
       render :json => ["fail"]
     end
@@ -60,17 +60,5 @@ class AdvertisersController < ApplicationController
 
     @billings = @user.billings.order('created_at DESC').page(params[:page]).per(6)
 
-  end
-  def add_credit
-    user = current_user
-    billing = Billing.new
-    billing.user_id = user.id
-    billing.detail = "Jungggle Credit"
-    billing.date = Time.now
-    billing.payment_method = "Wire Transfer"
-    billing.amount = params[:amount]
-    billing.status = 0
-    billing.save
-    redirect_to :back
   end
 end

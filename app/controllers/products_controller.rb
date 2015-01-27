@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
     end
 
     order_number = 0
-    if params[:cost_from] != "" && params[:cost_to] != ""
+    if params[:cost_from] != 0 && params[:cost_to] != 0
 
       Cost.where("money >= ? AND money <= ?", params[:cost_from].to_f, params[:cost_to].to_f).each do |cost|
         @products_array[order_number] << cost.product
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
       end
     @cost_alert = "$#{params[:cost_from]} to $#{params[:cost_to]}"
         
-    elsif params[:cost_from] != "" #최소만 설정돼있음 얼마이상
+    elsif params[:cost_from] != 0 #최소만 설정돼있음 얼마이상
 
       Cost.where("money >= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
       @cost_alert = "from $#{params[:cost_from]}"
 
-    elsif params[:cost_to] != "" #최대금액만있음
+    elsif params[:cost_to] != 0 #최대금액만있음
 
       Cost.where("money <= ?", params[:cost_from].to_f).each do |cost|
         @products_array[order_number] << cost.product
