@@ -103,6 +103,79 @@ function search_auto_func(){
         <ul>
           <!-- <li><a href="#none">Biddings</a></li>-->
           <li><a href="/home/ready_search_detail">Project Results</a></li>
+          <li class="cart">
+            <h3>cart</h3>
+            <div class="cart-modal">
+              <div class="cart-header">
+                <h1>5 ITEMS</h1>
+                <div class="close">Close X</div>
+              </div>
+              <div class="cart-body">
+                <table>
+                  <tr class="table-header">
+                    <td class="company-logo"></td>
+                    <td class="service-name-area">Service Name</td>
+                    <td>Cost</td>
+                    <td>Quantity</td>
+                  </tr>
+                  <tr class="table-body">
+                    <td style="padding-left: 20px;">
+                      <div class="logo-img">
+                        <img src="/assets/cart/sample_logo.png">
+                      </div>
+                    </td>
+                    <td class="service-name-area">
+                      <p class="compnay-name">company name</p>
+                      <p class="service-name">service name</p>
+                    </td>
+                    <td class="fix-cost">$1,000</td>
+                    <td>
+                      <div class="input-group spinner">
+                        <input type="text" class="form-control" value="42">
+                        <div class="input-group-btn-vertical">
+                          <button class="btn btn-default"><i class="fa fa-caret-up"></i></button>
+                          <button class="btn btn-default"><i class="fa fa-caret-down"></i></button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="table-body">
+                    <td style="padding-left: 20px;">
+                      <div class="logo-img">
+                        <img src="/assets/cart/sample_logo.png">
+                      </div>
+                    </td>
+                    <td class="service-name-area">
+                      <p class="compnay-name">company name</p>
+                      <p class="service-name">service name</p>
+                    </td>
+                    <td class="fix-cost">$1,000</td>
+                    <td>
+                      <div class="input-group spinner">
+                        <input type="text" class="form-control" value="42">
+                        <div class="input-group-btn-vertical">
+                          <button class="btn btn-default"><i class="fa fa-caret-up"></i></button>
+                          <button class="btn btn-default"><i class="fa fa-caret-down"></i></button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="cart-footer">
+                <h1><span>Total :</span><br>$1,000,000</h1>
+                <button>CHECKOUT NOW</button>
+              </div>
+            </div>
+
+          </li>
+            
+
+
+
+
+
+
           <%if !(user_signed_in?)%>
             <li><a href="/users/sign_in" class="login-btn">Log In</a></li>
             <li><a href="/users/sign_up" class="signup-btn">Sign Up</a></li>
@@ -392,8 +465,21 @@ $('.cost-hover input[type="text"]')
     // event handler
   .keyup(resizeInput)
   .each(firstInput)
-
 </script>
+
+
+<script>
+
+  (function ($) {
+    $('.spinner .btn:first-of-type').on('click', function() {
+      $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+    });
+    $('.spinner .btn:last-of-type').on('click', function() {
+      $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+    });
+  })(jQuery);
+</script>
+
 
 
 </body>
