@@ -104,11 +104,11 @@ function search_auto_func(){
           <!-- <li><a href="#none">Biddings</a></li>-->
           <li><a href="/home/ready_search_detail">Project Results</a></li>
           <li class="cart">
-            <h3>cart</h3>
-            <div class="cart-modal">
+            <h3 onclick="$('.cart-modal').toggle();" style="cursor:pointer;">cart</h3>
+            <div class="cart-modal" style="display:none;">
               <div class="cart-header">
                 <h1>5 ITEMS</h1>
-                <div class="close">Close X</div>
+                <div class="close" onclick="$('.cart-modal').hide();">Close X</div>
               </div>
               <div class="cart-body">
                 <table>
@@ -181,7 +181,7 @@ function search_auto_func(){
             <li><a href="/users/sign_up" class="signup-btn">Sign Up</a></li>
           <%end%>
         </ul>
-        <div class="log-name"><%if current_user != nil%><a href="/users/edit"><img src="<%if current_user.avatar_file_name == nil%><%fb_identity = current_user.identities.where(:provider => "facebook").first%><%if fb_identity != nil%>https://graph.facebook.com/v2.1/<%=fb_identity.uid%>/picture?type=square<%else%>/assets/main/log-img.png<%end%><%else%><%=current_user.avatar.url(:thumb)%><%end%>"> <%=current_user.first_name%> <%=current_user.last_name%> <img src="/assets/main/menu.png" class="contents"></a><%end%>
+        <div class="log-name"><%if user_signed_in?%><a href="/users/edit"><%if current_user.member != nil && current_user.member.company != nil && current_user.member.company.logo_file_name != nil%><img src="<%=current_user.member.company.logo.url(:thumb)%>" style="border-radius:0;"/><%else%><img src="<%if current_user.avatar_file_name == nil%><%fb_identity = current_user.identities.where(:provider => "facebook").first%><%if fb_identity != nil%>https://graph.facebook.com/v2.1/<%=fb_identity.uid%>/picture?type=square<%else%>/assets/main/log-img.png<%end%><%else%><%=current_user.avatar.url(:thumb)%><%end%>"><%end%> <%=current_user.first_name%> <%=current_user.last_name%> <img src="/assets/main/menu.png" class="contents"></a><%end%>
           <div class="log-info-hover">
             <div class="log-info-account">
               <h4 class="title">My Account</h4>
@@ -471,11 +471,11 @@ $('.cost-hover input[type="text"]')
 <script>
 
   (function ($) {
-    $('.spinner .btn:first-of-type').on('click', function() {
-      $('.spinner input').val( parseInt($('.spinner input').val(), 10) + 1);
+    $('.spinner .btn:first-of-type').click(function() {
+      $(this).parent().parent().children('input').val( parseInt($('.spinner input').val(), 10) + 1);
     });
     $('.spinner .btn:last-of-type').on('click', function() {
-      $('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
+      $(this).parent().parent().children('input').val( parseInt($('.spinner input').val(), 10) - 1);
     });
   })(jQuery);
 </script>

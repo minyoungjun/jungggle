@@ -1,0 +1,110 @@
+<div class="account">
+  <div class="container">
+    <%= render "/home/left"%>
+    <div class="right-manage-service right-height">
+      <h1>Billing Administration</h1>
+      <br>
+
+      <div class="sub-title">
+        <h3>Pending Billing(계좌 확인 전)</h3>
+      </div>
+
+      <table>
+        <tr class="table-header">
+          <td>
+            Time
+          </td>
+          <td>
+            Amount
+          </td>
+          <td>
+            Company
+          </td>
+          <td>
+            User
+          </td>
+          <td>
+            Money
+          </td>
+          <td>
+            Cancel
+          </td>
+        </tr>
+        <tr class="table-body">
+          <%@pendings.each do |billing|%>
+            <tr class="table-body">
+              <td>
+                <%=billing.date%>
+              </td>
+              <td>
+                <%=number_to_currency(billing.amount, unit: "")%> USD
+              </td>
+              <td>
+                <%if billing.user.member != nil && billing.user.member.company!= nil%>
+                  <%=billing.user.member.company.comlangs.first.name%>
+                <%end%>
+              </td>
+              <td>
+                <%=billing.user.email%>
+              </td>
+              <td>
+                <a href="/manages/money_confirm/<%=billing.id%>"><div>Confirm</div></a>
+              </td>
+              <td>
+                <a href="#"><div>Delete</div></a>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+
+
+      <div class="sub-title">
+        <h3>Income(확인 완료된 Wire transfer 입금)</h3>
+      </div>
+
+      <table>
+        <tr class="table-header">
+          <td>
+            Time
+          </td>
+          <td>
+            Amount
+          </td>
+          <td>
+            Company
+          </td>
+          <td>
+            User
+          </td>
+          <td>
+            Cancel
+          </td>
+        </tr>
+        <tr class="table-body">
+          <%@confirmed.each do |billing|%>
+            <tr class="table-body">
+              <td>
+                <%=billing.date%>
+              </td>
+              <td>
+                <%=number_to_currency(billing.amount)%>
+              </td>
+              <td>
+                <%if billing.user.member != nil && billing.user.member.company!= nil%>
+                  <%=billing.user.member.company.comlangs.first.name%>
+                <%end%>
+              </td>
+              <td>
+                <%=billing.user.email%>
+              </td>
+              <td>
+                <a href="/manages/money_cancel/<%=billing.id%>"><div>RollBack</div></a>
+              </td>
+              
+            </tr>
+          <%end%>
+        </table>
+
+    </div>
+  </div>
+</div>
