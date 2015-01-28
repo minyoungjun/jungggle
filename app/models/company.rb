@@ -12,6 +12,7 @@ class Company < ActiveRecord::Base
   counter_culture :country
   has_many :members
   has_many :products
+  has_many  :billings
   has_many :comlangs
   has_many  :comclients
 

@@ -97,7 +97,7 @@ Rails.application.routes.draw do
   get 'home/ready_search_detail'
   get 'home/fees'
 
-
+  
   get '/manages/companies'
   get '/manages/company_profile/:id' => "manages#company_profile"
   post '/manages/company_update'
@@ -110,6 +110,9 @@ Rails.application.routes.draw do
   get '/manages/privilege/:id' => "manages#privilege"
   get '/manages/delete_user/:id' => "manages#delete_user"
   get '/manages/jungggling' => "manages#jungggling"
+  get 'manages/billing'
+  get '/manages/money_confirm/:id' => 'manages#money_confirm'
+
   get 'publishers/new_create_introduction'
   get 'publishers/new_create_cost'
   get 'publishers/new_create_details'

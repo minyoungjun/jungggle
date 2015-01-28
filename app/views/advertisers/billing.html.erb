@@ -93,7 +93,7 @@ function select_country(id){
               </td>
               <td class="amount">
                 <%if billing.status != 0%>
-                  <%=billing.amount%>
+                  <%=number_to_currency(billing.amount, unit: "")%><%if billing.status == 1%> USD<%end%>
                 <%else%>
                   Pending
                 <%end%>
@@ -107,7 +107,7 @@ function select_country(id){
             </tr>
           <%end%>
 
-
+          <%#
           <tr class="table-body">
             <td class="date">2014. 7. 17</td>
             <td>Jungggle Credit (Add)</td>
@@ -164,6 +164,7 @@ function select_country(id){
             <td class="amount minus">-10,000<img src="/assets/my_account/jungggle_credit.png"></td>
             <td><a href="/home/account_billing_receipt"><p class="view receipt">Receipt</p></a></td>
           </tr>
+        %>
         </table>
 
     </div>
@@ -367,7 +368,8 @@ $("#checkout-btn").click(function(){
           else {
           $(".country-btn").css("border", "1px solid red")
         
-        }
+          }
+      $("#credit").val("");
     });
 
 

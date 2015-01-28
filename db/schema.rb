@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126071228) do
+ActiveRecord::Schema.define(version: 20150127113824) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150126071228) do
     t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "coutry_id"
+    t.integer  "company_id"
   end
 
   create_table "carts", force: true do |t|
@@ -117,6 +119,7 @@ ActiveRecord::Schema.define(version: 20150126071228) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.float    "credit"
   end
 
   create_table "contacts", force: true do |t|
@@ -187,6 +190,7 @@ ActiveRecord::Schema.define(version: 20150126071228) do
     t.string   "iban"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "bank_address"
   end
 
   create_table "languages", force: true do |t|
@@ -298,6 +302,16 @@ ActiveRecord::Schema.define(version: 20150126071228) do
     t.integer  "product_id"
     t.integer  "language_id"
     t.text     "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "receipts", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "receipt_number"
+    t.datetime "date"
+    t.float    "cost"
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

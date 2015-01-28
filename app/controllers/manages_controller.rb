@@ -3,6 +3,20 @@ class ManagesController < ApplicationController
   before_filter :is_admin
 
 
+  def money_confirm
+    billing = Billing.find(params[:id])
+    if billing.status = 0
+      billing.status = 1
+      billing.save
+    end
+    redirect_to :action => "billing"
+  end
+
+  def billing
+    @pendings = Billing.where(:status => 0).reverse
+    @confirmed = Billing.where(:status => 1).reverse
+  end
+
   def delete_user
     user = User.find(params[:id])
     user.destroy

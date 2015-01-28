@@ -2,6 +2,7 @@ class Country < ActiveRecord::Base
   has_many :procons
   has_many  :companies
   has_many  :searchings
+  has_many  :billings
 
   default_scope  { order(:name => :asc) }
 

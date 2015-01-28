@@ -7,6 +7,7 @@ class AdvertisersController < ApplicationController
   def check_out
     billing = Billing.new
     billing.user_id = current_user.id
+    billing.company_id = current_user.member.company.id
     billing.amount = params[:amount]
     billing.status = 0
     billing.date = Time.now
@@ -58,7 +59,7 @@ class AdvertisersController < ApplicationController
     @selected = "billing"
     @user = current_user
 
-    @billings = @user.billings.order('created_at DESC').page(params[:page]).per(6)
+    @billings = @user.member.company.billings.order('created_at DESC').page(params[:page]).per(6)
 
   end
 end

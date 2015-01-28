@@ -11,7 +11,7 @@ class CreateInvoices < ActiveRecord::Migration
       t.string  :order_number
       t.string  :bank_name
       t.string  :bank_swift_code
-      t.text  :bank_addredd
+      t.text  :bank_address
       t.string  :beneficiary_name
       t.string  :iban #recipient's account number
 
