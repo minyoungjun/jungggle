@@ -122,7 +122,11 @@ class UsersController < ApplicationController
       company.country_id = params[:country]
       company.save
 
-
+      company.comclients.each do |comclient|
+        if params["delete_has_client_#{comclient.id}"].to_i == 1
+          comclient.delete
+        end
+      end
       if params[:company_logo] != nil
         company.logo = params[:company_logo]
         company.save

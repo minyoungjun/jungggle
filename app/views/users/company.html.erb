@@ -301,7 +301,7 @@ function auto_func(id){
                   if (typeof (FileReader) != "undefined") {
                       var reader = new FileReader();
                       reader.onload = function (e) {
-                        $("#logo-preview").append("<div class='test-upload-img ex-img' style='background-image:url(" + e.target.result + ")'><p>Delete</p></div>");
+                        $("#logo-preview").append("<div class='test-upload-img ex-img' onclick='delete_client(" + client_count + ");' style='background-image:url(" + e.target.result + ")'><p>Delete</p></div>");
                       }
                       reader.readAsDataURL($('#client_' + client_count)[0].files[0]);
                       client_count = client_count + 1
@@ -323,6 +323,16 @@ function auto_func(id){
     $("#logo_file_box").append('<input type="file" name="company_logo" id="company_logo" style="display:none;" onchange="logo_upload();">');
       $('#upload_logo_btn').html('+Upload Logo');
     
+  }
+
+function delete_client(id){
+  $("")
+      
+    }
+function delete_has_client(id){
+  $('#delete_has_client_' + id).val(1);
+  $('#has_client_' + id).hide();
+      
     }
     </script>
 
@@ -363,11 +373,16 @@ function auto_func(id){
               <p class="file-name"><span>JPG, GIF or PNG, Max size of 000k</span>
               </p>
             </div>
+            <div style="display:none;" id="has_comclient_div">
+              <%@company.comclients.each do |comclient|%>
+                <input type="hidden" name="delete_has_client_<%=comclient.id%>"  id="delete_has_client_<%=comclient.id%>" value="0">
+              <%end%>
+            </div>
             <div id="logo-preview" style="max-width:480px; margin:20px 0 50px;">
-              <%if @has_company %>
+              <% if @has_company %>
                 <%@company.comclients.each do |comclient|%>
-                  <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:medium)%>');">
-                    <p onclick="delete_client(<%=comclient.id%>);">Delete</p>
+                  <div class="test-upload-img ex-img" style="background-image:url('<%=comclient.logo.url(:medium)%>');" id="has_client_<%=comclient.id%>">
+                    <p onclick="delete_has_client(<%=comclient.id%>);">Delete</p>
                   </div>
                 <%end%>
               <%end%>
