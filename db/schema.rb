@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 20150127113824) do
 
   create_table "billings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "status",         default: 0
+    t.integer  "status",                     default: 0
     t.datetime "date"
     t.string   "detail"
-    t.integer  "payment_method"
+    t.integer  "payment_method", limit: 255
     t.float    "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
