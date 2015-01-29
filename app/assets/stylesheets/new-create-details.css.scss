@@ -1,7 +1,7 @@
 .tab-details {
   .share-pack {
     margin-bottom: 20px;
-    padding: 12px 25px;
+    padding: 12px 20px;
     background-color: #f9f8f8;
     border-radius: 5px;
 
@@ -205,11 +205,11 @@
           background-color: white;
           border: 1px solid #ddd;
           border-radius: 5px;
-          padding: 0 0 0 15px;
+          padding: 0 0 0 12px;
           margin-left: 3px;
           h3 {
             display: inline-block;
-            font-size: 15px;
+            font-size: 14px;
             color: #999;
 
           }
@@ -241,9 +241,9 @@
           cursor: pointer;
           h3 {
             display: inline-block;
-            padding: 10px;
+            padding: 10px 8px 9px;
             border-left: 1px solid #c1c1c1;
-            font-size: 15px;
+            font-size: 13px;
           }
           img {
             vertical-align: middle;
@@ -269,10 +269,10 @@
         border: 1px solid #d8d8d8;
         border-radius: 5px;
 
-        .multiple-cost {
+        .multiple-rate {
           display: inline-block;
           margin: 3px 0;
-          h3 {
+          .multiple-cost {
             width: 130px;
             background-color: #5baad3;
             color: white;
@@ -283,6 +283,31 @@
           }
           input {
             right: 4px;
+          }
+          .banner-area {
+            margin: 0;
+            position: relative;
+            right: 4px;
+            .banner-form {
+              width: 120px;
+              border-radius: 0 5px 5px 0;
+              .dropdown {
+                width: 120px;
+              }
+            }
+          }
+        }
+        .size-area {
+          position: relative;
+          right: 3px;
+          margin: 0;
+          padding-left: 10px;
+        }
+        .upload-btn {
+          width: 170px;
+          margin: 0;
+          img {
+            margin: 0 3px 0 8px;
           }
         }
       }
