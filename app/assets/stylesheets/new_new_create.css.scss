@@ -549,10 +549,12 @@
 
               .traffic-area {
                 .multiple-rate-group {
+                  margin: 10px 0;
                   padding: 10px;
                   background-color: #eaedef;
                   border: 1px solid #d8d8d8;
                   border-radius: 5px;
+
                   .multiple-cost {
                     display: inline-block;
                     margin: 3px 0;
@@ -649,7 +651,7 @@
                 
                 .group-delete  {
                   position: relative;
-                  left: 15px;
+                  left: 10px;
                   vertical-align: middle;
                   cursor: pointer;
                 }
