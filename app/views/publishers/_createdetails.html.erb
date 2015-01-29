@@ -770,27 +770,196 @@
         <tr>
           <td><h2>Est. Result</h2></td>
           <td>
-            <div class="share-area share-form-area est-form-area">
-              <input type="text" class="form" placeholder="Numbers Only">
-              <div class="share-form est-form impressions-form">
-                <h3>Conversions<span class="glyphicon glyphicon-chevron-down"></span></h3>
-                <div class="share-dropdown est-dropdown">
-                  <ul>
-                    <li>Impressions</li>
-                    <li>Conversions</li>
-                    <li>Conversion Rate</li>
-                    <li>CTR</li>
-                    <li>Views</li>
-                    <li>Sign Ups</li>
-                    <li>Rank</li>
-                    <li>Installs</li>
-                    <li>N/A</li>
-                    <li>* Other...</li>
-                  </ul>
+            <!-- Flat rate일 경우 (.flat-rate-group단위로 반복) -->
+            <div class="rate-group flat-rate-group">
+              <input type="text" name="numbers" placeholder="Numbers Only">
+              <div class="form-area">
+                <div class="form impressions-form">
+                  <h3>Conversions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown impressions-dropdown">
+                    <ul>
+                      <li>Impressions</li>
+                      <li>Conversions</li>
+                      <li>Conversion Rate</li>
+                      <li>CTR</li>
+                      <li>Views</li>
+                      <li>Sign Ups</li>
+                      <li>Rank</li>
+                      <li>Installs</li>
+                      <li>N/A</li>
+                      <li>* Other...</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+              <img src="/assets/my_account/delete.png" class="group-delete">
+            </div>
+            <div class="rate-group flat-rate-group">
+              <input type="text" name="numbers" placeholder="Numbers Only">
+              <div class="form-area">
+                <div class="form impressions-form">
+                  <h3>Conversions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown impressions-dropdown">
+                    <ul>
+                      <li>Impressions</li>
+                      <li>Conversions</li>
+                      <li>Conversion Rate</li>
+                      <li>CTR</li>
+                      <li>Views</li>
+                      <li>Sign Ups</li>
+                      <li>Rank</li>
+                      <li>Installs</li>
+                      <li>N/A</li>
+                      <li>* Other...</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <img src="/assets/my_account/delete.png" class="group-delete">
             </div>
           </td>
+        </tr>
+        <!-- multiple rate 일 경우 <tr>단위로 반복 -->
+        <tr>
+          <td></td>
+          <td>
+            <!-- multiple rate일 경우 group형태 -->
+            <div class="rate-group multiple-rate-group">
+              <table>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" name="numbers" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                  <td rowspan="4" style="vertical-align: middle;">
+                    <div class="form-area">
+                      <div class="form impressions-form">
+                        <h3>Conversions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown impressions-dropdown">
+                          <ul>
+                            <li>Impressions</li>
+                            <li>Conversions</li>
+                            <li>Conversion Rate</li>
+                            <li>CTR</li>
+                            <li>Views</li>
+                            <li>Sign Ups</li>
+                            <li>Rank</li>
+                            <li>Installs</li>
+                            <li>N/A</li>
+                            <li>* Other...</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td style="vertical-align: middle;">
+            <img src="/assets/my_account/delete.png" class="group-delete">
+          </td>
+        </tr>
+        <!-- multiple rate 일 경우 <tr>단위로 반복 -->
+        <tr>
+          <td></td>
+          <td>
+            <!-- multiple rate일 경우 group형태 -->
+            <div class="rate-group multiple-rate-group">
+              <table>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" name="numbers" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                  <td rowspan="4" style="vertical-align: middle;">
+                    <div class="form-area">
+                      <div class="form impressions-form">
+                        <h3>Conversions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown impressions-dropdown">
+                          <ul>
+                            <li>Impressions</li>
+                            <li>Conversions</li>
+                            <li>Conversion Rate</li>
+                            <li>CTR</li>
+                            <li>Views</li>
+                            <li>Sign Ups</li>
+                            <li>Rank</li>
+                            <li>Installs</li>
+                            <li>N/A</li>
+                            <li>* Other...</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+          <td style="vertical-align: middle;">
+            <img src="/assets/my_account/delete.png" class="group-delete">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><p>Specifying the delivery speed can help Advertisers to determine the amount of Ads to buy.</p></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><img src="/assets/my_account/circle_plus.png" class="plus"></td>
         </tr>
       </table>
     </div>
@@ -799,44 +968,224 @@
       <table>
         <tr>
           <td><h2>Delivery Speed</h2></td>
-          
-          <!-- flat rate일 경우 -->
           <td>
-
-
+            <!-- Flat rate일 경우 (.flat-rate-group단위로 반복) -->
+            <div class="rate-group flat-rate-group">
+              <input type="text" name="numbers" placeholder="Numbers Only">
+              <div class="form-area">
+                <div class="form impressions-form">
+                  <h3>Impressions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown impressions-dropdown">
+                    <ul>
+                      <li>User Views</li>
+                      <li>DAU</li>
+                      <li>MAU</li>
+                      <li>Installs</li>
+                      <li>Users</li>
+                      <li>Followers</li>
+                      <li>Views</li>
+                      <li>* Write your own</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="form-area">
+                <div class="form">
+                  <h3>Day<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown">
+                    <ul>
+                      <li>Week</li>
+                      <li>Month</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <img src="/assets/my_account/delete.png" class="group-delete">
+            </div>
+            <div class="rate-group flat-rate-group">
+              <input type="text" name="numbers" placeholder="Numbers Only">
+              <div class="form-area">
+                <div class="form impressions-form">
+                  <h3>Impressions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown impressions-dropdown">
+                    <ul>
+                      <li>User Views</li>
+                      <li>DAU</li>
+                      <li>MAU</li>
+                      <li>Installs</li>
+                      <li>Users</li>
+                      <li>Followers</li>
+                      <li>Views</li>
+                      <li>* Write your own</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="form-area">
+                <div class="form">
+                  <h3>Day<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                  <div class="dropdown">
+                    <ul>
+                      <li>Week</li>
+                      <li>Month</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <img src="/assets/my_account/delete.png" class="group-delete">
+            </div>
           </td>
         </tr>
+        <!-- multiple rate 일 경우 <tr>단위로 반복 -->
         <tr>
           <td></td>
           <td>
-            <div class="share-form-area est-form-area">
-              <input type="text" class="form" placeholder="Numbers Only">
-              <div class="share-form est-form impressions-form">
-                <h3>Impressions<span class="glyphicon glyphicon-chevron-down"></span></h3>
-                <div class="share-dropdown est-dropdown">
-                  <ul>
-                    <li>Impressions</li>
-                    <li>Clicks</li>
-                    <li>Installs</li>
-                    <li>Views</li>
-                    <li>N/A</li>
-                    <li>* Other...</li>
-                  </ul>
-                </div>
-              </div>
+            <!-- multiple rate일 경우 group형태 -->
+            <div class="rate-group multiple-rate-group">
+              <table>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" name="numbers" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                  <td rowspan="4" style="vertical-align: middle;">
+                    <div class="form-area">
+                      <div class="form impressions-form">
+                        <h3>Impressions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown impressions-dropdown">
+                          <ul>
+                            <li>User Views</li>
+                            <li>DAU</li>
+                            <li>MAU</li>
+                            <li>Installs</li>
+                            <li>Users</li>
+                            <li>Followers</li>
+                            <li>Views</li>
+                            <li>* Write your own</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-area">
+                      <div class="form monthly-form">
+                        <h3>Day<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown">
+                          <ul>
+                            <li>Week</li>
+                            <li>Month</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+              </table>
             </div>
-            <div class="share-form-area est-form-area">
-              <div class="share-form est-form impressions-form">
-                <h3>Day<span class="glyphicon glyphicon-chevron-down"></span></h3>
-                <div class="share-dropdown est-dropdown">
-                  <ul>
-                    <li>Impressions</li>
-                    <li>Clicks</li>
-                    <li>Installs</li>
-                  </ul>
-                </div>
-              </div>
+          </td>
+          <td style="vertical-align: middle;">
+            <img src="/assets/my_account/delete.png" class="group-delete">
+          </td>
+        </tr>
+        <!-- multiple rate 일 경우 <tr>단위로 반복 -->
+        <tr>
+          <td></td>
+          <td>
+            <!-- multiple rate일 경우 group형태 -->
+            <div class="rate-group multiple-rate-group">
+              <table>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" name="numbers" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                  <td rowspan="4" style="vertical-align: middle;">
+                    <div class="form-area">
+                      <div class="form impressions-form">
+                        <h3>Impressions<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown impressions-dropdown">
+                          <ul>
+                            <li>User Views</li>
+                            <li>DAU</li>
+                            <li>MAU</li>
+                            <li>Installs</li>
+                            <li>Users</li>
+                            <li>Followers</li>
+                            <li>Views</li>
+                            <li>* Write your own</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-area">
+                      <div class="form monthly-form">
+                        <h3>Day<span class="glyphicon glyphicon-chevron-down"></span></h3>
+                        <div class="dropdown">
+                          <ul>
+                            <li>Week</li>
+                            <li>Month</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="multiple-rate">
+                      <h3 class="multiple-cost">$10,000</h3>
+                      <input type="text" class="form" placeholder="Numbers Only">
+                    </div>         
+                  </td>
+                </tr>
+              </table>
             </div>
+          </td>
+          <td style="vertical-align: middle;">
+            <img src="/assets/my_account/delete.png" class="group-delete">
           </td>
         </tr>
         <tr>
