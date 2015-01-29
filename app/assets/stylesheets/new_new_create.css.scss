@@ -27,7 +27,6 @@
           width: 196px;
           text-align: center;
           margin: 0 20px;
-          //color: #777;
           font-weight: 500;
           img {
             margin-right: 10px;
@@ -44,10 +43,6 @@
       /* Carousel items */
       .carousel-inner {
         padding: 30px 30px 100px;
-        .bottom-bar {
-          //border-top : 4px solid #444;
-          //border-top-width: 196px;
-        }
         .item {
           .bottom-bar {
             border-bottom: 4px solid #444;
@@ -122,19 +117,19 @@
                   }
                   .localization-down {
                     display: none;
-                    border: 1px solid #eee;
-                    border-radius: 5px;
                     position: absolute;
-                    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    cursor: pointer;
                     width: 200px;
-                    padding: 10px 0 15px;
-                    background-color: white;
                     height: 250px;
+                    padding: 10px 0 15px;
                     overflow-y: scroll;
                     z-index: 100;
+                    background-color: white;
+                    border: 1px solid #eee;
+                    border-radius: 5px;
+                    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                    cursor: pointer;
                     ul {
                       list-style: none;
                       padding-left: 0;
@@ -193,16 +188,16 @@
                   }
                   .marketing-dropdown {
                     display: none;
-                    background-color: white;
+                    position: absolute;
                     width: 280px;
+                    margin-left: 154px;
+                    padding: 15px;
+                    background-color: white;
                     border: 1px solid #ddd;
                     border-radius: 5px;
                     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    padding: 15px;
-                    position: absolute;
-                    margin-left: 154px;
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
                     z-index: 100;
                     ul {
                       li {
@@ -213,36 +208,36 @@
                     }
                   }
                   .country-form {
-                    text-align: center;
-                    color: #666;
                     display: inline-block;
-                    background-color: white;
-                    border-radius: 5px;
-                    border: 1px solid #ddd;
-                    padding: 10px 0;
-                    cursor: pointer;
                     width: 280px;
+                    padding: 10px 0;
+                    background-color: white;
+                    color: #666;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;                    
+                    text-align: center;
+                    cursor: pointer;
                     span {
-                      position: relative;
                       float: right;
-                      font-size: 11px;
-                      color: #999;
+                      position: relative;
                       left: -14px;
                       top: 3px;
+                      font-size: 11px;
+                      color: #999;
                     }
                   }
                   .country-dropdown {
                     display: none;
-                    background-color: white;
+                    position: absolute;
                     width: 280px;
+                    margin-left: 154px;
+                    padding: 15px;
+                    background-color: white;
                     border: 1px solid #ddd;
                     border-radius: 5px;
                     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    padding: 15px;
-                    position: absolute;
-                    margin-left: 154px;
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
                     z-index: 100;
                     ul {
                       li {
@@ -273,24 +268,24 @@
             }
             .pack2 {
               .text-area {
-                background-color: white;
-                border-radius: 5px;
-                border: 1px solid #ccc;
-                padding: 12px 18px;
                 width: 550px;
-                line-height: 20px;
+                padding: 12px 18px;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 5px;
                 font-size: 15px;
+                line-height: 20px;
               }
             }
             .pack3 {
               .upload-btn {
-                background-color: #5eb12f;
-                width: 400px;
-                border-radius: 5px;
-                color: white;
-                padding: 10px;
                 display: inline-block;
+                width: 400px;
+                padding: 10px;
                 vertical-align: top;
+                background-color: #5eb12f;
+                color: white;
+                border-radius: 5px;
                 img {
                   vertical-align: middle;
                 }
@@ -314,15 +309,15 @@
                   cursor: pointer;
                 }
                 .plus {
-                  padding-left: 275px;
                   margin: 10px 0;
+                  padding-left: 275px;
                   cursor: pointer;
                 }
                 p {
-                  line-height: 22px;
                   margin-bottom: 12px;
                   color: #777;
                   font-size: 15px;
+                  line-height: 22px;
                 }
               }
               .info {
@@ -331,10 +326,10 @@
             }
             .delete-service-btn {
               float: right;
+              margin-right: 10px;
               font-size: 18px;
               font-weight: 500;
               color: #aaa;
-              margin-right: 10px;
               cursor: pointer;
               img {
                 vertical-align: middle;
@@ -353,10 +348,10 @@
           /* new-create-cost-tab */
           .tab-cost {
             .share-pack {
+              margin-bottom: 20px;
+              padding: 12px 25px;
               background-color: #f9f8f8;
               border-radius: 5px;
-              padding: 12px 25px;
-              margin-bottom: 20px;
               .area {
                 margin: 15px 0; 
                 h2 {
@@ -367,11 +362,11 @@
                   color: #555;
                 }
                 .input-area {
+                  width: 400px;
+                  padding: 8px 55px 8px 30px;
                   background-color: white;
                   border-radius: 5px;
                   border: 1px solid #ccc;
-                  padding: 8px 55px 8px 30px;
-                  width: 400px;
                   font-size: 15px;
                   color: #555;
                 }
@@ -381,9 +376,9 @@
                       .check {
                         margin-bottom: 15px;
                         h3 {
-                          font-size: 15px;
                           display: inline-block;
                           width: 140px;
+                          font-size: 15px;
                           color: #999;
                           cursor: pointer;
                           img {
@@ -418,7 +413,6 @@
                         padding-left: 200px;
                         margin: 10px 0;
                         cursor: pointer;
-
                       }
                       p {
                         line-height: 20px;
@@ -435,10 +429,10 @@
             }
             .delete-service-btn {
               float: right;
+              margin-right: 10px;
               font-size: 18px;
               font-weight: 500;
               color: #aaa;
-              margin-right: 10px;
               cursor: pointer;
               img {
                 vertical-align: middle;
@@ -457,27 +451,26 @@
 
         
           .tab-details {
-            
             .share-pack {
+              margin-bottom: 20px;
+              padding: 12px 25px;
               background-color: #f9f8f8;
               border-radius: 5px;
-              padding: 12px 25px;
-              margin-bottom: 20px;
               .area {
                 margin: 15px 0; 
                 h2 {
                   display: inline-block;
-                  font-size: 16px;
                   width: 190px;
+                  font-size: 16px;
                   font-weight: 500;
                   color: #555;
                 }
                 .input-area {
+                  width: 550px;
+                  padding: 8px 15px;
                   background-color: white;
                   border-radius: 5px;
                   border: 1px solid #ccc;
-                  padding: 8px 15px;
-                  width: 550px;
                   font-size: 15px;
                   color: #555;
                 }
@@ -487,9 +480,9 @@
                       .check {
                         margin-bottom: 15px;
                         h3 {
-                          font-size: 15px;
                           display: inline-block;
                           width: 140px;
+                          font-size: 15px;
                           color: #999;
                           cursor: pointer;
                           img {
@@ -514,10 +507,10 @@
                       }
                       .select-form {
                         display: inline-block;
-                        background-color: white;
-                        border-radius: 5px;
-                        border: 1px solid #ddd;
                         padding: 10px 110px;
+                        background-color: white;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
                         cursor: pointer;
                         h3 {
                           text-align: center;
@@ -555,14 +548,14 @@
               .traffic-area {
                 .traffic-form {
                   display: inline-block;
+                  width: 140px;
+                  padding: 10px 12px;
                   background-color: white;
                   color: #555;
-                  border-radius: 5px;
                   border: 1px solid #ddd;
-                  padding: 10px 12px;
+                  border-radius: 5px;
                   cursor: pointer;
                   font-size: 15px;
-                  width: 140px;
                   h3 {
                     color: #666;
                     span {
@@ -575,22 +568,22 @@
                   }
                   .traffic-dropdown {
                     display: none;
-                    background-color: white;
+                    position: absolute;
                     width: 140px;
+                    margin: 11px 0 0 -13px;
+                    padding: 10px 0;
+                    background-color: white;
                     border: 1px solid #ddd;
                     border-radius: 5px;
-                    padding: 10px 0;
                     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    position: absolute;
-                    margin: 11px 0 0 -13px;
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
                     z-index: 100;
                     ul {
                       li {
+                        padding: 7px 15px;
                         font-size: 14px;
                         cursor: pointer;
-                        padding: 7px 15px;
                       }
                       li:hover {
                         background-color: #5eb12f;
@@ -618,13 +611,14 @@
                   display: inline-block;
                   margin-left: 5px;
                   input {
-                    padding: 7px 20px 8px;
-                    font-size: 15px;
-                    border: 1px solid #ddd;
-                    border-radius: 5px 0 0 5px;
-                    line-height: 20px;
                     position: relative;
                     left: 5px;
+                    padding: 7px 20px 8px;
+                    border-radius: 5px 0 0 5px;
+                    border: 1px solid #ddd;
+                    font-size: 15px;
+                    line-height: 20px;
+                    
                   }
                   .impressions-form {
                     border-radius: 0 5px 5px 0;
@@ -639,49 +633,47 @@
                   
                 }
               }
-
               .share-area {
-
                 .share-form {
                   display: inline-block;
+                  padding: 10px 12px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
                   background-color: white;
                   color: #555;
-                  border-radius: 5px;
-                  border: 1px solid #ddd;
-                  padding: 10px 12px;
                   cursor: pointer;
                   font-size: 15px;
                   text-align: center;
-
                   input {
                     padding: 9px 20px 10px;
-                    font-size: 15px;
+                    
                     border: 1px solid #ddd;
                     border-radius: 5px 0 0 5px;
+                    font-size: 15px;
                     line-height: 20px;
                   }
-                  
                   h3 {
                     color: #666;
                     span {
                       position: relative;
+                      top: 3px;
                       float: right;
                       font-size: 11px;
                       color: #999;
-                      top: 3px;
+                      
                     }
                   }
                   .share-dropdown {
                     display: none;
+                    position: absolute;
+                    margin: 11px 0 0 -13px;
+                    padding: 10px 0;
                     background-color: white;
                     border: 1px solid #ddd;
                     border-radius: 5px;
-                    padding: 10px 0;
                     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    position: absolute;
-                    margin: 11px 0 0 -13px;
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
                     z-index: 100;
                     text-align: left;
                     ul {
@@ -751,12 +743,13 @@
                 .post-right {
                   display: inline-block;
                   input {
+                    margin-right: 10px;
                     padding: 7px 20px 8px;
-                    font-size: 15px;
                     border: 1px solid #ddd;
                     border-radius: 5px;
+                    font-size: 15px;
                     line-height: 20px;
-                    margin-right: 10px;
+                    
                   }
                   .select {
                     display: inline-block;
@@ -784,26 +777,27 @@
                 }
               }
 
-
-
               .est-area {
                 .est-form {
                   display: inline-block;
-                  background-color: white;
-                  border-radius: 5px;
-                  border: 1px solid #ddd;
-                  padding: 10px 12px;
-                  cursor: pointer;
-                  font-size: 15px;
                   width: 140px;
+                  padding: 10px 12px;
+                  background-color: white;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  font-size: 15px;
+                  cursor: pointer;
+                  
+                  
                   h3 {
                     color: #666;
                     span {
                       position: relative;
+                      top: 3px;
                       float: right;
                       font-size: 11px;
                       color: #999;
-                      top: 3px;
+                      
                     }
                   }
                 }
@@ -811,37 +805,38 @@
                   display: inline-block;
                   input {
                     padding: 7px 20px 8px;
-                    font-size: 15px;
                     border: 1px solid #ddd;
                     border-radius: 5px 0 0 5px;
+                    font-size: 15px;
                     line-height: 20px;
                   }
                   .impressions-form {
-                    border-radius: 0 5px 5px 0;
-                    width: 150px;
                     position: relative;
                     right: 5px;
+                    width: 150px;
+                    border-radius: 0 5px 5px 0;
                   }
                 }
               }
               .delivery-area {
                 .delivery-form {
                   display: inline-block;
-                  background-color: white;
-                  border-radius: 5px;
-                  border: 1px solid #ddd;
-                  padding: 12px 12px;
-                  cursor: pointer;
-                  font-size: 15px;
                   width: 140px;
+                  padding: 12px 12px;
+                  background-color: white;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  font-size: 15px;
+                  cursor: pointer;
                   h3 {
                     color: #666;
                     span {
                       position: relative;
+                      top: 3px;
                       float: right;
                       font-size: 11px;
                       color: #999;
-                      top: 3px;
+                      
                     }
                   }
                 }
@@ -850,16 +845,16 @@
                   margin: 6px 0;
                   input {
                     padding: 9px 20px 10px;
-                    font-size: 15px;
                     border: 1px solid #ddd;
                     border-radius: 5px 0 0 5px;
+                    font-size: 15px;
                     line-height: 20px;
                   }
                   .impressions-form {
-                    border-radius: 0 5px 5px 0;
-                    width: 150px;
                     position: relative;
                     right: 5px;
+                    width: 150px;
+                    border-radius: 0 5px 5px 0;
                   }
                 }
               }
@@ -867,10 +862,10 @@
 
             .delete-service-btn {
               float: right;
+              margin-right: 10px;
               font-size: 18px;
               font-weight: 500;
               color: #aaa;
-              margin-right: 10px;
               cursor: pointer;
               img {
                 vertical-align: middle;
@@ -884,9 +879,6 @@
               }
             }
           }
-
-
-
         }
       }
     }  
