@@ -11,6 +11,9 @@
           <td>Owner</td>
           <td>Edit Profile</td>
           <td>Edit Members</td>
+          <td>
+            Delete Company
+          </td>
         </tr>
       
         <%@company.each do |company|%>
@@ -23,6 +26,9 @@
           </td>
           <td>
             <a href="#">Members</a>
+          </td>
+          <td>
+            <a href="/manages/delete_company/<%=company.id%>">DELETE</a>
           </td>
         </tr>
         <%end%>

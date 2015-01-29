@@ -301,7 +301,7 @@ function auto_func(id){
                   if (typeof (FileReader) != "undefined") {
                       var reader = new FileReader();
                       reader.onload = function (e) {
-                        $("#logo-preview").append("<div class='test-upload-img ex-img' onclick='delete_client(" + client_count + ");' style='background-image:url(" + e.target.result + ")'><p>Delete</p></div>");
+                        $("#logo-preview").append("<div id = 'client_div_" + client_count + "'  class='test-upload-img ex-img' onclick='delete_client(" + client_count + ");' style='background-image:url(" + e.target.result + ")'><p>Delete</p></div>");
                       }
                       reader.readAsDataURL($('#client_' + client_count)[0].files[0]);
                       client_count = client_count + 1
@@ -326,7 +326,8 @@ function auto_func(id){
   }
 
 function delete_client(id){
-  $("")
+  $("#client_" + String(parseInt(id) -1)).remove();
+  $("#client_div_" + id).remove();
       
     }
 function delete_has_client(id){

@@ -113,6 +113,8 @@ Rails.application.routes.draw do
   get 'manages/billing'
   get '/manages/money_confirm/:id' => 'manages#money_confirm'
 
+  get '/manages/delete_company/:id' => 'manages#delete_company'
+
   get 'publishers/new_create_introduction'
   get 'publishers/new_create_cost'
   get 'publishers/new_create_details'

@@ -1,7 +1,13 @@
 class ManagesController < ApplicationController
   before_filter :is_login
   before_filter :is_admin
+  
+  def delete_company
+    company = Company.find(params[:id])
+    company.destroy
+    redirect_to :action => "companies"
 
+  end
 
   def money_confirm
     billing = Billing.find(params[:id])
