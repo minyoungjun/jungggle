@@ -460,7 +460,7 @@
                 margin: 15px 0; 
                 h2 {
                   display: inline-block;
-                  width: 190px;
+                  width: 160px;
                   font-size: 16px;
                   font-weight: 500;
                   color: #555;
@@ -545,7 +545,46 @@
                   }
                 }
               }
+
+
               .traffic-area {
+                .multiple-rate-group {
+                  padding: 10px;
+                  background-color: #eaedef;
+                  border: 1px solid #d8d8d8;
+                  border-radius: 5px;
+                  .multiple-cost {
+                    display: inline-block;
+                    margin: 3px 0;
+                    h3 {
+                      width: 150px;
+                      background-color: #5baad3;
+                      color: white;
+                      border: 2px solid #479ec0;
+                      border-radius: 5px 0 0 5px;
+                      padding: 8px 12px 9px;
+                      display: inline-block;
+                    }
+                    input {
+                      position: relative;
+                      right: 4px;
+                      padding: 7px 15px 8px;
+                      border-radius: 0 5px 5px 0;
+                      border: 1px solid #ddd;
+                      font-size: 15px;
+                      line-height: 20px;
+                    }
+                  }
+                }
+                .traffic-form-area {
+                  display: inline-block;
+                  margin-left: 5px;
+                  
+                  .impressions-form {
+                    border-radius: 5px;
+                    width: 150px;
+                  }
+                }
                 .traffic-form {
                   display: inline-block;
                   width: 140px;
@@ -607,27 +646,12 @@
                     display: block;
                   }
                 }
-                .traffic-form-area {
-                  display: inline-block;
-                  margin-left: 5px;
-                  input {
-                    position: relative;
-                    left: 5px;
-                    padding: 7px 20px 8px;
-                    border-radius: 5px 0 0 5px;
-                    border: 1px solid #ddd;
-                    font-size: 15px;
-                    line-height: 20px;
-                    
-                  }
-                  .impressions-form {
-                    border-radius: 0 5px 5px 0;
-                    width: 150px;
-                  }
-                }
-                .delete {
+                
+                .group-delete  {
+                  position: relative;
+                  left: 15px;
                   vertical-align: middle;
-                  margin-left: 10px;
+                  cursor: pointer;
                 }
                 .plus {
                   
