@@ -375,8 +375,10 @@ function delete_has_client(id){
               </p>
             </div>
             <div style="display:none;" id="has_comclient_div">
-              <%@company.comclients.each do |comclient|%>
-                <input type="hidden" name="delete_has_client_<%=comclient.id%>"  id="delete_has_client_<%=comclient.id%>" value="0">
+              <%if @company != nil%>
+                <%@company.comclients.each do |comclient|%>
+                  <input type="hidden" name="delete_has_client_<%=comclient.id%>"  id="delete_has_client_<%=comclient.id%>" value="0">
+                <%end%>
               <%end%>
             </div>
             <div id="logo-preview" style="max-width:480px; margin:20px 0 50px;">
