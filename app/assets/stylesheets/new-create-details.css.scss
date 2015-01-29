@@ -200,6 +200,64 @@
             width: 150px;
           }
         }
+
+        .size-area {
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 0 0 0 15px;
+          margin-left: 3px;
+          h3 {
+            display: inline-block;
+            font-size: 15px;
+            color: #999;
+
+          }
+          input {
+            width: 45px;
+            border: 0;
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+          .size-form {
+            width: 90px;
+            border: 0;
+            border-left: 1px solid #ddd;
+            border-radius: 0 5px 5px 0;
+            .dropdown {
+              width: 90px;
+            }
+          }
+
+        }
+        .upload-btn {
+          display: inline-block;
+          width: 200px;
+          margin-left: 3px;
+          background-color: #cecece;
+          color: white;
+          border: 1px solid #c1c1c1;
+          border-radius: 5px;
+          cursor: pointer;
+          h3 {
+            display: inline-block;
+            padding: 10px;
+            border-left: 1px solid #c1c1c1;
+            font-size: 15px;
+          }
+          img {
+            vertical-align: middle;
+            width: 15px;
+            margin: 0 5px 0 10px;
+          }
+          &:hover {
+            background-color: #5eb12f;
+            border-color: #529923;
+            h3 {
+              border-color: #529923;
+            }
+          }
+        }
       }
 
       .flat-rate-group {
@@ -215,7 +273,7 @@
           display: inline-block;
           margin: 3px 0;
           h3 {
-            width: 150px;
+            width: 130px;
             background-color: #5baad3;
             color: white;
             border: 2px solid #479ec0;
