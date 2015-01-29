@@ -450,14 +450,14 @@
           /* details */
 
         
-          .tab-details {
+          /*.tab-details {
             .share-pack {
               margin-bottom: 20px;
               padding: 12px 25px;
               background-color: #f9f8f8;
               border-radius: 5px;
               .area {
-                margin: 15px 0; 
+                margin: 15px 0;
                 h2 {
                   display: inline-block;
                   width: 160px;
@@ -547,7 +547,74 @@
               }
 
 
-              .traffic-area {
+              .share-area {
+                .share-form {
+                  display: inline-block;
+                  padding: 10px 12px;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  background-color: white;
+                  color: #555;
+                  cursor: pointer;
+                  font-size: 15px;
+                  text-align: center;
+                  input {
+                    padding: 9px 20px 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px 0 0 5px;
+                    font-size: 15px;
+                    line-height: 20px;
+                  }
+                  h3 {
+                    color: #666;
+                    span {
+                      position: relative;
+                      top: 3px;
+                      float: right;
+                      font-size: 11px;
+                      color: #999;
+                      
+                    }
+                  }
+                  .share-dropdown {
+                    display: none;
+                    position: absolute;
+                    margin: 11px 0 0 -13px;
+                    padding: 10px 0;
+                    background-color: white;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                    z-index: 100;
+                    text-align: left;
+                    ul {
+                      li {
+                        font-size: 14px;
+                        cursor: pointer;
+                        padding: 7px 15px;
+                      }
+                      li:hover {
+                        background-color: #5eb12f;
+                        color: white;
+                      }
+                    }
+                  }
+                }
+                .share-form:hover {
+                  border-color: #5eb12f;
+                  h3 {
+                    color: #444;
+                    span {
+                      color: #555;
+                    }
+                  }
+                  .share-dropdown {
+                    display: block;
+                  }
+                }
+
                 .flat-rate-group {
                   margin: 10px 0;
                   input {
@@ -670,75 +737,8 @@
                   
                 }
               }
-              .share-area {
-                .share-form {
-                  display: inline-block;
-                  padding: 10px 12px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                  background-color: white;
-                  color: #555;
-                  cursor: pointer;
-                  font-size: 15px;
-                  text-align: center;
-                  input {
-                    padding: 9px 20px 10px;
-                    
-                    border: 1px solid #ddd;
-                    border-radius: 5px 0 0 5px;
-                    font-size: 15px;
-                    line-height: 20px;
-                  }
-                  h3 {
-                    color: #666;
-                    span {
-                      position: relative;
-                      top: 3px;
-                      float: right;
-                      font-size: 11px;
-                      color: #999;
-                      
-                    }
-                  }
-                  .share-dropdown {
-                    display: none;
-                    position: absolute;
-                    margin: 11px 0 0 -13px;
-                    padding: 10px 0;
-                    background-color: white;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-                    z-index: 100;
-                    text-align: left;
-                    ul {
-                      li {
-                        font-size: 14px;
-                        cursor: pointer;
-                        padding: 7px 15px;
-                      }
-                      li:hover {
-                        background-color: #5eb12f;
-                        color: white;
-                      }
-                    }
-                  }
-                }
-                .share-form:hover {
-                  border-color: #5eb12f;
-                  h3 {
-                    color: #444;
-                    span {
-                      color: #555;
-                    }
-                  }
-                  .share-dropdown {
-                    display: block;
-                  }
-                }
-              }
+
+
 
               .company-type-area {
                 $share-form-width: 300px;
@@ -915,7 +915,7 @@
                 content: url(/assets/my_account/new_create/delete-hover-btn.png);
               }
             }
-          }
+          }*/
         }
       }
     }  

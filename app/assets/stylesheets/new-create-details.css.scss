@@ -1,0 +1,421 @@
+.tab-details {
+  .share-pack {
+    margin-bottom: 20px;
+    padding: 12px 25px;
+    background-color: #f9f8f8;
+    border-radius: 5px;
+
+    .share-area {
+      margin: 15px 0;
+      h2 {
+        display: inline-block;
+        width: 160px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+      }
+      .input-area {
+        width: 550px;
+        padding: 8px 15px;
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        color: #555;
+      }
+      table {
+        tr {
+          td {
+            p {
+              line-height: 20px;
+              font-size: 15px;
+              margin: 15px 0 8px;
+              span {
+                color: #e76766;
+              }
+            }
+          }
+          .integration {
+            h3 {
+              display: inline-block;
+              width: 165px;
+              margin-bottom: 13px;
+              cursor: pointer;
+              color: #aaa;
+              img {
+                vertical-align: middle;
+                margin-right: 8px;
+              }
+            }
+            .select {
+              color: #555;
+            }
+          }
+        }
+      }
+
+      .share-form {
+        display: inline-block;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: white;
+        color: #555;
+        cursor: pointer;
+        font-size: 15px;
+        text-align: center;
+        input {
+          padding: 9px 20px 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px 0 0 5px;
+          font-size: 15px;
+          line-height: 20px;
+        }
+        h3 {
+          color: #666;
+          span {
+            position: relative;
+            top: 3px;
+            float: right;
+            font-size: 11px;
+            color: #999;
+            
+          }
+        }
+        .share-dropdown {
+          display: none;
+          position: absolute;
+          margin: 11px 0 0 -13px;
+          padding: 10px 0;
+          background-color: white;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+             -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+          z-index: 100;
+          text-align: left;
+          ul {
+            li {
+              font-size: 14px;
+              cursor: pointer;
+              padding: 7px 15px;
+            }
+            li:hover {
+              background-color: #5eb12f;
+              color: white;
+            }
+          }
+        }
+      }
+      .share-form:hover {
+        border-color: #5eb12f;
+        h3 {
+          color: #444;
+          span {
+            color: #555;
+          }
+        }
+        .share-dropdown {
+          display: block;
+        }
+      }
+
+      .rate-group {
+        margin: 10px 0;
+        input {
+          position: relative;
+          padding: 7px 15px 8px;
+          border-radius: 5px;
+          border: 1px solid #ddd;
+          font-size: 15px;
+          line-height: 20px;
+        }
+        .form-area {
+          display: inline-block;
+          margin-left: 5px;
+          
+          .form {
+            display: inline-block;
+            width: 140px;
+            padding: 10px 12px;
+            background-color: white;
+            color: #555;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            h3 {
+              color: #666;
+              span {
+                position: relative;
+                float: right;
+                font-size: 11px;
+                color: #999;
+                top: 3px;
+              }
+            }
+            .dropdown {
+              display: none;
+              position: absolute;
+              width: 140px;
+              margin: 11px 0 0 -13px;
+              padding: 10px 0;
+              background-color: white;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+              -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                 -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+                      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+              z-index: 100;
+              ul {
+                li {
+                  padding: 7px 15px;
+                  font-size: 14px;
+                  cursor: pointer;
+                }
+                li:hover {
+                  background-color: #5eb12f;
+                  color: white;
+                }
+              }
+            }
+            .impressions-dropdown {
+              width: 150px;
+            }
+          }
+          .form:hover {
+            border-color: #5eb12f;
+            h3 {
+              color: #444;
+              span {
+                color: #555;
+              }
+            }
+            .dropdown {
+              display: block;
+            }
+          }
+          .impressions-form {
+            width: 150px;
+          }
+        }
+      }
+
+      .flat-rate-group {
+        
+      }
+      .multiple-rate-group {
+        padding: 10px;
+        background-color: #eaedef;
+        border: 1px solid #d8d8d8;
+        border-radius: 5px;
+
+        .multiple-cost {
+          display: inline-block;
+          margin: 3px 0;
+          h3 {
+            width: 150px;
+            background-color: #5baad3;
+            color: white;
+            border: 2px solid #479ec0;
+            border-radius: 5px 0 0 5px;
+            padding: 8px 12px 9px;
+            display: inline-block;
+          }
+          input {
+            right: 4px;
+          }
+        }
+      }
+      
+      
+      .group-delete  {
+        position: relative;
+        left: 10px;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .plus {
+        display: block;
+        margin: auto;
+      }
+    }
+
+
+    .company-type-area {
+      $share-form-width: 300px;
+
+      .company-type-form {
+        width: $share-form-width;
+
+        .company-type-dropdown {
+          width: $share-form-width;
+        }
+      }
+    }
+
+    .ad-area {
+      $share-form-width: 150px;
+
+      .ad-form {
+        width: $share-form-width;
+        
+        .ad-dropdown {
+          width: $share-form-width;
+        }
+      }
+    }
+
+    .est-area {
+      $share-form-width: 150px;
+
+      .est-form {
+        width: $share-form-width;
+        
+        .est-dropdown {
+          width: $share-form-width;
+        }
+      }
+    }
+
+    .post-area {
+      .post-right {
+        display: inline-block;
+        input {
+          margin-right: 10px;
+          padding: 7px 20px 8px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 15px;
+          line-height: 20px;
+          
+        }
+        .select {
+          display: inline-block;
+          margin: 0 0 0 15px;
+          img {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .writing-area {
+      h2 {
+        line-height: 20px;
+      }
+      .writing-right {
+        vertical-align: top;
+        .select {
+          display: inline-block;
+          width: 120px;
+          img {
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+    .est-area {
+      .est-form {
+        display: inline-block;
+        width: 140px;
+        padding: 10px 12px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        
+        
+        h3 {
+          color: #666;
+          span {
+            position: relative;
+            top: 3px;
+            float: right;
+            font-size: 11px;
+            color: #999;
+            
+          }
+        }
+      }
+      .est-form-area {
+        display: inline-block;
+        input {
+          padding: 7px 20px 8px;
+          border: 1px solid #ddd;
+          border-radius: 5px 0 0 5px;
+          font-size: 15px;
+          line-height: 20px;
+        }
+        .impressions-form {
+          position: relative;
+          right: 5px;
+          width: 150px;
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+    .delivery-area {
+      .delivery-form {
+        display: inline-block;
+        width: 140px;
+        padding: 12px 12px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        h3 {
+          color: #666;
+          span {
+            position: relative;
+            top: 3px;
+            float: right;
+            font-size: 11px;
+            color: #999;
+            
+          }
+        }
+      }
+      .delivery-form-area {
+        display: inline-block;
+        margin: 6px 0;
+        input {
+          padding: 9px 20px 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px 0 0 5px;
+          font-size: 15px;
+          line-height: 20px;
+        }
+        .impressions-form {
+          position: relative;
+          right: 5px;
+          width: 150px;
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+  }
+
+  .delete-service-btn {
+    float: right;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #aaa;
+    cursor: pointer;
+    img {
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+  }
+  .delete-service-btn:hover {
+    color: #dd3b72;
+    img {
+      content: url(/assets/my_account/new_create/delete-hover-btn.png);
+    }
+  }
+} 
