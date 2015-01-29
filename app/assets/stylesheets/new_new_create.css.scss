@@ -548,6 +548,17 @@
 
 
               .traffic-area {
+                .flat-rate-group {
+                  margin: 10px 0;
+                  input {
+                    position: relative;
+                    padding: 7px 15px 8px;
+                    border-radius: 5px;
+                    border: 1px solid #ddd;
+                    font-size: 15px;
+                    line-height: 20px;
+                  }
+                }
                 .multiple-rate-group {
                   margin: 10px 0;
                   padding: 10px;
