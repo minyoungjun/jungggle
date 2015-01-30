@@ -54,7 +54,7 @@
             <td><%=user.last_name%>
           </td>
           <td <%if user.confirmed_at == nil%>style="color:red;"<%end%>><%=user.email%></td>
-          <td <%if user.member != nil && !(user.member.approved) %>style="color:red;"<%end%>><%if user.member != nil && user.member.company.comlangs.count != 0%><%=user.member.company.comlangs.first.name%><%end%></td>
+          <td <%if user.member != nil && !(user.member.approved) %>style="color:red;"<%end%>><%if user.member != nil && user.member.company != nil && user.member.company.comlangs.count != 0%><%=user.member.company.comlangs.first.name%><%end%></td>
           <td>
             <%if user.member != nil%>
               <%if user.member.approved%>
