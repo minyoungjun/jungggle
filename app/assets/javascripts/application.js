@@ -16,4 +16,3 @@
 //= require autocomplete-rails
 //= require_tree .
 //= require jquery
-////= require bootstrap-sprockets
