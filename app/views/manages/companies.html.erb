@@ -12,6 +12,9 @@
           <td>Edit Profile</td>
           <td>Edit Members</td>
           <td>
+            상품 수
+          </td>
+          <td>
             Delete Company
           </td>
         </tr>
@@ -29,6 +32,9 @@
           </td>
           <td>
             <a href="/manages/delete_company/<%=company.id%>">DELETE</a>
+          </td>
+          <td>
+            <%=company.products_count%>
           </td>
         </tr>
         <%end%>

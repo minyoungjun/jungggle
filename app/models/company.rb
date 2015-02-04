@@ -35,4 +35,13 @@ class Company < ActiveRecord::Base
     return count
   end
 
+  def products_count
+    count = 0
+    self.products.each do |product|
+      count = count + product.procons.count
+    end
+    return count
+
+  end
+
 end
